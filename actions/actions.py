@@ -77,6 +77,9 @@ class ChatBot(Action):
         text = tracker.latest_message['text']
         entities = tracker.latest_message['entities']            
         slot_name = tracker.get_slot('name')       
+
+        tracker.slots['daytime'] = 'afternoon'
+
         Bi = intent['name']  
         with open('EmotionIntent.txt', 'r') as f:
             global Be
@@ -200,12 +203,17 @@ class Say(Action):
         #if name not null
         # dispatcher.utter_message(response=resp,name = daytime) 
 
-        daytime = 'afternoon'
-        SlotSet("daytime", daytime)
+        tracker.slots['daytime'] = 'afternoon'
+        d = tracker.slots['daytime']#get_slot('daytime')
+        print("daytime: " + str(d))
+        
+        SlotSet('daytime', 'afternoon')
+
         #dispatcher.utter_message(response='utter_saludar')
         dispatcher.utter_message(response=resp)
         contador()
-        print("dispatcher: " + str(count))    
+        print("dispatcher: " + str(count))  
+        
         return []
 
 ##

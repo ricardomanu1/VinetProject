@@ -81,7 +81,10 @@ slots:
   daytime:
     type: categorical
     influence_conversation: true
-    values: []
+    values:
+      - morning
+      - afternoon
+      - evening  
 responses:
   utter_saludar:
   - metadata:
@@ -92,9 +95,21 @@ responses:
     text: Hola.
   - text: Muy buenas
   - text: ¡Hola!
-  - text: Buenos días.
-  - text: Buenas tardes.
-  - text: Buenas noches.
+  - condition:
+      - type: slot
+        name: daytime
+        value: morning
+    text: Buenos días.
+  - condition:
+      - type: slot
+        name: daytime
+        value: afternoon
+    text: Buenas tardes.
+  - condition:
+      - type: slot
+        name: daytime
+        value: evening
+    text: Buenas noches.
   utter_empatizar:
   - text: Me encuentro bien
   - text: No tengo quejas
@@ -502,11 +517,10 @@ responses:
   - text: Aquí te hablo del hito 2...
   utter_si_no:
   - buttons:
-    - payload: /afirmar
-      title: Si
-    - payload: /negar
-      title: No
-    text: ¿Eres humano?
+    - title: Hito 1
+    - title: Hito 2
+    - title: La excavación de Ibañeta
+    text: ¿Cuál?
   utter_pronombre_interrogativo:
   - text: ¿Cuál?
 actions:
