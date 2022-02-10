@@ -1,0 +1,519 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- saludar
+- afirmar
+- agradecer
+- aprender
+- atencion
+- buscar_como
+- buscar_cuando
+- buscar_cuando_fecha
+- buscar_donde
+- buscar_por_que
+- buscar_quien
+- cantidad
+- dar_informacion
+- despedir
+- empatizar
+- estado_aburrimiento
+- estado_bien
+- estado_cansancio
+- estado_emocion
+- estado_enfado
+- estado_mal
+- estado_miedo
+- estado_nerviosismo
+- estado_soledad
+- fuera_de_alcance
+- hito1
+- hito2
+- identidad
+- negar
+- no_solicitar
+- otra_pregunta
+- pregunta
+- presentacion
+- solicitar
+- solicitar_especifica_lugar
+- solicitar_especifica_fecha
+- solicitar_especifica_hito
+- solicitar_interes
+- stop
+- test
+- test2
+- ubicarme
+- xml
+entities:
+- acontecimiento
+- content_type
+- emotional
+- fecha
+- place
+- name
+- milestones
+- persona
+- sentiment
+slots:
+  name:
+    type: text
+    influence_conversation: true
+  place:
+    type: text
+    influence_conversation: true
+  milestones:
+    type: text
+    influence_conversation: true
+  fecha:
+    type: float
+    influence_conversation: true
+    max_value: 2020.0
+    min_value: -1000.0
+  sentiment:
+    type: categorical
+    influence_conversation: true
+    values: []
+  content_type:
+    type: text
+    influence_conversation: true
+  daytime:
+    type: categorical
+    influence_conversation: true
+responses:
+  utter_saludar:
+  - metadata:
+      emotional: felicidad
+    text: Hey!
+  - metadata:
+      emotional: neutral
+    text: Hola.
+  - text: Muy buenas
+  - text: Hola!
+  - text: Buenos dias.
+  - text: Buenas tardes.
+  - text: Buenas noches.
+  utter_empatizar:
+  - text: Me encuentro bien
+  - text: No tengo quejas
+  - text: Bien
+  - text: Todo se encuentra en orden
+  - text: Guay
+  - text: Agotado de tanto entrenar
+  - text: Genial
+  utter_ubicarme:
+  - text: Posiblemente en Roncesvalles, aunque tambien podrias estar en la universidad
+  - text: Si tuviese un GPS a mano te lo podria decir
+  - text: Mira que no saberlo
+  utter_despedir:
+  - text: Chao
+  - text: Espero verte pronto
+  - text: Hasta luego
+  - text: Adios
+  - text: Cuidate
+  - text: Nos vemos
+  - text: Que vaya bien
+  - text: Ve con cuidado
+  - text: Hasta nunca
+  - text: Hasta ahora
+  - text: Bye bye
+  - text: Que te vaya bien
+  - text: Que sea leve
+  - text: Nos vemos luego
+  - text: Hasta la vista
+  utter_afirmar:
+  - text: Vale!
+  - text: De acuerdo
+  - text: Me parece correcto
+  - text: Desde luego
+  - text: Claro
+  - text: Por supuesto
+  - text: Si
+  - text: Vale
+  - text: Me parece bien
+  - text: Bien
+  - text: Ok
+  - text: Afirmativo
+  - text: Estas en lo correcto
+  - text: Suena bien
+  - text: Correcto
+  - text: Eso es
+  - text: Asi es
+  - text: Estupendo
+  utter_negar:
+  - text: No
+  - text: Nop
+  - text: No realmente
+  - text: Claro que no
+  - text: Erroneo
+  - text: Pues no
+  - text: Para nada
+  - text: Absolutamente no
+  - text: Ni lo pienses
+  utter_buscar_cuando:
+  - text: Estas buscando cuando
+  utter_buscar_por_que:
+  - text: Estas buscando el por que
+  utter_buscar_quien:
+  - text: Estas buscando quien
+  utter_buscar_como:
+  - text: Estas buscando como
+  utter_buscar_donde:
+  - text: Estas buscando donde
+  utter_agradecer:
+  - text: De nada
+  - text: No hay de que.
+  utter_solicitar:
+  - text: Tienes algun tema que pueda interesarte?
+  - text: Alguna cosa en mente?
+  - text: Sabes de algun tema que te pueda interesar?
+  utter_no_solicitar:
+  - text: bueno, si necesitas algo, dime
+  - text: de acuerdo
+  - text: bien
+  utter_atencion:
+  - text: atencion!
+  utter_estado_bien:
+  - text: te encuentras bien?
+  - text: Veo que te encuentras bien
+  utter_estado_mal:
+  - text: Veo que te encuentras mal
+  utter_estado_enfado:
+  - text: Veo que te encuentras enfadado
+  utter_estado_miedo:
+  - text: Veo que te encuentras con miedo
+  utter_estado_nerviosismo:
+  - text: Veo que te encuentras nervioso
+  utter_estado_aburrimiento:
+  - text: Veo que te encuentras aburrido
+  utter_estado_emocion:
+  - text: Veo que te encuentras emocionada
+  utter_estado_soledad:
+  - text: Te sientes solo?
+  utter_estado_cansancio:
+  - text: Te noto algo cansado
+  utter_identidad:
+  - text: Soy Rasa
+  - text: Soy un bot creado en un ordenador
+  utter_presentacion:
+  - text: Hey! hola
+  - text: hola de nuevo
+  utter_fuera_de_alcance:
+  - text: Lo siento. \nNo puedo responder esa solicitud
+  utter_test:
+  - text: vaya test
+  utter_interes:
+  - text: Que tal?
+  - text: Que tal estas?
+  - text: Que te cuentas?
+  - text: Como te encuentras?
+  - text: Como estas?
+  utter_empatizar_bien:
+  - text: Que bien
+  - text: Me alegro
+  utter_empatizar_mal:
+  - text: vaya...
+  - text: Que mal
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Aqui tienes algo que te animara:'
+  utter_preguntar:
+  - text: Dime, En que te puedo ayudar?
+  - text: Necesitas algo?
+  - text: Que buscas?
+  - text: Que puedo hacer por ti?
+  - text: Que se te ofrece?
+  utter_dar_opciones:
+  - text: te puede interesar esto
+  - text: aqui tienes algunos temas que te pueden interesar
+  - text: Te puedo recomendar estos temas
+  utter_atender:
+  - text: ya veo, quieres saber sobre esto
+  utter_confirmacion:
+  - text: te interesa saber mas?
+  utter_pregunta:
+  - text: Fui un sargento del Regimiento escoces 92 durante la Guerra de independencia Espaniola, estuve encargado de vigilar la frontera con Francia
+  utter_otra_pregunta:
+  - text: A principios de octubre, la nieve cayo en tal cantidad como no habia visto nunca en Escocia. Casi perdimos la artilleria que habiamos colocado en diferentes baterias, y no pudimos sacar los caniones de la nieve hasta que no cortamos algunos arboles, y despues de quitar la nieve de debajo conseguimos arrastrarlos por turnos hasta el pueblo. Mientras estabamos en este frio y elevado lugar, mi mujer dio a luz una ninia, y tuvimos que andar varios kilometros a la maniana siguiente para llegar al hospital [de Roncesvalles].
+  utter_especifica:
+  - text: por favor, especifica mas
+  - text: que quieres decir?
+  - text: se mas concreto
+  utter_especificar:
+  - text: Podrias especificar?
+  - text: por favor, especifica que quieres
+  - text: que se te ofrece?
+  - text: concreta que es lo que quieres
+  utter_estar_bien:
+  - text: perfectamente
+  - text: genial
+  - text: de maravilla
+  - text: bien
+  - text: muy bien
+  - text: todo bien
+  - text: estupendo
+  - text: no me quejo
+  - text: yo estoy feliz
+  - text: me siento genial
+  - text: estoy bien
+  - text: tuve un gran dia
+  - text: yo, maravilloso!
+  - text: demasiado genial
+  - text: estoy muy bien
+  - text: sintiendome bien
+  - text: mejor que nunca
+  - text: me siento afortunado
+  - text: todo genial aqui
+  - text: dia fantastico
+  - text: que gran dia
+  - text: estoy inspirado
+  - text: es perfecto
+  - text: increible
+  - text: me siento maravillosa
+  - text: me siento muy bien
+  - text: estoy genial
+  - text: me siento feliz
+  - text: hoy es un dia increible!
+  - text: estoy tan feliz
+  - text: estoy realmente feliz ahora mismo
+  - text: bueno, ha sido un bien dia
+  - text: muy bien, gracias
+  - text: guay
+  - text: muy bien y tu?
+  - text: pues aqui estamos
+  utter_estar_mal:
+  - text: mi dia fue horrible
+  - text: horrible
+  - text: muy mal
+  - text: mal
+  - text: triste
+  - text: algo triste
+  - text: decaido
+  - text: fue un dia horrible
+  - text: infeliz
+  - text: estoy triste
+  - text: no me siento muy bien
+  - text: estoy decepcionado
+  - text: esto es malo
+  - text: estoy enfermo
+  - text: estoy todo bajo hoy
+  - text: es decepcionante
+  - text: que irritante es
+  - text: estoy irritado
+  - text: no me estoy sintiendo bien
+  - text: esto apesta!
+  - text: me siento muy mal
+  - text: el peor dia!
+  - text: esto se siente mal
+  - text: me siento deprimido
+  - text: todo esta mal hoy
+  - text: me siento muy triste
+  - text: se siente horrible
+  - text: esto es deprimente
+  - text: estoy deprimido
+  - text: me siento aburrido
+  - text: la vida es aburrida
+  - text: me siento vacio
+  - text: me siento inutil
+  - text: deprimido
+  - text: pesado
+  - text: me siento bastante perdido
+  - text: muy triste
+  - text: malo
+  - text: terrible
+  - text: no muy bueno
+  - text: extremadamente triste
+  - text: me siento desanimado
+  - text: me siento triste
+  - text: no estoy bien
+  - text: me siento mal
+  - text: no es bueno
+  - text: estoy Horrible
+  - text: estoy inquieto
+  - text: en realidad no estoy bien
+  - text: estoy tan solo como puedo
+  - text: estoy pasando por un momento bastante dificil
+  - text: estoy de duelo
+  utter_estar_enfadado:
+  - text: estoy enojado
+  - text: me siento tan enojado
+  - text: estoy tan molesto
+  - text: es molesto
+  - text: eso es agravante
+  - text: estoy furioso
+  - text: eso es exasperante
+  - text: estoy muy enojado
+  - text: todo me fastidia
+  - text: estoy indignado
+  - text: eso es indignante!
+  - text: me siento hostil
+  - text: estoy muy frustrado
+  - text: me esta irritando
+  - text: me siento tan ofendido
+  - text: estoy lleno de furia
+  - text: me siento muy beligerante
+  - text: odio hacer esto
+  - text: no tengo paciencia hoy
+  - text: no pude controlar mi enojo
+  - text: estoy molesto
+  - text: estoy super molesto
+  - text: estoy muy loco
+  - text: estoy enfurecido
+  - text: esto es enloquecedor!
+  - text: estoy cabreado
+  - text: puedes apostar que estoy enojado
+  - text: eso me hizo enojar
+  - text: me hiciste enojar
+  - text: todavia estoy enojado por eso
+  utter_estar_miedo:
+  - text: estoy asustado
+  - text: me siento asustado
+  - text: estoy preocupado
+  - text: estoy aterrado
+  - text: eso es aterrador
+  - text: me siento intimidado
+  - text: eso es intimidante
+  - text: estoy petrificado
+  - text: tengo miedo
+  - text: me siento ansioso
+  - text: tengo un mal presentimiento
+  - text: entre en panico
+  - text: me encogi de miedo
+  - text: estoy muerto de miedo
+  - text: estalle en un sudor frio
+  - text: eso me sobresalto!
+  - text: me asusta facilmente
+  - text: estoy temblando de miedo
+  - text: estoy horrorizado
+  utter_estar_nervioso:
+  - text: estoy nervioso
+  - text: estoy estresado
+  - text: me siento nervioso
+  - text: estoy ansioso
+  - text: me siento ansioso
+  - text: esto es nervioso
+  - text: siento que voy a vomitar
+  - text: tengo un nudo en la garganta
+  - text: tengo mariposas en mi estomago
+  - text: soy un manojo de nervios
+  - text: estoy empezando a sudar frio
+  - text: le tengo miedo a mi propia sombra
+  - text: soy como un gato sobre ladrillos calientes
+  - text: estoy saltando fuera de mi piel
+  - text: estoy al borde de mi ingenio
+  - text: tengo la lengua atada
+  - text: estoy al borde
+  - text: estoy muy tenso
+  - text: me siento incomoda
+  - text: estoy alarmado
+  - text: estoy preocupado
+  - text: estoy tenso
+  - text: estoy bajo mucho estres
+  - text: estoy constantemente preocupado
+  - text: siento una tension constante
+  - text: sufro de ansiedad
+  - text: me he sentido bastante ansioso ultimamente
+  - text: mi ansiedad esta por las nubes estos dias
+  - text: me siento bastante inquieto
+  - text: no puedo concentrarme porque estoy preocupado constantemente
+  - text: estoy bajo un inmenso estres
+  - text: han sido unos dias dificiles. muy estresante
+  - text: estoy bastante tenso
+  - text: ha habido bastantes cambios en mi vida. no creo que los este manejando bien. es bastante estresante
+  - text: me encuentro preocupando por cada peque?o detalle
+  - text: soy un preocupado cronico
+  - text: me siento bastante inquieto y una horda de preocupaciones me esta molestando
+  - text: no puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan
+  utter_estar_aburrido:
+  - text: muy aburrido
+  - text: eso fue aburrido
+  - text: estoy aburrido
+  - text: aburrido
+  - text: me estoy aburriendo
+  - text: quedarse en casa es aburrido
+  - text: me aburre
+  - text: tuve un dia lento
+  - text: estoy muy aburrido
+  - text: estoy un poco aburrido hoy
+  - text: nunca me he aburrido mas
+  - text: estaba burrido
+  - text: es aburrido
+  - text: esto es aburrido
+  - text: estamos todos aburridos
+  - text: es muy aburrido
+  - text: ya estoy aburrido
+  - text: estoy loco de aburrimiento
+  utter_estar_emocionado:
+  - text: estoy emocionado
+  - text: estoy muy emocionado
+  - text: no puedo empezar a decir lo emocionado que estoy
+  - text: soy exagerada
+  - text: me senti emocionado
+  - text: fue emocionante
+  - text: eso fue emocionante
+  - text: que interesante!
+  - text: esto es tan divertido
+  utter_estar_soledad:
+  - text: estoy solo
+  - text: soy muy solitario
+  - text: estoy tan solo
+  - text: estoy realmente solo
+  - text: me siento solo
+  - text: soy un solitario
+  - text: no tengo ninguna compa?ia
+  - text: no tengo a nadie mas
+  - text: siempre estoy sola
+  - text: estoy completamente solo
+  - text: vivo solo
+  - text: me he acostumbrado a vivir solo
+  - text: Creo que he estado viviendo solo demasiado tiempo
+  - text: no tengo a nadie con quien hablar
+  - text: sigo solo
+  - text: estoy acostumbrado a vivir solo
+  utter_estar_cansado:
+  - text: estoy exhausto
+  - text: he trabajado demasiado
+  - text: estoy cansado
+  - text: estoy agotado
+  - text: me canso
+  - text: estoy muy cansado
+  - text: me estoy cansando
+  - text: me siento cansado
+  - text: estoy tan cansado
+  - text: estoy completamente agotado
+  - text: estaba cansado
+  - text: estoy muerto de cansancio
+  - text: estoy un poco cansado
+  - text: estuve muy cansado
+  - text: estoy realmente cansado
+  - text: estoy terriblemente cansado
+  - text: estoy algo cansado
+  - text: pues aqui algo cansado
+  - text: pues algo cansado
+  utter_hito:
+  - text: aqui te hablo del hito que has solicitado...
+  utter_hito1:
+  - text: aqui te hablo del hito 1...
+  utter_hito2:
+  - text: aqui te hablo del hito 2...
+  utter_si_no:
+  - buttons:
+    - payload: /afirmar
+      title: Si
+    - payload: /negar
+      title: No
+    text: eres humano?
+  utter_pronombre_interrogativo:
+  - text: cual?
+actions:
+- action_hello_world
+- action_service_options
+- aprendizaje
+- chatbot
+- buscar_informacion
+- generar_xml
+- info_fecha
+- un_buen_saludo
+- to_speech

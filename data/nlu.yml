@@ -1,0 +1,512 @@
+version: "2.0"
+nlu:
+- intent: saludar
+  examples: |
+    - muy buenas
+    - hola
+    - holas
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - hola!
+- intent: empatizar
+  examples: |
+    - que tal?
+    - como estas?
+    - como te encuentras?
+    - como te va?
+    - que hay de nuevo?
+    - que tal todo?
+    - como te sientes?
+    - tu que tal?
+    - que tal tu?
+- intent: ubicarme
+  examples: |
+    - donde estoy?
+    - donde estamos?
+    - que lugar es este?
+    - donde me encuentro?
+- intent: despedir
+  examples: |
+    - adios
+    - bye  
+    - bye bye
+    - chao
+    - cuidate
+    - hasta luego
+    - hasta ahora    
+    - hasta la vista
+    - hasta maniana
+    - hasta nunca
+    - que sea leve
+    - que te vaya bien
+    - que vaya bien
+    - nos vemos 
+    - nos vemos luego
+    - nos vemos maniana  
+    - ve con cuidado
+- intent: afirmar
+  examples: |
+    - desde luego
+    - claro
+    - por supuesto
+    - si
+    - vale
+    - si por favor
+    - me parece bien
+    - bien
+    - ok
+    - afirmativo
+    - estas en lo correcto
+    - suena bien
+    - correcto
+    - dale
+    - uh si
+    - eso es
+    - si si
+    - asi es
+    - estupendo
+    - de acuerdo
+    - si, me encantaria
+    - si, por favor
+- intent: negar
+  examples: |
+    - nop
+    - no
+    - no realmente
+    - claro que no
+    - erroneo
+    - pues no
+    - para nada
+    - absolutamente no
+    - me niego
+    - ni lo pienses
+- intent: buscar_cuando
+  examples: |
+    - en que fecha
+    - cuando vinieron
+    - cuando
+    - cuando se hizo
+    - cuando se construyo
+    - podrias decirme cuando
+    - en que anio
+    - que anio
+    - me podrias decir de cuando es la carta del vigilante de la frontera?
+- intent: buscar_cuando_fecha
+  examples: |
+    - que paso en [1350](fecha)
+    - que paso en [1813](fecha)
+    - sabes que paso en [1350](fecha)?
+    - que paso en [1530](fecha)?
+    - que paso en [1350](fecha)?
+- intent: buscar_por_que
+  examples: |
+    - por que hizo
+    - por que
+    - podrias decirme por que
+- intent: buscar_quien
+  examples: |
+    - quien hizo
+    - quien fue
+    - quien goberno
+    - quien
+    - podrias decirme quien
+- intent: buscar_como
+  examples: |
+    - como conquistaron
+    - como
+    - como vivieron
+    - como estuvieron
+    - podrias decirme como
+- intent: buscar_donde
+  examples: |
+    - donde se quedaron
+    - donde
+    - donde estuvieron
+    - podrias decirme donde
+    - me podrias decir donde se quedaron los soldados?
+    - donde esta roncesvalles
+    - donde esta canada?
+    - donde compro
+- intent: agradecer
+  examples: |
+    - muchas gracias
+    - gracias
+    - gracias amigo
+    - gracias colega
+    - genial, gracias
+- intent: solicitar
+  examples: |
+    - podrias darme informacion
+    - quiero informacion
+    - dame informacion
+    - dame datos de interes
+    - me gustaria informacion
+- intent: solicitar_especifica_lugar
+  examples: |  
+    - podrias darme informacion de [1350](fecha)
+    - tienes informacion de [1350](fecha)?
+- intent: solicitar_especifica_lugar
+  examples: |  
+    - dame informacion de [Roncesvalles](place)
+    - cuentame sobre [Roncesvalles](place)
+    - dame informacion de [Ibanieta](place)
+    - hablame de [Ibanieta](place)
+- intent: solicitar_especifica_hito
+  examples: |  
+    - me interesa saber sobre [la excavacion de Ibanieta](milestones)
+    - cuentame sobre [la excavacion de ibanieta](milestones)
+    - hablame de [Ibanieta](milestones)
+- intent: solicitar_interes
+  examples: |
+    - que te parece mas interesante?
+    - que me recomendarias?
+- intent: no_solicitar
+  examples: |
+    - en nada
+    - no quiero nada
+    - nada
+- intent: atencion
+  examples: |
+    - oye
+    - ey
+    - tu
+    - hey
+- intent: estado_bien
+  examples: |
+    - bien
+    - perfectamente
+    - genial
+    - de maravilla
+    - dia fantastico
+    - hoy es un dia increible!
+    - todo bien
+    - estupendo
+    - no me quejo
+    - estoy bien
+    - demasiado genial
+    - estoy muy bien
+    - sintiendome bien
+    - estoy inspirado
+    - es perfecto
+    - estoy genial
+    - estoy tan feliz
+    - estoy realmente feliz ahora mismo
+    - increible
+    - me siento genial
+    - me siento maravillosa
+    - me siento muy bien
+    - mejor que nunca
+    - me siento afortunado
+    - me siento feliz
+    - muy bien
+    - muy bien, gracias
+    - bueno, ha sido un bien dia
+    - guay
+    - pues aqui estamos
+    - que gran dia
+    - tuve un gran dia
+    - todo genial aqui
+    - yo estoy feliz
+    - yo, maravilloso!
+- intent: estado_mal
+  examples: |
+    - mi dia fue horrible
+    - horrible
+    - muy mal
+    - mal
+    - triste
+    - algo triste
+    - decaido
+    - fue un dia horrible
+    - infeliz
+    - estoy triste
+    - no me siento muy bien
+    - estoy decepcionado
+    - esto es malo
+    - estoy enfermo
+    - estoy todo bajo hoy
+    - es decepcionante
+    - que irritante es
+    - estoy irritado
+    - no me estoy sintiendo bien
+    - esto apesta!
+    - me siento muy mal
+    - el peor dia!
+    - esto se siente mal
+    - me siento deprimido
+    - todo esta mal hoy
+    - me siento muy triste
+    - se siente horrible
+    - esto es deprimente
+    - estoy deprimido
+    - me siento aburrido
+    - la vida es aburrida
+    - me siento vacio
+    - me siento inutil
+    - deprimido
+    - pesado
+    - me siento bastante perdido
+    - muy triste
+    - malo
+    - terrible
+    - no muy bueno
+    - extremadamente triste
+    - me siento desanimado
+    - me siento triste
+    - no estoy bien
+    - me siento mal
+    - no es bueno
+    - estoy Horrible
+    - estoy inquieto
+    - en realidad no estoy bien
+    - estoy tan solo como puedo
+    - estoy pasando por un momento bastante dificil
+    - estoy de duelo
+- intent: estado_enfado
+  examples: |
+    - estoy enojado
+    - me siento tan enojado
+    - estoy tan molesto
+    - es molesto
+    - eso es agravante
+    - estoy furioso
+    - eso es exasperante
+    - estoy muy enojado
+    - todo me fastidia
+    - estoy indignado
+    - eso es indignante!
+    - me siento hostil
+    - estoy muy frustrado
+    - me esta irritando
+    - me siento tan ofendido
+    - estoy lleno de furia
+    - me siento muy beligerante
+    - odio hacer esto
+    - no tengo paciencia hoy
+    - no pude controlar mi enojo
+    - estoy molesto
+    - estoy super molesto
+    - estoy muy loco
+    - estoy enfurecido
+    - esto es enloquecedor!
+    - estoy cabreado
+    - puedes apostar que estoy enojado
+    - eso me hizo enojar
+    - me hiciste enojar
+    - todavia estoy enojado por eso
+- intent: estado_miedo
+  examples: |
+    - estoy asustado
+    - me siento asustado
+    - estoy preocupado
+    - estoy aterrado
+    - eso es aterrador
+    - me siento intimidado
+    - eso es intimidante
+    - estoy petrificado
+    - tengo miedo
+    - me siento ansioso
+    - tengo un mal presentimiento
+    - entre en panico
+    - me encogi de miedo
+    - estoy muerto de miedo
+    - estalle en un sudor frio
+    - eso me sobresalto!
+    - me asusta facilmente
+    - estoy temblando de miedo
+    - estoy horrorizado
+- intent: estado_nerviosismo
+  examples: |
+    - estoy nervioso
+    - estoy estresado
+    - me siento nervioso
+    - estoy ansioso
+    - me siento ansioso
+    - esto es nervioso
+    - siento que voy a vomitar
+    - tengo un nudo en la garganta
+    - tengo mariposas en mi estomago
+    - soy un manojo de nervios
+    - estoy empezando a sudar frio
+    - le tengo miedo a mi propia sombra
+    - soy como un gato sobre ladrillos calientes
+    - estoy saltando fuera de mi piel
+    - estoy al borde de mi ingenio
+    - tengo la lengua atada
+    - estoy al borde
+    - estoy muy tenso
+    - me siento incomoda
+    - estoy alarmado
+    - estoy preocupado
+    - estoy tenso
+    - estoy bajo mucho estres
+    - estoy constantemente preocupado
+    - siento una tension constante
+    - sufro de ansiedad
+    - me he sentido bastante ansioso ultimamente
+    - mi ansiedad esta por las nubes estos dias
+    - me siento bastante inquieto
+    - no puedo concentrarme porque estoy preocupado constantemente
+    - estoy bajo un inmenso estres
+    - han sido unos dias dificiles. muy estresante
+    - estoy bastante tenso
+    - ha habido bastantes cambios en mi vida. no creo que los este manejando bien. es bastante estresante
+    - me encuentro preocupando por cada peque?o detalle
+    - soy un preocupado cronico
+    - me siento bastante inquieto y una horda de preocupaciones me esta molestando
+    - no puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan
+- intent: estado_aburrimiento
+  examples: |
+    - muy aburrido
+    - eso fue aburrido
+    - estoy aburrido
+    - aburrido
+    - me estoy aburriendo
+    - quedarse en casa es aburrido
+    - me aburre
+    - tuve un dia lento
+    - estoy muy aburrido
+    - estoy un poco aburrido hoy
+    - nunca me he aburrido mas
+    - estaba aburrido
+    - es aburrido
+    - esto es aburrido
+    - estamos todos aburridos
+    - es muy aburrido
+    - ya estoy aburrido
+    - estoy loco de aburrimiento
+- intent: estado_emocion
+  examples: |
+    - estoy emocionado
+    - estoy muy emocionado
+    - no puedo empezar a decir lo emocionado que estoy
+    - soy exagerada
+    - me senti emocionado
+    - fue emocionante
+    - eso fue emocionante
+    - que interesante!
+    - esto es tan divertido
+- intent: estado_soledad
+  examples: |
+    - estoy solo
+    - soy muy solitario
+    - estoy tan solo
+    - estoy realmente solo
+    - me siento solo
+    - soy un solitario
+    - no tengo ninguna compa?ia
+    - no tengo a nadie mas
+    - siempre estoy sola
+    - estoy completamente solo
+    - vivo solo
+    - me he acostumbrado a vivir solo
+    - Creo que he estado viviendo solo demasiado tiempo
+    - no tengo a nadie con quien hablar
+    - sigo solo
+    - estoy acostumbrado a vivir solo
+- intent: estado_cansancio
+  examples: |
+    - estoy exhausto
+    - he trabajado demasiado
+    - estoy cansado
+    - estoy agotado
+    - me canso
+    - estoy muy cansado
+    - me estoy cansando
+    - me siento cansado
+    - estoy tan cansado
+    - estoy completamente agotado
+    - estaba cansado
+    - estoy muerto de cansancio
+    - estoy un poco cansado
+    - estuve muy cansado
+    - estoy realmente cansado
+    - estoy terriblemente cansado
+    - estoy algo cansado
+    - pues aqui algo cansado
+    - pues algo cansado
+- intent: identidad
+  examples: |
+    - eres un bot?
+    - eres un robot?
+    - eres humano?
+    - eres de este planeta?
+    - eres una IA?
+    - quien eres
+    - estoy hablando con una persona real?
+    - eres una persona real?
+    - eres siquiera una persona real?
+    - eres un bot no?
+- intent: presentacion
+  examples: |
+    - yo soy [Ricardo](name)
+    - soy [Amalia](name)
+    - soy [Pedro](name)
+    - soy [ricardo](name)
+    - soy [juan](name)
+- intent: pregunta
+  examples: |
+    - Un sargento de que regimiento?
+    - eres un sargento?
+    - perteneces al regimiento?
+- intent: otra_pregunta
+  examples: |
+    - Desde la frontera tuviste que venir alguna vez a Roncesvalles
+    - has estado en roncesvalles?
+- intent: fuera_de_alcance
+  examples: |
+    - quiero pedir comida
+    - que es 2 + 2?
+    - quien es el presidente de estados Unidos?
+    - quien es el presi
+    - dime cuanto es 2 + 2
+    - cuanto es 2 + 2
+    - cuanto es 2 +2
+    - que es 2 + 2
+- intent: cantidad
+  examples: |
+    - todo
+    - todoi
+- intent: xml
+  examples: |
+    - generar xml
+    - crear xml
+- intent: dar_informacion
+  examples: |
+    - hola, soy [Ricardo](name) quiero darte informacion
+    - quiero darte informacion, soy [ricardo](name)
+    - Hola, soy [ricardo](name), quiero darte informacion
+    - hola soy [ricardo](name) y quiero darte informacion
+    - hola soy [ritxi](name) y quiero darte informacion
+    - hola soy [riky](name) quiero darte informacion
+    - soy [ricardo](name) y quiero darte informacion
+    - soy [ricardo](name) y quiero ense?arte
+    - soy [ricardo](name) y queiro ense?arte
+    - soy [ricardo](name) quiero darte informacion
+- intent: test
+  examples: |
+    - test tristeza
+    - test felicidad
+- intent: test2
+  examples: |
+    - realiza el test numero dos
+    - probar el test 2
+- intent: hito1
+  examples: |
+    - quiero la historia [hito 1](content_type)
+    - [hito1](content_type)
+    - cuentame la historia [historia 1](content_type)
+    - narra [hito1](content_type)
+    - quiero la historia [hito1](content_type)
+- intent: hito2
+  examples: |
+    - quiero la historia [hito 2](content_type)
+    - [hito2](content_type)
+    - cuentame la historia [historia 2](content_type)
+    - narra [hito2](content_type)
+    - quiero la historia [hito2](content_type)
+- intent: aprender
+  examples: |
+    - Es hora de aprender
+    - comando aprender

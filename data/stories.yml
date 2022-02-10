@@ -1,0 +1,231 @@
+version: "2.0"
+
+stories:
+
+- story: afirmar path
+  steps:
+  - intent: afirmar
+  - action: chatbot
+  - action: to_speech
+
+- story: agradecer path
+  steps:
+  - intent: agradecer
+  - action: chatbot
+  - action: to_speech
+
+- story: atencion path
+  steps:
+  - intent: atencion
+  - action: chatbot
+  - action: to_speech
+
+- story: buscar_como path
+  steps:
+  - intent: buscar_como
+  - action: chatbot
+  - action: to_speech
+
+- story: buscar_cuando path
+  steps:
+  - intent: buscar_cuando
+  - action: chatbot
+  - action: to_speech
+
+- story: buscar_cuando_fecha path
+  steps:
+  - intent: buscar_cuando_fecha
+  - action: chatbot
+  - action: to_speech
+
+- story: buscar_donde path
+  steps:
+  - intent: buscar_donde
+  - action: chatbot
+  - action: to_speech
+
+- story: buscar_por_que_path
+  steps:
+  - intent: buscar_por_que
+  - action: chatbot
+  - action: to_speech
+
+- story: buscar_quien_path
+  steps:
+  - intent: buscar_quien
+  - action: chatbot
+  - action: to_speech
+
+- story: cantidad_path
+  steps:
+  - intent: cantidad
+  - action: chatbot
+  - action: to_speech
+
+- story: dar_informacion_path
+  steps:
+  - intent: dar_informacion
+  - action: chatbot
+  - action: to_speech
+
+- story: despedir_path
+  steps:
+  - intent: despedir
+  - action: chatbot
+  - action: to_speech
+
+- story: empatizar_path
+  steps:
+  - intent: empatizar
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_aburrimiento_path
+  steps:
+  - intent: estado_aburrimiento
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_bien_path
+  steps:
+  - intent: estado_bien
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_cansancio_path
+  steps:
+  - intent: estado_cansancio
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_emocion_path
+  steps:
+  - intent: estado_emocion
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_enfado_path
+  steps:
+  - intent: estado_enfado
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_mal_path
+  steps:
+  - intent: estado_mal
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_miedo_path
+  steps:
+  - intent: estado_miedo
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_nerviosismo_path
+  steps:
+  - intent: estado_nerviosismo
+  - action: chatbot
+  - action: to_speech
+
+- story: estado_soledad_path
+  steps:
+  - intent: estado_soledad
+  - action: chatbot
+  - action: to_speech
+
+- story: fuera_de_alcance_path
+  steps:
+  - intent: fuera_de_alcance
+  - action: chatbot
+  - action: to_speech
+
+- story: hito1_path
+  steps:
+  - intent: hito1
+  - action: chatbot
+  - action: to_speech
+
+- story: hito2_path
+  steps:
+  - intent: hito2
+  - action: chatbot
+  - action: to_speech
+
+- story: identidad_path
+  steps:
+  - intent: identidad
+  - action: chatbot
+  - action: to_speech
+
+- story: negar_path
+  steps:
+  - intent: negar
+  - action: chatbot
+  - action: to_speech
+
+- story: no_solicitar_path
+  steps:
+  - intent: no_solicitar
+  - action: chatbot
+  - action: to_speech
+
+- story: otra_pregunta_path
+  steps:
+  - intent: otra_pregunta
+  - action: chatbot
+  - action: to_speech
+
+- story: pregunta_path
+  steps:
+  - intent: pregunta
+  - action: chatbot
+  - action: to_speech
+
+- story: presentacion_path
+  steps:
+  - intent: presentacion
+  - action: chatbot
+  - action: to_speech
+
+- story: saludar_path
+  steps:
+  - intent: saludar
+  - action: chatbot
+  - action: to_speech
+
+- story: solicitar_path
+  steps:
+  - intent: solicitar
+  - action: chatbot
+  - action: to_speech
+
+- story: stop_path
+  steps:
+  - intent: stop
+  - action: chatbot
+  - action: to_speech
+
+- story: test_path
+  steps:
+  - intent: test
+  - action: chatbot
+  - action: to_speech
+
+- story: test2_path
+  steps:
+  - intent: test2
+  - action: chatbot
+  - action: to_speech
+
+- story: ubicarme_path
+  steps:
+  - intent: ubicarme
+  - action: chatbot
+  - action: to_speech
+
+- story: xml_path
+  steps:
+  - intent: xml
+  - action: chatbot
+  - action: to_speech
