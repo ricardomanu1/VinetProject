@@ -154,9 +154,9 @@ nlu:
     - hablame de [Ibanieta](place)
 - intent: solicitar_especifica_hito
   examples: |  
-    - me interesa saber sobre [la excavacion de Ibanieta](milestones)
-    - cuentame sobre [la excavacion de ibanieta](milestones)
-    - hablame de [Ibanieta](milestones)
+    - me interesa saber sobre [la excavacion de Ibanieta](milestone)
+    - cuentame sobre [la excavacion de ibanieta](milestone)
+    - hablame de [Ibanieta](milestone)
 - intent: solicitar_interes
   examples: |
     - que te parece mas interesante?

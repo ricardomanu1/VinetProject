@@ -3,7 +3,6 @@ class belief_manager(object):
 
     def __init__(self):
         self.agent_id = 'belief_manager'
-
         # Estado inicial de las creencias, en este caso vacio
         self.agent_beliefs = []  
         self.emotionalBeliefs = ['happy','sad','fear','disgust','anger','surprise','neutral']
@@ -15,10 +14,13 @@ class belief_manager(object):
         return False
 # 
     def brf_in(self, Emotions, Intents, belief):
-        # tiene en cuenta las intenciones activas
-        # tiene en cuenta las emociones generadas
-        # tiene en cuenta el evento de entrada 
         belief_name = belief[0]
+        # tiene en cuenta las intenciones activas
+        
+        #if belief_name[0] not in b:
+        #    print("la creencia: " + belief_name[0] + "de intenciones es:" + str(b))
+        # tiene en cuenta las emociones generadas
+        # tiene en cuenta el evento de entrada         
         if not self.check_belief(belief_name[0]):
             self.agent_beliefs.append(belief[0])
         belief_emotion = belief[1]

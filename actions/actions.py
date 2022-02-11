@@ -13,15 +13,12 @@ from intents_manager import intents_manager
 from os import listdir
 from typing import Any, Text, Dict, List
 
+from rasa_sdk import events
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet, BotUttered, UserUttered, EventType
 
 from rasa.shared.nlu.training_data.loading import load_data
-from rasa_sdk import events
-from rasa_sdk.events import (BotUttered, SlotSet, UserUttered,
-    UserUtteranceReverted,
-    ConversationPaused,
-    EventType)
 
 if typing.TYPE_CHECKING:
     from rasa_sdk.trackers import DialogueStateTracker
@@ -30,6 +27,7 @@ if typing.TYPE_CHECKING:
 
 # Variables globales
 user_event = []
+user_intent = ''
 count = 0
 resp = ''
 daytime = ''
@@ -71,6 +69,7 @@ class ChatBot(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]: 
         
         global user_event
+        global user_intent
 
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
@@ -78,9 +77,11 @@ class ChatBot(Action):
         entities = tracker.latest_message['entities']            
         slot_name = tracker.get_slot('name')       
 
-        tracker.slots['daytime'] = 'afternoon'
+        user_intent = intent['name']
+        tracker.slots['daytime'] = 'evening'
 
         Bi = intent['name']  
+
         with open('EmotionIntent.txt', 'r') as f:
             global Be
             contenido = f.read()
@@ -112,6 +113,7 @@ class EBDI(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:   
         global user_event
+        global user_intent
         global resp
         ## E conjunto de emociones
         global Emotions
@@ -130,7 +132,10 @@ class EBDI(Action):
 
         # BDI actualizacion        
         BDI.bdi(self,newBelief)             
-        
+        if(len(Intents.agent_intents)==0):
+            Beliefs.del_belief(user_intent)
+            user_intent = ''
+
         # la Emocion secundaria
         E2 = Emotions.euf2(Intents,Beliefs)
         print('-----SECONDARY EMOTION: ' + E2) 
@@ -176,7 +181,7 @@ class BDI:
             print(desire[0], desire[1])     
 
         #I = filterI(E,B,D,I)
-        Intents.filterI(Emotions,Beliefs.agent_beliefs,Desires.agent_desires)
+        Intents.filterI(Emotions,Beliefs,Desires.agent_desires)
         print('-----INTENTS-----')
         for intent in Intents.agent_intents:
             print(intent)
@@ -203,11 +208,12 @@ class Say(Action):
         #if name not null
         # dispatcher.utter_message(response=resp,name = daytime) 
 
-        tracker.slots['daytime'] = 'afternoon'
-        d = tracker.slots['daytime']#get_slot('daytime')
-        print("daytime: " + str(d))
+        #tracker.slots['daytime'] = 'evening'
+        #d = tracker.slots['daytime']#get_slot('daytime')
+        #print("daytime: " + str(d))
         
-        SlotSet('daytime', 'afternoon')
+        #SlotSet('daytime', 'evening')
+        UnBuenSaludo.run(self, dispatcher, tracker, domain)
 
         #dispatcher.utter_message(response='utter_saludar')
         dispatcher.utter_message(response=resp)
@@ -357,11 +363,11 @@ class UnBuenSaludo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        #tracker.slots["daytime"] = 'afternoon'
-        daytime = 'afternoon'
+        tracker.slots["daytime"] = 'evening'
+        daytime = 'evening'
         
-        print("un_buen_saludo")
-        dispatcher.utter_message(response='utter_saludar')
+        #print("un_buen_saludo")
+        #dispatcher.utter_message(response='utter_saludar')
 
         return [SlotSet("daytime", daytime)]
 
