@@ -20,6 +20,10 @@ nlu:
     - como te sientes?
     - tu que tal?
     - que tal tu?
+- intent: empatizar_bien
+  examples: |
+    - estas bien?
+    - te encuentras bien?
 - intent: ubicarme
   examples: |
     - donde estoy?

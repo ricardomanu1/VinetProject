@@ -15,14 +15,24 @@ class intents_manager(object):
         #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
         self.intents.append(('say','utter_saludar', ['presentacion'], 'acc_fulfill','presentacion', 'acc_say', 'utter_saludar'))   
 
-        self.intents.append(('say','utter_saludar', ['saludar','happy'], 'acc_fulfill','saludar', 'acc_say', 'utter_saludar'))        
-        self.intents.append(('say','utter_saludar', ['saludar','sad'],'acc_fulfill','saludar', 'acc_say', 'utter_saludar', 'acc_new_belief','utter_interes'))
+        self.intents.append(('say','utter_saludar', ['saludar','happy'], 'acc_fulfill','saludar', 'acc_say', 'utter_saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
+        self.intents.append(('say','utter_saludar', ['saludar','sad'],'acc_fulfill','saludar', 'acc_say', 'utter_saludar'))
 
-        self.intents.append(('say','utter_interes', ['utter_interes'], 'acc_say', 'utter_interes','acc_fulfill','utter_interes','acc_new_belief','estoy_interesado'))
+        self.intents.append(('say','utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_enfadado', ['empatizar','anger'], 'acc_say', 'utter_estar_enfadado','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_miedo', ['empatizar','fear'], 'acc_say', 'utter_estar_miedo','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_nervioso', ['empatizar','anxious'], 'acc_say', 'utter_estar_nervioso','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_aburrido', ['empatizar','bored'], 'acc_say', 'utter_estar_aburrido','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_emocionado', ['empatizar','excited'], 'acc_say', 'utter_estar_emocionado','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_soledad', ['empatizar','lonely'], 'acc_say', 'utter_estar_soledad','acc_fulfill','empatizar'))
+        self.intents.append(('say','utter_estar_cansado', ['empatizar','tired'], 'acc_say', 'utter_estar_cansado','acc_fulfill','empatizar'))
+
+        self.intents.append(('say','utter_interes', ['muestro_interes'], 'acc_say', 'utter_interes','acc_fulfill','muestro_interes'))
    
-        self.intents.append(('say','utter_empatizar_bien', ['estoy_interesado','estado_bien'],'acc_del_belief','estoy_interesado', 'acc_say', 'utter_empatizar_bien', 'acc_new_belief','utter_preguntar'))
-        self.intents.append(('say','utter_empatizar_mal', ['estoy_interesado','estado_mal'],'acc_del_belief','estoy_interesado', 'acc_say', 'utter_empatizar_mal', 'acc_new_belief','utter_animar'))        
-        self.intents.append(('say','utter_empatizar_aburrimiento', ['estoy_interesado','estado_aburrimiento'],'acc_del_belief','estoy_interesado', 'acc_say', 'utter_empatizar_aburrimiento', 'acc_new_belief','dar_hitos_opciones')) 
+        self.intents.append(('say','utter_empatizar_bien', ['espero_respuesta','estado_bien'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_bien', 'acc_new_belief','utter_preguntar'))
+        self.intents.append(('say','utter_empatizar_mal', ['espero_respuesta','estado_mal'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_mal', 'acc_new_belief','utter_animar'))        
+        self.intents.append(('say','utter_empatizar_aburrimiento', ['espero_respuesta','estado_aburrimiento'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_aburrimiento', 'acc_new_belief','dar_hitos_opciones')) 
               
         self.intents.append(('say','utter_hitos_opciones', ['dar_hitos_opciones'],'acc_del_belief','dar_hitos_opciones','acc_say', 'utter_hitos_opciones'))
         

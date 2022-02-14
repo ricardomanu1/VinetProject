@@ -17,6 +17,7 @@ intents:
 - dar_informacion
 - despedir
 - empatizar
+- empatizar_bien
 - estado_aburrimiento
 - estado_bien
 - estado_cansancio

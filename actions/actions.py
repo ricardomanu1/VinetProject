@@ -26,10 +26,10 @@ if typing.TYPE_CHECKING:
     from rasa_sdk.domain import Domain
 
 # Variables globales
-user_event = []
+#user_event = []
 user_intent = ''
 count = 0
-resp = ''
+#resp = ''
 daytime = ''
 Emotions = emotions_manager()
 Beliefs = belief_manager()
@@ -68,7 +68,7 @@ class ChatBot(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]: 
         
-        global user_event
+        #global user_event
         global user_intent
 
         ## Valores de entrada, si es un texto
@@ -81,6 +81,10 @@ class ChatBot(Action):
         tracker.slots['daytime'] = 'evening'
 
         Bi = intent['name']  
+
+        print(tracker.latest_message)
+        input_data = tracker.latest_message
+        print(input_data["metadata"])#["from"])
 
         with open('EmotionIntent.txt', 'r') as f:
             global Be
@@ -99,7 +103,7 @@ class ChatBot(Action):
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
         
-        EBDI.run(self, dispatcher, tracker, domain)
+        EBDI.run(self, dispatcher, tracker, domain, user_event)
 
         return []
 
@@ -111,10 +115,11 @@ class EBDI(Action):
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:   
-        global user_event
+            domain: Dict[Text, Any],
+            user_event) -> List[Dict[Text, Any]]:   
+        #global user_event
         global user_intent
-        global resp
+        #global resp
         ## E conjunto de emociones
         global Emotions
         ## B conjunto de creencias
@@ -199,9 +204,9 @@ class Say(Action):
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: Dict[Text, Any]
-            ) -> List[Dict[Text, Any]]:
-        global resp
+            domain: Dict[Text, Any],
+            resp) -> List[Dict[Text, Any]]:
+        #global resp
         global daytime
         print('la respuesta es: ' + resp)
         print(f"{dt.datetime.now()}")
@@ -244,19 +249,21 @@ class Plan:
 
     def plan(self, Intents):
         p = []    
-        global user_event
-        global resp
+        #global user_event
+        #global resp
         global Be
         for intent in Intents:
             for idx, val in enumerate(intent):    
                 # Seleccionamos la primera intencion y las acciones correspondientes        
                 if val == 'acc_say':  
                     resp = intent[idx+1]
-                    p.append(('''Say.run(self, dispatcher, tracker, domain)'''))
+                    s = "Say.run(self, dispatcher, tracker, domain,'{0}')".format(str(resp))
+                    p.append((s))
 
                 if val == 'acc_new_belief':
-                    user_event = ['say',intent[idx+1],Be,'','','']    
-                    p.append(('''EBDI.run(self, dispatcher, tracker, domain)'''))
+                    user_event = ['say',intent[idx+1],Be,'','','']   
+                    s = "EBDI.run(self, dispatcher, tracker, domain,{0})".format(user_event)
+                    p.append((s))
 
                 if val == 'acc_del_belief':
                     s = "Beliefs.del_belief('{0}')".format(str(intent[idx+1]))
@@ -368,7 +375,7 @@ class UnBuenSaludo(Action):
         
         #print("un_buen_saludo")
         #dispatcher.utter_message(response='utter_saludar')
-
+        SlotSet("daytime", daytime)
         return [SlotSet("daytime", daytime)]
 
 

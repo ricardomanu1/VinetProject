@@ -80,6 +80,12 @@ stories:
   - action: chatbot
   - action: to_speech
 
+- story: empatizar_bien_path
+  steps:
+  - intent: empatizar_bien
+  - action: chatbot
+  - action: to_speech
+
 - story: estado_aburrimiento_path
   steps:
   - intent: estado_aburrimiento
