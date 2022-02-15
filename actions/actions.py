@@ -4,7 +4,7 @@ import typing
 import importlib
 import datetime as dt
 import xml.etree.cElementTree as ET
-
+import requests
 from emotions_manager import emotions_manager
 from belief_manager import belief_manager
 from desires_manager import desires_manager
@@ -81,11 +81,7 @@ class ChatBot(Action):
         tracker.slots['daytime'] = 'evening'
 
         Bi = intent['name']  
-
-        print(tracker.latest_message)
-        input_data = tracker.latest_message
-        print(input_data["metadata"])#["from"])
-
+                
         with open('EmotionIntent.txt', 'r') as f:
             global Be
             contenido = f.read()
@@ -488,3 +484,21 @@ class Aprendizaje(Action):
                 message = "Lo siento, no estas autorizado"     
         dispatcher.utter_message(text=message)
         return []
+
+##class RestInput (InputChannel):
+#    def _extract_metadata(self, req: Request) -> Text:
+#            return req.json.get("metadata") or self.name()
+#            @custom_webhook.route("/webhook", methods=["POST"])
+#            async def receive(request: Request):
+#               sender_id = await self._extract_sender(request)
+#               text = self._extract_message(request)
+#               metadata = self._extract_metadata(request)
+#               metadata = "{\"metadata\": \"" + str(metadata) + "\"}"
+#               metadata = json.loads(metadata)
+#
+#               try:
+#                   await on_new_message(
+#                       UserMessage(
+#                           text, collector, sender_id, input_channel=input_channel, metadata=metadata
+#                       )
+#                   )
