@@ -97,6 +97,7 @@ responses:
     text: Hola.
   - text: Muy buenas
   - text: ¡Hola!
+  - text: Holas
   - condition:
       - type: slot
         name: daytime
