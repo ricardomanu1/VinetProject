@@ -4,7 +4,6 @@ import typing
 import importlib
 import datetime as dt
 import xml.etree.cElementTree as ET
-import requests
 from emotions_manager import emotions_manager
 from belief_manager import belief_manager
 from desires_manager import desires_manager
@@ -82,6 +81,16 @@ class ChatBot(Action):
 
         Bi = intent['name']  
                 
+        print(tracker.latest_message['metadata'])
+    #
+        #events = tracker.current_state()['events']
+        #user_events = []
+        #for e in events:
+        #    if e['event'] == 'user':
+        #        user_events.append(e)
+        #print(user_events[-1]['metadata'])
+    #
+
         with open('EmotionIntent.txt', 'r') as f:
             global Be
             contenido = f.read()
