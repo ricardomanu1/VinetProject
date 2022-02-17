@@ -23,7 +23,7 @@ class belief_manager(object):
         # tiene en cuenta el evento de entrada         
         if not self.check_belief(belief_name[0]):
             self.agent_beliefs.append(belief[0])
-        belief_emotion = belief[1]
+        #belief_emotion = belief[1]
         if len(belief)==2:
             self.EmotionInput_Update(belief[1])
 

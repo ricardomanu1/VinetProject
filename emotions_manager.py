@@ -44,6 +44,8 @@ class emotions_manager(object):
         self.emotions = []
         self.occEmotions()
         self.dominantEmotion = {"name":'Disliking', "value":0.46}
+
+        self.emotionalTags = ['happy','sad','fear','disgust','anger','surprise','neutral']
     
     #
     def defaultMood(self):        
@@ -109,8 +111,10 @@ class emotions_manager(object):
 # Define la emocion primaria
     def euf1(self, Intents, belief):     
         #belief[0]
-        b = belief[1]
-        self.estado = b[0]
+        for b in belief:
+            if b[0] in self.emotionalTags:
+                # Empatia simple
+                self.estado = b[0]
         return self.estado
 
 # Define la emocion secundaria tras pensarlo bien

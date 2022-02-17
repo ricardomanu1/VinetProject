@@ -100,8 +100,6 @@ class MyioInput(InputChannel):
             input_channel = self._extract_input_channel(request)
             #metadata = self.get_metadata(request)
             metadata = self._extract_metadata(request)
-            #metadata = "{\"metadata\": \"" + str(metadata) + "\"}"
-            #metadata = req.json.loads(metadata)
 
             if should_use_stream:
                 return response.stream(

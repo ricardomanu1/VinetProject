@@ -99,11 +99,11 @@ nlu:
     - me podrias decir de cuando es la carta del vigilante de la frontera?
 - intent: buscar_cuando_fecha
   examples: |
-    - que paso en [1350](fecha)
-    - que paso en [1813](fecha)
-    - sabes que paso en [1350](fecha)?
-    - que paso en [1530](fecha)?
-    - que paso en [1350](fecha)?
+    - que paso en [1350](year)
+    - que paso en [1813](year)
+    - sabes que paso en [1350](year)?
+    - que paso en [1530](year)?
+    - que paso en [1350](year)?
 - intent: buscar_por_que
   examples: |
     - por que hizo
@@ -149,8 +149,8 @@ nlu:
     - me gustaria informacion
 - intent: solicitar_especifica_lugar
   examples: |  
-    - podrias darme informacion de [1350](fecha)
-    - tienes informacion de [1350](fecha)?
+    - podrias darme informacion de [1350](year)
+    - tienes informacion de [1350](year)?
 - intent: solicitar_especifica_lugar
   examples: |  
     - dame informacion de [Roncesvalles](place)
@@ -455,6 +455,11 @@ nlu:
     - Un sargento de que regimiento?
     - eres un sargento?
     - perteneces al regimiento?
+- intent: pregunta_hora
+  examples: |
+    - que hora es?
+    - podrias decirme la hora?
+    - me dices la hora?
 - intent: otra_pregunta
   examples: |
     - Desde la frontera tuviste que venir alguna vez a Roncesvalles

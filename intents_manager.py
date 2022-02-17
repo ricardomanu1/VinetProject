@@ -1,3 +1,4 @@
+import numpy as np
 
 class intents_manager(object):
 
@@ -13,10 +14,10 @@ class intents_manager(object):
     def intentsData(self):
         #acc_fulfill suceso que ha ocurrido y se mantiene
         #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
-        self.intents.append(('say','utter_saludar', ['presentacion'], 'acc_fulfill','presentacion', 'acc_say', 'utter_saludar'))   
+        self.intents.append(('say','utter_presentacion', ['presentacion'], 'acc_fulfill','presentacion', 'acc_say', 'utter_presentacion'))   
 
-        self.intents.append(('say','utter_saludar', ['saludar','happy'], 'acc_fulfill','saludar', 'acc_say', 'utter_saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
-        self.intents.append(('say','utter_saludar', ['saludar','sad'],'acc_fulfill','saludar', 'acc_say', 'utter_saludar'))
+        self.intents.append(('say','utter_saludar', ['saludar','happy'], 'acc_say', 'utter_saludar', 'acc_fulfill','saludar', 'acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
+        self.intents.append(('say','utter_saludar', ['saludar','sad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))
 
         self.intents.append(('say','utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_fulfill','empatizar'))
         self.intents.append(('say','utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_fulfill','empatizar'))
@@ -61,6 +62,7 @@ class intents_manager(object):
         self.intents.append(('say','utter_hito2', ['hito2'],'acc_del_belief','hito2', 'acc_say', 'utter_hito2'))
        
         self.intents.append(('say','utter_despedir', ['despedir'], 'acc_say', 'utter_despedir','acc_fulfill','despedir'))
+        self.intents.append(('say','utter_responder_hora', ['pregunta_hora'], 'acc_say', 'utter_responder_hora','acc_del_belief','pregunta_hora'))
 
         #self.intents.append(('say', 'utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_fulfill', 'empatizar'))
         #self.intents.append(('say', 'utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_fulfill', 'empatizar'))
@@ -105,7 +107,10 @@ class intents_manager(object):
                 return False
         return True
            
-
+    def get_context(self):
+        context_intents = [x[2] for x in self.intents]        
+        context = set(np.concatenate(context_intents))
+        return context
 
 #intents
 #i_tuple = ('','',[,],''...)

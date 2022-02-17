@@ -35,6 +35,7 @@ intents:
 - no_solicitar
 - otra_pregunta
 - pregunta
+- pregunta_hora
 - presentacion
 - saludar
 - solicitar
@@ -50,15 +51,16 @@ intents:
 entities:
 - acontecimiento
 - daytime
-- content_type
-- emotional
-- fecha
+- content_type 
+- year
 - place
 - name
 - milestone
 - persona
-- sentiment
 slots:
+  hours:
+    type: text
+    influence_conversation: true
   name:
     type: text
     influence_conversation: true
@@ -68,29 +70,25 @@ slots:
   milestone:
     type: text
     influence_conversation: true
-  fecha:
+  year:
     type: float
     influence_conversation: true
     max_value: 2020.0
     min_value: -1000.0
-  sentiment:
-    type: categorical
-    influence_conversation: true
-    values: []
   content_type:
     type: text
     influence_conversation: true
   daytime:
-    type: categorical
-    influence_conversation: true
+    type: categorical    
     values:
       - morning
       - afternoon
       - evening  
+    influence_conversation: false
 responses:
   utter_saludar:
   - metadata:
-      emotional: felicidad
+      emotional: happy
     text: ¡Hey!
   - metadata:
       emotional: neutral
@@ -98,21 +96,24 @@ responses:
   - text: Muy buenas
   - text: ¡Hola!
   - text: Holas
-  - condition:
+  - text: Buenos días.
+    condition:
       - type: slot
         name: daytime
-        value: morning
-    text: Buenos días.
-  - condition:
+        value: morning   
+    channel: "myio"
+  - text: Buenas tardes.
+    condition:
       - type: slot
         name: daytime
-        value: afternoon
-    text: Buenas tardes.
-  - condition:
+        value: afternoon  
+    channel: "myio"
+  - text: Buenas noches.
+    condition:
       - type: slot
         name: daytime
         value: evening
-    text: Buenas noches.
+    channel: "myio"
   utter_empatizar:
   - text: Me encuentro bien
   - text: No tengo quejas
@@ -216,8 +217,8 @@ responses:
   - text: Soy Rasa
   - text: Soy un bot creado en un ordenador
   utter_presentacion:
-  - text: ¡Hey! hola
-  - text: Hola de nuevo
+  - text: ¡Hey! hola {name}
+  - text: Hola de nuevo {name}
   utter_fuera_de_alcance:
   - text: Lo siento. \nNo puedo responder esa solicitud
   utter_test:
@@ -531,6 +532,8 @@ responses:
     text: Elige
   utter_pronombre_interrogativo:
   - text: ¿Cuál?
+  utter_responder_hora:
+  - text: Son las {hours}
 actions:
 - action_hello_world
 - action_service_options

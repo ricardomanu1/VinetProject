@@ -4,6 +4,8 @@ import typing
 import importlib
 import datetime as dt
 import xml.etree.cElementTree as ET
+import numpy as np
+
 from emotions_manager import emotions_manager
 from belief_manager import belief_manager
 from desires_manager import desires_manager
@@ -25,24 +27,23 @@ if typing.TYPE_CHECKING:
     from rasa_sdk.domain import Domain
 
 # Variables globales
-#user_event = []
 user_intent = ''
 count = 0
-#resp = ''
-daytime = ''
+Bi = ''
+Be = ''
 Emotions = emotions_manager()
 Beliefs = belief_manager()
 Desires = desires_manager()        
 Intents = intents_manager()
-smg = []
+context = Intents.get_context()
 
 def __init__(self):
 
     self.agent_id = 'actions'
-    self.emotions_manager = emotions_manager()
-    self.belief_manager = belief_manager()        
-    self.desires_manager = desires_manager()
-    self.intents_manager = intents_manager()
+    #self.emotions_manager = emotions_manager()
+    #self.belief_manager = belief_manager()        
+    #self.desires_manager = desires_manager()
+    #self.intents_manager = intents_manager()
 
 def contador():
     global count
@@ -54,8 +55,7 @@ def get_latest_event(events):
     for e in events:
         if e['event'] == 'bot':
             latest_actions.append(e)
-    #return latest_actions[-2:][0]['name']
-    return latest_actions#[-1:][0]['text']
+    return latest_actions
 
 ## Estructura BOT
 class ChatBot(Action):
@@ -66,40 +66,34 @@ class ChatBot(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]: 
-        
-        #global user_event
-        global user_intent
 
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
         entities = tracker.latest_message['entities']            
+        
         slot_name = tracker.get_slot('name')       
+        slot_place = tracker.get_slot('place')       
+        slot_year = tracker.get_slot('year')       
+        slot_milestone = tracker.get_slot('milestone')           
 
-        user_intent = intent['name']
-        tracker.slots['daytime'] = 'evening'
+        global Bi
+        global Be
+        Bi = intent['name']
+        Be = tracker.latest_message['metadata']['sentiment']
 
-        Bi = intent['name']  
-                
-        print(tracker.latest_message['metadata'])
-    #
-        #events = tracker.current_state()['events']
-        #user_events = []
-        #for e in events:
-        #    if e['event'] == 'user':
-        #        user_events.append(e)
-        #print(user_events[-1]['metadata'])
-    #
-
-        with open('EmotionIntent.txt', 'r') as f:
-            global Be
-            contenido = f.read()
-            Be = contenido  
-
+        id_event = tracker.latest_message['metadata']['event']
+                 
+       
         ## Evento en el caso de que sea un texto
-        user_event = ['say',Bi,Be,text,slot_name,entities] 
-        print('-----EVENT-----')
-        print(user_event)
+        user_event = [id_event,Bi,Be,text,slot_name,entities] 
+        print('EVENT: ' + str(user_event)) 
+
+        if Bi in context:
+            print('sabemos reaccionar ante esta situación')
+            EBDI.run(self, dispatcher, tracker, domain, user_event)
+        else:
+            print('NO se actuar ante esta situación')
 
         ## comprobacion del diccionario de sinonimos de entidades
         synonyms_dict = Dictionary.get_synonym_mapper()
@@ -108,7 +102,7 @@ class ChatBot(Action):
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
         
-        EBDI.run(self, dispatcher, tracker, domain, user_event)
+       
 
         return []
 
@@ -121,34 +115,30 @@ class EBDI(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any],
-            user_event) -> List[Dict[Text, Any]]:   
-        #global user_event
-        global user_intent
-        #global resp
-        ## E conjunto de emociones
+            user_event) -> List[Dict[Text, Any]]:  
+        global Bi
+        ## Conjunto E B D I
         global Emotions
-        ## B conjunto de creencias
         global Beliefs
-        ## D Conjunto de deseos generados por la creencia, pueden convertirse en intenciones
         global Desires
-        ## I el conjunto intenciones/metas a realizar si se cumplen ciertas condiciones
         global Intents 
 
+        # Establecen las nuevas creencias a partir del evento
         newBelief = Beliefs.new_belief(user_event)     
 
-        # la Emocion primaria
+        # Primera gestion del estado emocional
         E1 = Emotions.euf1(Intents,newBelief)
-        print('-----PRIMARY EMOTION: ' + E1) 
+        print('PRIMARY EMOTION: ' + E1) 
 
         # BDI actualizacion        
         BDI.bdi(self,newBelief)             
-        if(len(Intents.agent_intents)==0):
-            Beliefs.del_belief(user_intent)
-            user_intent = ''
+        #if(len(Intents.agent_intents)==0):
+        #    Beliefs.del_belief(Bi)
+        #    Bi = ''
 
         # la Emocion secundaria
         E2 = Emotions.euf2(Intents,Beliefs)
-        print('-----SECONDARY EMOTION: ' + E2) 
+        print('SECONDARY EMOTION: ' + E2) 
 
         # if (inTime and E1 != E2):
         #    BDI.bdi(self,Beliefs.agent_beliefs)
@@ -160,7 +150,7 @@ class EBDI(Action):
             del Intents.agent_intents[0]
             
         for i in p:
-            print('--->' + i)
+            print('---->' + i)
             exec(i) 
 
         return []
@@ -169,36 +159,61 @@ class EBDI(Action):
 class BDI:
 
     def bdi(self,newBelief):     
-        ## E conjunto de emociones
+        ## Conjunto E B D I
         global Emotions
-        ## B conjunto de creencias
         global Beliefs
-        ## D Conjunto de deseos generados por la creencia, pueden convertirse en intenciones
         global Desires
-        ## I el conjunto intenciones/metas a realizar si se cumplen ciertas condiciones
         global Intents 
 
         #B = brf_in(E,I,Bm) # se actualizan las creencias
         Beliefs.brf_in(Emotions,Intents,newBelief)
-        print('-----BELIEFS-----')
+        print('BELIEFS:')
         for belief in Beliefs.agent_beliefs:
-            print(belief[0], belief[1])
+            print("--", belief[0], belief[1])
 
         #D = options(B,I) # se crean los deseos
         Desires.options(Beliefs,Intents)
-        print('-----DESIRES-----')
+        print('DESIRES:')
         for desire in Desires.agent_desires:
-            print(desire[0], desire[1])     
+            print("--", desire[0], desire[1])     
 
         #I = filterI(E,B,D,I)
         Intents.filterI(Emotions,Beliefs,Desires.agent_desires)
-        print('-----INTENTS-----')
+        print('INTENTS:')
         for intent in Intents.agent_intents:
-            print(intent)
-        # se estan manteniendo deseos, asi que esta linea los elimina, pero se pueden mantener deseos?
+            print("--", intent)
+
+        # se estan manteniendo deseos, asi que esta linea los elimina, pero... ¿se pueden mantener deseos?
         Desires.agent_desires = [] 
 
         return []
+
+class Plan:
+
+    def plan(self, Intents):
+        p = []    
+        for intent in Intents:
+            for idx, val in enumerate(intent):    
+                # Seleccionamos la primera intencion y las acciones correspondientes        
+                if val == 'acc_say':  
+                    resp = intent[idx+1]
+                    s = "Say.run(self, dispatcher, tracker, domain,'{0}')".format(str(resp))
+                    p.append((s))
+
+                if val == 'acc_new_belief':
+                    user_event = ['say',intent[idx+1],'none','','','']   
+                    s = "EBDI.run(self, dispatcher, tracker, domain,{0})".format(user_event)
+                    p.append((s))
+
+                if val == 'acc_del_belief':
+                    s = "Beliefs.del_belief('{0}')".format(str(intent[idx+1]))
+                    p.append(s)
+
+                if val == 'acc_fulfill':
+                    s = "Beliefs.fulfill_belief('{0}')".format(str(intent[idx+1]))
+                    p.append(s)
+                #p = acciones a realizar        
+        return p
 
 ## Acciones ##
 
@@ -211,22 +226,19 @@ class Say(Action):
             tracker: Tracker,
             domain: Dict[Text, Any],
             resp) -> List[Dict[Text, Any]]:
-        #global resp
-        global daytime
         print('la respuesta es: ' + resp)
-        print(f"{dt.datetime.now()}")
-        #if name not null
-        # dispatcher.utter_message(response=resp,name = daytime) 
+        # El dia actual
+        print(f"{dt.datetime.now().strftime('%A')}")
+        # la hora actual
+        print(f"{dt.datetime.now().strftime('%H:%M:%S')}")
 
-        #tracker.slots['daytime'] = 'evening'
-        #d = tracker.slots['daytime']#get_slot('daytime')
-        #print("daytime: " + str(d))
-        
-        #SlotSet('daytime', 'evening')
+        hours = str(f"{dt.datetime.now().strftime('%H:%M')}")
+        daytime = 'evening'
+        name = slot_name = tracker.get_slot('name')
+
         UnBuenSaludo.run(self, dispatcher, tracker, domain)
 
-        #dispatcher.utter_message(response='utter_saludar')
-        dispatcher.utter_message(response=resp)
+        dispatcher.utter_message(response=resp, name=name, hours = hours, daytime=daytime)
         contador()
         print("dispatcher: " + str(count))  
         
@@ -249,36 +261,6 @@ class action_service_options(Action):
 
         dispatcher.utter_message(text="Hitos:", buttons=buttons)   
         return []
-
-class Plan:
-
-    def plan(self, Intents):
-        p = []    
-        #global user_event
-        #global resp
-        global Be
-        for intent in Intents:
-            for idx, val in enumerate(intent):    
-                # Seleccionamos la primera intencion y las acciones correspondientes        
-                if val == 'acc_say':  
-                    resp = intent[idx+1]
-                    s = "Say.run(self, dispatcher, tracker, domain,'{0}')".format(str(resp))
-                    p.append((s))
-
-                if val == 'acc_new_belief':
-                    user_event = ['say',intent[idx+1],Be,'','','']   
-                    s = "EBDI.run(self, dispatcher, tracker, domain,{0})".format(user_event)
-                    p.append((s))
-
-                if val == 'acc_del_belief':
-                    s = "Beliefs.del_belief('{0}')".format(str(intent[idx+1]))
-                    p.append(s)
-
-                if val == 'acc_fulfill':
-                    s = "Beliefs.fulfill_belief('{0}')".format(str(intent[idx+1]))
-                    p.append(s)
-                #p = acciones a realizar        
-        return p
 
 class To_Speech(Action):
 
@@ -321,7 +303,7 @@ class ExecuteEBDI:
 class TXT():
     def name(self,response) -> Text:
         output = open("speech.txt","w")
-        print(response)
+        print("VINETbot:", response)
         output.write(str(response))
         output.close()
         return "echo"
@@ -353,9 +335,6 @@ class Dictionary:
                     result_dict[item['value']] = item['synonyms']
         return result_dict
 
-
-
-
 class ActionHelloWorld(Action):
 
     def name(self) -> Text:
@@ -377,9 +356,6 @@ class UnBuenSaludo(Action):
         
         tracker.slots["daytime"] = 'evening'
         daytime = 'evening'
-        
-        #print("un_buen_saludo")
-        #dispatcher.utter_message(response='utter_saludar')
         SlotSet("daytime", daytime)
         return [SlotSet("daytime", daytime)]
 
@@ -493,21 +469,3 @@ class Aprendizaje(Action):
                 message = "Lo siento, no estas autorizado"     
         dispatcher.utter_message(text=message)
         return []
-
-##class RestInput (InputChannel):
-#    def _extract_metadata(self, req: Request) -> Text:
-#            return req.json.get("metadata") or self.name()
-#            @custom_webhook.route("/webhook", methods=["POST"])
-#            async def receive(request: Request):
-#               sender_id = await self._extract_sender(request)
-#               text = self._extract_message(request)
-#               metadata = self._extract_metadata(request)
-#               metadata = "{\"metadata\": \"" + str(metadata) + "\"}"
-#               metadata = json.loads(metadata)
-#
-#               try:
-#                   await on_new_message(
-#                       UserMessage(
-#                           text, collector, sender_id, input_channel=input_channel, metadata=metadata
-#                       )
-#                   )
