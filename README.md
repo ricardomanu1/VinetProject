@@ -13,7 +13,15 @@
 ## Rasa x
 ### pip install --upgrade --use-deprecated=legacy-resolver --user rasa-x --extra-index-url https://pypi.rasa.com/simple
 
-## Ejecución
-### rasa run --enable-api
+## Ejecución con API
+### rasa run -m models --enable-api --credentials credentials.yml --debug
 ### rasa run actions
 
+http://localhost:5005/webhooks/myio/webhook
+
+## Ejemplo de mensaje
+{
+    "sender": "Vinet_user",
+    "message": "Hola",
+    "metadata": {"event":"say","sentiment":"happy"} 
+}
