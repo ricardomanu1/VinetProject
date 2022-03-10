@@ -14,6 +14,10 @@ class intents_manager(object):
     def intentsData(self):
         #acc_fulfill suceso que ha ocurrido y se mantiene
         #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
+
+        #hace siempre una accion individual?
+        #self.intents.append(('say','utter_saludar', ['utter_saludar'], 'acc_del_belief','utter_saludar', 'acc_say', 'utter_saludar'))   # aunque no es una creencia, es una intencion directa
+        
         self.intents.append(('say','utter_presentacion', ['presentacion'], 'acc_fulfill','presentacion', 'acc_say', 'utter_presentacion'))   
 
         self.intents.append(('say','utter_saludar', ['saludar','happy'], 'acc_say', 'utter_saludar', 'acc_fulfill','saludar', 'acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        

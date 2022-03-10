@@ -33,7 +33,7 @@ class emotions_manager(object):
         self.intencionNegativa = ["no_solicitar","atencion"]
         self.intencionNeutra = ["solicitar","ubicarme"]
        
-        # personalidad basada en BigFive
+        # personalidad basada en BigFive / OCEAN
         self.personality = {"openness":0.4, "conscientiousness":0.8, "extraversion":0.6, "agreeableness":0.3, "neuroticism":0.4}
         
         # estado de animo basado en PAD
