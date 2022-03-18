@@ -38,12 +38,7 @@ Intents = intents_manager()
 context = Intents.get_context()
 
 def __init__(self):
-
     self.agent_id = 'actions'
-    #self.emotions_manager = emotions_manager()
-    #self.belief_manager = belief_manager()        
-    #self.desires_manager = desires_manager()
-    #self.intents_manager = intents_manager()
 
 def contador():
     global count
@@ -66,6 +61,9 @@ class ChatBot(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]: 
+        
+        global Bi
+        global Be
 
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
@@ -77,13 +75,10 @@ class ChatBot(Action):
         slot_year = tracker.get_slot('year')       
         slot_milestone = tracker.get_slot('milestone')           
 
-        global Bi
-        global Be
         Bi = intent['name']
         Be = tracker.latest_message['metadata']['sentiment']
 
-        id_event = tracker.latest_message['metadata']['event']
-                 
+        id_event = tracker.latest_message['metadata']['event']                 
        
         ## Evento en el caso de que sea un texto
         user_event = [id_event,Bi,Be,text,slot_name,entities] 
