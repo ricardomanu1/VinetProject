@@ -1,0 +1,12 @@
+version: "2.0"
+nlu:
+- intent: test
+  examples: |
+    - test vinet
+    - test nlu vinet
+    - prueba vinet 
+- intent: vinet
+  examples: |
+    - comando de voz vinet
+    - comando de prueba vinet
+    - comando de para vinet

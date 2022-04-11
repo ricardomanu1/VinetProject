@@ -494,14 +494,6 @@ nlu:
     - soy [ricardo](name) y quiero ense?arte
     - soy [ricardo](name) y queiro ense?arte
     - soy [ricardo](name) quiero darte informacion
-- intent: test
-  examples: |
-    - test tristeza
-    - test felicidad
-- intent: test2
-  examples: |
-    - realiza el test numero dos
-    - probar el test 2
 - intent: hito1
   examples: |
     - quiero la historia [hito 1](content_type)

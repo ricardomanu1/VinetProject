@@ -91,6 +91,7 @@ class intents_manager(object):
 
         ## Usuario me hace preguntas basicas
         self.intents.append(('say','utter_responder_hora', ['pregunta_hora'], 'acc_say', 'utter_responder_hora','acc_del_belief','pregunta_hora'))
+        self.intents.append(('say','utter_ubicarme', ['ubicarme'], 'acc_say', 'utter_ubicarme','acc_del_belief','ubicarme'))
 
         ## Usuario se despide
         self.intents.append(('say','utter_despedir', ['despedir'], 'acc_say', 'utter_despedir','acc_fulfill','despedir'))

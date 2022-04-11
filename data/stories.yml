@@ -218,12 +218,6 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: test2_path
-  steps:
-  - intent: test2
-  - action: chatbot
-  - action: to_speech
-
 - story: ubicarme_path
   steps:
   - intent: ubicarme

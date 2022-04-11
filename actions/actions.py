@@ -73,7 +73,7 @@ class ChatBot(Action):
         slot_name = tracker.get_slot('name')       
         slot_place = tracker.get_slot('place')       
         slot_year = tracker.get_slot('year')       
-        slot_milestone = tracker.get_slot('milestone')           
+        slot_milestone = tracker.get_slot('milestone')          
 
         Bi = intent['name']
         Be = tracker.latest_message['metadata']['sentiment']
@@ -97,8 +97,6 @@ class ChatBot(Action):
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
         
-       
-
         return []
 
 ## Estructura EBDI
@@ -236,8 +234,9 @@ class Say(Action):
         dispatcher.utter_message(response=resp, name=name, hours = hours, daytime=daytime)
         contador()
         print("dispatcher: " + str(count))  
+        print("daytime: " + str(tracker.get_slot('daytime') ))  
         
-        return []
+        return [ SlotSet("daytime", "evening")]
 
 ##
 class action_service_options(Action):
@@ -297,7 +296,7 @@ class ExecuteEBDI:
 
 class TXT():
     def name(self,response) -> Text:
-        output = open("speech.txt","w")
+        output = open("speech.txt","w+")
         print("VINETbot:", response)
         output.write(str(response))
         output.close()

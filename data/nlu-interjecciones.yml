@@ -1,0 +1,77 @@
+version: "2.0"
+nlu:
+- intent: i_asombro
+  examples: |
+    - ah!
+    - oh!
+    - uy!
+- intent: i_dolor
+  examples: |
+    - ay!
+    - au!
+- intent: i_aceptacion
+  examples: |
+    - guay!
+    - si!
+- intent: i_rechazo
+  examples: |
+    - eh!
+    - no!
+- intent: i_desagrado
+  examples: |
+    - agg!
+    - puaj!
+- intent: i_cansancio
+  examples: |
+    - uf!
+    - bah!
+- intent: i_sorpresa
+  examples: |
+    - eh?
+    - ah!
+    - uy!
+    - eh!
+- intent: i_deseo
+  examples: |
+    - ojala!
+    - dios quiera!
+- intent: i_admiracion
+  examples: |
+    - oh!
+    - ala!
+- intent: i_saludo
+  examples: |
+    - hola!
+    - hey!
+- intent: i_impropias
+  examples: |
+    - ojo!
+    - cuidado!
+    - bravo!
+    - oiga!
+    - vaya!
+    - estupendo!
+    - formidable!
+    - caramba!
+    - diablos!
+    - recorcholis!
+    - hombre!
+    - anda!
+    - dale!
+    - caracoles!
+- intent: i_fraseologismos
+  examples: |
+    - dios mio!
+    - cielo santo!
+    - madre mia!
+    - ay de mi!
+- intent: i_imitativas
+  examples: |
+    - zas!
+    - pum!
+    - chas!
+    - miau!
+    - buaaaa!
+
+
+

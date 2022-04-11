@@ -45,7 +45,7 @@ intents:
 - solicitar_interes
 - stop
 - test
-- test2
+- vinet
 - ubicarme
 - xml
 entities:
@@ -84,41 +84,40 @@ slots:
       - morning
       - afternoon
       - evening  
-    influence_conversation: false
+    influence_conversation: true
 responses:
   utter_saludar:
+  - text: "Buenos días."
+    condition:
+      - type: slot
+        name: daytime
+        value: morning       
+  - text: "Buenas tardes." 
+    condition:
+      - type: slot
+        name: daytime
+        value: afternoon        
+  - text: "Buenas noches."
+    condition:
+      - type: slot
+        name: daytime
+        value: evening    
   - metadata:
       emotional: happy
-    text: ¡Hey!
+    text: ¡Ey!
   - metadata:
       emotional: neutral
     text: Hola.
   - text: Muy buenas
   - text: ¡Hola!
   - text: Holas
-  - text: Buenos días.
-    condition:
-      - type: slot
-        name: daytime
-        value: morning   
-    channel: "myio"
-  - text: Buenas tardes.
-    condition:
-      - type: slot
-        name: daytime
-        value: afternoon  
-    channel: "myio"
-  - text: Buenas noches.
-    condition:
-      - type: slot
-        name: daytime
-        value: evening
-    channel: "myio"
   utter_empatizar:
   - text: Me encuentro bien
+  - text: No me puedo quejar
   - text: No tengo quejas
   - text: Bien
-  - text: Todo se encuentra en orden
+  - text: Muy bien
+  - text: Todo en orden
   - text: Guay
   - text: Agotado de tanto entrenar
   - text: Genial
@@ -217,7 +216,7 @@ responses:
   - text: Soy Rasa
   - text: Soy un bot creado en un ordenador
   utter_presentacion:
-  - text: ¡Hey! hola {name}
+  - text: ¡Ey! hola {name}
   - text: Hola de nuevo {name}
   utter_fuera_de_alcance:
   - text: Lo siento. \nNo puedo responder esa solicitud
