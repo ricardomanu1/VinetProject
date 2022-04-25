@@ -57,6 +57,7 @@ entities:
 - name
 - milestone
 - persona
+- sentiment
 slots:
   hours:
     type: text

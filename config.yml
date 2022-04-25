@@ -37,6 +37,7 @@ pipeline:
     epochs: 100
     constrain_similarities: true
 #  - name: "emotions_manager.emotions_manager"
+  - name: "sentiment.SentimentAnalyzer"
 #   - name: FallbackClassifier
 #     threshold: 0.3
 #     ambiguity_threshold: 0.1
@@ -45,14 +46,14 @@ pipeline:
 # https://rasa.com/docs/rasa/core/policies/
 policies:
   # Comprobacion de historias y prediccion de la siguiente accion
-  - name: MemoizationPolicy
-  # Prediccion basada en reglas
-  - name: RulePolicy
+  - name: MemoizationPolicy 
   #   - name: UnexpecTEDIntentPolicy
   #     max_history: 5
   #     epochs: 100
   - name: TEDPolicy
     max_history: 5
-    epochs: 100
+    epochs: 200
     constrain_similarities: true
+  # Prediccion basada en reglas  
+  - name: RulePolicy
   #- name: MappingPolicy

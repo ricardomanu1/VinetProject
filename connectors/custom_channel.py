@@ -120,16 +120,18 @@ class MyioInput(InputChannel):
                             input_channel=input_channel,
                             metadata=metadata,
                         )
-                    )
+                    )                            
                 except CancelledError:
                     logger.error(
                         f"Message handling timed out for " f"user message '{text}'."
                     )
                 except Exception:
-                    logger.exception(
-                        f"An exception occured while handling "
-                        f"user message '{text}'."
-                    )
+                    #logger.exception(
+                     #   f"An exception occured while handling "
+                     #   f"user message '{text}'."
+                   # )
+                    print("fallo")
+                print(str(collector.messages))
                 return response.json(collector.messages)
 
         return custom_webhook
