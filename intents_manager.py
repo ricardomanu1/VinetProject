@@ -110,7 +110,7 @@ class intents_manager(object):
         self.intents.append(('say','utter_empatizar_mal', ['espero_respuesta','estado_mal'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_mal', 'acc_new_belief','le_animo'))        
         self.intents.append(('say','utter_empatizar_aburrimiento', ['espero_respuesta','estado_aburrimiento'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_aburrimiento', 'acc_new_belief','dar_hitos_opciones')) 
         ## YO intervengo en el estado de animo del usuario
-        self.intents.append(('say','utter_animar', ['le_animo'],'acc_del_belief','utter_animar','acc_say', 'utter_animar', 'acc_new_belief','he_preguntado_si_no'))
+        self.intents.append(('say','utter_animar', ['le_animo'],'acc_del_belief','le_animo','acc_say', 'utter_animar', 'acc_new_belief','he_preguntado_si_no'))
         ## YO pregunto al usuario 
         self.intents.append(('say','utter_preguntar', ['le_pregunto'], 'acc_say', 'utter_preguntar','acc_fulfill','le_pregunto','acc_new_belief','he_preguntado')) 
         self.intents.append(('say','utter_solicitar', ['he_preguntado_si_no', 'afirmar'],'acc_del_belief','he_preguntado_si_no', 'acc_del_belief','afirmar','acc_say', 'utter_solicitar','acc_new_belief','he_solicitado')) 

@@ -37,7 +37,7 @@ class SentimentAnalyzer(Component):
         for t in training_data:
             if(t.data.get('text_tokens') is not None):
                 for i in t.data.get('text_tokens'):
-                    print(i.text)
+                    #print(i.text)
                     tokens.append(i.text)
         #tokens = [list(map(lambda x: x.text, t.data.get('text_tokens'))) for t in training_data]
         processed_tokens = [self.preprocessing(t) for t in tokens]

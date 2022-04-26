@@ -109,120 +109,124 @@ responses:
   - metadata:
       emotional: neutral
     text: Hola.
-  - text: Muy buenas
+  - text: Muy buenas.
   - text: ¡Hola!
-  - text: Holas
+  - text: Holas.
   utter_empatizar:
-  - text: Me encuentro bien
-  - text: No me puedo quejar
-  - text: No tengo quejas
-  - text: Bien
-  - text: Muy bien
-  - text: Todo en orden
-  - text: Guay
-  - text: Agotado de tanto entrenar
-  - text: Genial
+  - text: Me encuentro bien.
+  - text: No me puedo quejar.
+  - text: No tengo quejas.
+  - text: Bien.
+  - text: Muy bien.
+  - text: Todo en orden.
+  - text: Guay.
+  - text: Agotado de tanto entrenar.
+  - text: Genial.
   utter_ubicarme:
-  - text: Posiblemente en Roncesvalles, aunque también podrías estar en la universidad
-  - text: Si tuviese un GPS a mano te lo podría decir
-  - text: Mira que no saberlo
+  - text: Posiblemente en Roncesvalles, aunque también podrías estar en la universidad.
+  - text: Si tuviese un GPS a mano te lo podría decir.
+  - text: Mira que no saberlo.
   utter_despedir:
-  - text: Chao
-  - text: Espero verte pronto
-  - text: Hasta luego
-  - text: Adiós
-  - text: Cuídate
-  - text: Nos vemos
-  - text: Que vaya bien
-  - text: Ve con cuidado
-  - text: Hasta nunca
-  - text: Hasta ahora
-  - text: Bye bye
-  - text: Que te vaya bien
-  - text: Que sea leve
-  - text: Nos vemos luego
-  - text: Hasta la vista
+  - text: Chao.
+  - text: Espero verte pronto.
+  - text: Hasta luego.
+  - text: Adiós.
+  - text: Cuídate.
+  - text: Nos vemos.
+  - text: Que vaya bien.
+  - text: Ve con cuidado.
+  - text: Hasta nunca.
+  - text: Hasta ahora.
+  - text: Bye bye.
+  - text: Que te vaya bien.
+  - text: Que sea leve.
+  - text: Nos vemos luego.
+  - text: Hasta la vista.
   utter_afirmar:
+  - text: Sí.
+  utter_afirmativo:
   - text: ¡Vale!
-  - text: De acuerdo
-  - text: Me parece correcto
-  - text: Desde luego
-  - text: Claro
-  - text: Por supuesto
-  - text: Si
-  - text: Vale
-  - text: Me parece bien
-  - text: Bien
-  - text: Ok
-  - text: Afirmativo
-  - text: Estas en lo correcto
-  - text: Suena bien
-  - text: Correcto
-  - text: Eso es
-  - text: Así es
-  - text: Estupendo
+  - text: De acuerdo.
+  - text: Me parece correcto.
+  - text: Desde luego.
+  - text: Claro.
+  - text: Por supuesto.
+  - text: Si.
+  - text: Vale.
+  - text: Me parece bien.
+  - text: Bien.
+  - text: Ok.
+  - text: Afirmativo.
+  - text: Estas en lo correcto.
+  - text: Suena bien.
+  - text: Correcto.
+  - text: Eso es.
+  - text: Así es.
+  - text: Estupendo.
   utter_negar:
-  - text: No
-  - text: Nop
-  - text: No realmente
-  - text: Claro que no
-  - text: Erróneo
-  - text: Pues no
-  - text: Para nada
-  - text: Absolutamente no
-  - text: Ni lo pienses
+  - text: No.
+  utter_negativo:
+  - text: No.
+  - text: Nop.
+  - text: No realmente.
+  - text: Claro que no.
+  - text: Erróneo.
+  - text: Pues no.
+  - text: Para nada.
+  - text: Absolutamente no.
+  - text: Ni lo pienses.
   utter_buscar_cuando:
-  - text: Estás buscando cuando
+  - text: Estás buscando cuando.
   utter_buscar_por_que:
-  - text: Estás buscando el por que
+  - text: Estás buscando el por que.
   utter_buscar_quien:
-  - text: Estás buscando quien
+  - text: Estás buscando quien.
   utter_buscar_como:
-  - text: Estás buscando como
+  - text: Estás buscando como.
   utter_buscar_donde:
-  - text: Estás buscando donde
+  - text: Estás buscando donde.
   utter_agradecer:
-  - text: De nada
+  - text: De nada.
   - text: No hay de qué.
   utter_solicitar:
   - text: ¿Tienes algún tema que pueda interesarte?
   - text: ¿Alguna cosa en mente?
   - text: ¿Sabes de algún tema que te pueda interesar?
   utter_no_solicitar:
-  - text: Bueno, si necesitas algo, dime
-  - text: De acuerdo
-  - text: Bien
+  - text: Bueno, si necesitas algo, dime.
+  - text: De acuerdo.
+  - text: Bien.
   utter_atencion:
   - text: ¡Atención!
   utter_estado_bien:
   - text: ¿Te encuentras bien?
-  - text: Veo que te encuentras bien
+  - text: Veo que te encuentras bien.
   utter_estado_mal:
-  - text: Veo que te encuentras mal
+  - text: Veo que te encuentras mal.
   utter_estado_enfado:
-  - text: Veo que te encuentras enfadado
+  - text: Veo que te encuentras enfadado.
   utter_estado_miedo:
-  - text: Veo que te encuentras con miedo
+  - text: Veo que te encuentras con miedo.
   utter_estado_nerviosismo:
-  - text: Veo que te encuentras nervioso
+  - text: Veo que te encuentras nervioso.
   utter_estado_aburrimiento:
-  - text: Veo que te encuentras aburrido
+  - text: Veo que te encuentras aburrido.
   utter_estado_emocion:
-  - text: Veo que te encuentras emocionada
+  - text: Veo que te encuentras emocionada.
   utter_estado_soledad:
   - text: ¿Te sientes solo?
   utter_estado_cansancio:
-  - text: Te noto algo cansado
+  - text: Te noto algo cansado.
   utter_identidad:
-  - text: Soy Rasa
-  - text: Soy un bot creado en un ordenador
+  - text: Soy Rasa.
+  - text: Soy un bot creado en un ordenador.
   utter_presentacion:
   - text: ¡Ey! hola {name}
   - text: Hola de nuevo {name}
   utter_fuera_de_alcance:
-  - text: Lo siento. \nNo puedo responder esa solicitud
+  - text: Lo siento. \nNo puedo responder esa solicitud.
   utter_test:
-  - text: Vaya test
+  - text: Vaya test.
   utter_interes:
   - text: ¿Qué tal?
   - text: ¿Qué tal estas?
@@ -230,15 +234,19 @@ responses:
   - text: ¿Cómo te encuentras?
   - text: ¿Cómo estás?
   utter_empatizar_bien:
-  - text: Que bien
-  - text: Me alegro
+  - text: Que bien.
+  - text: Me alegro.
+  - text: Que bueno.
+  - text: Genial.
   utter_empatizar_mal:
   - text: Vaya...
-  - text: Que mal
+  - text: Que mal.
+  - text: Lo siento.
   utter_empatizar_aburrimiento:
   - text: ¿Puedo hablarte de alguno de estos temas tan interesantes?
   utter_animar:
   - text: ¿Puedo animarte con alguna historia?
+  - text: ¿Quieres escuchar algo entretenido?
   utter_preguntar:
   - text: Dime, ¿En que te puedo ayudar?
   - text: ¿Necesitas algo?
@@ -246,275 +254,268 @@ responses:
   - text: ¿Qué puedo hacer por ti?
   - text: ¿Qué se te ofrece?
   utter_dar_opciones:
-  - text: Te puede interesar esto
-  - text: Aquí tienes algunos temas que te pueden interesar
-  - text: Te puedo recomendar estos temas
+  - text: Te puede interesar esto.
+  - text: Aquí tienes algunos temas que te pueden interesar.
+  - text: Te puedo recomendar estos temas.
   utter_atender:
-  - text: Ya veo, quieres saber sobre esto
+  - text: Ya veo, quieres saber sobre esto.
   utter_confirmacion:
   - text: ¿Te interesa saber más?
+  - text: ¿Quieres saber más?
   utter_pregunta:
-  - text: Fui un sargento del Regimiento escocés 92 durante la Guerra de independencia Española, estuve encargado de vigilar la frontera con Francia
+  - text: Fui un sargento del Regimiento escocés 92 durante la Guerra de independencia Española, estuve encargado de vigilar la frontera con Francia.
   utter_otra_pregunta:
   - text: A principios de octubre, la nieve cayó en tal cantidad como no había visto nunca en Escocia. Casi perdimos la artilleria que habíamos colocado en diferentes baterías, y no pudimos sacar los camiones de la nieve hasta que no cortamos algunos árboles, y después de quitar la nieve de debajo conseguimos arrastrarlos por turnos hasta el pueblo. Mientras estábamos en este frío y elevado lugar, mi mujer dio a luz una niña, y tuvimos que andar varios kilometros a la mañana siguiente para llegar al hospital [de Roncesvalles].
   utter_especifica:
-  - text: Por favor, especifica más
+  - text: Por favor, especifica más.
   - text: ¿Qué quieres decir?
-  - text: Sé más concreto
+  - text: Sé más concreto.
   utter_especificar:
   - text: ¿Podrías especificar?
-  - text: Por favor, especifica que quieres
+  - text: Especifica que quieres.
   - text: ¿Qué se te ofrece?
-  - text: Concreta que es lo que quieres
+  - text: Concreta que es lo que quieres.
   utter_estar_bien:
-  - text: Perfectamente
-  - text: Genial
-  - text: De maravilla
-  - text: Bien
-  - text: Muy bien
-  - text: Todo bien
-  - text: Estupendo
-  - text: No me quejo
-  - text: Yo estoy feliz
-  - text: Me siento genial
-  - text: Estoy bien
-  - text: Tuve un gran día
-  - text: ¡Maravilloso!
-  - text: Demasiado genial
-  - text: Estoy muy bien
-  - text: Sintiéndome bien
-  - text: Mejor que nunca
-  - text: Me siento afortunado
-  - text: Todo genial aquí
-  - text: Día fantástico
-  - text: Que gran día
-  - text: Estoy inspirado
-  - text: Es perfecto
-  - text: Increíble
-  - text: Me siento maravillosa
-  - text: Me siento muy bien
-  - text: Estoy genial
-  - text: Me siento feliz
-  - text: ¡Hoy es un día increíble!
-  - text: Estoy tan feliz
-  - text: Estoy realmente feliz ahora mismo
-  - text: Bueno, ha sido un bien dia
-  - text: Muy bien, gracias
-  - text: Guay
-  - text: Muy bien y ¿tú?
-  - text: Pues aquí estamos
+  - text: Perfectamente.
+  - text: Me encuentro perfectamente.
+  - text: Genial.
+  - text: De maravilla.
+  - text: Bien.
+  - text: Muy bien.
+  - text: Estupendo.
+  - text: No me quejo.
+  - text: Yo estoy feliz.
+  - text: Me siento genial.
+  - text: Estoy bien.
+  - text: Tuve un gran día.
+  - text: ¡Maravilloso!.
+  - text: Demasiado genial.
+  - text: Estoy muy bien.
+  - text: Sintiéndome bien.
+  - text: Mejor que nunca.
+  - text: Me siento afortunado.
+  - text: Todo genial aquí.
+  - text: Con un día fantástico.
+  - text: Que gran día.
+  - text: Estoy inspirado.
+  - text: Es perfecto.
+  - text: Increíble.
+  - text: Me siento maravillosa.
+  - text: Me siento muy bien.
+  - text: Estoy genial.
+  - text: Me siento feliz.
+  - text: ¡Hoy es un día increíble!.
+  - text: Estoy tan feliz.
+  - text: Estoy realmente feliz ahora mismo.
+  - text: Bueno, ha sido un bien dia.
+  - text: Guay.
+  - text: Pues aquí estamos.
   utter_estar_mal:
-  - text: Mi día fue horrible
-  - text: Horrible
-  - text: Muy mal
-  - text: Mal
-  - text: Triste
-  - text: Algo triste
-  - text: Decaído
-  - text: Fue un día horrible
-  - text: Infeliz
-  - text: Estoy triste
-  - text: No me siento muy bien
-  - text: Estoy decepcionado
-  - text: Esto es malo
-  - text: Estoy enfermo
-  - text: Estoy todo bajo hoy
-  - text: Es decepcionante
-  - text: Que irritante es
-  - text: Estoy irritado
-  - text: No me estoy sintiendo bien
+  - text: Mi día fue horrible.
+  - text: Horrible.
+  - text: Muy mal.
+  - text: Mal.
+  - text: Triste.
+  - text: Algo triste.
+  - text: Decaído.
+  - text: Fue un día horrible.
+  - text: Infeliz.
+  - text: Estoy triste.
+  - text: No me siento muy bien.
+  - text: Estoy decepcionado.
+  - text: Esto es malo.
+  - text: Estoy enfermo.
+  - text: Estoy todo bajo hoy.
+  - text: Es decepcionante.
+  - text: Estoy irritado.
+  - text: No me estoy sintiendo bien.
   - text: ¡Esto apesta!
-  - text: Me siento muy mal
-  - text: ¡El peor día!
+  - text: Me siento muy mal.
+  - text: ¡Es el peor día!
   - text: Esto se siente mal
-  - text: Me siento deprimido
-  - text: Todo está mal hoy
-  - text: Me siento muy triste
-  - text: Se siente horrible
-  - text: Esto es deprimente
-  - text: Estoy deprimido
-  - text: Me siento aburrido
-  - text: La vida es aburrida
-  - text: Me siento vacío
-  - text: Me siento inútil
-  - text: Deprimido
-  - text: Pesado
-  - text: Me siento bastante perdido
-  - text: Muy triste
-  - text: Malo
-  - text: Terrible
-  - text: No muy bueno
-  - text: Extremadamente triste
-  - text: Me siento desanimado
-  - text: Me siento triste
-  - text: No estoy bien
-  - text: Me siento mal
-  - text: No es bueno
-  - text: Estoy Horrible
-  - text: Estoy inquieto
-  - text: En realidad no estoy bien
-  - text: Estoy tan solo como puedo
-  - text: Estoy pasando por un momento bastante difícil
-  - text: Estoy de duelo
+  - text: Me siento deprimido.
+  - text: Todo está mal hoy.
+  - text: Me siento muy triste.
+  - text: Esto es deprimente.
+  - text: Estoy deprimido.
+  - text: Me siento vacío.
+  - text: Me siento inútil.
+  - text: Deprimido.
+  - text: Pesado.
+  - text: Me siento bastante perdido.
+  - text: Muy triste.
+  - text: Malo.
+  - text: Terrible.
+  - text: Extremadamente triste.
+  - text: Me siento desanimado.
+  - text: Me siento triste.
+  - text: No estoy bien.
+  - text: Me siento mal.
+  - text: Estoy Horrible.
+  - text: Estoy inquieto.
+  - text: En realidad no estoy bien.
+  - text: Estoy tan solo como puedo.
+  - text: Estoy pasando por un momento bastante difícil.
+  - text: Estoy de duelo.
   utter_estar_enfadado:
-  - text: Estoy enojado
-  - text: Me siento tan enojado
-  - text: Estoy tan molesto
-  - text: Es molesto
-  - text: Eso es agravante
-  - text: Estoy furioso
-  - text: Eso es exasperante
-  - text: Estoy muy enojado
-  - text: Todo me fastidia
-  - text: Estoy indignado
-  - text: ¡eso es indignante!
-  - text: Me siento hostil
-  - text: Estoy muy frustrado
-  - text: Me está irritando
-  - text: Me siento tan ofendido
-  - text: Estoy lleno de furia
-  - text: Me siento muy beligerante
-  - text: Odio hacer esto
-  - text: No tengo paciencia hoy
-  - text: No pude controlar mi enojo
-  - text: Estoy molesto
-  - text: Estoy supermolesto
-  - text: Estoy muy loco
-  - text: Estoy enfurecido
-  - text: ¡esto es enloquecedor!
-  - text: Estoy cabreado
-  - text: Puedes apostar que estoy enojado
-  - text: Eso me hizo enojar
-  - text: Me hiciste enojar
-  - text: Todavía estoy enojado por eso
+  - text: Estoy enojado.
+  - text: Me siento tan enojado.
+  - text: Estoy tan molesto.
+  - text: Es molesto.
+  - text: Eso es agravante.
+  - text: Estoy furioso.
+  - text: Eso es exasperante.
+  - text: Estoy muy enojado.
+  - text: Todo me fastidia.
+  - text: Estoy indignado.
+  - text: ¡Eso es indignante!
+  - text: Me siento hostil.
+  - text: Estoy muy frustrado.
+  - text: Me está irritando.
+  - text: Me siento tan ofendido.
+  - text: Estoy lleno de furia.
+  - text: Me siento muy beligerante.
+  - text: Odio hacer esto.
+  - text: No tengo paciencia hoy.
+  - text: No pude controlar mi enojo.
+  - text: Estoy molesto.
+  - text: Estoy supermolesto.
+  - text: Estoy muy loco.
+  - text: Estoy enfurecido.
+  - text: ¡Esto es enloquecedor!
+  - text: Estoy cabreado.
+  - text: Puedes apostar que estoy enojado.
+  - text: Eso me hizo enojar.
+  - text: Me hiciste enojar.
+  - text: Todavía estoy enojado por eso.
   utter_estar_miedo:
-  - text: Estoy asustado
-  - text: Me siento asustado
-  - text: Estoy preocupado
-  - text: Estoy aterrado
-  - text: Eso es aterrador
-  - text: Me siento intimidado
-  - text: Eso es intimidante
-  - text: Estoy petrificado
-  - text: Tengo miedo
-  - text: Me siento ansioso
-  - text: Tengo un mal presentimiento
-  - text: Entre en pánico
-  - text: Me encogí de miedo
-  - text: Estoy muerto de miedo
-  - text: Estalle en un sudor frío
-  - text: ¡eso me sobresalto!
-  - text: Me asusta fácilmente
-  - text: Estoy temblando de miedo
-  - text: Estoy horrorizado
+  - text: Estoy asustado.
+  - text: Me siento asustado.
+  - text: Estoy preocupado.
+  - text: Estoy aterrado.
+  - text: Eso es aterrador.
+  - text: Me siento intimidado.
+  - text: Eso es intimidante.
+  - text: Estoy petrificado.
+  - text: Tengo miedo.
+  - text: Me siento ansioso.
+  - text: Tengo un mal presentimiento.
+  - text: Entre en pánico.
+  - text: Me encogí de miedo.
+  - text: Estoy muerto de miedo.
+  - text: Estalle en un sudor frío.
+  - text: ¡Eso me sobresalto!
+  - text: Me asusta fácilmente.
+  - text: Estoy temblando de miedo.
+  - text: Estoy horrorizado.
   utter_estar_nervioso:
-  - text: Estoy nervioso
-  - text: Estoy estresado
-  - text: Me siento nervioso
-  - text: Estoy ansioso
-  - text: Me siento ansioso
-  - text: Esto es nervioso
-  - text: Siento que voy a vomitar
-  - text: Tengo un nudo en la garganta
-  - text: Tengo mariposas en mi estómago
-  - text: Soy un manojo de nervios
-  - text: Estoy empezando a sudar frio
-  - text: Le tengo miedo a mi propia sombra
+  - text: Estoy nervioso.
+  - text: Estoy estresado.
+  - text: Me siento nervioso.
+  - text: Estoy ansioso.
+  - text: Me siento ansioso.
+  - text: Esto es nervioso.
+  - text: Siento que voy a vomitar.
+  - text: Tengo un nudo en la garganta.
+  - text: Tengo mariposas en mi estómago.
+  - text: Soy un manojo de nervios.
+  - text: Estoy empezando a sudar frio.
+  - text: Le tengo miedo a mi propia sombra.
   - text: Soy como un gato sobre ladrillos calientes
-  - text: Estoy saltando fuera de mi piel
-  - text: Estoy al borde de mi ingenio
-  - text: Tengo la lengua atada
-  - text: Estoy al borde
-  - text: Estoy muy tenso
-  - text: Me siento incómoda
-  - text: Estoy alarmado
-  - text: Estoy preocupado
-  - text: Estoy tenso
-  - text: Estoy bajo mucho estrés
-  - text: Estoy constantemente preocupado
-  - text: Siento una tensión constante
-  - text: Sufro de ansiedad
-  - text: Me he sentido bastante ansioso últimamente
-  - text: Mi ansiedad está por las nubes estos días
-  - text: Me siento bastante inquieto
-  - text: No puedo concentrarme porque estoy preocupado constantemente
-  - text: Estoy bajo un inmenso estrés
+  - text: Estoy saltando fuera de mi piel.
+  - text: Estoy al borde de mi ingenio.
+  - text: Tengo la lengua atada.
+  - text: Estoy al borde.
+  - text: Estoy muy tenso.
+  - text: Me siento incómoda.
+  - text: Estoy alarmado.
+  - text: Estoy preocupado.
+  - text: Estoy tenso.
+  - text: Estoy bajo mucho estrés.
+  - text: Estoy constantemente preocupado.
+  - text: Siento una tensión constante.
+  - text: Sufro de ansiedad.
+  - text: Me he sentido bastante ansioso últimamente.
+  - text: Mi ansiedad está por las nubes estos días.
+  - text: Me siento bastante inquieto.
+  - text: No puedo concentrarme porque estoy preocupado constantemente.
+  - text: Estoy bajo un inmenso estrés.
   - text: Han sido unos días difíciles. 
-  - text: Muy estresante
-  - text: Estoy bastante tenso
+  - text: Muy estresante.
+  - text: Estoy bastante tenso.
   - text: Ha habido bastantes cambios en mi vida.
   - text: No creo que los esté manejando bien.
-  - text: Es bastante estresante
-  - text: Me encuentro preocupando por cada pequeño detalle
-  - text: Soy un preocupado crónico
-  - text: Me siento bastante inquieto y una horda de preocupaciones me está molestando
-  - text: No puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan
+  - text: Es bastante estresante.
+  - text: Me encuentro preocupando por cada pequeño detalle.
+  - text: Soy un preocupado crónico.
+  - text: Me siento bastante inquieto y una horda de preocupaciones me está molestando.
+  - text: No puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan.
   utter_estar_aburrido:
-  - text: Muy aburrido
-  - text: Eso fue aburrido
-  - text: Estoy aburrido
-  - text: Aburrido
-  - text: Me estoy aburriendo
-  - text: Quedarse en casa es aburrido
-  - text: Me aburre
-  - text: Tuve un día lento
-  - text: Estoy muy aburrido
-  - text: Estoy un poco aburrido hoy
-  - text: Nunca me he aburrido más
-  - text: Estaba aburrido
-  - text: Es aburrido
-  - text: Esto es aburrido
-  - text: Estamos todos aburridos
-  - text: Es muy aburrido
-  - text: Ya estoy aburrido
-  - text: Estoy loco de aburrimiento
+  - text: Muy aburrido.
+  - text: Eso fue aburrido.
+  - text: Estoy aburrido.
+  - text: Aburrido.
+  - text: Me estoy aburriendo.
+  - text: Quedarse en casa es aburrido.
+  - text: Me aburre.
+  - text: Tuve un día lento.
+  - text: Estoy muy aburrido.
+  - text: Estoy un poco aburrido hoy.
+  - text: Nunca me he aburrido más.
+  - text: Estaba aburrido.
+  - text: Es aburrido.
+  - text: Esto es aburrido.
+  - text: Estamos todos aburridos.
+  - text: Es muy aburrido.
+  - text: Ya estoy aburrido.
+  - text: Estoy loco de aburrimiento.
   utter_estar_emocionado:
-  - text: Estoy emocionado
-  - text: Estoy muy emocionado
-  - text: No puedo empezar a decir lo emocionado que estoy
-  - text: Soy exagerada
-  - text: Me sentí emocionado
-  - text: Fue emocionante
-  - text: Eso fue emocionante
+  - text: Estoy emocionado.
+  - text: Estoy muy emocionado.
+  - text: No puedo empezar a decir lo emocionado que estoy.
+  - text: Soy exagerada.
+  - text: Me sentí emocionado.
+  - text: Fue emocionante.
+  - text: Eso fue emocionante.
   - text: ¡qué interesante!
-  - text: Esto es tan divertido
+  - text: Esto es tan divertido.
   utter_estar_soledad:
-  - text: Estoy solo
-  - text: Soy muy solitario
-  - text: Estoy tan solo
-  - text: Estoy realmente solo
-  - text: Me siento solo
-  - text: Soy un solitario
-  - text: No tengo ninguna compañía
-  - text: No tengo a nadie más
-  - text: Siempre estoy sola
-  - text: Estoy completamente solo
-  - text: Vivo solo
-  - text: Me he acostumbrado a vivir solo
-  - text: Creo que he estado viviendo solo demasiado tiempo
-  - text: No tengo a nadie con quien hablar
-  - text: Sigo solo
-  - text: Estoy acostumbrado a vivir solo
+  - text: Estoy solo.
+  - text: Soy muy solitario.
+  - text: Estoy tan solo.
+  - text: Estoy realmente solo.
+  - text: Me siento solo.
+  - text: Soy un solitario.
+  - text: No tengo ninguna compañía.
+  - text: No tengo a nadie más.
+  - text: Siempre estoy sola.
+  - text: Estoy completamente solo.
+  - text: Vivo solo.
+  - text: Me he acostumbrado a vivir solo.
+  - text: Creo que he estado viviendo solo demasiado tiempo.
+  - text: No tengo a nadie con quien hablar.
+  - text: Sigo solo.
+  - text: Estoy acostumbrado a vivir solo.
   utter_estar_cansado:
-  - text: Estoy exhausto
-  - text: He trabajado demasiado
-  - text: Estoy cansado
-  - text: Estoy agotado
-  - text: Me canso
-  - text: Estoy muy cansado
-  - text: Me estoy cansando
-  - text: Me siento cansado
-  - text: Estoy tan cansado
-  - text: Estoy completamente agotado
-  - text: Estaba cansado
-  - text: Estoy muerto de cansancio
-  - text: Estoy un poco cansado
-  - text: Estuve muy cansado
-  - text: Estoy realmente cansado
-  - text: Estoy terriblemente cansado
-  - text: Estoy algo cansado
-  - text: Pues aquí algo cansado
-  - text: Pues algo cansado
+  - text: Estoy exhausto.
+  - text: He trabajado demasiado.
+  - text: Estoy cansado.
+  - text: Estoy agotado.
+  - text: Me canso.
+  - text: Estoy muy cansado.
+  - text: Me estoy cansando.
+  - text: Me siento cansado.
+  - text: Estoy tan cansado.
+  - text: Estoy completamente agotado.
+  - text: Estaba cansado.
+  - text: Estoy muerto de cansancio.
+  - text: Estoy un poco cansado.
+  - text: Estuve muy cansado.
+  - text: Estoy realmente cansado.
+  - text: Estoy terriblemente cansado.
+  - text: Estoy algo cansado.
+  - text: Pues aquí algo cansado.
+  - text: Pues algo cansado.
   utter_hito:
   - text: Aquí te hablo del hito que has solicitado {milestone}...
   utter_hito1:

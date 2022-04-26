@@ -10,23 +10,25 @@ pipeline:
   - name: "SpacyNLP"
     model: "es_core_news_md"
     case_sensitive: false 
-  - name: WhitespaceTokenizer
-  #- name: SpacyTokenizer
+  #- name: WhitespaceTokenizer
+  - name: SpacyTokenizer
+  - name: "sentiment.SentimentAnalyzer"
   # Codificacion de la palabra
-  # De caracter disperso, reconocimiento de entidades 
-  - name: RegexFeaturizer
-    case_sensitive: false
-  #- name: SpacyFeaturizer
+  # De caracter disperso, reconocimiento de entidades
+  - name: SpacyFeaturizer
   #  pooling: mean
+  - name: RegexFeaturizer
+  #  case_sensitive: false
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
   - name: CountVectorsFeaturizer
     analyzer: "char_wb"
     min_ngram: 1
     max_ngram: 4
-  # clasificador de intencion y extraccion de entidad
+  - name: "CRFEntityExtractor"
+    # clasificador de intencion y extraccion de entidad
   - name: DIETClassifier
-    epochs: 100
+    epochs: 50
     constrain_similarities: true
   # extraccion de entidad con agregacion de informacion
   #- name: RegexEntityExtractor
@@ -37,10 +39,9 @@ pipeline:
     epochs: 100
     constrain_similarities: true
 #  - name: "emotions_manager.emotions_manager"
-  - name: "sentiment.SentimentAnalyzer"
-#   - name: FallbackClassifier
-#     threshold: 0.3
-#     ambiguity_threshold: 0.1
+#  - name: FallbackClassifier
+#    threshold: 0.3
+#    ambiguity_threshold: 0.1
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
