@@ -5,33 +5,33 @@ nlu:
     - muy buenas.
     - hola.
     - holas.
-    - buenos dias.
+    - buenos días.
     - buenas tardes.
     - buenas noches.
-    - hola!
+    - ¡hola!
     - buenas.
 - intent: empatizar
   examples: |
-    - que tal?
-    - como estas?
-    - como te encuentras?
-    - como te va?
-    - que hay de nuevo?
-    - que tal todo?
-    - que tal te va todo?
-    - como te sientes?
-    - tu que tal?
-    - que tal tu?
+    - ¿qué tal?
+    - ¿cómo estas?
+    - ¿cómo te encuentras?
+    - ¿cómo te va?
+    - ¿qué hay de nuevo?
+    - ¿qué tal todo?
+    - ¿qué tal te va todo?
+    - ¿cómo te sientes?
+    - ¿tú que tal?
+    - ¿que tal tú?
 - intent: empatizar_bien
   examples: |
-    - estas bien?
-    - te encuentras bien?
+    - ¿estas bien?
+    - ¿te encuentras bien?
 - intent: ubicarme
   examples: |
-    - donde estoy?
-    - donde estamos?
-    - que lugar es este?
-    - donde me encuentro?
+    - ¿dónde estoy?
+    - ¿dónde estamos?
+    - ¿qué lugar es este?
+    - ¿dónde me encuentro?
 - intent: despedir
   examples: |
     - adios.
@@ -40,7 +40,7 @@ nlu:
     - chao.
     - cuidate.
     - hasta luego.
-    - hasta ahora. 
+    - hasta ahora.
     - hasta la vista.
     - hasta maniana.
     - hasta nunca.
@@ -87,53 +87,58 @@ nlu:
     - absolutamente no.
     - me niego.
     - ni lo pienses.
-- intent: buscar_cuando
+- intent: preguntar_cuando
   examples: |
-    - en que fecha.
-    - cuando vinieron.
-    - cuando.
-    - cuando se hizo.
-    - cuando se construyo.
-    - podrias decirme cuando.
-    - en que anio.
-    - que anio.
-    - me podrias decir de cuando es la carta del vigilante de la frontera?.
-- intent: buscar_cuando_fecha
+    - ¿en que fecha?.
+    - ¿cuándo vinieron?.
+    - ¿cuándo?.
+    - ¿cuándo se hizo?.
+    - ¿cuándo se construyo?.
+    - ¿podrías decirme cuando?.
+    - ¿puedes decirme cuando?.
+    - ¿en que año?.
+    - ¿qué anño?.
+- intent: preguntar_cuando_fecha
   examples: |
-    - que paso en [1350](year).
-    - que paso en [1813](year).
-    - sabes que paso en [1350](year)?
-    - que paso en [1530](year)?
-    - que paso en [1350](year)?
-- intent: buscar_por_que
+    - ¿qué paso en [1350](year).
+    - ¿qué paso en [1813](year).
+    - ¿sabes que paso en [1350](year)?
+    - ¿qué paso en [1530](year)?
+    - ¿qué paso en [1350](year)?
+- intent: preguntar_por_que
   examples: |
-    - por que hizo.
-    - por que.
-    - podrias decirme por que.
-- intent: buscar_quien
+    - ¿por qué hizo?.
+    - ¿por qué lo hizo?
+    - ¿por qué?.
+    - ¿podrias decirme por qué?.
+    - ¿puedes decirme por qué?.
+- intent: preguntar_quien
   examples: |
-    - quien hizo.
-    - quien fue.
-    - quien goberno.
-    - quien.
-    - podrias decirme quien.
-- intent: buscar_como
+    - ¿quién hizo?.
+    - ¿quién fue?.
+    - ¿quién goberno?.
+    - ¿quién?.
+    - ¿podrías decirme quién?.
+    - ¿puedes decirme quién?.
+- intent: preguntar_como
   examples: |
-    - como conquistaron.
-    - como.
-    - como vivieron.
-    - como estuvieron.
-    - podrias decirme como.
-- intent: buscar_donde
+    - ¿cómo conquistaron?.
+    - ¿cómo?.
+    - ¿cómo lo sabe?
+    - ¿cómo vivieron?.
+    - ¿cómo estuvieron?.
+    - ¿podrías decirme cómo?.
+    - ¿puedes decirme cómo?.
+- intent: preguntar_donde
   examples: |
-    - donde se quedaron.
-    - donde.
-    - donde estuvieron.
-    - podrias decirme donde.
-    - me podrias decir donde se quedaron los soldados?
-    - donde esta roncesvalles.
-    - donde esta canada?
-    - donde compro.
+    - ¿dónde se quedaron?.
+    - ¿dónde?.
+    - ¿dónde estuvieron?.
+    - ¿podrías decirme dónde?.
+    - ¿me podrías decir dónde se quedaron los soldados?
+    - ¿dónde esta roncesvalles?.
+    - ¿dónde esta canada?
+    - ¿dónde compro?.
 - intent: agradecer
   examples: |
     - muchas gracias.
@@ -143,40 +148,45 @@ nlu:
     - genial, gracias.
 - intent: solicitar
   examples: |
-    - podrias darme informacion.
-    - quiero informacion.
-    - dame informacion.
-    - dame datos de interes.
-    - me gustaria informacion.
+    - ¿podrías darme información?.
+    - ¿quiero información?.
+    - ¿dame información?.
+    - ¿dame datos de interes?.
+    - me gustaria información.
+- intent: solicitar_especifica_fecha
+  examples: |  
+    - ¿podrías darme información de [1350](year)?.
+    - ¿tienes información de [1350](year)?
 - intent: solicitar_especifica_lugar
   examples: |  
-    - podrias darme informacion de [1350](year).
-    - tienes informacion de [1350](year)?
-- intent: solicitar_especifica_lugar
-  examples: |  
-    - dame informacion de [Roncesvalles](place).
+    - dame información de [Roncesvalles](place).
     - cuentame sobre [Roncesvalles](place).
-    - dame informacion de [Ibanieta](place).
-    - hablame de [Ibanieta](place).
+    - cuentame algo sobre [Roncesvalles](place).
+    - dame información de [Ibañeta](place).
+    - hablame de [Ibañeta](place).
 - intent: solicitar_especifica_hito
   examples: |  
-    - me interesa saber sobre [la excavacion de Ibanieta](milestone)
-    - cuentame sobre [la excavacion de ibanieta](milestone)
-    - hablame de [Ibanieta](milestone)
+    - me interesa saber sobre [la excavación de Ibañeta](milestone)
+    - cuentame sobre [la excavación de ibañeta](milestone)
+    - hablame de [Ibañeta](milestone)
+    - hablame sobre [Ibañeta](milestone)
 - intent: solicitar_interes
   examples: |
-    - que te parece mas interesante?
-    - que me recomendarias?
+    - ¿qué te parece mas interesante?
+    - ¿qué me recomendarias?
+    - ¿qué es lo que te parece mas interesante?
+    - ¿qué es lo que me recomendarias?
 - intent: no_solicitar
   examples: |
     - en nada.
+    - no me interesa nada.
     - no quiero nada.
     - nada.
 - intent: atencion
   examples: |
     - oye.
     - ey.
-    - tu.
+    - tú.
     - hey.
 - intent: estado_bien
   examples: |
@@ -184,8 +194,8 @@ nlu:
     - perfectamente.
     - genial.
     - de maravilla.
-    - con un dia fantastico.
-    - hoy es un dia increible!
+    - con un día fantastico.
+    - hoy es un día increible!
     - todo bien.
     - estupendo.
     - no me quejo.
@@ -207,24 +217,24 @@ nlu:
     - me siento feliz.
     - muy bien.
     - muy bien, gracias.
-    - bueno, ha sido un bien dia.
+    - bueno, ha sido un bien día.
     - guay.
-    - pues aqui estamos.
-    - que gran dia.
-    - tuve un gran dia.
+    - pues aquí estamos.
+    - que gran día.
+    - tuve un gran día.
     - todo genial aqui.
     - yo estoy feliz.
-    - yo, maravilloso!
+    - ¿yo?, ¡maravillosamente!
 - intent: estado_mal
   examples: |
-    - mi dia fue horrible.
+    - mi día fue horrible.
     - horrible.
     - muy mal.
     - mal.
     - triste.
     - algo triste.
     - decaido.
-    - fue un dia horrible.
+    - fue un día horrible.
     - infeliz.
     - estoy triste.
     - no me siento muy bien.
@@ -237,7 +247,7 @@ nlu:
     - no me estoy sintiendo bien.
     - esto apesta!
     - me siento muy mal.
-    - el peor dia!
+    - el peor día!
     - esto se siente mal.
     - me siento deprimido.
     - todo esta mal hoy.
@@ -280,7 +290,7 @@ nlu:
     - estoy muy enojado.
     - todo me fastidia.
     - estoy indignado.
-    - eso es indignante!
+    - ¡eso es indignante!
     - me siento hostil.
     - estoy muy frustrado.
     - me esta irritando.
@@ -294,7 +304,7 @@ nlu:
     - estoy super molesto.
     - estoy muy loco.
     - estoy enfurecido.
-    - esto es enloquecedor!
+    - ¡esto es enloquecedor!
     - estoy cabreado.
     - puedes apostar que estoy enojado.
     - eso me hizo enojar.
@@ -316,7 +326,7 @@ nlu:
     - entre en panico.
     - me encogi de miedo.
     - estoy muerto de miedo.
-    - estalle en un sudor frio.
+    - estalle en un sudor frío.
     - eso me sobresalto!
     - me asusta facilmente.
     - estoy temblando de miedo.
@@ -333,7 +343,7 @@ nlu:
     - tengo un nudo en la garganta.
     - tengo mariposas en mi estomago.
     - soy un manojo de nervios.
-    - estoy empezando a sudar frio.
+    - estoy empezando a sudar frío.
     - le tengo miedo a mi propia sombra.
     - soy como un gato sobre ladrillos calientes.
     - estoy saltando fuera de mi piel.
@@ -350,16 +360,16 @@ nlu:
     - siento una tension constante.
     - sufro de ansiedad.
     - me he sentido bastante ansioso ultimamente.
-    - mi ansiedad esta por las nubes estos dias.
+    - mi ansiedad esta por las nubes estos días.
     - me siento bastante inquieto.
     - no puedo concentrarme porque estoy preocupado constantemente.
     - estoy bajo un inmenso estres.
-    - han sido unos dias dificiles. muy estresante.
+    - han sido unos días dificiles. muy estresante.
     - estoy bastante tenso.
     - ha habido bastantes cambios en mi vida. 
     - no creo que los este manejando bien. 
     - es bastante estresante.
-    - me encuentro preocupando por cada peque?o detalle.
+    - me encuentro preocupando por cada pequeño detalle.
     - soy un preocupado cronico.
     - me siento bastante inquieto y una horda de preocupaciones me esta molestando.
     - no puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan.
@@ -372,7 +382,7 @@ nlu:
     - me estoy aburriendo.
     - quedarse en casa es aburrido.
     - me aburre.
-    - tuve un dia lento.
+    - tuve un día lento.
     - estoy muy aburrido.
     - estoy un poco aburrido hoy.
     - nunca me he aburrido mas.
@@ -435,55 +445,53 @@ nlu:
     - pues algo cansado.
 - intent: identidad
   examples: |
-    - quien eres?
-    - como te llamas?
-    - cual es tu nombre?
+    - ¿quién eres?
+    - ¿cómo te llamas?
+    - ¿cual es tu nombre?
 - intent: identidad_sn
   examples: |
-    - eres un bot?
-    - eres un robot?
-    - eres humano?
-    - eres de este planeta?
-    - eres una IA?
-    - estoy hablando con una persona real?
-    - eres una persona real?
-    - eres siquiera una persona real?
-    - eres un bot no?
+    - ¿eres un bot?
+    - ¿eres un robot?
+    - ¿eres humano?
+    - ¿eres de este planeta?
+    - ¿eres una IA?
+    - ¿estoy hablando con una persona real?
+    - ¿eres una persona real?
+    - ¿eres siquiera una persona real?
+    - eres un bot ¿no?
 - intent: presentacion
   examples: |
     - yo soy [Ricardo](name)
     - soy [Amalia](name)
-    - soy [Pedro](name)
+    - soy [Sebastian](name)
     - soy [ricardo](name)
-    - soy [juan](name)
-- intent: pregunta
-  examples: |
-    - Un sargento de que regimiento?
-    - eres un sargento?
-    - perteneces al regimiento?
+    - soy [Xabi](name)
+    - soy [Iñigo](name)
 - intent: pregunta_hora
   examples: |
-    - que hora es?
-    - podrias decirme la hora?
-    - me dices la hora?
-- intent: otra_pregunta
+    - ¿qué hora es?
+    - ¿podrías decirme la hora?
+    - ¿me dices la hora?
+- intent: pregunta_dia
   examples: |
-    - Desde la frontera tuviste que venir alguna vez a Roncesvalles
-    - has estado en roncesvalles?
+    - ¿que día es?
+    - ¿en que día estamos?
+    - ¿podrías decirme que día es hoy?
+    - ¿me dices el día?
 - intent: fuera_de_alcance
   examples: |
     - quiero pedir comida.
-    - que es 2 + 2?
-    - quien es el presidente de estados Unidos?
-    - quien es el presi.
-    - dime cuanto es 2 + 2.
-    - cuanto es 2 + 2.
-    - cuanto es 2 + 2.
-    - que es 2 + 2.
+    - ¿qué es 2 + 2?
+    - ¿quién es el presidente de estados Unidos?
+    - ¿quién es el presi?.
+    - dime, ¿cuanto es 2 + 2?.
+    - ¿cuánto es 2 + 2?.
+    - ¿cuánto es 2 + 2?.
+    - ¿qué es 2 + 2?.
 - intent: cantidad
   examples: |
     - todo.
-    - todoi.
+    - todi.
     - mucho.
     - bastante.
 - intent: xml
@@ -509,6 +517,8 @@ nlu:
     - cuentame la historia [historia 1](content_type).
     - narra [hito1](content_type).
     - quiero la historia [hito1](content_type).
+    - el primero
+    - cuentame la primera
 - intent: hito2
   examples: |
     - quiero la historia [hito 2](content_type).
@@ -516,7 +526,5 @@ nlu:
     - cuentame la historia [historia 2](content_type).
     - narra [hito2](content_type).
     - quiero la historia [hito2](content_type).
-- intent: aprender
-  examples: |
-    - Es hora de aprender.
-    - comando aprender.
+    - la segunda
+    - cuentame la segunda

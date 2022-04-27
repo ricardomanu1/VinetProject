@@ -5,14 +5,13 @@ session_config:
 intents:
 - afirmar
 - agradecer
-- aprender
 - atencion
-- buscar_como
-- buscar_cuando
-- buscar_cuando_fecha
-- buscar_donde
-- buscar_por_que
-- buscar_quien
+- preguntar_como
+- preguntar_cuando
+- preguntar_cuando_fecha
+- preguntar_donde
+- preguntar_por_que
+- preguntar_quien
 - cantidad
 - dar_informacion
 - despedir
@@ -33,8 +32,6 @@ intents:
 - identidad
 - negar
 - no_solicitar
-- otra_pregunta
-- pregunta
 - pregunta_hora
 - presentacion
 - saludar
@@ -88,21 +85,21 @@ slots:
     influence_conversation: true
 responses:
   utter_saludar:
-  - text: "Buenos días."
-    condition:
+  - condition:
       - type: slot
         name: daytime
-        value: morning       
-  - text: "Buenas tardes." 
-    condition:
+        value: "morning"
+    text: "Buenos días."
+  - condition:
       - type: slot
         name: daytime
-        value: afternoon        
-  - text: "Buenas noches."
-    condition:
+        value: "afternoon"
+    text: "Buenas tardes."
+  - condition:
       - type: slot
         name: daytime
-        value: evening    
+        value: "evening"
+    text: "Buenas noches."
   - metadata:
       emotional: happy
     text: ¡Ey!
@@ -111,7 +108,6 @@ responses:
     text: Hola.
   - text: Muy buenas.
   - text: ¡Hola!
-  - text: Holas.
   utter_empatizar:
   - text: Me encuentro bien.
   - text: No me puedo quejar.
@@ -175,15 +171,15 @@ responses:
   - text: Para nada.
   - text: Absolutamente no.
   - text: Ni lo pienses.
-  utter_buscar_cuando:
+  utter_preguntar_cuando:
   - text: Estás buscando cuando.
-  utter_buscar_por_que:
+  utter_preguntar_por_que:
   - text: Estás buscando el por que.
-  utter_buscar_quien:
+  utter_preguntar_quien:
   - text: Estás buscando quien.
-  utter_buscar_como:
+  utter_preguntar_como:
   - text: Estás buscando como.
-  utter_buscar_donde:
+  utter_preguntar_donde:
   - text: Estás buscando donde.
   utter_agradecer:
   - text: De nada.

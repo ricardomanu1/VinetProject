@@ -20,39 +20,39 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: buscar_como path
+- story: preguntar_como path
   steps:
-  - intent: buscar_como
+  - intent: preguntar_como
   - action: chatbot
   - action: to_speech
 
-- story: buscar_cuando path
+- story: preguntar_cuando path
   steps:
-  - intent: buscar_cuando
+  - intent: preguntar_cuando
   - action: chatbot
   - action: to_speech
 
-- story: buscar_cuando_fecha path
+- story: preguntar_cuando_fecha path
   steps:
-  - intent: buscar_cuando_fecha
+  - intent: preguntar_cuando_fecha
   - action: chatbot
   - action: to_speech
 
-- story: buscar_donde path
+- story: preguntar_donde path
   steps:
-  - intent: buscar_donde
+  - intent: preguntar_donde
   - action: chatbot
   - action: to_speech
 
-- story: buscar_por_que_path
+- story: preguntar_por_que_path
   steps:
-  - intent: buscar_por_que
+  - intent: preguntar_por_que
   - action: chatbot
   - action: to_speech
 
-- story: buscar_quien_path
+- story: preguntar_quien_path
   steps:
-  - intent: buscar_quien
+  - intent: preguntar_quien
   - action: chatbot
   - action: to_speech
 
@@ -173,18 +173,6 @@ stories:
 - story: no_solicitar_path
   steps:
   - intent: no_solicitar
-  - action: chatbot
-  - action: to_speech
-
-- story: otra_pregunta_path
-  steps:
-  - intent: otra_pregunta
-  - action: chatbot
-  - action: to_speech
-
-- story: pregunta_path
-  steps:
-  - intent: pregunta
   - action: chatbot
   - action: to_speech
 
