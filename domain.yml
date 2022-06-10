@@ -56,6 +56,9 @@ entities:
 - persona
 - sentiment
 slots:
+  people:
+    type: float
+    influence_conversation: true
   hours:
     type: text
     influence_conversation: true
@@ -531,6 +534,8 @@ responses:
   - text: ¿Cuál?
   utter_responder_hora:
   - text: Son las {hours}
+  utter_conocer_personas:
+  - text: Veo que sois {people} personas
 actions:
 - action_hello_world
 - action_service_options

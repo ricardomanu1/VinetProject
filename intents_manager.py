@@ -18,11 +18,11 @@ class intents_manager(object):
         ## Usuario se presenta
         self.intents.append(('say','utter_presentacion', ['presentacion'], 'acc_del_belief','presentacion', 'acc_say', 'utter_presentacion'))   
         ## Usuario me saluda
-        self.intents.append(('say','utter_saludar', ['saludar','isHappy'],'acc_say','utter_saludar','acc_fulfill','saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
+        self.intents.append(('say','utter_saludar', ['saludar','happy'],'acc_say','utter_saludar','acc_fulfill','saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
         #self.intents.append(('say','utter_saludar', ['saludar'],'acc_say','utter_saludar','acc_fulfill','saludar')) #'acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
-        self.intents.append(('say','utter_saludar', ['saludar','isSad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
+        self.intents.append(('say','utter_saludar', ['saludar','sad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
         ## Usuario se interesa por mi estado de animo
-        self.intents.append(('say','utter_estar_bien', ['empatizar','isHappy'], 'acc_say', 'utter_estar_bien','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_enfadado', ['empatizar','anger'], 'acc_say', 'utter_estar_enfadado','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_miedo', ['empatizar','fear'], 'acc_say', 'utter_estar_miedo','acc_del_belief','empatizar'))
@@ -94,6 +94,7 @@ class intents_manager(object):
        
         #self.intents.append(('know', 'estado_mal', ['estado_mal'], 'acc_new_belief', 'sad','acc_del_belief','estado_mal')) 
         #self.intents.append(('know', 'happy', ['happy'], 'acc_new_belief', 'happy')) 
+        self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_del_belief','utter_conocer_personas','acc_say', 'utter_conocer_personas')) 
 
 
 

@@ -5,6 +5,8 @@ class belief_manager(object):
         self.agent_id = 'belief_manager'
         # Estado inicial de las creencias, en este caso vacio
         self.agent_beliefs = []  
+        # Estado inicial de las emociones
+        self.agent_beliefs.append(['know','happy',True])
         self.emotionalBeliefs = ['isHappy','isSad','isFear','isDisgust','isAnger','isSurprise','isNeutral']
 
     def get_belief_value(self, belief_name):

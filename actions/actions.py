@@ -55,6 +55,16 @@ def get_latest_event(events):
             latest_actions.append(e)
     return latest_actions
 
+def part_of_day(x):
+    if (x > 4) and (x <= 12 ):
+        return 'morning'
+    elif (x > 12) and (x <= 16):
+        return'afternoon'
+    elif (x > 16) and (x <= 24) :
+        return 'evening'
+    elif (x > 24) and (x <= 4):
+        return'none'
+
 ## Estructura BOT
 class ChatBot(Action):
 
@@ -77,8 +87,9 @@ class ChatBot(Action):
         slot_year = tracker.get_slot('year')       
         slot_milestone = tracker.get_slot('milestone')   
         slot_daytime = tracker.get_slot("daytime")
-        slot_daytime = "evening"
+        slot_people = tracker.get_slot("people")
 
+        slot_daytime = part_of_day(int(f"{dt.datetime.now().strftime('%H')}"))
         Bi = intent['name']
 
         id_event = tracker.latest_message['metadata']['event']
@@ -96,9 +107,11 @@ class ChatBot(Action):
         ## Entradas de conocimiento
         elif (id_event == 'know'):
             print('ahora lo se')
-            user_event = [id_event,'comando','',text] 
+            if (tracker.latest_message['metadata']['people']!=None):
+                slot_people = tracker.latest_message['metadata']['people']
+            user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
-            if Bi in context:
+            if text in context:
                 print('sabemos reaccionar ante esta situación')
                 EBDI.run(self, dispatcher, tracker, domain, user_event)
             else:
@@ -116,7 +129,7 @@ class ChatBot(Action):
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
 
-        return [SlotSet("daytime", slot_daytime)]
+        return [SlotSet("daytime", slot_daytime),SlotSet("people", slot_people)]
 
 ## Estructura EBDI
 class EBDI(Action):
@@ -244,16 +257,17 @@ class Say(Action):
         # la hora actual
         print(f"{dt.datetime.now().strftime('%H:%M:%S')}")
 
+        #daytime = "evening"
         hours = str(f"{dt.datetime.now().strftime('%H:%M')}")
         
         name = slot_name = tracker.get_slot('name')
 
-        UnBuenSaludo.run(self, dispatcher, tracker, domain)
-
+        #UnBuenSaludo.run(self, dispatcher, tracker, domain)
         dispatcher.utter_message(response=resp, name=name, hours = hours)
         contador()
         print("dispatcher: " + str(count))  
-        print("daytime: " + str(tracker.get_slot('daytime') ))  
+        print("daytime: " + str(tracker.get_slot('daytime')))  
+        print("people: " + str(tracker.get_slot('people')))  
 
         return []
 
@@ -367,8 +381,11 @@ class UnBuenSaludo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         slot_daytime = tracker.get_slot("daytime")
-        slot_daytime = "evening"
-        return [SlotSet("daytime", slot_daytime)]
+        slot_people = tracker.get_slot("people")
+        slot_daytime = "afternoon"
+        slot_people = 9
+
+        return [SlotSet("daytime", slot_daytime),SlotSet("people", slot_people)]
 
 class You_are(Action):
     def name(self) -> Text:
