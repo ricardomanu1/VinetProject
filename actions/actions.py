@@ -10,6 +10,7 @@ from emotions_manager import emotions_manager
 from belief_manager import belief_manager
 from desires_manager import desires_manager
 from intents_manager import intents_manager 
+from inner_speech import inner_speech
 
 from os import listdir
 from typing import Any, Text, Dict, List
@@ -35,7 +36,9 @@ Emotions = emotions_manager()
 Beliefs = belief_manager()
 Desires = desires_manager()        
 Intents = intents_manager()
+#InnerSpeech = inner_speech()
 context = Intents.get_context()
+
 
 def __init__(self):
     self.agent_id = 'actions'
@@ -61,7 +64,6 @@ class ChatBot(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]: 
-        
         global Bi
         global Be
 
@@ -69,26 +71,43 @@ class ChatBot(Action):
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
         entities = tracker.latest_message['entities']            
-        
+        ## Slots
         slot_name = tracker.get_slot('name')       
         slot_place = tracker.get_slot('place')       
         slot_year = tracker.get_slot('year')       
-        slot_milestone = tracker.get_slot('milestone')          
+        slot_milestone = tracker.get_slot('milestone')   
+        slot_daytime = tracker.get_slot("daytime")
+        slot_daytime = "evening"
 
         Bi = intent['name']
-        Be = tracker.latest_message['metadata']['sentiment']
 
-        id_event = tracker.latest_message['metadata']['event']                 
+        id_event = tracker.latest_message['metadata']['event']
        
-        ## Evento en el caso de que sea un texto
-        user_event = [id_event,Bi,Be,text,slot_name,entities] 
-        print('EVENT: ' + str(user_event)) 
-
-        if Bi in context:
-            print('sabemos reaccionar ante esta situación')
-            EBDI.run(self, dispatcher, tracker, domain, user_event)
+        ## Entradas de Voz       
+        if (id_event == 'say'):
+            Be = tracker.latest_message['metadata']['sentiment']
+            user_event = [id_event,Bi,Be,text,slot_name,entities] 
+            print('EVENT: ' + str(user_event)) 
+            if Bi in context:
+                print('Se reaccionar ante esta situación')
+                EBDI.run(self, dispatcher, tracker, domain, user_event)
+            else:
+                print('No se actuar ante esta situación')        
+        ## Entradas de conocimiento
+        elif (id_event == 'know'):
+            print('ahora lo se')
+            user_event = [id_event,'comando','',text] 
+            print('EVENT: ' + str(user_event)) 
+            if Bi in context:
+                print('sabemos reaccionar ante esta situación')
+                EBDI.run(self, dispatcher, tracker, domain, user_event)
+            else:
+                print('NO se actuar ante esta situación')
+        ## Entrada de acciones a realizar
+        elif (id_event == 'do'):
+            print('ahora lo hago')
         else:
-            print('NO se actuar ante esta situación')
+            print('comando no conocido')            
 
         ## comprobacion del diccionario de sinonimos de entidades
         synonyms_dict = Dictionary.get_synonym_mapper()
@@ -96,8 +115,8 @@ class ChatBot(Action):
             ## print("Value:", value)
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
-        
-        return []
+
+        return [SlotSet("daytime", slot_daytime)]
 
 ## Estructura EBDI
 class EBDI(Action):
@@ -129,14 +148,14 @@ class EBDI(Action):
         #    Beliefs.del_belief(Bi)
         #    Bi = ''
 
-        # la Emocion secundaria
+        # Segunda gestion del estado emocional
         E2 = Emotions.euf2(Intents,Beliefs)
         print('SECONDARY EMOTION: ' + E2) 
 
         # if (inTime and E1 != E2):
         #    BDI.bdi(self,Beliefs.agent_beliefs)
 
-        #Desires.agent_desires = [] 
+       # Desires.agent_desires = [] 
 
         p = Plan.plan(self, Intents.agent_intents)  
         if Intents.agent_intents:
@@ -162,13 +181,13 @@ class BDI:
         Beliefs.brf_in(Emotions,Intents,newBelief)
         print('BELIEFS:')
         for belief in Beliefs.agent_beliefs:
-            print("--", belief[0], belief[1])
+            print("--", belief[0], belief[1], belief[2])
 
         #D = options(B,I) # se crean los deseos
         Desires.options(Beliefs,Intents)
         print('DESIRES:')
         for desire in Desires.agent_desires:
-            print("--", desire[0], desire[1])     
+            print("--", desire[0], desire[1], desire[2])     
 
         #I = filterI(E,B,D,I)
         Intents.filterI(Emotions,Beliefs,Desires.agent_desires)
@@ -226,17 +245,17 @@ class Say(Action):
         print(f"{dt.datetime.now().strftime('%H:%M:%S')}")
 
         hours = str(f"{dt.datetime.now().strftime('%H:%M')}")
-        daytime = 'evening'
+        
         name = slot_name = tracker.get_slot('name')
 
         UnBuenSaludo.run(self, dispatcher, tracker, domain)
 
-        dispatcher.utter_message(response=resp, name=name, hours = hours, daytime=daytime)
+        dispatcher.utter_message(response=resp, name=name, hours = hours)
         contador()
         print("dispatcher: " + str(count))  
         print("daytime: " + str(tracker.get_slot('daytime') ))  
-        
-        return [ SlotSet("daytime", "evening")]
+
+        return []
 
 ##
 class action_service_options(Action):
@@ -347,12 +366,9 @@ class UnBuenSaludo(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        tracker.slots["daytime"] = 'evening'
-        daytime = 'evening'
-        SlotSet("daytime", daytime)
-        return [SlotSet("daytime", daytime)]
-
+        slot_daytime = tracker.get_slot("daytime")
+        slot_daytime = "evening"
+        return [SlotSet("daytime", slot_daytime)]
 
 class You_are(Action):
     def name(self) -> Text:

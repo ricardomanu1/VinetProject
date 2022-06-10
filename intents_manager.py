@@ -16,7 +16,7 @@ class intents_manager(object):
         #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
 
         ## Respuestas simples, aunque no es una creencia, es una intencion directa
-        self.intents.append(('say','utter_saludar', ['utter_saludar'], 'acc_del_belief','utter_saludar', 'acc_say', 'utter_saludar'))
+        #self.intents.append(('say','utter_saludar', ['utter_saludar'], 'acc_del_belief','utter_saludar', 'acc_say', 'utter_saludar'))
         self.intents.append(('say','utter_empatizar', ['utter_empatizar'], 'acc_del_belief','utter_empatizar', 'acc_say', 'utter_empatizar'))  
         self.intents.append(('say','utter_ubicarme', ['utter_ubicarme'], 'acc_del_belief','utter_ubicarme', 'acc_say', 'utter_ubicarme'))  
         self.intents.append(('say','utter_despedir', ['utter_despedir'], 'acc_del_belief','utter_despedir', 'acc_say', 'utter_despedir'))  
@@ -73,10 +73,11 @@ class intents_manager(object):
         ## Usuario se presenta
         self.intents.append(('say','utter_presentacion', ['presentacion'], 'acc_del_belief','presentacion', 'acc_say', 'utter_presentacion'))   
         ## Usuario me saluda
-        self.intents.append(('say','utter_saludar', ['saludar','happy'], 'acc_fulfill','saludar', 'acc_say', 'utter_saludar', 'acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
-        self.intents.append(('say','utter_saludar', ['saludar','sad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
+        self.intents.append(('say','utter_saludar', ['saludar','isHappy'],'acc_say','utter_saludar','acc_fulfill','saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
+        #self.intents.append(('say','utter_saludar', ['saludar'],'acc_say','utter_saludar','acc_fulfill','saludar')) #'acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
+        self.intents.append(('say','utter_saludar', ['saludar','isSad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
         ## Usuario se interesa por mi estado de animo
-        self.intents.append(('say','utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_bien', ['empatizar','isHappy'], 'acc_say', 'utter_estar_bien','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_enfadado', ['empatizar','anger'], 'acc_say', 'utter_estar_enfadado','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_miedo', ['empatizar','fear'], 'acc_say', 'utter_estar_miedo','acc_del_belief','empatizar'))
@@ -144,6 +145,10 @@ class intents_manager(object):
                 
         #self.intents.append(('say', 'utter_hito1', ['utter_dar_opciones','hito1'], 'acc_say', 'utter_hito1','acc_del_belief', 'utter_dar_opciones')) 
         #self.intents.append(('say', 'utter_hito2', ['utter_dar_opciones','hito2'], 'acc_say', 'utter_hito2','acc_del_belief', 'utter_dar_opciones')) 
+       
+       
+        #self.intents.append(('know', 'estado_mal', ['estado_mal'], 'acc_new_belief', 'sad','acc_del_belief','estado_mal')) 
+        #self.intents.append(('know', 'happy', ['happy'], 'acc_new_belief', 'happy')) 
 
 
 
@@ -171,6 +176,7 @@ class intents_manager(object):
                     aux_intent = i
             self.agent_intents = []
             self.agent_intents.append(aux_intent)
+                    
         #if(len(self.agent_intents)==0):
         #    print("la creencia sin nada es:" + Beliefs.belief_event)
         #    Beliefs.del_belief(Beliefs.belief_event)
@@ -180,12 +186,14 @@ class intents_manager(object):
         # enviar las acciones
 
     def check(self, terms, Beliefs, Emotions):
-        beliefs = [b[0] for b in Beliefs.agent_beliefs]
+        beliefs = [b[1] for b in Beliefs.agent_beliefs]
+        #print('aqui')
+        #print(terms)
         Belief_check = Beliefs.agent_beliefs
         for i in terms:
            if i not in beliefs:
                 return False
-           elif Belief_check[beliefs.index(i)][1] == False:
+           elif Belief_check[beliefs.index(i)][2] == False:
                 return False
         return True
            

@@ -4,5 +4,5 @@ rules:
 
 - rule: Listo para aprender
   steps:
-  - intent: aprender
+  - intent: vinet
   - action: aprendizaje

@@ -1,6 +1,6 @@
 version: "2.0"
 nlu:
-- intent: saludar
+- intent: saludar  
   examples: |
     - muy buenas.
     - hola.
@@ -8,8 +8,7 @@ nlu:
     - buenos días.
     - buenas tardes.
     - buenas noches.
-    - ¡hola!
-    - buenas.
+    - ¡hola!   
 - intent: empatizar
   examples: |
     - ¿qué tal?
@@ -42,14 +41,14 @@ nlu:
     - hasta luego.
     - hasta ahora.
     - hasta la vista.
-    - hasta maniana.
+    - hasta mañana.
     - hasta nunca.
     - que sea leve.
     - que te vaya bien.
     - que vaya bien.
     - nos vemos.
     - nos vemos luego.
-    - nos vemos maniana.
+    - nos vemos mañana.
     - ve con cuidado.
 - intent: afirmar
   examples: |
@@ -57,6 +56,7 @@ nlu:
     - claro.
     - por supuesto.
     - si.
+    - sí.
     - vale.
     - si por favor.
     - me parece bien.
