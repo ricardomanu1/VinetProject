@@ -45,14 +45,13 @@ class belief_manager(object):
         belief = []
         if event[0] == 'say':
             # intencion
-            belief.append([event[0],event[1],True,event[3],event[4],'es']) 
+            belief.append([event[0],event[1],True,event[3],event[4],event[6]]) 
             # emocion
             if event[2] != 'none':
                 belief.append(['know',event[2],True])
         elif event[0] == 'know':
             # intencion
             belief.append([event[0],event[1],True])
-            print('ok')
         return belief
 
     def del_belief(self, belief_name): 

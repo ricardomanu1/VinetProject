@@ -36,9 +36,7 @@ Emotions = emotions_manager()
 Beliefs = belief_manager()
 Desires = desires_manager()        
 Intents = intents_manager()
-#InnerSpeech = inner_speech()
 context = Intents.get_context()
-
 
 def __init__(self):
     self.agent_id = 'actions'
@@ -88,8 +86,10 @@ class ChatBot(Action):
         slot_milestone = tracker.get_slot('milestone')   
         slot_daytime = tracker.get_slot("daytime")
         slot_people = tracker.get_slot("people")
+        slot_hito = tracker.get_slot("hito")
 
         slot_daytime = part_of_day(int(f"{dt.datetime.now().strftime('%H')}"))
+
         Bi = intent['name']
 
         id_event = tracker.latest_message['metadata']['event']
@@ -97,30 +97,32 @@ class ChatBot(Action):
         ## Entradas de Voz       
         if (id_event == 'say'):
             Be = tracker.latest_message['metadata']['sentiment']
-            user_event = [id_event,Bi,Be,text,slot_name,entities] 
+            lang = tracker.latest_message['metadata']['language']
+            user_event = [id_event,Bi,Be,text,slot_name,entities,lang] 
             print('EVENT: ' + str(user_event)) 
             if Bi in context:
-                print('Se reaccionar ante esta situación')
                 EBDI.run(self, dispatcher, tracker, domain, user_event)
             else:
-                print('No se actuar ante esta situación')        
+                print('No se contestar a esto.')    
+                
         ## Entradas de conocimiento
         elif (id_event == 'know'):
-            print('ahora lo se')
             if (tracker.latest_message['metadata']['people']!=None):
                 slot_people = tracker.latest_message['metadata']['people']
+            if (tracker.latest_message['metadata']['hito']!=None):
+                slot_hito = tracker.latest_message['metadata']['hito']
             user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
             if text in context:
-                print('sabemos reaccionar ante esta situación')
                 EBDI.run(self, dispatcher, tracker, domain, user_event)
             else:
-                print('NO se actuar ante esta situación')
+                print('No se que hacer con este conocimiento.')
+
         ## Entrada de acciones a realizar
         elif (id_event == 'do'):
-            print('ahora lo hago')
+            print('Ahora lo hago')
         else:
-            print('comando no conocido')            
+            print('Comando no conocido')            
 
         ## comprobacion del diccionario de sinonimos de entidades
         synonyms_dict = Dictionary.get_synonym_mapper()
@@ -129,7 +131,7 @@ class ChatBot(Action):
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
 
-        return [SlotSet("daytime", slot_daytime),SlotSet("people", slot_people)]
+        return [SlotSet("daytime", slot_daytime),SlotSet("people", slot_people),SlotSet("hito", slot_hito)]
 
 ## Estructura EBDI
 class EBDI(Action):
@@ -140,8 +142,7 @@ class EBDI(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any],
-            user_event) -> List[Dict[Text, Any]]:  
-        global Bi
+            user_event) -> List[Dict[Text, Any]]:          
         ## Conjunto E B D I
         global Emotions
         global Beliefs
@@ -157,18 +158,13 @@ class EBDI(Action):
 
         # BDI actualizacion        
         BDI.bdi(self,newBelief)             
-        #if(len(Intents.agent_intents)==0):
-        #    Beliefs.del_belief(Bi)
-        #    Bi = ''
 
         # Segunda gestion del estado emocional
         E2 = Emotions.euf2(Intents,Beliefs)
         print('SECONDARY EMOTION: ' + E2) 
 
-        # if (inTime and E1 != E2):
-        #    BDI.bdi(self,Beliefs.agent_beliefs)
-
-       # Desires.agent_desires = [] 
+        #if (inTime and E1 != E2):
+        #   BDI.bdi(self,Beliefs.agent_beliefs)
 
         p = Plan.plan(self, Intents.agent_intents)  
         if Intents.agent_intents:
@@ -194,19 +190,19 @@ class BDI:
         Beliefs.brf_in(Emotions,Intents,newBelief)
         print('BELIEFS:')
         for belief in Beliefs.agent_beliefs:
-            print("--", belief[0], belief[1], belief[2])
+            print(" -", belief[0], belief[1], belief[2])
 
         #D = options(B,I) # se crean los deseos
         Desires.options(Beliefs,Intents)
         print('DESIRES:')
         for desire in Desires.agent_desires:
-            print("--", desire[0], desire[1], desire[2])     
+            print(" -", desire[0], desire[1], desire[2])     
 
         #I = filterI(E,B,D,I)
         Intents.filterI(Emotions,Beliefs,Desires.agent_desires)
         print('INTENTS:')
         for intent in Intents.agent_intents:
-            print("--", intent)
+            print(" -", intent)
 
         # se estan manteniendo deseos, asi que esta linea los elimina, pero... ¿se pueden mantener deseos?
         Desires.agent_desires = [] 
@@ -226,7 +222,7 @@ class Plan:
                     p.append((s))
 
                 if val == 'acc_new_belief':
-                    user_event = ['say',intent[idx+1],'none','','','']   
+                    user_event = ['say',intent[idx+1],'none','','','','']   
                     s = "EBDI.run(self, dispatcher, tracker, domain,{0})".format(user_event)
                     p.append((s))
 
@@ -237,11 +233,9 @@ class Plan:
                 if val == 'acc_fulfill':
                     s = "Beliefs.fulfill_belief('{0}')".format(str(intent[idx+1]))
                     p.append(s)
-                #p = acciones a realizar        
         return p
 
 ## Acciones ##
-
 class Say(Action):
 
     def name(self) -> Text:
@@ -262,7 +256,6 @@ class Say(Action):
         
         name = slot_name = tracker.get_slot('name')
 
-        #UnBuenSaludo.run(self, dispatcher, tracker, domain)
         dispatcher.utter_message(response=resp, name=name, hours = hours)
         contador()
         print("dispatcher: " + str(count))  
@@ -271,24 +264,7 @@ class Say(Action):
 
         return []
 
-##
-class action_service_options(Action):
-
-    def name(self) -> Text:
-        return "action_service_options"
-
-    def run (self, dispatcher: CollectingDispatcher,
-             tracker: Tracker,
-             domain: Dict[Text,Any]) -> List[Dict[Text, Any]]: 
-
-        buttons=[
-            {"payload":'/hito1{"content_type":"hito1"}',"title":"Hito 1"},
-            {"payload":'/hito2{"content_type":"hito2"}',"title":"Hito 2"}
-            ]
-
-        dispatcher.utter_message(text="Hitos:", buttons=buttons)   
-        return []
-
+## Generar los ficheros de salida
 class To_Speech(Action):
 
     def name(self) -> Text:
@@ -311,39 +287,60 @@ class To_Speech(Action):
             for e in responses:
                 print('-' + str(e['text']))
                 txt_responses += str(e['text'])
-                txt_responses += ' '
-            #ExecuteEBDI.execute_ebdi(resp,Emotions.tag())
-            TXT.name(txt,txt_responses)
+                txt_responses += ' '            
+            sentence = TXT.name(txt,txt_responses)
+            ExecuteEBDI.execute_ebdi(sentence,Emotions.tag())
         count = 0
 
         return []
 
 
-## Salida de la respuesta emocional en XML
-class ExecuteEBDI:
-
-    def execute_ebdi(message,tag):
-        xml = XML()
-        XML.name(xml,message,tag)        
-        return "echo"
-
+## Salida de la respuesta emocional en txt
 class TXT():
     def name(self,response) -> Text:
         output = open("speech.txt","w+")
         print("VINETbot:", response)
         output.write(str(response))
         output.close()
-        return "echo"
-
+        return str(response)
 
 ## Salida de la respuesta emocional en XML
+class ExecuteEBDI:
+
+    def execute_ebdi(message,tag):
+        xml = XML2()
+        XML2.name(xml,message,tag)        
+        return "echo"
+
+## Salida de la respuesta emocional en XML dado por azure
 class XML():
 
     def name(self,response,tag) -> Text:
-        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xml:lang": "en-US"})
-        voice = ET.SubElement(speak, "voice", name = "en-US-AriaNeural") 
-        mstts = ET.SubElement(voice, "mstts:express-as", style = tag )
+        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "en-US"})
+        voice = ET.SubElement(speak, "voice", name = "en-US-JennyMultilingualNeural") 
+        lang = ET.SubElement(voice, "lang", attrib={"xml:lang":"es-ES"})
+        mstts = ET.SubElement(lang, "mstts:express-as", style = tag )
         mstts.text = response
+        arbol = ET.ElementTree(speak)
+        arbol.write("respuesta.xml")
+        return "echo"
+
+## Salida de la respuesta emocional en XML dado por nosotros
+class XML2():
+
+    def name(self,response,tag) -> Text:
+        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "en-US"})
+        voice = ET.SubElement(speak, "voice", name = "en-US-JennyMultilingualNeural") 
+        lang = ET.SubElement(voice, "lang", attrib={"xml:lang":"es-ES"})
+        # Calm
+        prosody = ET.SubElement(lang, "prosody", rate = "0.00%", pitch = "0.00%")
+        # Cheerful
+        if tag == "Cheerful":
+            response = "¡" + str(response) + "!"
+        # Sad
+        if tag == "Sad":
+            prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
+        prosody.text = response
         arbol = ET.ElementTree(speak)
         arbol.write("respuesta.xml")
         return "echo"
@@ -372,20 +369,6 @@ class ActionHelloWorld(Action):
         print("Hello World")
         dispatcher.utter_message(text="Hello World!")
         return []
-
-class UnBuenSaludo(Action):
-
-    def name(self) -> Text:
-        return "un_buen_saludo"
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        slot_daytime = tracker.get_slot("daytime")
-        slot_people = tracker.get_slot("people")
-        slot_daytime = "afternoon"
-        slot_people = 9
-
-        return [SlotSet("daytime", slot_daytime),SlotSet("people", slot_people)]
 
 class You_are(Action):
     def name(self) -> Text:
@@ -450,22 +433,6 @@ class Buscar_informacion(Action):
             message = "...A principios de octubre la nieve cayo en tal cantidad como no habia visto en Escocia. Casi perdimos..."
         dispatcher.utter_message(text=message)
         return []
-
-class GenerarXML(Action):
-
-    def name(self) -> Text:
-        return "generar_xml"
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xml:lang": "en-US"})
-        voice = ET.SubElement(speak, "voice", name = "en-US-AriaNeural") 
-        mstts = ET.SubElement(voice, "mstts:express-as", style="cheerful" )
-        mstts.text = "Mi respuesta es estar alegre."
-        arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
-        return []
-
 
 class Aprendizaje(Action):
 

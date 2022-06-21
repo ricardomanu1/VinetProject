@@ -28,6 +28,7 @@ nlu:
 - intent: ubicarme
   examples: |
     - ¿dónde estoy?
+    - ¿Dónde estoy?
     - ¿dónde estamos?
     - ¿qué lugar es este?
     - ¿dónde me encuentro?
@@ -182,6 +183,8 @@ nlu:
     - no me interesa nada.
     - no quiero nada.
     - nada.
+    - Nada.
+    - nadi.
 - intent: atencion
   examples: |
     - oye.
@@ -470,6 +473,7 @@ nlu:
 - intent: pregunta_hora
   examples: |
     - ¿qué hora es?
+    - ¿Qué hora es?
     - ¿podrías decirme la hora?
     - ¿me dices la hora?
 - intent: pregunta_dia
@@ -500,16 +504,16 @@ nlu:
     - crear xml
 - intent: dar_informacion
   examples: |
-    - hola, soy [Ricardo](name) quiero darte informacion.
+    - hola, soy [Ricardo](name) quiero darte información.
     - quiero darte informacion, soy [ricardo](name)
-    - Hola, soy [ricardo](name), quiero darte informacion.
-    - hola soy [ricardo](name) y quiero darte informacion.
-    - hola soy [ritxi](name) y quiero darte informacion.
-    - hola soy [riky](name) quiero darte informacion.
-    - soy [ricardo](name) y quiero darte informacion.
-    - soy [ricardo](name) y quiero ense?arte.
-    - soy [ricardo](name) y queiro ense?arte.
-    - soy [ricardo](name) quiero darte informacion.
+    - Hola, soy [ricardo](name), quiero darte información.
+    - hola soy [ricardo](name) y quiero darte información.
+    - hola soy [ritxi](name) y quiero darte información.
+    - hola soy [riky](name) quiero darte información.
+    - soy [ricardo](name) y quiero darte información.
+    - soy [ricardo](name) y quiero enseñarte.
+    - soy [ricardo](name) y queiro enseñarte.
+    - soy [ricardo](name) quiero darte información.
 - intent: hito1
   examples: |
     - quiero la historia [hito 1](content_type).

@@ -15,12 +15,12 @@ class intents_manager(object):
         #acc_fulfill suceso que ha ocurrido y se mantiene
         #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
 
+        ### PLANS ###
         ## Usuario se presenta
         self.intents.append(('say','utter_presentacion', ['presentacion'], 'acc_del_belief','presentacion', 'acc_say', 'utter_presentacion'))   
         ## Usuario me saluda
         self.intents.append(('say','utter_saludar', ['saludar','happy'],'acc_say','utter_saludar','acc_fulfill','saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
-        #self.intents.append(('say','utter_saludar', ['saludar'],'acc_say','utter_saludar','acc_fulfill','saludar')) #'acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
-        self.intents.append(('say','utter_saludar', ['saludar','sad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
+        self.intents.append(('say','utter_saludar', ['saludar','neutral'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
         ## Usuario se interesa por mi estado de animo
         self.intents.append(('say','utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_del_belief','empatizar'))
@@ -34,23 +34,17 @@ class intents_manager(object):
         ## Usuario empatiza conmigo
         self.intents.append(('say','utter_afirmar', ['empatizar_bien','happy'], 'acc_say', 'utter_afirmar','acc_del_belief','empatizar_bien'))
         self.intents.append(('say','utter_negar', ['empatizar_bien','sad'], 'acc_say', 'utter_negar','acc_del_belief','empatizar_bien'))
-
         ## Usuario me hace preguntas basicas
         self.intents.append(('say','utter_responder_hora', ['pregunta_hora'], 'acc_say', 'utter_responder_hora','acc_del_belief','pregunta_hora'))
         self.intents.append(('say','utter_ubicarme', ['ubicarme'], 'acc_say', 'utter_ubicarme','acc_del_belief','ubicarme'))
-
         ## Usuario se despide
-        self.intents.append(('say','utter_despedir', ['despedir'], 'acc_say', 'utter_despedir','acc_fulfill','despedir'))
-
-        self.intents.append(('say','utter_identidad', ['identidad'], 'acc_say', 'utter_identidad','acc_fulfill','identidad'))
-        
-        self.intents.append(('say','utter_agradecer', ['agradecer'], 'acc_say', 'utter_agradecer','acc_fulfill','agradecer'))
-                
+        self.intents.append(('say','utter_despedir', ['despedir'], 'acc_say', 'utter_despedir','acc_fulfill','despedir','acc_del_belief','saludar'))
+        self.intents.append(('say','utter_identidad', ['identidad'], 'acc_say', 'utter_identidad','acc_fulfill','identidad'))        
+        self.intents.append(('say','utter_agradecer', ['agradecer'], 'acc_say', 'utter_agradecer','acc_fulfill','agradecer'))                
         self.intents.append(('say','utter_empatizar_bien', ['estado_bien'], 'acc_say', 'utter_empatizar_bien','acc_del_belief','estado_bien'))
-
-                
+                        
         ## YO muestro interes por el usuario
-        self.intents.append(('say','utter_interes', ['muestro_interes'], 'acc_say', 'utter_interes','acc_fulfill','muestro_interes'))
+        self.intents.append(('say','utter_interes', ['muestro_interes'], 'acc_say', 'utter_interes','acc_del_belief','muestro_interes'))
         ## YO voy a empatizar con el estado de animo del usuario  
         self.intents.append(('say','utter_empatizar_bien', ['espero_respuesta','estado_bien'],'acc_del_belief','espero_respuesta','acc_del_belief','estado_bien', 'acc_say', 'utter_empatizar_bien', 'acc_new_belief','le_pregunto'))
         self.intents.append(('say','utter_empatizar_mal', ['espero_respuesta','estado_mal'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_mal', 'acc_new_belief','le_animo'))        
@@ -75,27 +69,14 @@ class intents_manager(object):
         ## Contexto VINET
         self.intents.append(('say','utter_hito1', ['hito1'], 'acc_say', 'utter_hito1', 'acc_del_belief','hito1'))
         self.intents.append(('say','utter_hito2', ['hito2'], 'acc_say', 'utter_hito2','acc_del_belief','hito2'))
-
         self.intents.append(('say','utter_hitos_opciones', ['dar_hitos_opciones'],'acc_del_belief','dar_hitos_opciones','acc_say', 'utter_hitos_opciones'))
-
         self.intents.append(('say','utter_hito', ['debes_especificar','solicitar_especifica_hito'],'acc_del_belief','debes_especificar','acc_del_belief','solicitar_especifica_hito', 'acc_say', 'utter_hito'))
         self.intents.append(('say','utter_hito1', ['debes_especificar','hito1'],'acc_del_belief','debes_especificar','acc_del_belief','hito1', 'acc_say', 'utter_hito1'))
-        self.intents.append(('say','utter_hito2', ['debes_especificar','hito2'],'acc_del_belief','debes_especificar','acc_del_belief','hito2', 'acc_say', 'utter_hito2'))
-                
+        self.intents.append(('say','utter_hito2', ['debes_especificar','hito2'],'acc_del_belief','debes_especificar','acc_del_belief','hito2', 'acc_say', 'utter_hito2'))                
         self.intents.append(('say','utter_hito', ['solicitar_especifica_hito'],'acc_del_belief','solicitar_especifica_hito', 'acc_say', 'utter_hito'))
              
-        
-        #self.intents.append(('say', 'utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_fulfill', 'empatizar'))
-        #self.intents.append(('say', 'utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_fulfill', 'empatizar'))
-                
-        #self.intents.append(('say', 'utter_hito1', ['utter_dar_opciones','hito1'], 'acc_say', 'utter_hito1','acc_del_belief', 'utter_dar_opciones')) 
-        #self.intents.append(('say', 'utter_hito2', ['utter_dar_opciones','hito2'], 'acc_say', 'utter_hito2','acc_del_belief', 'utter_dar_opciones')) 
-       
-       
-        #self.intents.append(('know', 'estado_mal', ['estado_mal'], 'acc_new_belief', 'sad','acc_del_belief','estado_mal')) 
-        #self.intents.append(('know', 'happy', ['happy'], 'acc_new_belief', 'happy')) 
+        ## Conocimiento del entorno
         self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_del_belief','utter_conocer_personas','acc_say', 'utter_conocer_personas')) 
-
 
 
     def filterI(self, Emotions, Beliefs, Desires):
@@ -157,8 +138,6 @@ class intents_manager(object):
 # say empatizar_bien: interes estado_bien -> utter_empatizar_bien new_belief preguntar
 # say empatizar_mal: interes estado_mal -> utter_empatizar_mal new_belief preguntar
 # say preguntar: true -> utter_preguntar
-
-
 
 # say empatizar empatizado happy utter_empatizar_bien
 # say empatizar empatizado sad utter_empatizar_mal

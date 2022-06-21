@@ -56,6 +56,9 @@ entities:
 - persona
 - sentiment
 slots:
+  hito:
+    type: float
+    influence_conversation: true
   people:
     type: float
     influence_conversation: true
@@ -275,38 +278,36 @@ responses:
   - text: ¿Qué se te ofrece?
   - text: Concreta que es lo que quieres.
   utter_estar_bien:
-  - text: Perfectamente.
+  - text: Estoy perfectamente.
   - text: Me encuentro perfectamente.
-  - text: Genial.
-  - text: De maravilla.
-  - text: Bien.
-  - text: Muy bien.
-  - text: Estupendo.
+  - text: Estoy genial.
+  - text: Me encuentro de maravilla.
+  - text: Estoy bien.
+  - text: Estoy muy bien.
+  - text: Me encuentro estupenda.
   - text: No me quejo.
-  - text: Yo estoy feliz.
+  - text: Estoy feliz.
   - text: Me siento genial.
   - text: Estoy bien.
-  - text: Tuve un gran día.
-  - text: ¡Maravilloso!.
+  - text: He tenido un gran día.
+  - text: ¡Maravillosamente!.
   - text: Demasiado genial.
   - text: Estoy muy bien.
   - text: Sintiéndome bien.
   - text: Mejor que nunca.
-  - text: Me siento afortunado.
+  - text: Me siento afortunada.
   - text: Todo genial aquí.
   - text: Con un día fantástico.
-  - text: Que gran día.
-  - text: Estoy inspirado.
-  - text: Es perfecto.
+  - text: Estoy inspirada.
   - text: Increíble.
   - text: Me siento maravillosa.
   - text: Me siento muy bien.
-  - text: Estoy genial.
+  - text: Me siento increible.
   - text: Me siento feliz.
   - text: ¡Hoy es un día increíble!.
   - text: Estoy tan feliz.
   - text: Estoy realmente feliz ahora mismo.
-  - text: Bueno, ha sido un bien dia.
+  - text: Bueno, ha sido un buen día.
   - text: Guay.
   - text: Pues aquí estamos.
   utter_estar_mal:
@@ -323,8 +324,8 @@ responses:
   - text: No me siento muy bien.
   - text: Estoy decepcionado.
   - text: Esto es malo.
-  - text: Estoy enfermo.
-  - text: Estoy todo bajo hoy.
+  - text: Estoy enferma.
+  - text: Estoy de bajon.
   - text: Es decepcionante.
   - text: Estoy irritado.
   - text: No me estoy sintiendo bien.
@@ -339,14 +340,14 @@ responses:
   - text: Estoy deprimido.
   - text: Me siento vacío.
   - text: Me siento inútil.
-  - text: Deprimido.
+  - text: Deprimida.
   - text: Pesado.
   - text: Me siento bastante perdido.
   - text: Muy triste.
   - text: Malo.
   - text: Terrible.
   - text: Extremadamente triste.
-  - text: Me siento desanimado.
+  - text: Me siento desanimada.
   - text: Me siento triste.
   - text: No estoy bien.
   - text: Me siento mal.
@@ -535,14 +536,15 @@ responses:
   utter_responder_hora:
   - text: Son las {hours}
   utter_conocer_personas:
-  - text: Veo que sois {people} personas
+  - text: Veo que sois {people} personas.
+  - text: Hay {people} personas en el grupo.
+  utter_hito_grupo:
+  - text: El grupo se ha posicionado en el hito {hito}.
+  - text: El grupo se ha posicionado en la zona {hito}.
 actions:
 - action_hello_world
-- action_service_options
 - aprendizaje
 - chatbot
 - buscar_informacion
-- generar_xml
 - info_fecha
-- un_buen_saludo
 - to_speech

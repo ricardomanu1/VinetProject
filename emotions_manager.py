@@ -25,7 +25,7 @@ class emotions_manager(object):
     def __init__(self):
         self.agent_id = 'emotions_manager'        
         
-        # Estado inicial de la emocion
+        # Estado inicial de la emocion 
         self.estado = 'happy'
         # Interes por el usuario
         self.interes = True
@@ -158,19 +158,21 @@ class emotions_manager(object):
         return False
 
     def tag(self):
+        # Alegre Empático Enfado Triste
+        # Excited Friendly Terrified Shouting Unfriendly Whispering Hopeful 
         if (self.estado == 'happy'):
-            return "cheerful" 
+            return "Cheerful" 
         if (self.estado == 'empathetic'):
-            return "empathetic"
+            return "Empathetic"
         if (self.estado == 'sad'):
-            return "sad"
+            return "Sad"
         if (self.estado == 'neutral'):
-            return "calm"
+            return "Calm"
         if (self.estado == 'anger'):
-            return "angry"
+            return "Angry"
         if (self.estado == 'fear'):
-            return "fearful"
+            return "Fearful"
         if (self.estado == 'disgust'):
-            return "disgruntled"
+            return "Disgruntled"
         if (self.estado == 'serious'):
-            return "serious"
+            return "Serious"
