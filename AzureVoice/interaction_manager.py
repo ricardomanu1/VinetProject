@@ -3,11 +3,11 @@ import json
 
 class interaction_manager(object):
 
-    def say(self,text):
+    def say(self,text,lang):
         r = requests.post('http://127.0.0.1:5005/webhooks/myio/webhook', json={
         "sender": "Vinet_user",
         "message": "{}".format(text),
-        "metadata": {"event":"say","sentiment":"isHappy"} 
+        "metadata": {"event":"say","sentiment":"isHappy","language":"{}".format(lang)} 
         })
 
     def know(self):
