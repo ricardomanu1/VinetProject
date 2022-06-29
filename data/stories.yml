@@ -217,3 +217,15 @@ stories:
   - intent: xml
   - action: chatbot
   - action: to_speech
+
+- story: vinet_path
+  steps:
+  - intent: vinet
+  - action: chatbot
+  - action: to_speech
+
+- story: vinet_cuenco_path
+  steps:
+  - intent: vinet_cuenco
+  - action: chatbot
+  - action: to_speech

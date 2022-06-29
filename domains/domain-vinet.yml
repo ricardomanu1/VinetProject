@@ -1,0 +1,42 @@
+﻿version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- vinet
+- vinet_aprendizaje
+- vinet_cuenco
+entities:
+- capitulo
+slots:
+  capitulo:
+    type: float
+    influence_conversation: true
+responses:
+  utter_vinet:
+  - text: Este es un test vinet domain con hito {hito}.
+  utter_h1:
+  - text: Veo que tenéis interés por esa preciosa vasija.
+  utter_h2:
+  - text: Se denomina terra sigillata.
+  utter_h3:
+  - text: Vino desde los talleres de la Grausenfrenque, en Condatomagus. 
+  utter_h4:
+  - text: En la época romana se fabricaba la cerámica en enormes talleres centralizados que abastecían a todo el imperio, al estilo de la fabricación industrial actual.
+  utter_h5:
+  - text: Los talleres del sur de la Galia sustituyeron en época de Augusto a los italianos.
+  utter_h6:
+  - text: Estos hacían la célebre cerámica aretina que se exportaba a todo el imperio.
+  utter_h7:
+  - text: ¿Queréis saber una curiosidad?.
+  utter_h8:
+  - text: Decían las malas lenguas que el traslado de estos enormes talleres de Italia a la Galia lo hicieron por encontrar buenas tierras, abundante agua y madera… pero sobre todo mano de obra barata.
+  utter_h9:
+  - text: En la región de Condatomagus vivía la tribu de los Rutenos, donde un esclavo costaba 2 ánforas de vino, ¡10 veces menos que en Italia!.
+  utter_h10:
+  - text: Continuando con la historia.
+  utter_h11:
+  - text: Desde el siglo V a.C. en Italia ya había talleres especializados en cerámica de lujo, en la región de Campania.
+actions:
+- action_hello_world
+

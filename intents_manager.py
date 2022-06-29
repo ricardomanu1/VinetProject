@@ -50,13 +50,13 @@ class intents_manager(object):
         self.intents.append(('say','utter_empatizar_mal', ['espero_respuesta','estado_mal'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_mal', 'acc_new_belief','le_animo'))        
         self.intents.append(('say','utter_empatizar_aburrimiento', ['espero_respuesta','estado_aburrimiento'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_aburrimiento', 'acc_new_belief','dar_hitos_opciones')) 
         ## YO intervengo en el estado de animo del usuario
-        self.intents.append(('say','utter_animar', ['le_animo'],'acc_del_belief','le_animo','acc_say', 'utter_animar', 'acc_new_belief','he_preguntado_si_no'))
+        self.intents.append(('say','utter_animar', ['le_animo'],'acc_del_belief','le_animo','acc_say', 'utter_animar', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_animar'))
         ## YO pregunto al usuario 
         self.intents.append(('say','utter_preguntar', ['le_pregunto'], 'acc_say', 'utter_preguntar','acc_fulfill','le_pregunto','acc_new_belief','he_preguntado')) 
-        self.intents.append(('say','utter_solicitar', ['he_preguntado_si_no', 'afirmar'],'acc_del_belief','he_preguntado_si_no', 'acc_del_belief','afirmar','acc_say', 'utter_solicitar','acc_new_belief','he_solicitado')) 
+        self.intents.append(('say','utter_solicitar', ['utter_animar','he_preguntado_si_no', 'afirmar'],'acc_del_belief','he_preguntado_si_no','acc_del_belief','utter_animar', 'acc_del_belief','afirmar','acc_say', 'utter_solicitar','acc_new_belief','he_solicitado')) 
         self.intents.append(('say','utter_solicitar', ['he_preguntado','solicitar'],'acc_del_belief','he_preguntado','acc_say', 'utter_solicitar', 'acc_del_belief','solicitar','acc_del_belief','le_pregunto','acc_new_belief','he_solicitado'))  # llama a la accion buscar lo solicitado
         self.intents.append(('say','utter_solicitar', ['debes_especificar','solicitar'],'acc_del_belief','debes_especificar','acc_del_belief','solicitar', 'acc_say', 'utter_solicitar','acc_new_belief','he_solicitado'))
-        self.intents.append(('say','utter_empatizar_mal', ['he_preguntado_si_no', 'negar'],'acc_del_belief','he_preguntado_si_no', 'acc_del_belief','negar','acc_say', 'utter_empatizar_mal')) 
+        self.intents.append(('say','utter_empatizar_mal', ['utter_animar','he_preguntado_si_no', 'negar'],'acc_del_belief','he_preguntado_si_no','acc_del_belief','utter_animar', 'acc_del_belief','negar','acc_say', 'utter_empatizar_mal')) 
         self.intents.append(('say','utter_pronombre_interrogativo', ['he_solicitado','afirmar'],'acc_del_belief','he_solicitado','acc_say', 'utter_pronombre_interrogativo', 'acc_del_belief','afirmar'))  # llama a la accion buscar lo solicitado
         ## YO propongo temas
         self.intents.append(('say','utter_dar_opciones', ['he_solicitado','negar'],'acc_del_belief','he_solicitado','acc_say', 'utter_dar_opciones', 'acc_del_belief','negar','acc_say','utter_hitos_opciones'))  # llama a la accion buscar lo solicitado
@@ -75,10 +75,19 @@ class intents_manager(object):
         self.intents.append(('say','utter_hito2', ['debes_especificar','hito2'],'acc_del_belief','debes_especificar','acc_del_belief','hito2', 'acc_say', 'utter_hito2'))                
         self.intents.append(('say','utter_hito', ['solicitar_especifica_hito'],'acc_del_belief','solicitar_especifica_hito', 'acc_say', 'utter_hito'))
              
+        self.intents.append(('say','utter_vinet', ['vinet'], 'acc_say', 'utter_vinet', 'acc_del_belief','vinet'))
+
         ## Conocimiento del entorno
         self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_del_belief','utter_conocer_personas','acc_say', 'utter_conocer_personas')) 
-        self.intents.append(('know', 'utter_hito_grupo', ['utter_hito_grupo'],'acc_del_belief','utter_hito_grupo','acc_say', 'utter_hito_grupo')) 
-
+       
+        self.intents.append(('say', 'utter_h1', ['vinet_cuenco'],'acc_del_belief','vinet_cuenco','acc_say', 'utter_h1','acc_say', 'utter_h2','acc_say', 'utter_h3',
+                            'acc_say', 'utter_h4','acc_say', 'utter_h5','acc_say', 'utter_h6','acc_say', 'utter_h7', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_h7')) 
+        self.intents.append(('say','utter_h8', ['utter_h7','he_preguntado_si_no','afirmar'],'acc_del_belief','he_preguntado_si_no', 'acc_del_belief','utter_h7',
+                            'acc_say', 'utter_h8', 'acc_say', 'utter_h9', 'acc_new_belief','utter_h10'))
+        self.intents.append(('say', 'utter_h10', ['utter_h7','he_preguntado_si_no','negar'],'acc_del_belief','he_preguntado_si_no','acc_del_belief','utter_h7', 'acc_new_belief','utter_h10'))
+        self.intents.append(('say', 'utter_h10', ['utter_h10'],'acc_del_belief','utter_h10','acc_say', 'utter_h10','acc_say', 'utter_h11','acc_say', 'utter_h12'
+                             ,'acc_say', 'utter_mostrar','acc_say', 'utter_h13','acc_say', 'utter_h14','acc_say', 'utter_mostrar','acc_say', 'utter_h15',
+                             'acc_say', 'utter_h16','acc_say', 'utter_mostrar'))
 
     def filterI(self, Emotions, Beliefs, Desires):
         desires_fulfill = []

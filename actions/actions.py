@@ -451,12 +451,12 @@ class Aprendizaje(Action):
         entities = tracker.latest_message['entities']
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
-        slot_name = tracker.get_slot('name')
+        #slot_name = tracker.get_slot('name')
         print(intent)
         print(entities)        
         print(text)
-        print(tracker.latest_action_name)
-        print(tracker.slots)
+        #print(tracker.latest_action_name)
+        #print(tracker.slots)
         message = "Comando de aprendizaje"
         dispatcher.utter_message(text=message)
         for e in entities:
