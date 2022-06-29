@@ -42,7 +42,7 @@ intents:
 - solicitar_interes
 - stop
 - test
-- vinet
+
 - ubicarme
 - xml
 entities:
