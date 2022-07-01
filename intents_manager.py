@@ -79,6 +79,7 @@ class intents_manager(object):
 
         ## Conocimiento del entorno
         self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_del_belief','utter_conocer_personas','acc_say', 'utter_conocer_personas')) 
+        self.intents.append(('know', 'utter_hito_grupo', ['utter_hito_grupo'],'acc_del_belief','utter_hito_grupo','acc_say', 'utter_hito_grupo')) 
        
         self.intents.append(('say', 'utter_h1', ['vinet_cuenco'],'acc_del_belief','vinet_cuenco','acc_say', 'utter_h1','acc_say', 'utter_h2','acc_say', 'utter_h3',
                             'acc_say', 'utter_h4','acc_say', 'utter_h5','acc_say', 'utter_h6','acc_say', 'utter_h7', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_h7')) 

@@ -1,0 +1,11 @@
+{
+    "sender": "Vinet_u",
+    "message": "utter_hito_grupo",
+    "metadata": {"event":"know","people":9, "hito":5} 
+}
+
+{
+    "sender": "Vinet_u",
+    "message": "utter_conocer_personas",
+    "metadata": {"event":"know","people":9, "hito":5} 
+}

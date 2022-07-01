@@ -38,10 +38,6 @@ Desires = desires_manager()
 Intents = intents_manager()
 context = Intents.get_context()
 
-slot_daytime = ''
-slot_people = ''
-slot_hito = ''
-
 def __init__(self):
     self.agent_id = 'actions'
 
@@ -255,14 +251,12 @@ class Say(Action):
         # la hora actual
         print(f"{dt.datetime.now().strftime('%H:%M:%S')}")
 
-        #daytime = "evening"
+        #daytime = str("evening")
         hours = str(f"{dt.datetime.now().strftime('%H:%M')}")
         
         name = slot_name = tracker.get_slot('name')
 
-        dispatcher.utter_message(response=resp, name=name, hours = hours,
-                                 daytime=slot_daytime, people=slot_people,
-                                 hito=slot_hito)
+        dispatcher.utter_message(response=resp, name=name, hours=hours)
         contador()
         print("dispatcher: " + str(count))  
         print("daytime: " + str(tracker.get_slot('daytime')))  

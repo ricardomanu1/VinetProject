@@ -37,6 +37,18 @@ responses:
   - text: Continuando con la historia.
   utter_h11:
   - text: Desde el siglo V a.C. en Italia ya había talleres especializados en cerámica de lujo, en la región de Campania.
+  utter_h12:
+  - text: Las hacían negras y brillantes, ya que imitaban a las lujosas vajillas de bronce.
+  utter_mostrar:
+  - text: acción mostrar
+  utter_h13:
+  - text: En los últimos tiempos de la República la moda cambió, y platos, cuencos y vasos de cerámica empezaron a tener su característico color rojo brillante.
+  utter_h14:
+  - text: Se trata de la cerámica aretina, que terminaba en las mesas de las domus más ricas.
+  utter_h15:
+  - text: Desde que se empezaron a fabricar en la Galia, esas vajillas se popularizaron mucho.
+  utter_h16:
+  - text: Eran cerámicas que se extendieron a todos los rincones del imperio y a todas las capas de la sociedad, hoy en día nos las podemos encontrar en las excavaciones de los ricos palacios, pero también en las de las granjas más humildes y apartadas.
 actions:
 - action_hello_world
 
