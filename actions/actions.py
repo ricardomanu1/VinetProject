@@ -308,8 +308,8 @@ class TXT():
 class ExecuteEBDI:
 
     def execute_ebdi(message,tag):
-        xml = XML2()
-        XML2.name(xml,message,tag)        
+        xml = XML3()
+        XML3.name(xml,message,tag)        
         return "echo"
 
 ## Salida de la respuesta emocional en XML dado por azure
@@ -341,6 +341,35 @@ class XML2():
         if tag == "Sad":
             prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
         prosody.text = response
+        arbol = ET.ElementTree(speak)
+        arbol.write("respuesta.xml")
+        return "echo"
+
+class XML3():
+
+    def name(self,response,tag) -> Text:
+        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "es-ES"})
+        voice = ET.SubElement(speak, "voice", name = "es-ES-ElviraNeural") 
+        # Calm
+        prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
+        # Cheerful
+        if tag == "Cheerful":
+            response = "¡" + str(response) + "!"
+        # Sad
+        if tag == "Sad":
+            prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
+        prosody.text = response
+        arbol = ET.ElementTree(speak)
+        arbol.write("respuesta.xml")
+        return "echo"
+
+class XML4():
+
+    def name(self,response,tag) -> Text:
+        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "en-US"})
+        voice = ET.SubElement(speak, "voice", name = "en-US-JennyMultilingualNeural") 
+        lang = ET.SubElement(voice, "lang", attrib={"xml:lang":"es-ES"})       
+        lang.text = response
         arbol = ET.ElementTree(speak)
         arbol.write("respuesta.xml")
         return "echo"
