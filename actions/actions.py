@@ -309,7 +309,7 @@ class ExecuteEBDI:
 
     def execute_ebdi(message,tag):
         xml = XML3()
-        XML3.name(xml,message,tag)        
+        xml.name(message,tag)        
         return "echo"
 
 ## Salida de la respuesta emocional en XML dado por azure
@@ -322,7 +322,7 @@ class XML():
         mstts = ET.SubElement(lang, "mstts:express-as", style = tag )
         mstts.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response\\respuesta.xml")
         return "echo"
 
 ## Salida de la respuesta emocional en XML dado por nosotros
@@ -342,7 +342,7 @@ class XML2():
             prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response\\respuesta.xml")
         return "echo"
 
 class XML3():
@@ -360,7 +360,7 @@ class XML3():
             prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response\\respuesta.xml")
         return "echo"
 
 class XML4():
@@ -371,7 +371,7 @@ class XML4():
         lang = ET.SubElement(voice, "lang", attrib={"xml:lang":"es-ES"})       
         lang.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response\\respuesta.xml")
         return "echo"
 
 ## Se ejecuta una sola vez al principio de una conversacion
