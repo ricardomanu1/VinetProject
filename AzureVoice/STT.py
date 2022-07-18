@@ -1,12 +1,11 @@
-import azure.cognitiveservices.speech as speechsdk
 import keyboard
+import azure.cognitiveservices.speech as speechsdk
 from interaction_manager import interaction_manager
 from translator import translator
 
-
 Translator = translator()
 Interaction = interaction_manager()
-i = 0
+
 speech_key, service_region = "595638ac99d0464a9227b07e48e08875", "westeurope"
 
 auto_detect_source_language_config = \
@@ -30,12 +29,11 @@ while True:
             print("Di algo...")
             result = recognizer.recognize_once()
             if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-                if i==0:
-                    detected_src_lang = result.properties[
+                detected_src_lang = result.properties[
                         speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
-                    print("Idioma detectado: {}".format(detected_src_lang))
-                    print("Entrada: {}".format(result.text))
-                text_trans = Translator.translator(result.text,'ja','es')
+                print("Idioma detectado: {}".format(detected_src_lang))
+                print("Entrada: {}".format(result.text))
+                text_trans = Translator.translator(result.text,detected_src_lang[0:2],'es')
                 Interaction.say(text_trans,detected_src_lang)                
                 translation_config = speechsdk.translation.SpeechTranslationConfig(
                     subscription=speech_key, region=service_region,

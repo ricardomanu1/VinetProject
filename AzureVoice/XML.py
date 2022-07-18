@@ -3,9 +3,9 @@ import os
 
 class XML():
 
-    def name(self,response,tag):
-        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "es-ES"})
-        voice = ET.SubElement(speak, "voice", name = "es-ES-ElviraNeural") 
+    def name(self,response,tag,language,voice_name):
+        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": language})
+        voice = ET.SubElement(speak, "voice", name = voice_name) 
         # Calm
         prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
         # Cheerful
