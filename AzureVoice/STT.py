@@ -1,7 +1,10 @@
 import azure.cognitiveservices.speech as speechsdk
 import keyboard
 from interaction_manager import interaction_manager
+from translator import translator
 
+
+Translator = translator()
 Interaction = interaction_manager()
 i = 0
 speech_key, service_region = "595638ac99d0464a9227b07e48e08875", "westeurope"
@@ -16,13 +19,7 @@ speech_config.set_property(
 
 audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
 
-#source_language_recognizer = speechsdk.SourceLanguageRecognizer(
-#    speech_config=speech_config,
-#    auto_detect_source_language_config=auto_detect_source_language_config,
-#    audio_config=audio_config)
-
-#speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config,language="es-ES")
-speech_recognizer = speechsdk.SpeechRecognizer(
+recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, 
         auto_detect_source_language_config=auto_detect_source_language_config, 
         audio_config=audio_config)
@@ -31,31 +28,41 @@ while True:
     try:
         if keyboard.is_pressed('q'):
             print("Di algo...")
-            #result = source_language_recognizer.recognize_once()
-            result = speech_recognizer.recognize_once()
-
+            result = recognizer.recognize_once()
             if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-                print("RECOGNIZED: {}".format(result))
-                # Primera iter
                 if i==0:
                     detected_src_lang = result.properties[
                         speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
-                    print("Detected Language: {}".format(detected_src_lang))
-                print("Has dicho: {}".format(result.text))
-                Interaction.say(result.text,detected_src_lang)
-                i += 1
-                # Segunda iter
-                if i == 1:
-                    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config,language=str(detected_src_lang))
-
+                    print("Idioma detectado: {}".format(detected_src_lang))
+                    print("Entrada: {}".format(result.text))
+                text_trans = Translator.translator(result.text,'ja','es')
+                Interaction.say(text_trans,detected_src_lang)                
+                translation_config = speechsdk.translation.SpeechTranslationConfig(
+                    subscription=speech_key, region=service_region,
+                    speech_recognition_language=str(detected_src_lang),
+                    target_languages=('es', 'eu', 'fr', 'ja', 'en'))
+                recognizer = speechsdk.translation.TranslationRecognizer(
+                    translation_config=translation_config, audio_config=audio_config)
+            elif result.reason == speechsdk.ResultReason.TranslatedSpeech:
+                print("""Entrada: {}
+                    Traducción Español: {}
+                    Traducción Euskera: {}                    
+                    Traducción Inglés: {}
+                    Traducción Francés: {}
+                    Traducción Japanés: {}""".format(
+                        result.text, 
+                        result.translations['es'],
+                        result.translations['eu'],
+                        result.translations['en'],
+                        result.translations['fr'],
+                        result.translations['ja'],))
+                Interaction.say(result.translations['es'],detected_src_lang)
             elif result.reason == speechsdk.ResultReason.NoMatch:
-                print("No se ha reconocido una entrada: {}".format(result.no_match_details))
+                print("No speech could be recognized: {}".format(result.no_match_details))
             elif result.reason == speechsdk.ResultReason.Canceled:
-                cancellation_details = result.cancellation_details
-                print("Reconocimiento cancelado: {}".format(cancellation_details.reason))
-                if cancellation_details.reason == speechsdk.CancellationReason.Error:
-                    print("Detalles de error: {}".format(cancellation_details.error_details))
-            #break  # finishing the loop
+                print("Translation canceled: {}".format(result.cancellation_details.reason))
+                if result.cancellation_details.reason == speechsdk.CancellationReason.Error:
+                    print("Error details: {}".format(result.cancellation_details.error_details))
     except:
         break
 

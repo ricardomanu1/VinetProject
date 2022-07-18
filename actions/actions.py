@@ -93,6 +93,9 @@ class ChatBot(Action):
         Bi = intent['name']
 
         id_event = tracker.latest_message['metadata']['event']
+
+        for e in entities:
+            print("entidad: {} = {}".format(e['entity'],e['value']))
        
         ## Entradas de Voz       
         if (id_event == 'say'):
@@ -110,7 +113,7 @@ class ChatBot(Action):
             if (tracker.latest_message['metadata']['people']!=None):
                 slot_people = tracker.latest_message['metadata']['people']
             if (tracker.latest_message['metadata']['hito']!=None):
-                slot_hito = tracker.latest_message['metadata']['hito']
+                slot_hito = tracker.latest_message['metadata']['hito']          
             user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
             if text in context:
@@ -130,7 +133,7 @@ class ChatBot(Action):
             ## print("Value:", value)
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
-
+        
         return [SlotSet("daytime", slot_daytime),SlotSet("people", slot_people),SlotSet("hito", slot_hito)]
 
 ## Estructura EBDI

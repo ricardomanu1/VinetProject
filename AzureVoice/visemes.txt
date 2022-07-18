@@ -1,1 +1,26 @@
-Viseme event received: audio offset: 50.0ms, viseme id: 0.Viseme event received: audio offset: 50.0ms, viseme id: 12.Viseme event received: audio offset: 162.5ms, viseme id: 4.Viseme event received: audio offset: 262.5ms, viseme id: 19.Viseme event received: audio offset: 325.0ms, viseme id: 6.Viseme event received: audio offset: 412.5ms, viseme id: 2.Viseme event received: audio offset: 487.5ms, viseme id: 14.Viseme event received: audio offset: 600.0ms, viseme id: 0.Viseme event received: audio offset: 612.5ms, viseme id: 0.Viseme event received: audio offset: 1450.0ms, viseme id: 19.Viseme event received: audio offset: 1612.5ms, viseme id: 6.Viseme event received: audio offset: 1687.5ms, viseme id: 21.Viseme event received: audio offset: 1775.0ms, viseme id: 4.Viseme event received: audio offset: 1862.0ms, viseme id: 0.Viseme event received: audio offset: 1862.5ms, viseme id: 4.Viseme event received: audio offset: 1912.5ms, viseme id: 19.Viseme event received: audio offset: 1975.0ms, viseme id: 20.Viseme event received: audio offset: 2062.5ms, viseme id: 4.Viseme event received: audio offset: 2125.0ms, viseme id: 19.Viseme event received: audio offset: 2212.5ms, viseme id: 4.Viseme event received: audio offset: 2275.0ms, viseme id: 21.Viseme event received: audio offset: 2350.0ms, viseme id: 7.Viseme event received: audio offset: 2425.0ms, viseme id: 4.Viseme event received: audio offset: 2475.0ms, viseme id: 17.Viseme event received: audio offset: 2537.5ms, viseme id: 8.Viseme event received: audio offset: 2587.5ms, viseme id: 2.Viseme event received: audio offset: 2662.5ms, viseme id: 6.Viseme event received: audio offset: 2687.5ms, viseme id: 6.Viseme event received: audio offset: 2712.5ms, viseme id: 7.Viseme event received: audio offset: 2775.0ms, viseme id: 17.Viseme event received: audio offset: 2850.0ms, viseme id: 2.Viseme event received: audio offset: 2900.0ms, viseme id: 19.Viseme event received: audio offset: 3012.5ms, viseme id: 0.
+Viseme event received: audio offset: 50.0ms, viseme id: 0.
+Viseme event received: audio offset: 50.0ms, viseme id: 20.
+Viseme event received: audio offset: 175.0ms, viseme id: 7.
+Viseme event received: audio offset: 287.5ms, viseme id: 17.
+Viseme event received: audio offset: 350.0ms, viseme id: 21.
+Viseme event received: audio offset: 450.0ms, viseme id: 8.
+Viseme event received: audio offset: 512.5ms, viseme id: 19.
+Viseme event received: audio offset: 562.5ms, viseme id: 19.
+Viseme event received: audio offset: 650.0ms, viseme id: 6.
+Viseme event received: audio offset: 700.0ms, viseme id: 19.
+Viseme event received: audio offset: 812.0ms, viseme id: 0.
+Viseme event received: audio offset: 837.5ms, viseme id: 0.
+Viseme event received: audio offset: 1687.5ms, viseme id: 12.
+Viseme event received: audio offset: 1787.5ms, viseme id: 2.
+Viseme event received: audio offset: 1937.5ms, viseme id: 7.
+Viseme event received: audio offset: 2025.0ms, viseme id: 2.
+Viseme event received: audio offset: 2125.0ms, viseme id: 19.
+Viseme event received: audio offset: 2175.0ms, viseme id: 4.
+Viseme event received: audio offset: 2237.5ms, viseme id: 14.
+Viseme event received: audio offset: 2300.0ms, viseme id: 7.
+Viseme event received: audio offset: 2387.5ms, viseme id: 19.
+Viseme event received: audio offset: 2450.0ms, viseme id: 7.
+Viseme event received: audio offset: 2525.0ms, viseme id: 6.
+Viseme event received: audio offset: 2600.0ms, viseme id: 19.
+Viseme event received: audio offset: 2700.0ms, viseme id: 20.
+Viseme event received: audio offset: 2749.5ms, viseme id: 0.

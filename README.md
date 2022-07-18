@@ -29,3 +29,8 @@ http://localhost:5005/webhooks/myio/webhook
     "message": "Hola",
     "metadata": {"event":"say","sentiment":"happy"} 
 }
+## Rasa Train
+### rasa train --domain domains
+
+## Azure installation
+### pip install azure-cognitiveservices-speech
