@@ -22,9 +22,9 @@ audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config,audio_config=audio_config)
 
 output_txt = open("visemes.txt","w+")
-output_csv = open('visemes.csv','w+')
+output_csv = open('visemes.csv','w+',newline='')
 writer = csv.writer(output_csv, delimiter =';')
-writer.writerow(['audio_offset','viseme_id'])
+#writer.writerow(['audio_offset','viseme_id'])
 speech_synthesizer.viseme_received.connect(lambda evt: print(
             "Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id)))
 speech_synthesizer.viseme_received.connect(lambda evt: output_txt.write(str((
@@ -36,7 +36,7 @@ while True:
     time.sleep(1)
     if os.path.exists('..\\VinetBot\\VinetProject\\response\\respuesta.xml'):               
         output_txt = open("visemes.txt","w+")    
-        output_csv = open('visemes.csv','w+')
+        output_csv = open('visemes.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =';')
         writer.writerow(['audio_offset','viseme_id'])
         #speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis started: {}".format(evt)))
@@ -53,9 +53,13 @@ while True:
             print(contents)
         tag = 'Neutral'
         #lang = 'en-US'        
-        lang = 'es-ES'        
+        #lang = 'es-ES'        
+        #lang = 'eu-ES'        
+        lang = 'ja-JP'        
         #voice_name = 'en-US-JennyMultilingualNeural'
-        voice_name = 'es-ES-ElviraNeural'
+        #voice_name = 'es-ES-ElviraNeural'
+        #voice_name = 'es-ES-AlvaroNeural'
+        voice_name = 'ja-JP-NanamiNeural'
         text_trans = Translator.translator(contents,'es',lang[0:2])
 
         # Construccion del SSML        
@@ -73,6 +77,7 @@ while True:
             print("Síntesis de voz para el XML [{}]".format(ssml_string))
             audio_data = result.audio_data
             print("{} bytes of audio data received.".format(len(audio_data)))
+            print(text_trans)
         elif result.reason == speechsdk.ResultReason.Canceled:
             cancellation_details = result.cancellation_details
             print("Speech synthesis canceled: {}".format(cancellation_details.reason))
