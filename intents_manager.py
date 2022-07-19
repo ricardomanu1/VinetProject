@@ -14,13 +14,12 @@ class intents_manager(object):
     def intentsData(self):
         #acc_fulfill suceso que ha ocurrido y se mantiene
         #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
-
         ### PLANS ###
         ## Usuario se presenta
         self.intents.append(('say','utter_presentacion', ['presentacion'], 'acc_del_belief','presentacion', 'acc_say', 'utter_presentacion'))   
         ## Usuario me saluda
         self.intents.append(('say','utter_saludar', ['saludar','happy'],'acc_say','utter_saludar','acc_fulfill','saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
-        self.intents.append(('say','utter_saludar', ['saludar','neutral'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
+        self.intents.append(('say','utter_saludar', ['saludar','sad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
         ## Usuario se interesa por mi estado de animo
         self.intents.append(('say','utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_del_belief','empatizar'))
         self.intents.append(('say','utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_del_belief','empatizar'))
@@ -80,7 +79,10 @@ class intents_manager(object):
         ## Conocimiento del entorno
         self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_del_belief','utter_conocer_personas','acc_say', 'utter_conocer_personas')) 
         self.intents.append(('know', 'utter_hito_grupo', ['utter_hito_grupo'],'acc_del_belief','utter_hito_grupo','acc_say', 'utter_hito_grupo')) 
-       
+        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_new_belief','saludar'))
+
+        #self.intents.append(('know', 'isBored', ['isBored'],'acc_del_belief','isBored'))
+               
         self.intents.append(('say', 'utter_h1', ['vinet_cuenco'],'acc_del_belief','vinet_cuenco','acc_say', 'utter_h1','acc_say', 'utter_h2','acc_say', 'utter_h3',
                             'acc_say', 'utter_h4','acc_say', 'utter_h5','acc_say', 'utter_h6','acc_say', 'utter_h7', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_h7')) 
         self.intents.append(('say','utter_h8', ['utter_h7','he_preguntado_si_no','afirmar'],'acc_del_belief','he_preguntado_si_no', 'acc_del_belief','utter_h7',

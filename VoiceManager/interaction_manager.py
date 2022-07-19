@@ -3,18 +3,18 @@ import json
 
 class interaction_manager(object):
 
-    def say(self,text,lang):
+    def say(self,text,lang,sentiment):
         r = requests.post('http://127.0.0.1:5005/webhooks/myio/webhook', json={
         "sender": "Vinet_user",
         "message": "{}".format(text),
-        "metadata": {"event":"say","sentiment":"isHappy","language":"{}".format(lang)} 
+        "metadata": {"event":"say","sentiment":"{}".format(sentiment),"language":"{}".format(lang)} 
         })
 
     def know(self):
         r = requests.post('http://127.0.0.1:5005/webhooks/myio/webhook', json={
         "sender": "Vinet_user",
         "message": "{}".format(text),
-        "metadata": {"event":"know"} 
+        "metadata": {"event":"know","people":9, "hito":5} 
         })
 
     def tts(self):

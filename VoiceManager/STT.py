@@ -6,6 +6,8 @@ from translator import translator
 Translator = translator()
 Interaction = interaction_manager()
 
+sentiment = 'isSad' #['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
+    
 speech_key, service_region = "595638ac99d0464a9227b07e48e08875", "westeurope"
 
 auto_detect_source_language_config = \
@@ -34,7 +36,7 @@ while True:
                 print("Idioma detectado: {}".format(detected_src_lang))
                 print("Entrada: {}".format(result.text))
                 text_trans = Translator.translator(result.text,detected_src_lang[0:2],'es')
-                Interaction.say(text_trans,detected_src_lang)                
+                Interaction.say(text_trans,detected_src_lang,sentiment)                
                 translation_config = speechsdk.translation.SpeechTranslationConfig(
                     subscription=speech_key, region=service_region,
                     speech_recognition_language=str(detected_src_lang),
@@ -54,7 +56,7 @@ while True:
                         result.translations['en'],
                         result.translations['fr'],
                         result.translations['ja'],))
-                Interaction.say(result.translations['es'],detected_src_lang)
+                Interaction.say(result.translations['es'],detected_src_lang,sentiment)
             elif result.reason == speechsdk.ResultReason.NoMatch:
                 print("No speech could be recognized: {}".format(result.no_match_details))
             elif result.reason == speechsdk.ResultReason.Canceled:

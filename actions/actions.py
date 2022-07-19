@@ -154,10 +154,14 @@ class EBDI(Action):
 
         # Establecen las nuevas creencias a partir del evento
         newBelief = Beliefs.new_belief(user_event)     
-
+        
+        Beliefs.del_belief(Emotions.estado)
+        for e in Beliefs.emotionalBeliefs:
+            Beliefs.del_belief(e)
         # Primera gestion del estado emocional
         E1 = Emotions.euf1(Intents,newBelief)
         print('PRIMARY EMOTION: ' + E1) 
+        newBelief.append(['know',E1,True])        
 
         # BDI actualizacion        
         BDI.bdi(self,newBelief)             
@@ -292,7 +296,7 @@ class To_Speech(Action):
                 txt_responses += str(e['text'])
                 txt_responses += ' '            
             sentence = TXT.name(txt,txt_responses)
-            ExecuteEBDI.execute_ebdi(sentence,Emotions.tag())
+            #ExecuteEBDI.execute_ebdi(sentence,Emotions.tag())
         count = 0
 
         return []

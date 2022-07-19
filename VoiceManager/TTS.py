@@ -34,7 +34,8 @@ speech_synthesizer.viseme_received.connect(lambda evt: writer.writerow([evt.audi
 while True:
     # Receives a text from console input.    
     time.sleep(1)
-    if os.path.exists('..\\VinetBot\\VinetProject\\response\\respuesta.xml'):               
+    #if os.path.exists('..\\VinetBot\\VinetProject\\response\\respuesta.xml'):               
+    if os.path.exists('..\\VinetBot\\VinetProject\\speech.txt'):               
         output_txt = open("visemes.txt","w+")    
         output_csv = open('visemes.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =';')
@@ -51,19 +52,22 @@ while True:
         with open('..\\VinetBot\\VinetProject\\speech.txt') as f:
             contents = f.read()
             print(contents)
-        tag = 'Neutral'
+        tag = 'Cheerful'
+        #tag = 'Sad'
         #lang = 'en-US'        
-        #lang = 'es-ES'        
+        lang = 'es-ES'        
         #lang = 'eu-ES'        
-        lang = 'ja-JP'        
-        #voice_name = 'en-US-JennyMultilingualNeural'
-        #voice_name = 'es-ES-ElviraNeural'
-        #voice_name = 'es-ES-AlvaroNeural'
-        voice_name = 'ja-JP-NanamiNeural'
+        #lang = 'ja-JP'        
+        #voice_name = 'en-US-JennyMultilingualNeural'   ##inglés multilingüe
+        #voice_name = 'en-US-JennyNeural'   ##inglés con emociones
+        voice_name = 'es-ES-ElviraNeural'  ##español
+        #voice_name = 'es-ES-AlvaroNeural'  ##euskera
+        #voice_name = 'ja-JP-NanamiNeural'  ##japonés
         text_trans = Translator.translator(contents,'es',lang[0:2])
 
         # Construccion del SSML        
         XML.name(text_trans,tag,lang,voice_name) 
+        #XML.name2(text_trans,tag,lang,voice_name) 
 
         ssml_string = open("respuesta.xml", "r", encoding="utf-8").read()  
 
@@ -85,5 +89,6 @@ while True:
                 print("Error details: {}".format(cancellation_details.error_details))  
         output_txt.close()
         output_csv.close()
-        os.remove('..\\VinetBot\\VinetProject\\response\\respuesta.xml')
+        #os.remove('..\\VinetBot\\VinetProject\\response\\respuesta.xml')
+        os.remove('..\\VinetBot\\VinetProject\\speech.txt')
         time.sleep(2)

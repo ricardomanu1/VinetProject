@@ -31,6 +31,3 @@ http://localhost:5005/webhooks/myio/webhook
 }
 ## Rasa Train
 ### rasa train --domain domains
-
-## Azure installation
-### pip install azure-cognitiveservices-speech

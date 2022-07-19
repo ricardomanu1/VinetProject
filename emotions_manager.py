@@ -5,16 +5,13 @@
         #customerservice
         #chat
         #cheerful
-        #empathetic
         ##sad
-        ##calm
+        ##unfriendly
         ##angry
-        ##fearful
-        ##disgruntled
-        ##serious
-        ##affectionate
-        ##gentle
-        ##lyrical
+        ##excited
+        ##friendly
+        ##terrified
+        ##hopeful
 ## Bi intenciones
     #positivas
     #neutras
@@ -45,7 +42,8 @@ class emotions_manager(object):
         self.occEmotions()
         self.dominantEmotion = {"name":'Disliking', "value":0.46}
 
-        self.emotionalTags = ['happy','sad','fear','disgust','anger','surprise','neutral']
+        self.emotionalTags = ['happy','sad','fear','anger','surprise','bored','anxious','lonely','tired']
+        self.emotionalUser = ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
     
     #
     def defaultMood(self):        
@@ -111,10 +109,11 @@ class emotions_manager(object):
 # Define la emocion primaria
     def euf1(self, Intents, belief):     
         #belief[0]
+        print(belief)
         for b in belief:
-            if b[0] in self.emotionalTags:
-                # Empatia simple
-                self.estado = b[0]
+            if b[0] is 'know':
+                 # Empatia simple
+                 self.estado = self.emotionalTags[self.emotionalUser.index(b[1])]               
         return self.estado
 
 # Define la emocion secundaria tras pensarlo bien

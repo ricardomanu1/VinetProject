@@ -7,7 +7,7 @@ class belief_manager(object):
         self.agent_beliefs = []  
         # Estado inicial de las emociones
         self.agent_beliefs.append(['know','happy',True])
-        self.emotionalBeliefs = ['isHappy','isSad','isFear','isDisgust','isAnger','isSurprise','isNeutral']
+        self.emotionalBeliefs = ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
 
     def get_belief_value(self, belief_name):
         for belief in agent_beliefs:
@@ -52,6 +52,7 @@ class belief_manager(object):
         elif event[0] == 'know':
             # intencion
             belief.append([event[0],event[1],True])
+            print('entra')
         return belief
 
     def del_belief(self, belief_name): 
