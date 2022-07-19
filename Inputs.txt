@@ -1,11 +1,36 @@
+## saludo alegre
+{
+    "sender": "Vinet_user",
+    "message": "Hola",
+    "metadata": {"event":"say","sentiment":"isHappy","language":"es-ES"} 
+}
+## saludo triste
+{
+    "sender": "Vinet_user",
+    "message": "Hola",
+    "metadata": {"event":"say","sentiment":"isSad","language":"es-ES"} 
+}
+## estado de animo ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
+{
+    "sender": "Vinet_user",
+    "message": "¿Qué tal estas?",
+    "metadata": {"event":"say","sentiment":"isSad","language":"es-ES"} 
+}
+## comando posicion del grupo
 {
     "sender": "Vinet_u",
     "message": "utter_hito_grupo",
     "metadata": {"event":"know","people":9, "hito":5} 
 }
-
+## comando personas en el grupo
 {
     "sender": "Vinet_u",
     "message": "utter_conocer_personas",
     "metadata": {"event":"know","people":9, "hito":5} 
+}
+## comando entra el grupo
+{
+    "sender": "Vinet_u",
+    "message": "entra_grupo",
+    "metadata": {"event":"know","sentiment":"happy","people":9, "hito":5} 
 }
