@@ -52,7 +52,6 @@ class belief_manager(object):
         elif event[0] == 'know':
             # intencion
             belief.append([event[0],event[1],True])
-            print('entra')
         return belief
 
     def del_belief(self, belief_name): 

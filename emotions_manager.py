@@ -1,17 +1,15 @@
 ##tag emocional segun XML
-        #newscast-formal
-        #newscast-casual
-        #narration-professional
-        #customerservice
-        #chat
-        #cheerful
+        ##cheerful
         ##sad
-        ##unfriendly
-        ##angry
-        ##excited
         ##friendly
-        ##terrified
+        ###unfriendly
         ##hopeful
+        ##angry               
+        ##excited        
+        ##terrified
+        ##shouting
+        ##whispering
+        
 ## Bi intenciones
     #positivas
     #neutras
@@ -109,7 +107,6 @@ class emotions_manager(object):
 # Define la emocion primaria
     def euf1(self, Intents, belief):     
         #belief[0]
-        print(belief)
         for b in belief:
             if b[0] is 'know':
                  # Empatia simple

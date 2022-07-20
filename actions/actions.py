@@ -32,6 +32,7 @@ user_intent = ''
 count = 0
 Bi = ''
 Be = ''
+lang = 'es-ES'
 Emotions = emotions_manager()
 Beliefs = belief_manager()
 Desires = desires_manager()        
@@ -74,6 +75,7 @@ class ChatBot(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]: 
         global Bi
         global Be
+        global lang
 
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
@@ -100,9 +102,10 @@ class ChatBot(Action):
         ## Entradas de Voz       
         if (id_event == 'say'):
             Be = tracker.latest_message['metadata']['sentiment']
-            lang = tracker.latest_message['metadata']['language']
+            if (tracker.latest_message['metadata']['language']!=None):
+                lang = tracker.latest_message['metadata']['language']
             user_event = [id_event,Bi,Be,text,slot_name,entities,lang] 
-            print('EVENT: ' + str(user_event)) 
+            print('----->EVENT: ' + str(user_event)) 
             if Bi in context:
                 EBDI.run(self, dispatcher, tracker, domain, user_event)
             else:
@@ -178,7 +181,7 @@ class EBDI(Action):
             del Intents.agent_intents[0]
             
         for i in p:
-            print('---->' + i)
+            print('--->' + i)
             exec(i) 
 
         return []
@@ -282,17 +285,22 @@ class To_Speech(Action):
             domain: Dict[Text, Any]
             ) -> List[Dict[Text, Any]]:
         global msg
-        global count
-        
+        global count        
+
+        print("Cambios tras la primera acción")
+
+        print("daytime: " + str(tracker.get_slot('daytime')))  
+        print("people: " + str(tracker.get_slot('people'))) 
+
         txt_responses = ''
 
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
             responses = msg[-count:]  
             txt = TXT()            
-            print('-----RESPONSES-----')
+            print('----RESPONSES----')
             for e in responses:
-                print('-' + str(e['text']))
+                print('- ' + str(e['text']))
                 txt_responses += str(e['text'])
                 txt_responses += ' '            
             sentence = TXT.name(txt,txt_responses)
@@ -307,79 +315,18 @@ class TXT():
     def name(self,response) -> Text:
         output = open("speech.txt","w+")
         print("VINETbot:", response)
-        output.write(str(response))
+        #output.write(str(response))
+        lines = [str(response),str(Emotions.estado),lang]
+        output.write('\n'.join(lines))
         output.close()
         return str(response)
 
 ## Salida de la respuesta emocional en XML
 class ExecuteEBDI:
 
-    def execute_ebdi(message,tag):
-        xml = XML3()
-        xml.name(message,tag)        
+    def execute_ebdi(message,tag):   
         return "echo"
 
-## Salida de la respuesta emocional en XML dado por azure
-class XML():
-
-    def name(self,response,tag) -> Text:
-        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "en-US"})
-        voice = ET.SubElement(speak, "voice", name = "en-US-JennyMultilingualNeural") 
-        lang = ET.SubElement(voice, "lang", attrib={"xml:lang":"es-ES"})
-        mstts = ET.SubElement(lang, "mstts:express-as", style = tag )
-        mstts.text = response
-        arbol = ET.ElementTree(speak)
-        arbol.write("Response\\respuesta.xml")
-        return "echo"
-
-## Salida de la respuesta emocional en XML dado por nosotros
-class XML2():
-
-    def name(self,response,tag) -> Text:
-        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "en-US"})
-        voice = ET.SubElement(speak, "voice", name = "en-US-JennyMultilingualNeural") 
-        lang = ET.SubElement(voice, "lang", attrib={"xml:lang":"es-ES"})
-        # Calm
-        prosody = ET.SubElement(lang, "prosody", rate = "0.00%", pitch = "0.00%")
-        # Cheerful
-        if tag == "Cheerful":
-            response = "¡" + str(response) + "!"
-        # Sad
-        if tag == "Sad":
-            prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
-        prosody.text = response
-        arbol = ET.ElementTree(speak)
-        arbol.write("Response\\respuesta.xml")
-        return "echo"
-
-class XML3():
-
-    def name(self,response,tag) -> Text:
-        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "es-ES"})
-        voice = ET.SubElement(speak, "voice", name = "es-ES-ElviraNeural") 
-        # Calm
-        prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
-        # Cheerful
-        if tag == "Cheerful":
-            response = "¡" + str(response) + "!"
-        # Sad
-        if tag == "Sad":
-            prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
-        prosody.text = response
-        arbol = ET.ElementTree(speak)
-        arbol.write("Response\\respuesta.xml")
-        return "echo"
-
-class XML4():
-
-    def name(self,response,tag) -> Text:
-        speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": "en-US"})
-        voice = ET.SubElement(speak, "voice", name = "en-US-JennyMultilingualNeural") 
-        lang = ET.SubElement(voice, "lang", attrib={"xml:lang":"es-ES"})       
-        lang.text = response
-        arbol = ET.ElementTree(speak)
-        arbol.write("Response\\respuesta.xml")
-        return "echo"
 
 ## Se ejecuta una sola vez al principio de una conversacion
 class Dictionary:

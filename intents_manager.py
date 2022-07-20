@@ -127,8 +127,6 @@ class intents_manager(object):
 
     def check(self, terms, Beliefs, Emotions):
         beliefs = [b[1] for b in Beliefs.agent_beliefs]
-        #print('aqui')
-        #print(terms)
         Belief_check = Beliefs.agent_beliefs
         for i in terms:
            if i not in beliefs:
