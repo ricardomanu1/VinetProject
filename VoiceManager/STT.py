@@ -6,7 +6,7 @@ from translator import translator
 Translator = translator()
 Interaction = interaction_manager()
 
-sentiment = 'isSad' #['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
+sentiment = 'isHappy' #['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
     
 speech_key, service_region = "595638ac99d0464a9227b07e48e08875", "westeurope"
 

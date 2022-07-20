@@ -31,36 +31,56 @@ speech_synthesizer.viseme_received.connect(lambda evt: output_txt.write(str((
             "Viseme event received: audio offset: {}ms, viseme id: {}.\n".format(evt.audio_offset / 10000, evt.viseme_id)))))
 speech_synthesizer.viseme_received.connect(lambda evt: writer.writerow([evt.audio_offset / 10000, evt.viseme_id]))
 
+# indica que se ha iniciado la síntesis de voz
+speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis started: {}".format(evt)))
+# 
+speech_synthesizer.bookmark_reached.connect(lambda evt: print(
+        "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
+# cada vez que el sdk recibe un fragmento de audio
+speech_synthesizer.synthesizing.connect(
+            lambda evt: print("Synthesis ongoing, audio chunk received: {}".format(evt)))
+# limite de palabra
+speech_synthesizer.synthesis_word_boundary.connect(lambda evt: print(
+            "Word boundary event received: {}, audio offset in ms: {}ms.".format(evt, evt.audio_offset / 10000))) 
+# indica que la síntesis de voz se ha completado
+speech_synthesizer.synthesis_completed.connect(lambda evt: print("Synthesis completed: {}".format(evt)))
+
 while True:
     # Receives a text from console input.    
     time.sleep(1)
-    #if os.path.exists('..\\VinetBot\\VinetProject\\response\\respuesta.xml'):               
+    #if os.path.exists('..\\VinetBot\\VinetProject\\respuesta.xml'):               
     if os.path.exists('..\\VinetBot\\VinetProject\\speech.txt'):               
         output_txt = open("visemes.txt","w+")    
         output_csv = open('visemes.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =';')
         writer.writerow(['audio_offset','viseme_id'])
-        #speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis started: {}".format(evt)))
-        #speech_synthesizer.synthesizing.connect(
-        #    lambda evt: print("Synthesis ongoing, audio chunk received: {}".format(evt)))
-        #speech_synthesizer.synthesis_word_boundary.connect(lambda evt: print(
-        #    "Word boundary event received: {}, audio offset in ms: {}ms.".format(evt, evt.audio_offset / 10000))) 
-        #speech_synthesizer.synthesis_completed.connect(lambda evt: print("Synthesis completed: {}".format(evt)))
 
-        #ssml_string = open("..\\VinetBot\\VinetProject\\response\\respuesta.xml", "r", encoding="utf-8").read()
+        #ssml_string = open("..\\VinetBot\\VinetProject\\respuesta.xml", "r", encoding="utf-8").read()
                
         with open('..\\VinetBot\\VinetProject\\speech.txt') as f:
-            contents = f.read()
-            print(contents)
+            #contents = f.read()
+            lines = [line.rstrip() for line in f]
+            print(lines)
+        contents = str(lines[0])
+        print(str(lines[1]))
+        lang = str(lines[2])
         tag = 'Cheerful'
         #tag = 'Sad'
         #lang = 'en-US'        
-        lang = 'es-ES'        
+        #lang = 'es-ES'        
         #lang = 'eu-ES'        
-        #lang = 'ja-JP'        
+        #lang = 'ja-JP'  
+        if lang == 'es-ES' or lang == 'eu-ES':
+            voice_name = 'es-ES-ElviraNeural'
+        elif lang == 'en-US':
+            voice_name = 'en-US-JennyNeural'
+        elif lang == 'ja-JP':
+            voice_name = 'ja-JP-NanamiNeural'
+        elif lang == 'fr-FR':
+            voice_name = 'fr-FR-DeniseNeural'
         #voice_name = 'en-US-JennyMultilingualNeural'   ##inglés multilingüe
         #voice_name = 'en-US-JennyNeural'   ##inglés con emociones
-        voice_name = 'es-ES-ElviraNeural'  ##español
+        #voice_name = 'es-ES-ElviraNeural'  ##español
         #voice_name = 'es-ES-AlvaroNeural'  ##euskera
         #voice_name = 'ja-JP-NanamiNeural'  ##japonés
         text_trans = Translator.translator(contents,'es',lang[0:2])
@@ -89,6 +109,6 @@ while True:
                 print("Error details: {}".format(cancellation_details.error_details))  
         output_txt.close()
         output_csv.close()
-        #os.remove('..\\VinetBot\\VinetProject\\response\\respuesta.xml')
+        #os.remove('..\\VinetBot\\VinetProject\\respuesta.xml')
         os.remove('..\\VinetBot\\VinetProject\\speech.txt')
         time.sleep(2)

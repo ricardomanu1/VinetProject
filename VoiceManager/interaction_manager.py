@@ -10,11 +10,11 @@ class interaction_manager(object):
         "metadata": {"event":"say","sentiment":"{}".format(sentiment),"language":"{}".format(lang)} 
         })
 
-    def know(self):
+    def know(self,text,people,zona):
         r = requests.post('http://127.0.0.1:5005/webhooks/myio/webhook', json={
         "sender": "Vinet_user",
         "message": "{}".format(text),
-        "metadata": {"event":"know","people":9, "hito":5} 
+        "metadata": {"event":"know","people":people, "hito":zona} 
         })
 
     def tts(self):
