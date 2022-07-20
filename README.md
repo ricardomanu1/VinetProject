@@ -41,10 +41,28 @@ http://localhost:5005/webhooks/myio/webhook
 ## Voice manager
 ### Solo almacena algunos scripts para otra seccion que usa azure para incorporar la voz
 
-## uso OpenSmile
-### pregunta: ¿Qué tal estas?
-### el Json con el mensaje también tiene que llevar una de las siguientes emociones:
+## Uso con OpenSmile
+### Pregunta: ¿Qué tal estas?
+### El Json con el mensaje también tiene que llevar una de las siguientes emociones:
 ### ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
 El sistema actualmente esta actuando con un gestor de emociones espejo, si pregusto mientras estoy feliz (isHappy),
 me contesta estando feliz (Happy), de la misma manera, si estoy triste (isSad), me responde estando triste (Sad)
 ## la salida textual: speech.txt
+
+# Ejemplos:
+## input:
+{
+    "sender": "Vinet_user",
+    "message": "¿Qué tal estas?",
+    "metadata": {"event":"say","sentiment":"isHappy","language":"es-ES"} 
+}
+## output:
+	Me siento genial. (happy)
+## input:
+{
+    "sender": "Vinet_user",
+    "message": "Hola",
+    "metadata": {"event":"say","sentiment":"isSad","language":"es-ES"} 
+}
+## output:
+	Muy triste. (sad)
