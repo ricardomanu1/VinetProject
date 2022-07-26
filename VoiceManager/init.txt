@@ -1,0 +1,13 @@
+## Instalacion Azure 
+### pip install keyboard
+### pip install azure-cognitiveservices-speech
+### 
+
+
+
+
+
+
+## Generar ejecutables
+### python setup.py install
+### python setup.py py2exe

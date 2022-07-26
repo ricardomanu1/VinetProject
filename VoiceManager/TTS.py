@@ -4,8 +4,8 @@ import csv
 import azure.cognitiveservices.speech as speechsdk
 from azure.cognitiveservices.speech import AudioDataStream
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
+#from watchdog.observers import Observer
+#from watchdog.events import FileSystemEventHandler
 from XML import XML
 from translator import translator
 
@@ -49,7 +49,7 @@ while True:
     # Receives a text from console input.    
     time.sleep(1)
     #if os.path.exists('..\\VinetBot\\VinetProject\\respuesta.xml'):               
-    if os.path.exists('..\\VinetBot\\VinetProject\\speech.txt'):               
+    if os.path.exists('..\\speech.txt'):               
         output_txt = open("visemes.txt","w+")    
         output_csv = open('visemes.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =';')
@@ -57,32 +57,25 @@ while True:
 
         #ssml_string = open("..\\VinetBot\\VinetProject\\respuesta.xml", "r", encoding="utf-8").read()
                
-        with open('..\\VinetBot\\VinetProject\\speech.txt') as f:
+        with open('..\\speech.txt') as f:
             #contents = f.read()
             lines = [line.rstrip() for line in f]
             print(lines)
         contents = str(lines[0])
-        print(str(lines[1]))
+        tag = str(lines[1])
         lang = str(lines[2])
         tag = 'Cheerful'
         #tag = 'Sad'
-        #lang = 'en-US'        
-        #lang = 'es-ES'        
-        #lang = 'eu-ES'        
-        #lang = 'ja-JP'  
         if lang == 'es-ES' or lang == 'eu-ES':
-            voice_name = 'es-ES-ElviraNeural'
+            voice_name = 'es-ES-ElviraNeural' ##español ##euskera
         elif lang == 'en-US':
-            voice_name = 'en-US-JennyNeural'
+            voice_name = 'en-US-JennyNeural' ##inglés con emociones
         elif lang == 'ja-JP':
-            voice_name = 'ja-JP-NanamiNeural'
+            voice_name = 'ja-JP-NanamiNeural' ##japonés
         elif lang == 'fr-FR':
             voice_name = 'fr-FR-DeniseNeural'
         #voice_name = 'en-US-JennyMultilingualNeural'   ##inglés multilingüe
-        #voice_name = 'en-US-JennyNeural'   ##inglés con emociones
-        #voice_name = 'es-ES-ElviraNeural'  ##español
-        #voice_name = 'es-ES-AlvaroNeural'  ##euskera
-        #voice_name = 'ja-JP-NanamiNeural'  ##japonés
+
         text_trans = Translator.translator(contents,'es',lang[0:2])
 
         # Construccion del SSML        
@@ -110,5 +103,5 @@ while True:
         output_txt.close()
         output_csv.close()
         #os.remove('..\\VinetBot\\VinetProject\\respuesta.xml')
-        os.remove('..\\VinetBot\\VinetProject\\speech.txt')
+        os.remove('..\\speech.txt')
         time.sleep(2)
