@@ -37,7 +37,7 @@ http://localhost:5005/webhooks/myio/webhook
 }
 ### Mas ejemplos en inputs.txt
 
-# Configuraciones personalizadas
+# Configuraciones personalizadas (tras descargar el proyecto es necesario realizar un entrenamiento)
 ## Rasa Train
 ### rasa train --domain domains
 
