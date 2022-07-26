@@ -10,8 +10,8 @@ $ pip install --upgrade rasa==2.8.23
 ```
 ## Instalación del componente para fragmentar texto en español
 ```
-> pip3 install rasa[spacy]
-> python -m spacy download es_core_news_md
+$ pip3 install rasa[spacy]
+$ python -m spacy download es_core_news_md
 ```
 ## Instalación del componente sentiment
 ```
@@ -42,11 +42,13 @@ $ rasa run actions
 http://localhost:5005/webhooks/myio/webhook
 
 ## Ejemplo de mensaje 'saludar' Json
+```ruby
 {
     "sender": "Vinet_user",
     "message": "Hola",
     "metadata": {"event":"say","sentiment":"isHappy","language":"es-ES"} 
 }
+```
 ### Mas ejemplos en inputs.txt
 
 # Configuraciones personalizadas 
