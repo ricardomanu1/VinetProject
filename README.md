@@ -14,13 +14,14 @@
 ## Instalación del componente sentiment
 ### pip install nltk
 
-## Instalación de Rasa x
+## Instalación de Rasa x 
+Posiblemente no sea necesario, comprobar si existe alguna version de rasa-x instalada con el comando:
+> rasa --v
 ### pip install --upgrade --use-deprecated=legacy-resolver --user rasa-x --extra-index-url https://pypi.rasa.com/simple
 
-## Activación del canal personalizado
-### rasa run --enable-api
+## Antes de realizar la ejecucion, mirar la configuracion personalizada
 
-# Ejecución con API
+# Ejecución con API (desde el fichero VinetProject)
 ## Consola 1
 ### rasa run -m models --enable-api --credentials credentials.yml --debug
 ## Consola 2
