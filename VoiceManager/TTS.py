@@ -73,7 +73,7 @@ while True:
         elif lang == 'ja-JP':
             voice_name = 'ja-JP-NanamiNeural' ##japonés
         elif lang == 'fr-FR':
-            voice_name = 'fr-FR-DeniseNeural'
+            voice_name = 'fr-FR-DeniseNeural' ##francés
         #voice_name = 'en-US-JennyMultilingualNeural'   ##inglés multilingüe
 
         text_trans = Translator.translator(contents,'es',lang[0:2])

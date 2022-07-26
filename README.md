@@ -42,7 +42,7 @@ http://localhost:5005/webhooks/myio/webhook
 ### rasa train --domain domains
 
 ## Voice manager
-### Solo almacena algunos scripts para otra seccion que usa azure para incorporar la voz
+### Solo almacena algunos scripts para otra seccion que usa azure para incorporar la voz, ver al final.
 
 ## Uso con OpenSmile
 ### Pregunta: ¿Qué tal estas?
@@ -69,3 +69,17 @@ me contesta estando feliz (Happy), de la misma manera, si estoy triste (isSad), 
 }
 ## output:
 	Muy triste. (sad)
+
+
+# Ejecucion usando Azure
+## Instalacion Azure 
+### pip install keyboard
+### pip install azure-cognitiveservices-speech
+
+# Ejecución con Azure (dentro del fichero VoiceManager)
+## Consola 3
+### python STT.py
+## Consola 4
+### python TTS.py
+
+## Nota: cada vez que se presione la tecla 'q' se da un tiempo para hablar. 
