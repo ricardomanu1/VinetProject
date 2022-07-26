@@ -59,28 +59,32 @@ $ rasa train --domain domains
 ### Solo almacena algunos scripts para otra sección que usa Azure para incorporar la voz, ver al final.
 
 ## Uso con OpenSmile
-Pregunta: ¿Qué tal estas?
-El Json con el mensaje también tiene que llevar una de las siguientes emociones:
-['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
+Pregunta: ¿Qué tal estas?<br/>
+El Json con el mensaje también tiene que llevar una de las siguientes emociones:<br/>
+['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']<br/>
 El sistema actualmente esta actuando con un gestor de emociones espejo, si pregunto mientras estoy feliz (isHappy),
-me contesta estando feliz (Happy), de la misma manera, si estoy triste (isSad), me responde estando triste (Sad)
+me contesta estando feliz (Happy), de la misma manera, si estoy triste (isSad), me responde estando triste (Sad)<br/>
 La salida textual: speech.txt
 
 # Ejemplos Json con emociones:
 ## input:
+```ruby
 {
     "sender": "Vinet_user",
     "message": "¿Qué tal estas?",
     "metadata": {"event":"say","sentiment":"isHappy","language":"es-ES"}
 }
+```
 ## output:
 	Me siento genial. (happy)
 ## input:
+```ruby
 {
     "sender": "Vinet_user",
     "message": "¿Qué tal estas?",
     "metadata": {"event":"say","sentiment":"isSad","language":"es-ES"}
 }
+```
 ## output:
 	Muy triste. (sad)
 
