@@ -17,6 +17,9 @@
 ## Instalación de Rasa x
 ### pip install --upgrade --use-deprecated=legacy-resolver --user rasa-x --extra-index-url https://pypi.rasa.com/simple
 
+## Activación del canal personalizado
+### rasa run --enable-api
+
 # Ejecución con API
 ## Consola 1
 ### rasa run -m models --enable-api --credentials credentials.yml --debug
@@ -61,7 +64,7 @@ me contesta estando feliz (Happy), de la misma manera, si estoy triste (isSad), 
 ## input:
 {
     "sender": "Vinet_user",
-    "message": "Hola",
+    "message": "¿Qué tal estas?",
     "metadata": {"event":"say","sentiment":"isSad","language":"es-ES"} 
 }
 ## output:
