@@ -34,14 +34,14 @@ speech_synthesizer.viseme_received.connect(lambda evt: writer.writerow([evt.audi
 # indica que se ha iniciado la síntesis de voz
 speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis started: {}".format(evt)))
 # 
-speech_synthesizer.bookmark_reached.connect(lambda evt: print(
-        "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
+#speech_synthesizer.bookmark_reached.connect(lambda evt: print(
+#        "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
 # cada vez que el sdk recibe un fragmento de audio
-speech_synthesizer.synthesizing.connect(
-            lambda evt: print("Synthesis ongoing, audio chunk received: {}".format(evt)))
+#speech_synthesizer.synthesizing.connect(
+#            lambda evt: print("Synthesis ongoing, audio chunk received: {}".format(evt)))
 # limite de palabra
-speech_synthesizer.synthesis_word_boundary.connect(lambda evt: print(
-            "Word boundary event received: {}, audio offset in ms: {}ms.".format(evt, evt.audio_offset / 10000))) 
+#speech_synthesizer.synthesis_word_boundary.connect(lambda evt: print(
+ #           "Word boundary event received: {}, audio offset in ms: {}ms.".format(evt, evt.audio_offset / 10000))) 
 # indica que la síntesis de voz se ha completado
 speech_synthesizer.synthesis_completed.connect(lambda evt: print("Synthesis completed: {}".format(evt)))
 
@@ -84,9 +84,18 @@ while True:
 
         ssml_string = open("respuesta.xml", "r", encoding="utf-8").read()  
 
-        result = speech_synthesizer.speak_ssml_async(ssml_string).get()
+        result = speech_synthesizer.speak_ssml_async(ssml_string).get() ## se genera el audio
 
+        print(result)
+        print(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs))
+        print(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs))
+        
+        
+        
         stream = AudioDataStream(result)
+        print(stream.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs))
+        print(stream.properties.get_property(speechsdk.PropertyId.SpeechServiceConnection_SynthOutputFormat))
+
         stream.save_to_wav_file("respuesta.wav")           
 
         # Comprobacion del resultado
