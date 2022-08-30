@@ -10,7 +10,6 @@ from emotions_manager import emotions_manager
 from belief_manager import belief_manager
 from desires_manager import desires_manager
 from intents_manager import intents_manager 
-from inner_speech import inner_speech
 
 from os import listdir
 from typing import Any, Text, Dict, List
@@ -33,21 +32,33 @@ count = 0
 Bi = ''
 Be = ''
 lang = 'es-ES'
+
+# Gestor EBDI
 Emotions = emotions_manager()
 Beliefs = belief_manager()
 Desires = desires_manager()        
 Intents = intents_manager()
 context = Intents.get_context()
 
+# Memoria del Bot
+slot_people = 0
+slot_hito = 0
+slot_emotion = ''
+slot_name = ''
+slot_daytime = ''
+
+# Methods
 def __init__(self):
     self.agent_id = 'actions'
 
 def contador():
+    # Numero de respuestas que se van a generar
     global count
     count = count + 1
     return []
 
 def get_latest_event(events):
+    # Toma el ultimo evento que se ha generado para captar la respuesta que ha seleccionado el bot del Domain
     latest_actions = []
     for e in events:
         if e['event'] == 'bot':
@@ -55,6 +66,7 @@ def get_latest_event(events):
     return latest_actions
 
 def part_of_day(x):
+    # Proporciona una respuesta de 'Saludar' basandose en la hora del día
     if (x > 4) and (x <= 12 ):
         return 'morning'
     elif (x > 12) and (x <= 16):
@@ -63,6 +75,23 @@ def part_of_day(x):
         return 'evening'
     elif (x > 24) and (x <= 4):
         return'none'
+
+def the_day(x):
+    # Saber el día en castelano
+    if x == "Monday":
+        return 'lunes'
+    if x == "Tuesday":
+        return 'martes'
+    if x == "Wednesday":
+        return 'miercoles'
+    if x == "Thursday":
+        return 'jueves'
+    if x == "Friday":
+        return 'viernes'
+    if x == "Saturday":
+        return 'sabado'
+    if x == "Sunday":
+        return 'domingo'
 
 ## Estructura BOT
 class ChatBot(Action):
@@ -76,6 +105,11 @@ class ChatBot(Action):
         global Bi
         global Be
         global lang
+        global slot_people
+        global slot_hito
+        global slot_emotion
+        global slot_name
+        global slot_daytime
 
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
@@ -85,14 +119,11 @@ class ChatBot(Action):
         slot_name = tracker.get_slot('name')       
         slot_place = tracker.get_slot('place')       
         slot_year = tracker.get_slot('year')       
-        slot_milestone = tracker.get_slot('milestone')   
-        slot_daytime = tracker.get_slot("daytime")
-        slot_people = tracker.get_slot("people")
-        slot_hito = tracker.get_slot("hito")
-
-        slot_daytime = part_of_day(int(f"{dt.datetime.now().strftime('%H')}"))
+        slot_milestone = tracker.get_slot('milestone')           
 
         Bi = intent['name']
+        
+        slot_daytime = part_of_day(int(f"{dt.datetime.now().strftime('%H')}"))
 
         id_event = tracker.latest_message['metadata']['event']
 
@@ -122,7 +153,7 @@ class ChatBot(Action):
                 elif key == 'chapter':
                     slot_hito = tracker.latest_message['metadata']['chapter'] 
                 elif key == 'emotion':
-                    slot_hito = tracker.latest_message['metadata']['emotion']  
+                    slot_emotion = tracker.latest_message['metadata']['emotion']  
             user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
             if text in context:
@@ -143,7 +174,7 @@ class ChatBot(Action):
             ## print("Synonyms:", str(synonyms))
             Ricardo_synonyms = synonyms      
         
-        return [SlotSet("daytime", slot_daytime),SlotSet("people", slot_people),SlotSet("hito", slot_hito)]
+        return [SlotSet("daytime", slot_daytime)]
 
 ## Estructura EBDI
 class EBDI(Action):
@@ -262,21 +293,23 @@ class Say(Action):
             domain: Dict[Text, Any],
             resp) -> List[Dict[Text, Any]]:
         print('la respuesta es: ' + resp)
-        # El dia actual
-        print(f"{dt.datetime.now().strftime('%A')}")
-        # la hora actual
-        print(f"{dt.datetime.now().strftime('%H:%M:%S')}")
 
-        #daytime = str("evening")
         hours = str(f"{dt.datetime.now().strftime('%H:%M')}")
-        
-        name = slot_name = tracker.get_slot('name')
+        day = the_day(str(f"{dt.datetime.now().strftime('%A')}"))
 
-        dispatcher.utter_message(response=resp, name=name, hours=hours)
+        dispatcher.utter_message(
+            response = resp,           
+            hours = hours,
+            day = day,
+            daytime = slot_daytime,
+            name = slot_name,
+            people = slot_people,
+            hito = slot_hito,
+            emotion = slot_emotion)
+
         contador()
-        print("dispatcher: " + str(count))  
+        print("dispatcher: " + str(count))          
         print("daytime: " + str(tracker.get_slot('daytime')))  
-        print("people: " + str(tracker.get_slot('people')))  
 
         return []
 
@@ -296,7 +329,6 @@ class To_Speech(Action):
         print("Cambios tras la primera acción")
 
         print("daytime: " + str(tracker.get_slot('daytime')))  
-        print("people: " + str(tracker.get_slot('people'))) 
 
         txt_responses = ''
 

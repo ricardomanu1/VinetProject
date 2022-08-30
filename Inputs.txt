@@ -20,7 +20,7 @@
 {
     "sender": "Vinet_u",
     "message": "utter_hito_grupo",
-    "metadata": {"event":"know","hito":5} 
+    "metadata": {"event":"know","chapter":5} 
 }
 ## comando personas en el grupo
 {

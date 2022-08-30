@@ -42,7 +42,6 @@ intents:
 - solicitar_interes
 - stop
 - test
-
 - ubicarme
 - xml
 entities:
@@ -122,7 +121,7 @@ responses:
   - text: Muy bien.
   - text: Todo en orden.
   - text: Guay.
-  - text: Agotado de tanto entrenar.
+  - text: Agotada de tanto entrenar.
   - text: Genial.
   utter_ubicarme:
   - text: Posiblemente en Roncesvalles, aunque también podrías estar en la universidad.
@@ -207,21 +206,27 @@ responses:
   - text: Veo que te encuentras mal.
   utter_estado_enfado:
   - text: Veo que te encuentras enfadado.
+  - text: Veo que te encuentras enfadada.
   utter_estado_miedo:
   - text: Veo que te encuentras con miedo.
   utter_estado_nerviosismo:
   - text: Veo que te encuentras nervioso.
+  - text: Veo que te encuentras nerviosa.
   utter_estado_aburrimiento:
   - text: Veo que te encuentras aburrido.
+  - text: Veo que te encuentras aburrida.
   utter_estado_emocion:
   - text: Veo que te encuentras emocionada.
+  - text: Veo que te encuentras emocionado.
   utter_estado_soledad:
   - text: ¿Te sientes solo?
+  - text: ¿Te sientes sola?
   utter_estado_cansancio:
   - text: Te noto algo cansado.
+  - text: Te noto algo cansada.
   utter_identidad:
-  - text: Soy Rasa.
-  - text: Soy un bot creado en un ordenador.
+  - text: Soy Jenny.
+  - text: Soy un bot creada en un ordenador.
   utter_presentacion:
   - text: ¡Ey! hola {name}
   - text: Hola de nuevo {name}
@@ -329,34 +334,34 @@ responses:
   - text: Mal.
   - text: Triste.
   - text: Algo triste.
-  - text: Decaído.
+  - text: DecaídA.
   - text: Fue un día horrible.
   - text: Infeliz.
   - text: Estoy triste.
   - text: No me siento muy bien.
-  - text: Estoy decepcionado.
+  - text: Estoy decepcionadA.
   - text: Esto es malo.
   - text: Estoy enferma.
   - text: Estoy de bajon.
   - text: Es decepcionante.
-  - text: Estoy irritado.
+  - text: Estoy irritada.
   - text: No me estoy sintiendo bien.
   - text: ¡Esto apesta!
   - text: Me siento muy mal.
   - text: ¡Es el peor día!
   - text: Esto se siente mal
-  - text: Me siento deprimido.
+  - text: Me siento deprimida.
   - text: Todo está mal hoy.
   - text: Me siento muy triste.
   - text: Esto es deprimente.
-  - text: Estoy deprimido.
-  - text: Me siento vacío.
+  - text: Estoy deprimida.
+  - text: Me siento vacía.
   - text: Me siento inútil.
   - text: Deprimida.
-  - text: Pesado.
-  - text: Me siento bastante perdido.
+  - text: Pesada.
+  - text: Me siento bastante perdida.
   - text: Muy triste.
-  - text: Malo.
+  - text: Mala.
   - text: Terrible.
   - text: Extremadamente triste.
   - text: Me siento desanimada.
@@ -364,53 +369,53 @@ responses:
   - text: No estoy bien.
   - text: Me siento mal.
   - text: Estoy Horrible.
-  - text: Estoy inquieto.
+  - text: Estoy inquieta.
   - text: En realidad no estoy bien.
-  - text: Estoy tan solo como puedo.
+  - text: Estoy tan sola como puedo.
   - text: Estoy pasando por un momento bastante difícil.
   - text: Estoy de duelo.
   utter_estar_enfadado:
-  - text: Estoy enojado.
-  - text: Me siento tan enojado.
-  - text: Estoy tan molesto.
+  - text: Estoy enojada.
+  - text: Me siento tan enojada.
+  - text: Estoy tan molesta.
   - text: Es molesto.
   - text: Eso es agravante.
-  - text: Estoy furioso.
+  - text: Estoy furiosa.
   - text: Eso es exasperante.
-  - text: Estoy muy enojado.
+  - text: Estoy muy enojada.
   - text: Todo me fastidia.
-  - text: Estoy indignado.
+  - text: Estoy indignada.
   - text: ¡Eso es indignante!
   - text: Me siento hostil.
-  - text: Estoy muy frustrado.
+  - text: Estoy muy frustrada.
   - text: Me está irritando.
-  - text: Me siento tan ofendido.
+  - text: Me siento tan ofendida.
   - text: Estoy lleno de furia.
   - text: Me siento muy beligerante.
   - text: Odio hacer esto.
   - text: No tengo paciencia hoy.
   - text: No pude controlar mi enojo.
-  - text: Estoy molesto.
-  - text: Estoy supermolesto.
-  - text: Estoy muy loco.
-  - text: Estoy enfurecido.
+  - text: Estoy molesta.
+  - text: Estoy supermolesta.
+  - text: Estoy muy loca.
+  - text: Estoy enfurecida.
   - text: ¡Esto es enloquecedor!
-  - text: Estoy cabreado.
-  - text: Puedes apostar que estoy enojado.
+  - text: Estoy cabreada.
+  - text: Puedes apostar que estoy enojada.
   - text: Eso me hizo enojar.
   - text: Me hiciste enojar.
   - text: Todavía estoy enojado por eso.
   utter_estar_miedo:
-  - text: Estoy asustado.
-  - text: Me siento asustado.
-  - text: Estoy preocupado.
-  - text: Estoy aterrado.
+  - text: Estoy asustada.
+  - text: Me siento asustada.
+  - text: Estoy preocupada.
+  - text: Estoy aterrada.
   - text: Eso es aterrador.
-  - text: Me siento intimidado.
+  - text: Me siento intimidada.
   - text: Eso es intimidante.
-  - text: Estoy petrificado.
+  - text: Estoy petrificada.
   - text: Tengo miedo.
-  - text: Me siento ansioso.
+  - text: Me siento ansiosa.
   - text: Tengo un mal presentimiento.
   - text: Entre en pánico.
   - text: Me encogí de miedo.
@@ -419,115 +424,116 @@ responses:
   - text: ¡Eso me sobresalto!
   - text: Me asusta fácilmente.
   - text: Estoy temblando de miedo.
-  - text: Estoy horrorizado.
+  - text: Estoy horrorizada.
   utter_estar_nervioso:
-  - text: Estoy nervioso.
-  - text: Estoy estresado.
-  - text: Me siento nervioso.
-  - text: Estoy ansioso.
-  - text: Me siento ansioso.
-  - text: Esto es nervioso.
+  - text: Estoy nerviosa.
+  - text: Estoy estresada.
+  - text: Me siento nerviosa.
+  - text: Estoy ansiosa.
+  - text: Me siento ansiosa.
+  - text: Esto es nerviosa.
   - text: Siento que voy a vomitar.
   - text: Tengo un nudo en la garganta.
   - text: Tengo mariposas en mi estómago.
   - text: Soy un manojo de nervios.
-  - text: Estoy empezando a sudar frio.
+  - text: Estoy empezando a sudar frío.
   - text: Le tengo miedo a mi propia sombra.
-  - text: Soy como un gato sobre ladrillos calientes
+  - text: Soy como una gata sobre ladrillos calientes
   - text: Estoy saltando fuera de mi piel.
   - text: Estoy al borde de mi ingenio.
   - text: Tengo la lengua atada.
   - text: Estoy al borde.
-  - text: Estoy muy tenso.
+  - text: Estoy muy tensa.
   - text: Me siento incómoda.
-  - text: Estoy alarmado.
-  - text: Estoy preocupado.
-  - text: Estoy tenso.
+  - text: Estoy alarmada.
+  - text: Estoy preocupada.
+  - text: Estoy tensa.
   - text: Estoy bajo mucho estrés.
-  - text: Estoy constantemente preocupado.
+  - text: Estoy constantemente preocupada.
   - text: Siento una tensión constante.
   - text: Sufro de ansiedad.
   - text: Me he sentido bastante ansioso últimamente.
   - text: Mi ansiedad está por las nubes estos días.
-  - text: Me siento bastante inquieto.
+  - text: Me siento bastante inquieta.
   - text: No puedo concentrarme porque estoy preocupado constantemente.
   - text: Estoy bajo un inmenso estrés.
   - text: Han sido unos días difíciles. 
   - text: Muy estresante.
-  - text: Estoy bastante tenso.
+  - text: Estoy bastante tensa.
   - text: Ha habido bastantes cambios en mi vida.
   - text: No creo que los esté manejando bien.
   - text: Es bastante estresante.
   - text: Me encuentro preocupando por cada pequeño detalle.
-  - text: Soy un preocupado crónico.
+  - text: Soy una preocupada crónica.
   - text: Me siento bastante inquieto y una horda de preocupaciones me está molestando.
   - text: No puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan.
   utter_estar_aburrido:
-  - text: Muy aburrido.
+  - text: Muy aburrida.
   - text: Eso fue aburrido.
-  - text: Estoy aburrido.
-  - text: Aburrido.
+  - text: Estoy aburrida.
+  - text: Aburrida.
   - text: Me estoy aburriendo.
   - text: Quedarse en casa es aburrido.
   - text: Me aburre.
   - text: Tuve un día lento.
-  - text: Estoy muy aburrido.
-  - text: Estoy un poco aburrido hoy.
+  - text: Estoy muy aburrida.
+  - text: Estoy un poco aburrida hoy.
   - text: Nunca me he aburrido más.
-  - text: Estaba aburrido.
-  - text: Es aburrido.
+  - text: Estaba aburrida.
+  - text: Es aburrida.
   - text: Esto es aburrido.
   - text: Estamos todos aburridos.
   - text: Es muy aburrido.
-  - text: Ya estoy aburrido.
-  - text: Estoy loco de aburrimiento.
+  - text: Ya estoy aburrida.
+  - text: Estoy loca de aburrimiento.
   utter_estar_emocionado:
-  - text: Estoy emocionado.
-  - text: Estoy muy emocionado.
+  - text: Estoy emocionada.
+  - text: Estoy muy emocionada.
   - text: No puedo empezar a decir lo emocionado que estoy.
   - text: Soy exagerada.
-  - text: Me sentí emocionado.
+  - text: Me sentí emocionada.
   - text: Fue emocionante.
   - text: Eso fue emocionante.
   - text: ¡qué interesante!
   - text: Esto es tan divertido.
   utter_estar_soledad:
-  - text: Estoy solo.
-  - text: Soy muy solitario.
-  - text: Estoy tan solo.
-  - text: Estoy realmente solo.
-  - text: Me siento solo.
-  - text: Soy un solitario.
+  - text: Estoy sola.
+  - text: Soy muy solitaria.
+  - text: Estoy tan sola.
+  - text: Estoy realmente sola.
+  - text: Me siento sola.
+  - text: Soy una solitaria.
   - text: No tengo ninguna compañía.
   - text: No tengo a nadie más.
   - text: Siempre estoy sola.
-  - text: Estoy completamente solo.
-  - text: Vivo solo.
-  - text: Me he acostumbrado a vivir solo.
-  - text: Creo que he estado viviendo solo demasiado tiempo.
+  - text: Estoy completamente sola.
+  - text: Vivo sola.
+  - text: Me he acostumbrado a vivir sola.
+  - text: Creo que he estado viviendo sola demasiado tiempo.
   - text: No tengo a nadie con quien hablar.
-  - text: Sigo solo.
-  - text: Estoy acostumbrado a vivir solo.
+  - text: Sigo sola.
+  - text: Estoy acostumbrado a vivir sola.
   utter_estar_cansado:
-  - text: Estoy exhausto.
+  - text: Estoy exhausta.
   - text: He trabajado demasiado.
-  - text: Estoy cansado.
-  - text: Estoy agotado.
+  - text: He entrenado demasiado.
+  - text: Estoy cansada.
+  - text: Estoy agotada.
   - text: Me canso.
-  - text: Estoy muy cansado.
+  - text: Estoy muy cansada.
   - text: Me estoy cansando.
-  - text: Me siento cansado.
-  - text: Estoy tan cansado.
-  - text: Estoy completamente agotado.
-  - text: Estaba cansado.
-  - text: Estoy muerto de cansancio.
-  - text: Estoy un poco cansado.
-  - text: Estuve muy cansado.
-  - text: Estoy realmente cansado.
-  - text: Estoy terriblemente cansado.
-  - text: Estoy algo cansado.
-  - text: Pues aquí algo cansado.
-  - text: Pues algo cansado.
+  - text: Me siento cansada.
+  - text: Estoy tan cansada.
+  - text: Estoy completamente agotada.
+  - text: Estaba cansada.
+  - text: Estoy muerta de cansancio.
+  - text: Estoy un poco cansada.
+  - text: Estuve muy cansada.
+  - text: Estoy realmente cansada.
+  - text: Estoy terriblemente cansada.
+  - text: Estoy algo cansada.
+  - text: Pues aquí algo cansada.
+  - text: Pues algo cansada.
   utter_hito:
   - text: Aquí te hablo del hito que has solicitado {milestone}...
   utter_hito1:
@@ -553,8 +559,8 @@ responses:
   - text: Veo que sois {people} personas.
   - text: Hay {people} personas en el grupo.
   utter_hito_grupo:
-  - text: El grupo se ha posicionado en el hito {hito}.
-  - text: El grupo se ha posicionado en la zona {hito}.
+  - text: El grupo se ha posicionado en el zona {hito}.
+  - text: El grupo se ha posicionado en la hito {hito}.
 actions:
 - action_hello_world
 - aprendizaje

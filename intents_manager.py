@@ -94,8 +94,8 @@ class intents_manager(object):
         self.intents.append(('say','utter_vinet', ['vinet'], 'acc_say', 'utter_vinet', 'acc_del_belief','vinet'))
 
         ## Conocimiento del entorno
-        self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_del_belief','utter_conocer_personas','acc_say', 'utter_conocer_personas')) 
-        self.intents.append(('know', 'utter_hito_grupo', ['utter_hito_grupo'],'acc_del_belief','utter_hito_grupo','acc_say', 'utter_hito_grupo')) 
+        self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_say', 'utter_conocer_personas','acc_del_belief','utter_conocer_personas')) 
+        self.intents.append(('know', 'utter_hito_grupo', ['utter_hito_grupo'],'acc_say', 'utter_hito_grupo','acc_del_belief','utter_hito_grupo')) 
         self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_new_belief','saludar'))
 
         #self.intents.append(('know', 'isBored', ['isBored'],'acc_del_belief','isBored'))
