@@ -16,40 +16,57 @@ class intents_manager(object):
         #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
         ### PLANS ###
         ## Usuario se presenta
-        self.intents.append(('say','utter_presentacion', ['presentacion'], 'acc_del_belief','presentacion', 'acc_say', 'utter_presentacion'))   
-        ## Usuario me saluda
-        self.intents.append(('say','utter_saludar', ['saludar','happy'],'acc_say','utter_saludar','acc_fulfill','saludar','acc_new_belief','muestro_interes', 'acc_new_belief','espero_respuesta'))        
-        self.intents.append(('say','utter_saludar', ['saludar','sad'], 'acc_say', 'utter_saludar','acc_fulfill','saludar'))    
-        ## Usuario se interesa por mi estado de animo
-        self.intents.append(('say','utter_estar_bien', ['empatizar','happy'], 'acc_say', 'utter_estar_bien','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_mal', ['empatizar','sad'], 'acc_say', 'utter_estar_mal','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_enfadado', ['empatizar','anger'], 'acc_say', 'utter_estar_enfadado','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_miedo', ['empatizar','fear'], 'acc_say', 'utter_estar_miedo','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_nervioso', ['empatizar','anxious'], 'acc_say', 'utter_estar_nervioso','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_aburrido', ['empatizar','bored'], 'acc_say', 'utter_estar_aburrido','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_emocionado', ['empatizar','excited'], 'acc_say', 'utter_estar_emocionado','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_soledad', ['empatizar','lonely'], 'acc_say', 'utter_estar_soledad','acc_del_belief','empatizar'))
-        self.intents.append(('say','utter_estar_cansado', ['empatizar','tired'], 'acc_say', 'utter_estar_cansado','acc_del_belief','empatizar'))        
-        ## Usuario empatiza conmigo
-        self.intents.append(('say','utter_afirmar', ['empatizar_bien','happy'], 'acc_say', 'utter_afirmar','acc_del_belief','empatizar_bien'))
-        self.intents.append(('say','utter_negar', ['empatizar_bien','sad'], 'acc_say', 'utter_negar','acc_del_belief','empatizar_bien'))
-        ## Usuario me hace preguntas basicas
-        self.intents.append(('say','utter_responder_hora', ['pregunta_hora'], 'acc_say', 'utter_responder_hora','acc_del_belief','pregunta_hora'))
-        self.intents.append(('say','utter_ubicarme', ['ubicarme'], 'acc_say', 'utter_ubicarme','acc_del_belief','ubicarme'))
-        ## Usuario se despide
-        self.intents.append(('say','utter_despedir', ['despedir'], 'acc_say', 'utter_despedir','acc_fulfill','despedir','acc_del_belief','saludar'))
-        self.intents.append(('say','utter_identidad', ['identidad'], 'acc_say', 'utter_identidad','acc_fulfill','identidad'))        
-        self.intents.append(('say','utter_agradecer', ['agradecer'], 'acc_say', 'utter_agradecer','acc_fulfill','agradecer'))                
-        self.intents.append(('say','utter_empatizar_bien', ['estado_bien'], 'acc_say', 'utter_empatizar_bien','acc_del_belief','estado_bien'))
-                        
+        self.intents.append(('say','utter_presentacion',['presentacion'],'acc_del_belief','presentacion','acc_say','utter_presentacion'))
+        ## User:'me saluda'
+        self.intents.append(('say','utter_saludar',['saludar','happy'],'acc_say','utter_saludar','acc_fulfill','saludar','acc_new_belief','muestro_interes','acc_new_belief','espero_respuesta'))
+        self.intents.append(('say','utter_saludar',['saludar','sad'],'acc_say','utter_saludar','acc_fulfill','saludar'))
+        self.intents.append(('say','utter_saludar',['saludar'],'acc_say','utter_saludar','acc_fulfill','saludar'))
+        ## User:'quiere saber mi estado de ánimo'
+        self.intents.append(('say','utter_estar_bien',['empatizar','happy'],'acc_say','utter_estar_bien','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_mal',['empatizar','sad'],'acc_say','utter_estar_mal','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_enfadado',['empatizar','anger'],'acc_say','utter_estar_enfadado','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_miedo',['empatizar','fear'],'acc_say','utter_estar_miedo','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_nervioso',['empatizar','anxious'],'acc_say','utter_estar_nervioso','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_aburrido',['empatizar','bored'],'acc_say','utter_estar_aburrido','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_emocionado',['empatizar','excited'],'acc_say','utter_estar_emocionado','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_soledad',['empatizar','lonely'],'acc_say','utter_estar_soledad','acc_del_belief','empatizar'))
+        self.intents.append(('say','utter_estar_cansado',['empatizar','tired'],'acc_say','utter_estar_cansado','acc_del_belief','empatizar'))
+        ## User:'me pregunta si estoy bien'
+        self.intents.append(('say','utter_afirmar',['empatizar_bien','happy'],'acc_say','utter_afirmar','acc_del_belief','empatizar_bien'))
+        self.intents.append(('say','utter_negar',['empatizar_bien','sad'],'acc_say','utter_negar','acc_del_belief','empatizar_bien'))
+        ## User:'hace preguntas básicas'
+        self.intents.append(('say','utter_responder_hora',['pregunta_hora'],'acc_say','utter_responder_hora','acc_del_belief','pregunta_hora'))
+        self.intents.append(('say','utter_responder_dia',['pregunta_dia'],'acc_say','utter_responder_dia','acc_del_belief','pregunta_dia'))
+        self.intents.append(('say','utter_preguntar_cuando',['preguntar_cuando'],'acc_say','utter_preguntar_cuando','acc_del_belief','preguntar_cuando'))
+        self.intents.append(('say','utter_preguntar_por_que',['preguntar_por_que'],'acc_say','utter_preguntar_por_que','acc_del_belief','preguntar_por_que'))
+        self.intents.append(('say','utter_preguntar_quien',['preguntar_quien'],'acc_say','utter_preguntar_quien','acc_del_belief','preguntar_quien'))
+        self.intents.append(('say','utter_preguntar_donde',['preguntar_donde'],'acc_say','utter_preguntar_donde','acc_del_belief','preguntar_donde'))
+        self.intents.append(('say','utter_preguntar_como',['preguntar_como'],'acc_say', 'utter_preguntar_como','acc_del_belief','preguntar_como'))
+        self.intents.append(('say','utter_ubicarme',['ubicarme'],'acc_say','utter_ubicarme','acc_del_belief','ubicarme'))
+        self.intents.append(('say','utter_identidad',['identidad'],'acc_say','utter_identidad','acc_fulfill','identidad'))
+        ## User:'se despide'
+        self.intents.append(('say','utter_despedir',['despedir'],'acc_say','utter_despedir','acc_del_belief','saludar','acc_del_belief','despedir'))
+        ## User:'me agradece'
+        self.intents.append(('say','utter_agradecer',['agradecer'],'acc_say','utter_agradecer','acc_fulfill','agradecer'))
+        ## User:'me ha dicho como se siente'
+        self.intents.append(('say','utter_empatizar_bien',['estado_bien'],'acc_say','utter_empatizar_bien','acc_del_belief','estado_bien'))
+        self.intents.append(('say','utter_empatizar_mal',['estado_mal'],'acc_say','utter_empatizar_mal','acc_del_belief','estado_mal'))
+        self.intents.append(('say','utter_empatizar_aburrimiento',['estado_aburrimiento'],'acc_say','utter_empatizar_aburrimiento','acc_del_belief','estado_aburrimiento'))
+        self.intents.append(('say','utter_empatizar_cansancio',['estado_cansancio'],'acc_say','utter_empatizar_cansancio','acc_del_belief','estado_cansancio'))
+        self.intents.append(('say','utter_empatizar_enfado',['estado_enfado'],'acc_say','utter_empatizar_enfado','acc_del_belief','estado_enfado'))
+        self.intents.append(('say','utter_empatizar_miedo',['estado_miedo'],'acc_say','utter_empatizar_miedo','acc_del_belief','estado_miedo'))
+        self.intents.append(('say','utter_empatizar_nerviosismo',['estado_nerviosismo'],'acc_say','utter_empatizar_nerviosismo','acc_del_belief','estado_nerviosismo'))
+        self.intents.append(('say','utter_empatizar_soledad',['estado_soledad'],'acc_say','utter_empatizar_soledad','acc_del_belief','estado_soledad'))
+        self.intents.append(('say','utter_empatizar_emocion',['estado_emocion'],'acc_say','utter_empatizar_emocion','acc_del_belief','estado_emocion'))
+
         ## YO muestro interes por el usuario
-        self.intents.append(('say','utter_interes', ['muestro_interes'], 'acc_say', 'utter_interes','acc_del_belief','muestro_interes'))
+        self.intents.append(('say','utter_interes',['muestro_interes'],'acc_say','utter_interes','acc_del_belief','muestro_interes'))
         ## YO voy a empatizar con el estado de animo del usuario  
-        self.intents.append(('say','utter_empatizar_bien', ['espero_respuesta','estado_bien'],'acc_del_belief','espero_respuesta','acc_del_belief','estado_bien', 'acc_say', 'utter_empatizar_bien', 'acc_new_belief','le_pregunto'))
-        self.intents.append(('say','utter_empatizar_mal', ['espero_respuesta','estado_mal'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_mal', 'acc_new_belief','le_animo'))        
-        self.intents.append(('say','utter_empatizar_aburrimiento', ['espero_respuesta','estado_aburrimiento'],'acc_del_belief','espero_respuesta', 'acc_say', 'utter_empatizar_aburrimiento', 'acc_new_belief','dar_hitos_opciones')) 
+        self.intents.append(('say','utter_empatizar_bien',['espero_respuesta','estado_bien'],'acc_del_belief','espero_respuesta','acc_del_belief','estado_bien','acc_say','utter_empatizar_bien','acc_new_belief','le_pregunto'))
+        self.intents.append(('say','utter_empatizar_mal',['espero_respuesta','estado_mal'],'acc_del_belief','espero_respuesta','acc_say', 'utter_empatizar_mal','acc_new_belief','le_animo'))
+        self.intents.append(('say','utter_empatizar_aburrimiento',['espero_respuesta','estado_aburrimiento'],'acc_del_belief','espero_respuesta','acc_say','utter_empatizar_aburrimiento','acc_new_belief','dar_hitos_opciones'))
         ## YO intervengo en el estado de animo del usuario
-        self.intents.append(('say','utter_animar', ['le_animo'],'acc_del_belief','le_animo','acc_say', 'utter_animar', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_animar'))
+        self.intents.append(('say','utter_animar',['le_animo'],'acc_del_belief','le_animo','acc_say','utter_animar','acc_new_belief','he_preguntado_si_no','acc_new_belief','utter_animar'))
         ## YO pregunto al usuario 
         self.intents.append(('say','utter_preguntar', ['le_pregunto'], 'acc_say', 'utter_preguntar','acc_fulfill','le_pregunto','acc_new_belief','he_preguntado')) 
         self.intents.append(('say','utter_solicitar', ['utter_animar','he_preguntado_si_no', 'afirmar'],'acc_del_belief','he_preguntado_si_no','acc_del_belief','utter_animar', 'acc_del_belief','afirmar','acc_say', 'utter_solicitar','acc_new_belief','he_solicitado')) 
@@ -91,6 +108,10 @@ class intents_manager(object):
         self.intents.append(('say', 'utter_h10', ['utter_h10'],'acc_del_belief','utter_h10','acc_say', 'utter_h10','acc_say', 'utter_h11','acc_say', 'utter_h12'
                              ,'acc_say', 'utter_mostrar','acc_say', 'utter_h13','acc_say', 'utter_h14','acc_say', 'utter_mostrar','acc_say', 'utter_h15',
                              'acc_say', 'utter_h16','acc_say', 'utter_mostrar'))
+        ## Emoción entrante
+        #self.intents.append(('know', 'isHappy', ['isHappy'],'acc_del_belief','isHappy'))
+        #self.intents.append(('know', 'isSad', ['isSad'],'acc_del_belief','isSad'))
+
 
     def filterI(self, Emotions, Beliefs, Desires):
         desires_fulfill = []

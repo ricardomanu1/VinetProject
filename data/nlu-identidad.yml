@@ -1,0 +1,10 @@
+version: "2.0"
+nlu:
+- intent: preguntar_quien
+  examples: |
+    - ¿quién hizo?.
+    - ¿quién fue?.
+    - ¿quién goberno?.
+    - ¿quién?.
+    - ¿podrías decirme quién?.
+    - ¿puedes decirme quién?.

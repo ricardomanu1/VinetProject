@@ -1,0 +1,11 @@
+version: "2.0"
+nlu:
+- intent: preguntar_como
+  examples: |
+    - ¿cómo conquistaron?.
+    - ¿cómo?.
+    - ¿cómo lo sabe?
+    - ¿cómo vivieron?.
+    - ¿cómo estuvieron?.
+    - ¿podrías decirme cómo?.
+    - ¿puedes decirme cómo?.

@@ -1,0 +1,35 @@
+version: "2.0"
+nlu:
+- intent: pregunta_hora
+  examples: |
+    - ¿qué hora es?
+    - ¿Qué hora es?
+    - ¿podrías decirme la hora?
+    - ¿me dices la hora?
+- intent: pregunta_dia
+  examples: |
+    - ¿que día es?
+    - ¿en que día estamos?
+    - ¿en que día estoy?
+    - ¿podrías decirme que día es hoy?
+    - ¿me dices el día?
+    - ¿hoy que día es?
+- intent: preguntar_cuando
+  examples: |
+    - ¿en que fecha?.
+    - ¿cuándo vinieron?.
+    - ¿cuándo?.
+    - ¿cuándo se hizo?.
+    - ¿cuándo se construyo?.
+    - ¿podrías decirme cuando?.
+    - ¿puedes decirme cuando?.
+    - ¿en que año?.
+    - ¿qué anño?.
+
+- intent: preguntar_cuando_fecha
+  examples: |
+    - ¿qué paso en [1350](year).
+    - ¿qué paso en [1813](year).
+    - ¿sabes que paso en [1350](year)?
+    - ¿qué paso en [1530](year)?
+    - ¿qué paso en [1350](year)?

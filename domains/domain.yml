@@ -246,6 +246,18 @@ responses:
   - text: Lo siento.
   utter_empatizar_aburrimiento:
   - text: ¿Puedo hablarte de alguno de estos temas tan interesantes?
+  utter_empatizar_cansancio:
+  - text: Vaya...
+  utter_empatizar_enfado:
+  - text: Vaya...
+  utter_empatizar_miedo:
+  - text: Vaya...
+  utter_empatizar_nerviosismo:
+  - text: Vaya...
+  utter_empatizar_soledad:
+  - text: Vaya...
+  utter_empatizar_emocion:
+  - text: Vaya...
   utter_animar:
   - text: ¿Puedo animarte con alguna historia?
   - text: ¿Quieres escuchar algo entretenido?
@@ -535,6 +547,8 @@ responses:
   - text: ¿Cuál?
   utter_responder_hora:
   - text: Son las {hours}
+  utter_responder_dia:
+  - text: Hoy es {day}
   utter_conocer_personas:
   - text: Veo que sois {people} personas.
   - text: Hay {people} personas en el grupo.

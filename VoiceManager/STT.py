@@ -1,3 +1,4 @@
+import random
 import keyboard
 import azure.cognitiveservices.speech as speechsdk
 from interaction_manager import interaction_manager
@@ -5,34 +6,40 @@ from translator import translator
 
 Translator = translator()
 Interaction = interaction_manager()
-
-sentiment = 'isHappy' #['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
-    
+# Sentiments list inputs
+Emotions = ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']    
+# Azure STT + Translate
 speech_key, service_region = "595638ac99d0464a9227b07e48e08875", "westeurope"
-
 auto_detect_source_language_config = \
-    speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["es-ES", "en-US", "ja-JP"])
-
+    speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["es-ES","en-US","fr-FR","ja-JP"])
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-
 speech_config.set_property(
     property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Latency')
-
 audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-
 recognizer = speechsdk.SpeechRecognizer(
-        speech_config=speech_config, 
-        auto_detect_source_language_config=auto_detect_source_language_config, 
-        audio_config=audio_config)
+    speech_config=speech_config, 
+    auto_detect_source_language_config=auto_detect_source_language_config, 
+    audio_config=audio_config)
+# Deteccion comando de voz
+model = speechsdk.KeywordRecognitionModel("0676dbad-ad30-4572-9b98-b4ed2229c7ef.table")
+keyword = "Jeni"
+keyword_recognizer = speechsdk.KeywordRecognizer()
 
+# Deteccion de tecla
 while True:
-    try:
-        if keyboard.is_pressed('q'):
+    result_future = keyword_recognizer.recognize_once_async(model)
+    print('Esperando al comando de voz: "{}"'.format(keyword))
+    result = result_future.get()        
+    try:                
+        if result.reason == speechsdk.ResultReason.RecognizedKeyword: #keyboard.is_pressed('q')
             print("Di algo...")
             result = recognizer.recognize_once()
+            sentiment = random.choice(Emotions)
+            print(sentiment)
+            # Reconocimiento de idioma
             if result.reason == speechsdk.ResultReason.RecognizedSpeech:
                 detected_src_lang = result.properties[
-                        speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
+                    speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
                 print("Idioma detectado: {}".format(detected_src_lang))
                 print("Entrada: {}".format(result.text))
                 text_trans = Translator.translator(result.text,detected_src_lang[0:2],'es')
@@ -43,6 +50,7 @@ while True:
                     target_languages=('es', 'eu', 'fr', 'ja', 'en'))
                 recognizer = speechsdk.translation.TranslationRecognizer(
                     translation_config=translation_config, audio_config=audio_config)
+            # Traductor de idioma
             elif result.reason == speechsdk.ResultReason.TranslatedSpeech:
                 print("""Entrada: {}
                     Traducción Español: {}
@@ -65,7 +73,3 @@ while True:
                     print("Error details: {}".format(result.cancellation_details.error_details))
     except:
         break
-
-
-
-

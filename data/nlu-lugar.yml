@@ -1,0 +1,22 @@
+version: "2.0"
+nlu:
+- intent: ubicarme
+  examples: |
+    - ¿dónde estoy?
+    - onde ando
+    - en que lugar ando?
+    - donde estoy?
+    - ¿Dónde estoy?
+    - ¿dónde estamos?
+    - ¿qué lugar es este?
+    - ¿dónde me encuentro?
+- intent: preguntar_donde
+  examples: |
+    - ¿dónde se quedaron?.
+    - ¿dónde?.
+    - ¿dónde estuvieron?.
+    - ¿podrías decirme dónde?.
+    - ¿me podrías decir dónde se quedaron los soldados?
+    - ¿dónde esta roncesvalles?.
+    - ¿dónde esta canada?
+    - ¿dónde compro?.

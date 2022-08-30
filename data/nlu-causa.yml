@@ -1,0 +1,9 @@
+version: "2.0"
+nlu:
+- intent: preguntar_por_que
+  examples: |
+    - ¿por qué hizo?.
+    - ¿por qué lo hizo?
+    - ¿por qué?.
+    - ¿podrias decirme por qué?.
+    - ¿puedes decirme por qué?.

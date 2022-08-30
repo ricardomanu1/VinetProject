@@ -113,10 +113,16 @@ class ChatBot(Action):
                 
         ## Entradas de conocimiento
         elif (id_event == 'know'):
-            if (tracker.latest_message['metadata']['people']!=None):
-                slot_people = tracker.latest_message['metadata']['people']
-            if (tracker.latest_message['metadata']['hito']!=None):
-                slot_hito = tracker.latest_message['metadata']['hito']          
+            for key, value in tracker.latest_message['metadata'].items():
+                print(key, value)
+            print(key)
+            if (tracker.latest_message['metadata'][key]!=None):
+                if key == 'people':
+                    slot_people = tracker.latest_message['metadata']['people']
+                elif key == 'chapter':
+                    slot_hito = tracker.latest_message['metadata']['chapter'] 
+                elif key == 'emotion':
+                    slot_hito = tracker.latest_message['metadata']['emotion']  
             user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
             if text in context:

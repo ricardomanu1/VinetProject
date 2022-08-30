@@ -31,11 +31,11 @@ $ pip install --upgrade --use-deprecated=legacy-resolver --user rasa-x --extra-i
 # Ejecución con API 
 ## Consola 1 (Desde el fichero VinetProject)
 ```
-$ rasa run -m models --enable-api --credentials credentials.yml --debug
+rasa run -m models --enable-api --credentials credentials.yml --debug
 ```
 ## Consola 2 (Desde el fichero VinetProject)
 ```
-$ rasa run actions
+rasa run actions
 ```
 # Construcción de los mensajes Json
 ## Dirección de mensajes Json:
@@ -99,10 +99,10 @@ $ pip install azure-cognitiveservices-speech
 # Ejecución con Azure 
 ## Consola 3 (Dentro del fichero VoiceManager)
 ```
-$ python STT.py
+python STT.py
 ```
 ## Consola 4 (Dentro del fichero VoiceManager)
 ```
-$ python TTS.py
+python TTS.py
 ```
 ## Nota: cada vez que se presione la tecla 'q' se da un tiempo para hablar. 

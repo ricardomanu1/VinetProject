@@ -20,17 +20,17 @@
 {
     "sender": "Vinet_u",
     "message": "utter_hito_grupo",
-    "metadata": {"event":"know","people":9, "hito":5} 
+    "metadata": {"event":"know","hito":5} 
 }
 ## comando personas en el grupo
 {
     "sender": "Vinet_u",
     "message": "utter_conocer_personas",
-    "metadata": {"event":"know","people":9, "hito":5} 
+    "metadata": {"event":"know","people":9} 
 }
 ## comando entra el grupo
 {
     "sender": "Vinet_u",
     "message": "entra_grupo",
-    "metadata": {"event":"know","sentiment":"happy","people":9, "hito":5} 
+    "metadata": {"event":"know"} 
 }

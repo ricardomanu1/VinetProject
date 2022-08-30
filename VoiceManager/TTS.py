@@ -89,12 +89,9 @@ while True:
         print(result)
         print(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs))
         print(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs))
-        
-        
+              
         
         stream = AudioDataStream(result)
-        print(stream.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs))
-        print(stream.properties.get_property(speechsdk.PropertyId.SpeechServiceConnection_SynthOutputFormat))
 
         stream.save_to_wav_file("respuesta.wav")           
 

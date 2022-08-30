@@ -1,6 +1,7 @@
 import os, requests, uuid, json
 
 class translator(object):
+    
     def __init__(self):
         self.endpoint_var_name = 'https://api.cognitive.microsofttranslator.com/'
         self.path = '/translate?'        
