@@ -108,9 +108,11 @@ class emotions_manager(object):
     def euf1(self, Intents, belief):     
         #belief[0]
         for b in belief:
+            print(b)
             if b[0] is 'know':
                  # Empatia simple
-                 self.estado = self.emotionalTags[self.emotionalUser.index(b[1])]               
+                 self.estado = self.emotionalTags[self.emotionalUser.index(b[1])]         
+                 print(self.estado)
         return self.estado
 
 # Define la emocion secundaria tras pensarlo bien
@@ -154,21 +156,25 @@ class emotions_manager(object):
         return False
 
     def tag(self):
-        # Alegre Empático Enfado Triste
-        # Excited Friendly Terrified Shouting Unfriendly Whispering Hopeful 
+        # Nuestras: happy sad fear anger surprise bored anxious lonely tired
+        # Azure: cheerful sad terrified angry excited friendly shouting unfriendly whispering hopeful 
         if (self.estado == 'happy'):
-            return "Cheerful" 
-        if (self.estado == 'empathetic'):
-            return "Empathetic"
+            return "cheerful" 
         if (self.estado == 'sad'):
-            return "Sad"
-        if (self.estado == 'neutral'):
-            return "Calm"
-        if (self.estado == 'anger'):
-            return "Angry"
+            return "sad" 
         if (self.estado == 'fear'):
-            return "Fearful"
-        if (self.estado == 'disgust'):
-            return "Disgruntled"
-        if (self.estado == 'serious'):
-            return "Serious"
+            return "terrified" 
+        if (self.estado == 'anger'):
+            return "angry" 
+        if (self.estado == 'surprise'):
+            return "shouting" 
+        if (self.estado == 'bored'):
+            return "whispering" 
+        if (self.estado == 'anxious'):
+            return "excited" 
+        if (self.estado == 'lonely'):
+            return "whispering" 
+        if (self.estado == 'tired'):
+            return "unfriendly" 
+        if (self.estado == 'empathetic'):
+            return "empathetic"

@@ -102,6 +102,7 @@ class ChatBot(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]: 
+        # Acceso a variables globales
         global Bi
         global Be
         global lang
@@ -110,11 +111,10 @@ class ChatBot(Action):
         global slot_emotion
         global slot_name
         global slot_daytime
-
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
-        entities = tracker.latest_message['entities']            
+        entities = tracker.latest_message['entities']
         ## Slots
         slot_name = tracker.get_slot('name')       
         slot_place = tracker.get_slot('place')       
@@ -324,7 +324,8 @@ class To_Speech(Action):
             domain: Dict[Text, Any]
             ) -> List[Dict[Text, Any]]:
         global msg
-        global count        
+        global count   
+        global Emotions
 
         print("Cambios tras la primera acción")
 
@@ -335,6 +336,7 @@ class To_Speech(Action):
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
             responses = msg[-count:]  
+            print(Emotions.tag())
             txt = TXT()            
             print('----RESPONSES----')
             for e in responses:
@@ -352,9 +354,9 @@ class To_Speech(Action):
 class TXT():
     def name(self,response) -> Text:
         output = open("speech.txt","w+")
-        print("VINETbot:", response)
+        print("VINETbot: {} ({})".format(response,Emotions.tag()))
         #output.write(str(response))
-        lines = [str(response),str(Emotions.estado),lang]
+        lines = [str(response),str(Emotions.tag()),lang]
         output.write('\n'.join(lines))
         output.close()
         return str(response)

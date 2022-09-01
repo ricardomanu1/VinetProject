@@ -4,8 +4,6 @@ import csv
 import azure.cognitiveservices.speech as speechsdk
 from azure.cognitiveservices.speech import AudioDataStream
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
-#from watchdog.observers import Observer
-#from watchdog.events import FileSystemEventHandler
 from XML import XML
 from translator import translator
 
@@ -45,52 +43,36 @@ speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis starte
 # indica que la síntesis de voz se ha completado
 speech_synthesizer.synthesis_completed.connect(lambda evt: print("Synthesis completed: {}".format(evt)))
 
-while True:
-    # Receives a text from console input.    
-    time.sleep(1)
-    #if os.path.exists('..\\VinetBot\\VinetProject\\respuesta.xml'):               
+while True:  
+    time.sleep(1)         
     if os.path.exists('..\\speech.txt'):               
         output_txt = open("visemes.txt","w+")    
         output_csv = open('visemes.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =';')
         writer.writerow(['audio_offset','viseme_id'])
 
-        #ssml_string = open("..\\VinetBot\\VinetProject\\respuesta.xml", "r", encoding="utf-8").read()
-               
         with open('..\\speech.txt') as f:
-            #contents = f.read()
             lines = [line.rstrip() for line in f]
             print(lines)
         contents = str(lines[0])
         tag = str(lines[1])
         lang = str(lines[2])
-        tag = 'Cheerful'
-        #tag = 'Sad'
-        if lang == 'es-ES' or lang == 'eu-ES':
-            voice_name = 'es-ES-ElviraNeural' ##español ##euskera
-        elif lang == 'en-US':
-            voice_name = 'en-US-JennyNeural' ##inglés con emociones
-        elif lang == 'ja-JP':
-            voice_name = 'ja-JP-NanamiNeural' ##japonés
-        elif lang == 'fr-FR':
-            voice_name = 'fr-FR-DeniseNeural' ##francés
-        #voice_name = 'en-US-JennyMultilingualNeural'   ##inglés multilingüe
-
+        
         text_trans = Translator.translator(contents,'es',lang[0:2])
-
-        # Construccion del SSML        
-        XML.name(text_trans,tag,lang,voice_name) 
-        #XML.name2(text_trans,tag,lang,voice_name) 
+        
+        if lang == 'es-ES' or lang == 'eu-ES': ##español ##euskera
+            XML.esXML(text_trans,tag,lang) 
+        elif lang == 'en-US': ##inglés con emociones
+            XML.enSSML(text_trans,tag,lang) 
+        elif lang == 'ja-JP': ##japonés
+            XML.jpSSML(text_trans,tag,lang) 
+        elif lang == 'fr-FR': ##francés
+            XML.frSSML(text_trans,tag,lang)         
 
         ssml_string = open("respuesta.xml", "r", encoding="utf-8").read()  
 
         result = speech_synthesizer.speak_ssml_async(ssml_string).get() ## se genera el audio
 
-        print(result)
-        print(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFirstByteLatencyMs))
-        print(result.properties.get_property(speechsdk.PropertyId.SpeechServiceResponse_SynthesisFinishLatencyMs))
-              
-        
         stream = AudioDataStream(result)
 
         stream.save_to_wav_file("respuesta.wav")           
@@ -100,7 +82,7 @@ while True:
             print("Síntesis de voz para el XML [{}]".format(ssml_string))
             audio_data = result.audio_data
             print("{} bytes of audio data received.".format(len(audio_data)))
-            print(text_trans)
+            print("VINETbot: {} ({})".format(text_trans,tag))
         elif result.reason == speechsdk.ResultReason.Canceled:
             cancellation_details = result.cancellation_details
             print("Speech synthesis canceled: {}".format(cancellation_details.reason))
@@ -108,6 +90,5 @@ while True:
                 print("Error details: {}".format(cancellation_details.error_details))  
         output_txt.close()
         output_csv.close()
-        #os.remove('..\\VinetBot\\VinetProject\\respuesta.xml')
         os.remove('..\\speech.txt')
         time.sleep(2)
