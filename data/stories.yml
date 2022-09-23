@@ -62,12 +62,6 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: dar_informacion_path
-  steps:
-  - intent: dar_informacion
-  - action: chatbot
-  - action: to_speech
-
 - story: despedir_path
   steps:
   - intent: despedir
@@ -140,12 +134,6 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: fuera_de_alcance_path
-  steps:
-  - intent: fuera_de_alcance
-  - action: chatbot
-  - action: to_speech
-
 - story: hito1_path
   steps:
   - intent: hito1
@@ -200,12 +188,6 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: test_path
-  steps:
-  - intent: test
-  - action: chatbot
-  - action: to_speech
-
 - story: ubicarme_path
   steps:
   - intent: ubicarme
@@ -215,12 +197,6 @@ stories:
 - story: xml_path
   steps:
   - intent: xml
-  - action: chatbot
-  - action: to_speech
-
-- story: vinet_path
-  steps:
-  - intent: vinet
   - action: chatbot
   - action: to_speech
 

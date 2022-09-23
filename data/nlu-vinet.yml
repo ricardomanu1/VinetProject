@@ -1,28 +1,17 @@
 version: "2.0"
 nlu:
-- intent: test
-  examples: |
-    - test vinet
-    - test nlu vinet
-    - prueba vinet 
-- intent: vinet
-  examples: |
-    - comando de voz vinet
-    - comando de voz binet
-    - comando de prueba vinet
-    - comando de prueba binet
-    - comando de vinet
-    - comando de binet
-- intent: vinet_aprendizaje
-  examples: |
-    - comando de voz vinet realizar aprendizaje
-    - comando de voz binet realizar aprendizaje
-    - comando de voz vinet aprendizaje
-    - comando de voz binet aprendizaje
-    - comando realizar aprendizaje
 - intent: vinet_cuenco
   examples: |
-    - comando de voz vinet hablame del cuenco
-    - comando de voz binet hablame del cuenco
     - hablame del cuenco de cerámica
     - hablame del cuenco
+- intent: vinet_comando_apagar
+  examples: |
+    - comando de voz apagar
+    - comando de voz cerrar
+    - comando de voz apagar procesos
+- intent: vinet_comando_aprendizaje
+  examples: |
+    - comando de voz realiza aprendizaje
+    - comando de voz realizar aprendizaje
+    - comando de voz a entrenar
+    - comando de voz aprendizaje

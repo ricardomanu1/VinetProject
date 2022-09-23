@@ -45,7 +45,7 @@ class intents_manager(object):
         self.intents.append(('say','utter_ubicarme',['ubicarme'],'acc_say','utter_ubicarme','acc_del_belief','ubicarme'))
         self.intents.append(('say','utter_identidad',['identidad'],'acc_say','utter_identidad','acc_fulfill','identidad'))
         ## User:'se despide'
-        self.intents.append(('say','utter_despedir',['despedir'],'acc_say','utter_despedir','acc_del_belief','saludar','acc_del_belief','despedir'))
+        self.intents.append(('say','utter_despedir',['despedir'],'acc_del_belief','saludar','acc_del_belief','despedir','acc_say','utter_despedir'))
         ## User:'me agradece'
         self.intents.append(('say','utter_agradecer',['agradecer'],'acc_say','utter_agradecer','acc_fulfill','agradecer'))
         ## User:'me ha dicho como se siente'
@@ -81,6 +81,8 @@ class intents_manager(object):
         ## YO no continuo la conversacion
         self.intents.append(('say','utter_no_solicitar', ['he_preguntado','negar'],'acc_del_belief','he_preguntado', 'acc_say', 'utter_no_solicitar', 'acc_del_belief','negar','acc_new_belief','no_solicita','acc_del_belief','le_pregunto'))  # llama a la accion action_service_options 
         self.intents.append(('say','utter_no_solicitar', ['he_preguntado','no_solicitar'],'acc_del_belief','he_preguntado', 'acc_say', 'utter_no_solicitar', 'acc_del_belief','no_solicitar','acc_new_belief','no_solicita','acc_del_belief','le_pregunto'))  # llama a la accion action_service_options 
+        ## YO soy
+
 
         ## Contexto VINET
         self.intents.append(('say','utter_hito1', ['hito1'], 'acc_say', 'utter_hito1', 'acc_del_belief','hito1'))
@@ -90,13 +92,18 @@ class intents_manager(object):
         self.intents.append(('say','utter_hito1', ['debes_especificar','hito1'],'acc_del_belief','debes_especificar','acc_del_belief','hito1', 'acc_say', 'utter_hito1'))
         self.intents.append(('say','utter_hito2', ['debes_especificar','hito2'],'acc_del_belief','debes_especificar','acc_del_belief','hito2', 'acc_say', 'utter_hito2'))                
         self.intents.append(('say','utter_hito', ['solicitar_especifica_hito'],'acc_del_belief','solicitar_especifica_hito', 'acc_say', 'utter_hito'))
-             
-        self.intents.append(('say','utter_vinet', ['vinet'], 'acc_say', 'utter_vinet', 'acc_del_belief','vinet'))
+           
+        ## Comandos de Voz
+        self.intents.append(('say','vinet_comando_apagar', ['vinet_comando_apagar'],'acc_del_belief','vinet_comando_apagar','acc_say','utter_vinet_comando_apagar'))
+        self.intents.append(('say','vinet_comando_aprendizaje', ['vinet_comando_aprendizaje'],'acc_del_belief','vinet_comando_apagar','acc_say','utter_vinet_comando_aprendizaje'))
 
         ## Conocimiento del entorno
-        self.intents.append(('know', 'utter_conocer_personas', ['utter_conocer_personas'],'acc_say', 'utter_conocer_personas','acc_del_belief','utter_conocer_personas')) 
-        self.intents.append(('know', 'utter_hito_grupo', ['utter_hito_grupo'],'acc_say', 'utter_hito_grupo','acc_del_belief','utter_hito_grupo')) 
+        self.intents.append(('know', 'numero_personas', ['numero_personas'],'acc_say', 'utter_conocer_personas','acc_del_belief','numero_personas')) 
+        self.intents.append(('know', 'escoger_capitulo', ['escoger_capitulo'],'acc_say', 'utter_hito_grupo','acc_del_belief','escoger_capitulo')) 
         self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_new_belief','saludar'))
+        self.intents.append(('know', 'sale_grupo', ['sale_grupo'],'acc_del_belief','sale_grupo','acc_del_belief','entra_grupo','acc_new_belief','despedir'))
+        #self.intents.append(('know', 'sale_grupo', ['sale_grupo','entra_grupo'],'acc_del_belief','sale_grupo','acc_del_belief','entra_grupo','acc_new_belief','despedir'))
+        self.intents.append(('know', 'pos_ojos', ['pos_ojos'],'acc_del_belief','pos_ojos','acc_new_belief','pos_ojos'))
 
         #self.intents.append(('know', 'isBored', ['isBored'],'acc_del_belief','isBored'))
                
@@ -112,6 +119,9 @@ class intents_manager(object):
         #self.intents.append(('know', 'isHappy', ['isHappy'],'acc_del_belief','isHappy'))
         #self.intents.append(('know', 'isSad', ['isSad'],'acc_del_belief','isSad'))
 
+        ## Reglas
+        self.intents.append(('say', 'out_of_scope', ['out_of_scope'],'acc_del_belief','out_of_scope','acc_say', 'utter_out_of_scope'))
+        self.intents.append(('say', 'nlu_fallback', ['nlu_fallback'],'acc_del_belief','nlu_fallback','acc_say', 'utter_please_rephrase'))
 
     def filterI(self, Emotions, Beliefs, Desires):
         desires_fulfill = []

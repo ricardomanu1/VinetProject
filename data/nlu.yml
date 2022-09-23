@@ -12,17 +12,19 @@ nlu:
 - intent: empatizar
   examples: |
     - ¿qué tal?
+    - ¿qué tal estas?
+    - ¿qué tal te encuentras?
+    - ¿qué tal todo?
+    - ¿qué tal te va todo?
+    - ¿que tal tú?
+    - ¿tú que tal?
     - ¿cómo estas?
     - ¿cómo te encuentras?
     - ¿cómo te va?
     - ¿cómo estás?
     - ¿Cómo estás?
-    - ¿qué hay de nuevo?
-    - ¿qué tal todo?
-    - ¿qué tal te va todo?
     - ¿cómo te sientes?
-    - ¿tú que tal?
-    - ¿que tal tú?
+    - ¿qué hay de nuevo?
 - intent: empatizar_bien
   examples: |
     - ¿estas bien?
@@ -413,7 +415,7 @@ nlu:
     - soy [ricardo](name)
     - soy [Xabi](name)
     - soy [Iñigo](name)
-- intent: fuera_de_alcance
+- intent: out_of_scope
   examples: |
     - quiero pedir comida.
     - ¿qué es 2 + 2?
@@ -433,18 +435,6 @@ nlu:
   examples: |
     - generar xml
     - crear xml
-- intent: dar_informacion
-  examples: |
-    - hola, soy [Ricardo](name) quiero darte información.
-    - quiero darte informacion, soy [ricardo](name)
-    - Hola, soy [ricardo](name), quiero darte información.
-    - hola soy [ricardo](name) y quiero darte información.
-    - hola soy [ritxi](name) y quiero darte información.
-    - hola soy [riky](name) quiero darte información.
-    - soy [ricardo](name) y quiero darte información.
-    - soy [ricardo](name) y quiero enseñarte.
-    - soy [ricardo](name) y queiro enseñarte.
-    - soy [ricardo](name) quiero darte información.
 - intent: hito1
   examples: |
     - quiero la historia [hito 1](content_type).

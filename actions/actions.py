@@ -44,6 +44,7 @@ context = Intents.get_context()
 slot_people = 0
 slot_hito = 0
 slot_emotion = ''
+slot_posXY = [0,0]
 slot_name = ''
 slot_daytime = ''
 
@@ -111,6 +112,7 @@ class ChatBot(Action):
         global slot_emotion
         global slot_name
         global slot_daytime
+        global slot_posXY
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
@@ -154,19 +156,22 @@ class ChatBot(Action):
                     slot_hito = tracker.latest_message['metadata']['chapter'] 
                 elif key == 'emotion':
                     slot_emotion = tracker.latest_message['metadata']['emotion']  
+                elif key == 'posXY':
+                    slot_posXY = tracker.latest_message['metadata']['posXY']  
             user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
             if text in context:
                 EBDI.run(self, dispatcher, tracker, domain, user_event)
             else:
                 print('No se que hacer con este conocimiento.')
-
+                
         ## Entrada de acciones a realizar
         elif (id_event == 'do'):
             print('Ahora lo hago')
         else:
             print('Comando no conocido')            
 
+        print(slot_posXY)
         ## comprobacion del diccionario de sinonimos de entidades
         synonyms_dict = Dictionary.get_synonym_mapper()
         for value, synonyms in synonyms_dict.items():

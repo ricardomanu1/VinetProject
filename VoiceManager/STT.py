@@ -21,15 +21,19 @@ recognizer = speechsdk.SpeechRecognizer(
     auto_detect_source_language_config=auto_detect_source_language_config, 
     audio_config=audio_config)
 # Deteccion comando de voz
-model = speechsdk.KeywordRecognitionModel("0676dbad-ad30-4572-9b98-b4ed2229c7ef.table")
-keyword = "Jeni"
+model = speechsdk.KeywordRecognitionModel("204566a3-456d-42ac-932e-1214406d3813.table")
+keyword = "Yumi"
 keyword_recognizer = speechsdk.KeywordRecognizer()
 
 # Deteccion de tecla
 while True:
     result_future = keyword_recognizer.recognize_once_async(model)
     print('Esperando al comando de voz: "{}"'.format(keyword))
-    result = result_future.get()        
+    
+    #if keyboard.is_pressed('q'):
+    #    keyword_recognizer.stop_recognition_async() 
+        #break
+    result = result_future.get()  
     try:                
         if result.reason == speechsdk.ResultReason.RecognizedKeyword: #keyboard.is_pressed('q')
             print("Di algo...")

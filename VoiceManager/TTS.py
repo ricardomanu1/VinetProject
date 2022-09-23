@@ -16,18 +16,27 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 speech_config.speech_synthesis_language = "en-US" 
 speech_config.speech_synthesis_voice_name ="en-US-JennyMultilingualNeural"
 
-audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
+#audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
+#audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=False, filename = "respuesta.wav")
+audio_config = speechsdk.AudioConfig(use_default_microphone=False, filename = "respuesta.wav")
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config,audio_config=audio_config)
 
-output_txt = open("visemes.txt","w+")
+
+
+#output_txt = open("visemes.txt","w+")
 output_csv = open('visemes.csv','w+',newline='')
 writer = csv.writer(output_csv, delimiter =';')
-#writer.writerow(['audio_offset','viseme_id'])
-speech_synthesizer.viseme_received.connect(lambda evt: print(
-            "Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id)))
-speech_synthesizer.viseme_received.connect(lambda evt: output_txt.write(str((
-            "Viseme event received: audio offset: {}ms, viseme id: {}.\n".format(evt.audio_offset / 10000, evt.viseme_id)))))
-speech_synthesizer.viseme_received.connect(lambda evt: writer.writerow([evt.audio_offset / 10000, evt.viseme_id]))
+writer.writerow(['audio_offset','viseme_id'])
+
+if (os.path.exists('../../../../Desktop/final/ExternalCSV')):
+    output_Unreal = open('../../../../Desktop/final/ExternalCSV/visemes.csv','w+',newline='')
+    writerU = csv.writer(output_Unreal, delimiter =';')
+    writerU.writerow(['audio_offset','viseme_id'])
+#speech_synthesizer.viseme_received.connect(lambda evt: print(
+#            "Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id)))
+#speech_synthesizer.viseme_received.connect(lambda evt: output_txt.write(str((
+#            "Viseme event received: audio offset: {}ms, viseme id: {}.\n".format(evt.audio_offset / 10000, evt.viseme_id)))))
+#speech_synthesizer.viseme_received.connect(lambda evt: writer.writerow([evt.audio_offset / 10000, evt.viseme_id]))
 
 # indica que se ha iniciado la síntesis de voz
 speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis started: {}".format(evt)))
@@ -37,19 +46,37 @@ speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis starte
 # cada vez que el sdk recibe un fragmento de audio
 #speech_synthesizer.synthesizing.connect(
 #            lambda evt: print("Synthesis ongoing, audio chunk received: {}".format(evt)))
+
 # limite de palabra
-#speech_synthesizer.synthesis_word_boundary.connect(lambda evt: print(
- #           "Word boundary event received: {}, audio offset in ms: {}ms.".format(evt, evt.audio_offset / 10000))) 
+# se genera al principio de cada palabra hablada nueva. Proporciona un desfase de tiempo dentro de la secuencia hablada y un desplazamiento de texto
+# si desea resaltar palabras a medida que se pronuncian, debe saber qué resaltar, cuándo hacerlo y durante cuánto tiempo se debe resaltar.
+speech_synthesizer.synthesis_word_boundary.connect(lambda evt: print(
+            "Word boundary event received: {}, audio offset in ms: {}ms.".format(evt, evt.audio_offset / 10000))) 
+
+def viseme_cb(evt):
+    print("Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id))
+    #output_txt.write(str(("Viseme event received: audio offset: {}ms, viseme id: {}.\n".format(evt.audio_offset / 10000, evt.viseme_id))))
+    writer.writerow([evt.audio_offset / 10000, evt.viseme_id])
+    if (os.path.exists('../../../../Desktop/final/ExternalCSV')):
+        writerU.writerow([evt.audio_offset / 10000, evt.viseme_id])
+
+
+    # `Animation` is an xml string for SVG or a json string for blend shapes
+    animation = evt.animation
+
+# Subscribes to viseme received event
+speech_synthesizer.viseme_received.connect(viseme_cb)
+
 # indica que la síntesis de voz se ha completado
 speech_synthesizer.synthesis_completed.connect(lambda evt: print("Synthesis completed: {}".format(evt)))
 
 while True:  
     time.sleep(1)         
     if os.path.exists('..\\speech.txt'):               
-        output_txt = open("visemes.txt","w+")    
-        output_csv = open('visemes.csv','w+',newline='')
-        writer = csv.writer(output_csv, delimiter =';')
-        writer.writerow(['audio_offset','viseme_id'])
+        #output_txt = open("visemes.txt","w+")    
+        #output_csv = open('visemes.csv','w+',newline='')
+        #writer = csv.writer(output_csv, delimiter =';')
+        #writer.writerow(['audio_offset','viseme_id'])
 
         with open('..\\speech.txt') as f:
             lines = [line.rstrip() for line in f]
@@ -73,9 +100,11 @@ while True:
 
         result = speech_synthesizer.speak_ssml_async(ssml_string).get() ## se genera el audio
 
-        stream = AudioDataStream(result)
+        stream = AudioDataStream(result) # pasar una secuencia de memoria de audio y escribirla en un archivo
 
-        stream.save_to_wav_file("respuesta.wav")           
+        stream.save_to_wav_file("respuesta1.wav")    
+        if (os.path.exists('../../../../Desktop/final/ExternalAutoImport')):
+            stream.save_to_wav_file("../../../../Desktop/final/ExternalAutoImport/respuesta.wav")             
 
         # Comprobacion del resultado
         if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
@@ -88,7 +117,7 @@ while True:
             print("Speech synthesis canceled: {}".format(cancellation_details.reason))
             if cancellation_details.reason == speechsdk.CancellationReason.Error:
                 print("Error details: {}".format(cancellation_details.error_details))  
-        output_txt.close()
+        #output_txt.close()
         output_csv.close()
         os.remove('..\\speech.txt')
         time.sleep(2)

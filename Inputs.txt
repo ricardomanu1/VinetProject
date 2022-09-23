@@ -19,13 +19,13 @@
 ## comando posicion del grupo
 {
     "sender": "Vinet_u",
-    "message": "utter_hito_grupo",
+    "message": "escoger_capitulo",
     "metadata": {"event":"know","chapter":5} 
 }
 ## comando personas en el grupo
 {
     "sender": "Vinet_u",
-    "message": "utter_conocer_personas",
+    "message": "numero_personas",
     "metadata": {"event":"know","people":9} 
 }
 ## comando entra el grupo
@@ -33,4 +33,16 @@
     "sender": "Vinet_u",
     "message": "entra_grupo",
     "metadata": {"event":"know"} 
+}
+## comando sale el grupo
+{
+    "sender": "Vinet_u",
+    "message": "sale_grupo",
+    "metadata": {"event":"know"} 
+}
+## comando de ojos
+{
+    "sender": "Vinet_u",
+    "message": "pos_ojos",
+    "metadata": {"event":"know","posXY":[1,2]} 
 }

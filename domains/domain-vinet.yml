@@ -3,8 +3,8 @@ session_config:
   session_expiration_time: 36000
   carry_over_slots_to_new_session: true
 intents:
-- vinet
-- vinet_aprendizaje
+- vinet_comando_aprendizaje
+- vinet_comando_apagar
 - vinet_cuenco
 entities:
 - capitulo
@@ -13,8 +13,6 @@ slots:
     type: float
     influence_conversation: true
 responses:
-  utter_vinet:
-  - text: Este es un test vinet domain con hito {hito}.
   utter_h1:
   - text: Veo que tenéis interés por esa preciosa vasija.
   utter_h2:
@@ -49,6 +47,10 @@ responses:
   - text: Desde que se empezaron a fabricar en la Galia, esas vajillas se popularizaron mucho.
   utter_h16:
   - text: Eran cerámicas que se extendieron a todos los rincones del imperio y a todas las capas de la sociedad, hoy en día nos las podemos encontrar en las excavaciones de los ricos palacios, pero también en las de las granjas más humildes y apartadas.
+  utter_vinet_comando_apagar:
+  - text: Cerrando procesos.
+  utter_vinet_comando_aprendizaje:
+  - text: Realizando entrenamiento...
 actions:
 - action_hello_world
 

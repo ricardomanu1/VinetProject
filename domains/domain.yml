@@ -13,7 +13,6 @@ intents:
 - preguntar_por_que
 - preguntar_quien
 - cantidad
-- dar_informacion
 - despedir
 - empatizar
 - empatizar_bien
@@ -26,7 +25,7 @@ intents:
 - estado_miedo
 - estado_nerviosismo
 - estado_soledad
-- fuera_de_alcance
+- out_of_scope
 - hito1
 - hito2
 - identidad
@@ -41,7 +40,6 @@ intents:
 - solicitar_especifica_lugar
 - solicitar_interes
 - stop
-- test
 - ubicarme
 - xml
 entities:
@@ -230,10 +228,12 @@ responses:
   utter_presentacion:
   - text: ¡Ey! hola {name}
   - text: Hola de nuevo {name}
-  utter_fuera_de_alcance:
-  - text: Lo siento. \nNo puedo responder esa solicitud.
-  utter_test:
-  - text: Vaya test.
+  utter_out_of_scope:
+  - text: Lo siento. No puedo responder esa solicitud.
+  - text: Lo siento. Se escapa a mis conocimientos
+  utter_please_rephrase:
+  - text: Lo siento. No te he entendido bien, ¿podrías repetirlo?
+  - text: Disculpa, no estaba atenta, ¿Qué has dicho?
   utter_interes:
   - text: ¿Qué tal?
   - text: ¿Qué tal estas?

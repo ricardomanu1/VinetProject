@@ -1,8 +1,14 @@
 version: "2.0"
 
 rules:
-
-- rule: Listo para aprender
+- rule: out-of-scope
   steps:
-  - intent: vinet_aprendizaje
-  - action: aprendizaje
+  - intent: out_of_scope
+  - action: chatbot
+  - action: to_speech
+
+- rule: fallback
+  steps:
+  - intent: nlu_fallback
+  - action: chatbot
+  - action: to_speech
