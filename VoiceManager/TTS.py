@@ -28,8 +28,8 @@ output_csv = open('visemes.csv','w+',newline='')
 writer = csv.writer(output_csv, delimiter =';')
 writer.writerow(['audio_offset','viseme_id'])
 
-if (os.path.exists('../../../../Desktop/final/ExternalCSV')):
-    output_Unreal = open('../../../../Desktop/final/ExternalCSV/visemes.csv','w+',newline='')
+if (os.path.exists('../../../../Desktop/OCT-FINAL/Content/A')):
+    output_Unreal = open('../../../../Desktop/OCT-FINAL/Content/A/visemes.csv','w+',newline='')
     writerU = csv.writer(output_Unreal, delimiter =';')
     writerU.writerow(['audio_offset','viseme_id'])
 #speech_synthesizer.viseme_received.connect(lambda evt: print(
@@ -57,7 +57,7 @@ def viseme_cb(evt):
     print("Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id))
     #output_txt.write(str(("Viseme event received: audio offset: {}ms, viseme id: {}.\n".format(evt.audio_offset / 10000, evt.viseme_id))))
     writer.writerow([evt.audio_offset / 10000, evt.viseme_id])
-    if (os.path.exists('../../../../Desktop/final/ExternalCSV')):
+    if (os.path.exists('../../../../Desktop/OCT-FINAL/Content/A')):
         writerU.writerow([evt.audio_offset / 10000, evt.viseme_id])
 
 
@@ -74,9 +74,14 @@ while True:
     time.sleep(1)         
     if os.path.exists('..\\speech.txt'):               
         #output_txt = open("visemes.txt","w+")    
-        #output_csv = open('visemes.csv','w+',newline='')
-        #writer = csv.writer(output_csv, delimiter =';')
-        #writer.writerow(['audio_offset','viseme_id'])
+        output_csv = open('visemes.csv','w+',newline='')
+        writer = csv.writer(output_csv, delimiter =';')
+        writer.writerow(['audio_offset','viseme_id'])
+
+        if (os.path.exists('../../../../Desktop/OCT-FINAL/Content/A')):
+            output_Unreal = open('../../../../Desktop/OCT-FINAL/Content/A/visemes.csv','w+',newline='')
+            writerU = csv.writer(output_Unreal, delimiter =';')
+            writerU.writerow(['audio_offset','viseme_id'])
 
         with open('..\\speech.txt') as f:
             lines = [line.rstrip() for line in f]
@@ -103,8 +108,8 @@ while True:
         stream = AudioDataStream(result) # pasar una secuencia de memoria de audio y escribirla en un archivo
 
         stream.save_to_wav_file("respuesta1.wav")    
-        if (os.path.exists('../../../../Desktop/final/ExternalAutoImport')):
-            stream.save_to_wav_file("../../../../Desktop/final/ExternalAutoImport/respuesta.wav")             
+        if (os.path.exists('../../../../Desktop/OCT-FINAL/Content/A')):
+            stream.save_to_wav_file("../../../../Desktop/OCT-FINAL/Content/A/respuesta.wav")             
 
         # Comprobacion del resultado
         if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
