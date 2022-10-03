@@ -123,6 +123,8 @@ while True:
             if cancellation_details.reason == speechsdk.CancellationReason.Error:
                 print("Error details: {}".format(cancellation_details.error_details))  
         #output_txt.close()
+        if (os.path.exists('../../../../Desktop/OCT-FINAL/Content/A')):
+            output_Unreal.close()
         output_csv.close()
         os.remove('..\\speech.txt')
         time.sleep(2)
