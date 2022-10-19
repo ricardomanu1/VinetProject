@@ -62,7 +62,7 @@ def viseme_cb(evt):
     writer.writerow([evt.audio_offset / 10000, evt.viseme_id,animation_tag,emotion])
     # Create a copy of the output file for Unreal
     if External_file:
-        writerU.writerow([evt.audio_offset / 10000, evt.viseme_id])
+        writerU.writerow([evt.audio_offset / 10000, evt.viseme_id,animation_tag,emotion])
     # 'Animation' is an xml string for SVG or a json string for blend shapes
     animation = evt.animation
 
