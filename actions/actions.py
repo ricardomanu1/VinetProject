@@ -361,7 +361,7 @@ class TXT():
         output = open("speech.txt","w+")
         print("VINETbot: {} ({})".format(response,Emotions.tag()))
         #output.write(str(response))
-        lines = [str(response),str(Emotions.tag()),lang]
+        lines = [str(response),str(Emotions.tag()),lang,'saludar']
         output.write('\n'.join(lines))
         output.close()
         return str(response)

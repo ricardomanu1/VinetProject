@@ -93,8 +93,7 @@ while True:
         # Language
         lang = str(lines[2])
         # Animation
-            # Animation_tag = str(lines[3])
-        animation_tag = 'saludar'
+        animation_tag = str(lines[3])
         # Sentence translation
         text_trans = Translator.translator(contents,'es',lang[0:2])
         # XML - SSML generator
