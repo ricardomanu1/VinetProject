@@ -6,10 +6,10 @@ import datetime as dt
 import xml.etree.cElementTree as ET
 import numpy as np
 
-from emotions_manager import emotions_manager
-from belief_manager import belief_manager
-from desires_manager import desires_manager
-from intents_manager import intents_manager 
+from EBDI.emotions_manager import emotions_manager
+from EBDI.belief_manager import belief_manager
+from EBDI.desires_manager import desires_manager
+from EBDI.intents_manager import intents_manager 
 
 from os import listdir
 from typing import Any, Text, Dict, List
