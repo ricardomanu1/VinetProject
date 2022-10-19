@@ -3,6 +3,7 @@ import os
 
 class XML():
 
+    # XML Spanish
     def esXML(self,response,tag,language):
         speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": language})
         voice = ET.SubElement(speak, "voice", name = "es-ES-ElviraNeural") 
@@ -16,10 +17,10 @@ class XML():
             prosody = ET.SubElement(lang, "prosody", rate = "-8.00%", pitch = "-4.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response/respuesta.xml")
         return "echo"
 
-    # SSML english
+    # SSML English
     def enSSML(self,response,tag,language):
         speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": language})
         voice = ET.SubElement(speak, "voice", name = "en-US-JennyNeural")
@@ -30,10 +31,10 @@ class XML():
              prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response/respuesta.xml")
         return "echo"
 
-    # SSML french
+    # SSML French
     def frSSML(self,response,tag,language):
         speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": language})
         voice = ET.SubElement(speak, "voice", name = "fr-FR-DeniseNeural") 
@@ -44,10 +45,10 @@ class XML():
              prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response/respuesta.xml")
         return "echo"
 
-    # SSML japanese
+    # SSML Japanese
     def jpSSML(self,response,tag,language):
         speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": language})
         voice = ET.SubElement(speak, "voice", name = "ja-JP-NanamiNeural") 
@@ -58,10 +59,10 @@ class XML():
              prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response/respuesta.xml")
         return "echo"
 
-    ## SSML inglés multilingüe emocional (en desarrollo)   
+    ## SSML English multilingual with emotions (developing)   
     def MultiSSML(self,response,tag,language,voice_name):
         speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": language})
         voice = ET.SubElement(speak, "voice", name = en-US-JennyMultilingualNeural) 
@@ -70,5 +71,5 @@ class XML():
         prosody = ET.SubElement(mstts, "prosody", rate = "0.00%", pitch = "0.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
-        arbol.write("respuesta.xml")
+        arbol.write("Response/respuesta.xml")
         return "echo"

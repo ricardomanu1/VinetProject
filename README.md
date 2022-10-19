@@ -99,10 +99,10 @@ $ pip install azure-cognitiveservices-speech
 # Ejecución con Azure 
 ## Consola 3 (Dentro del fichero VoiceManager)
 ```
-python STT.py
+python STT.py VoiceServiceKey TanslatorServiceKey
 ```
 ## Consola 4 (Dentro del fichero VoiceManager)
 ```
-python TTS.py
+python TTS.py VoiceServiceKey TanslatorServiceKey
 ```
 ## Nota: cada vez que se presione la tecla 'q' se da un tiempo para hablar. 

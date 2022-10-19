@@ -2,11 +2,11 @@ import os, requests, uuid, json
 
 class translator(object):
     
-    def __init__(self):
+    def __init__(self,key):
         self.endpoint_var_name = 'https://api.cognitive.microsofttranslator.com/'
         self.path = '/translate?'        
         self.headers = {
-            'Ocp-Apim-Subscription-Key': 'f0270761bb7f413286eb5e15428b46ee',
+            'Ocp-Apim-Subscription-Key': key,
             'Ocp-Apim-Subscription-Region': 'westeurope',
             'Content-type': 'application/json',
             'X-ClientTraceId': str(uuid.uuid4())

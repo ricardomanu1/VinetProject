@@ -1,7 +1,7 @@
 import time 
 import azure.cognitiveservices.speech as speechsdk
 
-speech_key, service_region = "4ec49a617e534c16b0dcca93b0bd11cf", "westeurope"
+speech_key, service_region = "abb6818d47cf4ec7ba7666eb35827855", "westeurope"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
 def from_file():
