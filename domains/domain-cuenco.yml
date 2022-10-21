@@ -1,0 +1,42 @@
+﻿version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- vinet_cuenco
+responses:
+  utter_cue1:
+  - text: Veo que tenéis interés por esa preciosa vasija.
+  utter_cue2:
+  - text: Se denomina terra sigillata.
+  utter_cue3:
+  - text: Vino desde los talleres de la Grausenfrenque, en Condatomagus. 
+  utter_cue4:
+  - text: En la época romana se fabricaba la cerámica en enormes talleres centralizados que abastecían a todo el imperio, al estilo de la fabricación industrial actual.
+  utter_cue5:
+  - text: Los talleres del sur de la Galia sustituyeron en época de Augusto a los italianos.
+  utter_cue6:
+  - text: Estos hacían la célebre cerámica aretina que se exportaba a todo el imperio.
+  utter_cue7:
+  - text: ¿Queréis saber una curiosidad?.
+  utter_cue8:
+  - text: Decían las malas lenguas que el traslado de estos enormes talleres de Italia a la Galia lo hicieron por encontrar buenas tierras, abundante agua y madera… pero sobre todo mano de obra barata.
+  utter_cue9:
+  - text: En la región de Condatomagus vivía la tribu de los Rutenos, donde un esclavo costaba 2 ánforas de vino, ¡10 veces menos que en Italia!.
+  utter_cue10:
+  - text: Continuando con la historia.
+  utter_cue11:
+  - text: Desde el siglo V a.C. en Italia ya había talleres especializados en cerámica de lujo, en la región de Campania.
+  utter_cue12:
+  - text: Las hacían negras y brillantes, ya que imitaban a las lujosas vajillas de bronce.
+  utter_mostrar:
+  - text: acción mostrar
+  utter_cue13:
+  - text: En los últimos tiempos de la República la moda cambió, y platos, cuencos y vasos de cerámica empezaron a tener su característico color rojo brillante.
+  utter_cue14:
+  - text: Se trata de la cerámica aretina, que terminaba en las mesas de las domus más ricas.
+  utter_cue15:
+  - text: Desde que se empezaron a fabricar en la Galia, esas vajillas se popularizaron mucho.
+  utter_cue16:
+  - text: Eran cerámicas que se extendieron a todos los rincones del imperio y a todas las capas de la sociedad, hoy en día nos las podemos encontrar en las excavaciones de los ricos palacios, pero también en las de las granjas más humildes y apartadas.
+

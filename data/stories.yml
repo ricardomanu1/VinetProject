@@ -205,3 +205,21 @@ stories:
   - intent: vinet_cuenco
   - action: chatbot
   - action: to_speech
+
+- story: vinet_ara_path
+  steps:
+  - intent: vinet_ara
+  - action: chatbot
+  - action: to_speech
+
+- story: vinet_lacrimario_path
+  steps:
+  - intent: vinet_lacrimario
+  - action: chatbot
+  - action: to_speech
+
+- story: vinet_lucerna_path
+  steps:
+  - intent: vinet_lucerna
+  - action: chatbot
+  - action: to_speech

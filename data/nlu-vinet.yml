@@ -4,6 +4,32 @@ nlu:
   examples: |
     - hablame del cuenco de cerámica
     - hablame del cuenco
+    - hablame de ese cuenco
+    - hablame de este cuenco
+    - cuentame cosas sobre el cuenco
+    - cuentame cosas sobre el cuenco de cerámica
+- intent: vinet_lucerna
+  examples: |
+    - hablame de la lucerna
+    - hablame de una lucerna
+    - hablame de esa lucerna
+    - hablame de esta lucerna
+    - cuentame cosas sobre la lucerna
+- intent: vinet_ara
+  examples: |
+    - hablame del ara
+    - hablame de la ara
+    - hablame de la ara votiva
+    - hablame del ara votiva
+    - cuentame sobre el ara
+    - cuentame sobre el ara votiva
+- intent: vinet_lacrimario
+  examples: |
+    - hablame del lacrimario
+    - hablame de un lacrimario
+    - hablame de este lacrimario
+    - hablame de ese lacrimario
+    - cuentame sobre el lacrimario
 - intent: vinet_comando_apagar
   examples: |
     - comando de voz apagar

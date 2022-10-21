@@ -106,15 +106,27 @@ class intents_manager(object):
         self.intents.append(('know', 'pos_ojos', ['pos_ojos'],'acc_del_belief','pos_ojos','acc_new_belief','pos_ojos'))
 
         #self.intents.append(('know', 'isBored', ['isBored'],'acc_del_belief','isBored'))
-               
-        self.intents.append(('say', 'utter_h1', ['vinet_cuenco'],'acc_del_belief','vinet_cuenco','acc_say', 'utter_h1','acc_say', 'utter_h2','acc_say', 'utter_h3',
-                            'acc_say', 'utter_h4','acc_say', 'utter_h5','acc_say', 'utter_h6','acc_say', 'utter_h7', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_h7')) 
-        self.intents.append(('say','utter_h8', ['utter_h7','he_preguntado_si_no','afirmar'],'acc_del_belief','he_preguntado_si_no', 'acc_del_belief','utter_h7',
-                            'acc_say', 'utter_h8', 'acc_say', 'utter_h9', 'acc_new_belief','utter_h10'))
-        self.intents.append(('say', 'utter_h10', ['utter_h7','he_preguntado_si_no','negar'],'acc_del_belief','he_preguntado_si_no','acc_del_belief','utter_h7', 'acc_new_belief','utter_h10'))
-        self.intents.append(('say', 'utter_h10', ['utter_h10'],'acc_del_belief','utter_h10','acc_say', 'utter_h10','acc_say', 'utter_h11','acc_say', 'utter_h12'
-                             ,'acc_say', 'utter_mostrar','acc_say', 'utter_h13','acc_say', 'utter_h14','acc_say', 'utter_mostrar','acc_say', 'utter_h15',
-                             'acc_say', 'utter_h16','acc_say', 'utter_mostrar'))
+          
+        ## Cuenco de ceramica Hilo
+        self.intents.append(('say', 'utter_cue1', ['vinet_cuenco'],'acc_del_belief','vinet_cuenco','acc_say', 'utter_cue1','acc_say', 'utter_cue2','acc_say', 'utter_cue3',
+                            'acc_say', 'utter_cue4','acc_say', 'utter_cue5','acc_say', 'utter_cue6','acc_say', 'utter_cue7', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_cue7')) 
+        self.intents.append(('say','utter_cue8', ['utter_cue7','he_preguntado_si_no','afirmar'],'acc_del_belief','he_preguntado_si_no', 'acc_del_belief','utter_cue7',
+                            'acc_say', 'utter_cue8', 'acc_say', 'utter_cue9', 'acc_new_belief','utter_cue10'))
+        self.intents.append(('say', 'utter_cue10', ['utter_cue7','he_preguntado_si_no','negar'],'acc_del_belief','he_preguntado_si_no','acc_del_belief','utter_cue7', 'acc_new_belief','utter_cue10'))
+        self.intents.append(('say', 'utter_cue10', ['utter_cue10'],'acc_del_belief','utter_cue10','acc_say', 'utter_cue10','acc_say', 'utter_cue11','acc_say', 'utter_cue12'
+                             ,'acc_say', 'utter_mostrar','acc_say', 'utter_cue13','acc_say', 'utter_cue14','acc_say', 'utter_mostrar','acc_say', 'utter_cue15',
+                             'acc_say', 'utter_cue16','acc_say', 'utter_mostrar'))
+
+        ## Lacrimario
+        self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'acc_del_belief','vinet_lacrimario','acc_say', 'utter_lac1'))
+
+        ## Lucerna
+        self.intents.append(('say', 'utter_luc1', ['vinet_lucerna'],'acc_del_belief','vinet_lucerna','acc_say','utter_luc1','acc_say','utter_luc2','acc_say','utter_luc3',
+                             'acc_say','utter_luc4','acc_say','utter_luc5'))
+
+        ## ara
+        self.intents.append(('say', 'utter_ara1', ['vinet_ara'],'acc_del_belief','vinet_ara','acc_say', 'utter_ara1'))
+
         ## Emoción entrante
         #self.intents.append(('know', 'isHappy', ['isHappy'],'acc_del_belief','isHappy'))
         #self.intents.append(('know', 'isSad', ['isSad'],'acc_del_belief','isSad'))

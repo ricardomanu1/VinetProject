@@ -1,0 +1,10 @@
+﻿version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- vinet_lacrimario
+responses:
+  utter_lac1:
+  - text: Se que es algo de cristal, pero aun tengo que estudiarlo un poco.
+ 
