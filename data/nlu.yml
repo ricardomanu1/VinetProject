@@ -453,3 +453,13 @@ nlu:
     - quiero la historia [hito2](content_type).
     - la segunda
     - cuentame la segunda
+- intent: animacion
+  examples: |
+    - realiza animacion de narracion
+    - realiza la animacion de narracion
+- intent: informar
+  examples: |
+    - realiza animacion de informacion
+    - realizar animacion de informacion
+    - realiza la animacion de informacion
+    - realizar la animacion de informacion

@@ -223,3 +223,15 @@ stories:
   - intent: vinet_lucerna
   - action: chatbot
   - action: to_speech
+
+- story: animacion_path
+  steps:
+  - intent: animacion
+  - action: chatbot
+  - action: to_speech
+
+- story: informar_path
+  steps:
+  - intent: informar
+  - action: chatbot
+  - action: to_speech

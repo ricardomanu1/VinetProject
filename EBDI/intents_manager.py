@@ -134,6 +134,9 @@ class intents_manager(object):
         ## Reglas
         self.intents.append(('say', 'out_of_scope', ['out_of_scope'],'acc_del_belief','out_of_scope','acc_say', 'utter_out_of_scope'))
         self.intents.append(('say', 'nlu_fallback', ['nlu_fallback'],'acc_del_belief','nlu_fallback','acc_say', 'utter_please_rephrase'))
+        
+        self.intents.append(('say', 'animacion', ['animacion'],'acc_del_belief','animacion','acc_say', 'utter_animacion'))
+        self.intents.append(('say', 'informar', ['informar'],'acc_del_belief','informar','acc_say', 'utter_informar'))
 
     def filterI(self, Emotions, Beliefs, Desires):
         desires_fulfill = []

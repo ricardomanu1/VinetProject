@@ -340,11 +340,15 @@ class To_Speech(Action):
 
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
+            print(json.dumps(msg[-count:], indent=4))
             responses = msg[-count:]  
             print(Emotions.tag())
             txt = TXT()            
             print('----RESPONSES----')
             for e in responses:
+                if 'metadata' in e['metadata']:
+                    if 'subtext' in e['metadata']['metadata']:
+                        print('Animacion: ' + str(e['metadata']['metadata']['subtext']))
                 print('- ' + str(e['text']))
                 txt_responses += str(e['text'])
                 txt_responses += ' '            

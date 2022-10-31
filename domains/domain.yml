@@ -42,6 +42,8 @@ intents:
 - stop
 - ubicarme
 - xml
+- animacion
+- informar
 entities:
 - acontecimiento
 - daytime
@@ -104,13 +106,14 @@ responses:
         value: "evening"
     text: "Buenas noches."
   - metadata:
-      emotional: happy
-    text: ¡Ey!
-  - metadata:
-      emotional: neutral
+      subtext: saludar
     text: Hola.
-  - text: Muy buenas.
-  - text: ¡Hola!
+  - metadata:
+      subtext: saludar
+    text: Muy buenas.
+  - metadata:
+      subtext: saludar
+    text: ¡Hola!
   utter_empatizar:
   - text: Me encuentro bien.
   - text: No me puedo quejar.
@@ -122,27 +125,68 @@ responses:
   - text: Agotada de tanto entrenar.
   - text: Genial.
   utter_ubicarme:
-  - text: Posiblemente en Roncesvalles, aunque también podrías estar en la universidad.
-  - text: Si tuviese un GPS a mano te lo podría decir.
-  - text: Mira que no saberlo.
+  - metadata:
+      subtext: informar
+    text: Posiblemente en Roncesvalles, aunque también podrías estar en la universidad.
+  - metadata:
+      subtext: informar
+    text: Si tuviese un GPS a mano te lo podría decir.
+  - metadata:
+      subtext: informar
+    text: Mira que no saberlo.
   utter_despedir:
-  - text: Chao.
-  - text: Espero verte pronto.
-  - text: Hasta luego.
-  - text: Adiós.
-  - text: Cuídate.
-  - text: Nos vemos.
-  - text: Que vaya bien.
-  - text: Ve con cuidado.
-  - text: Hasta nunca.
-  - text: Hasta ahora.
-  - text: Bye bye.
-  - text: Que te vaya bien.
-  - text: Que sea leve.
-  - text: Nos vemos luego.
-  - text: Hasta la vista.
+  - metadata:
+      subtext: despedir
+    text: Chao.      
+  - metadata:
+      subtext: despedir     
+    text: Chau.
+  - metadata:
+      subtext: despedir     
+    text: Espero verte pronto.
+  - metadata:
+      subtext: despedir     
+    text: Hasta luego.
+  - metadata:
+      subtext: despedir     
+    text: Adiós.
+  - metadata:
+      subtext: despedir     
+    text: Cuídate.
+  - metadata:
+      subtext: despedir     
+    text: Nos vemos.
+  - metadata:
+      subtext: despedir     
+    text: Que vaya bien.
+  - metadata:
+      subtext: despedir     
+    text: Ve con cuidado.
+  - metadata:
+      subtext: despedir     
+    text: Hasta nunca.
+  - metadata:
+      subtext: despedir     
+    text: Hasta ahora.
+  - metadata:
+      subtext: despedir     
+    text: Adiós adiós.
+  - metadata:
+      subtext: despedir     
+    text: Que te vaya bien.
+  - metadata:
+      subtext: despedir     
+    text: Nos vemos luego.
+  - metadata:
+      subtext: despedir     
+    text: Hasta la vista.
+  - metadata:
+      subtext: despedir     
+    text: Que la fuerza te acompañe.
   utter_afirmar:
-  - text: Sí.
+  - metadata:
+      subtext: afirmar     
+    text: Sí.
   utter_afirmativo:
   - text: ¡Vale!
   - text: De acuerdo.
@@ -163,7 +207,9 @@ responses:
   - text: Así es.
   - text: Estupendo.
   utter_negar:
-  - text: No.
+  - metadata:
+      subtext: negar     
+    text: No.
   utter_negativo:
   - text: No.
   - text: Nop.
@@ -175,26 +221,48 @@ responses:
   - text: Absolutamente no.
   - text: Ni lo pienses.
   utter_preguntar_cuando:
-  - text: Estás buscando cuando.
+  - metadata:
+      subtext: informar     
+    text: Estás buscando cuando.
   utter_preguntar_por_que:
-  - text: Estás buscando el por que.
+  - metadata:
+      subtext: informar     
+    text: Estás buscando el por que.
   utter_preguntar_quien:
-  - text: Estás buscando quien.
+  - metadata:
+      subtext: informar     
+    text: Estás buscando quien.
   utter_preguntar_como:
-  - text: Estás buscando como.
+  - metadata:
+      subtext: informar     
+    text: Estás buscando como.
   utter_preguntar_donde:
-  - text: Estás buscando donde.
+  - metadata:
+      subtext: informar     
+    text: Estás buscando donde.
   utter_agradecer:
   - text: De nada.
   - text: No hay de qué.
   utter_solicitar:
-  - text: ¿Tienes algún tema que pueda interesarte?
-  - text: ¿Alguna cosa en mente?
-  - text: ¿Sabes de algún tema que te pueda interesar?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Tienes algún tema que pueda interesarte?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Alguna cosa en mente?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Sabes de algún tema que te pueda interesar?
   utter_no_solicitar:
-  - text: Bueno, si necesitas algo, dime.
-  - text: De acuerdo.
-  - text: Bien.
+  - metadata:
+      subtext: informar     
+    text: Bueno, si necesitas algo, dime.
+  - metadata:
+      subtext: informar     
+    text: De acuerdo.
+  - metadata:
+      subtext: informar     
+    text: Bien.
   utter_atencion:
   - text: ¡Atención!
   utter_estado_bien:
@@ -223,7 +291,7 @@ responses:
   - text: Te noto algo cansado.
   - text: Te noto algo cansada.
   utter_identidad:
-  - text: Soy Jenny.
+  - text: Soy Sonia.
   - text: Soy un bot creada en un ordenador.
   utter_presentacion:
   - text: ¡Ey! hola {name}
@@ -235,11 +303,21 @@ responses:
   - text: Lo siento. No te he entendido bien, ¿podrías repetirlo?
   - text: Disculpa, no estaba atenta, ¿Qué has dicho?
   utter_interes:
-  - text: ¿Qué tal?
-  - text: ¿Qué tal estas?
-  - text: ¿Qué te cuentas?
-  - text: ¿Cómo te encuentras?
-  - text: ¿Cómo estás?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué tal?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué tal estas?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué te cuentas?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Cómo te encuentras?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Cómo estás?
   utter_empatizar_bien:
   - text: Que bien.
   - text: Me alegro.
@@ -264,36 +342,70 @@ responses:
   utter_empatizar_emocion:
   - text: Vaya...
   utter_animar:
-  - text: ¿Puedo animarte con alguna historia?
-  - text: ¿Quieres escuchar algo entretenido?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Puedo animarte con alguna historia?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Quieres escuchar algo entretenido?
   utter_preguntar:
-  - text: Dime, ¿En que te puedo ayudar?
-  - text: ¿Necesitas algo?
-  - text: ¿Qué buscas?
-  - text: ¿Qué puedo hacer por ti?
-  - text: ¿Qué se te ofrece?
+  - metadata:
+      subtext: preguntar     
+    text: Dime, ¿En que te puedo ayudar?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Necesitas algo?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué buscas?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué puedo hacer por ti?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué se te ofrece?
   utter_dar_opciones:
-  - text: Te puede interesar esto.
-  - text: Aquí tienes algunos temas que te pueden interesar.
-  - text: Te puedo recomendar estos temas.
+  - metadata:
+      subtext: narrar     
+    text: Te puede interesar esto.
+  - metadata:
+      subtext: narrar     
+    text: Aquí tienes algunos temas que te pueden interesar.
+  - metadata:
+      subtext: narrar     
+    text: Te puedo recomendar estos temas.
   utter_atender:
   - text: Ya veo, quieres saber sobre esto.
   utter_confirmacion:
-  - text: ¿Te interesa saber más?
-  - text: ¿Quieres saber más?
-  utter_pregunta:
-  - text: Fui un sargento del Regimiento escocés 92 durante la Guerra de independencia Española, estuve encargado de vigilar la frontera con Francia.
-  utter_otra_pregunta:
-  - text: A principios de octubre, la nieve cayó en tal cantidad como no había visto nunca en Escocia. Casi perdimos la artilleria que habíamos colocado en diferentes baterías, y no pudimos sacar los camiones de la nieve hasta que no cortamos algunos árboles, y después de quitar la nieve de debajo conseguimos arrastrarlos por turnos hasta el pueblo. Mientras estábamos en este frío y elevado lugar, mi mujer dio a luz una niña, y tuvimos que andar varios kilometros a la mañana siguiente para llegar al hospital [de Roncesvalles].
+  - metadata:
+      subtext: preguntar     
+    text: ¿Te interesa saber más?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Quieres saber más?
   utter_especifica:
-  - text: Por favor, especifica más.
-  - text: ¿Qué quieres decir?
-  - text: Sé más concreto.
+  - metadata:
+      subtext: informar     
+    text: Por favor, especifica más.
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué quieres decir?
+  - metadata:
+      subtext: informar     
+    text: Sé más concreto.
   utter_especificar:
-  - text: ¿Podrías especificar?
-  - text: Especifica que quieres.
-  - text: ¿Qué se te ofrece?
-  - text: Concreta que es lo que quieres.
+  - metadata:
+      subtext: preguntar     
+    text: ¿Podrías especificar?
+  - metadata:
+      subtext: informar     
+    text: Especifica que quieres.
+  - metadata:
+      subtext: preguntar     
+    text: ¿Qué se te ofrece?
+  - metadata:
+      subtext: informar     
+    text: Concreta que es lo que quieres.
   utter_estar_bien:
   - text: Estoy perfectamente.
   - text: Me encuentro perfectamente.
@@ -535,32 +647,57 @@ responses:
   - text: Pues aquí algo cansada.
   - text: Pues algo cansada.
   utter_hito:
-  - text: Aquí te hablo del hito que has solicitado {milestone}...
+  - metadata:
+      subtext: informar     
+    text: Aquí te hablo del hito que has solicitado {milestone}...
   utter_hito1:
-  - text: Aquí te hablo del hito 1...
+  - metadata:
+      subtext: informar     
+    text: Aquí te hablo del hito 1...
   utter_hito2:
-  - text: Aquí te hablo del hito 2...
+  - metadata:
+      subtext: informar     
+    text: Aquí te hablo del hito 2...
   utter_hitos_opciones:
-  - buttons:
-    - title: Hito 1
-      payload: "/hito1"
-    - title: Hito 2
-      payload: "/hito2"
-    - title: La excavación de Ibañeta
-      payload: "/hito3"
+  - metadata:
+      subtext: informar     
     text: Elige
   utter_pronombre_interrogativo:
-  - text: ¿Cuál?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Cuál?
   utter_responder_hora:
-  - text: Son las {hours}
+  - metadata:
+      subtext: informar     
+    text: Son las {hours}
   utter_responder_dia:
-  - text: Hoy es {day}
+  - metadata:
+      subtext: informar     
+    text: Hoy es {day}
   utter_conocer_personas:
-  - text: Veo que sois {people} personas.
-  - text: Hay {people} personas en el grupo.
+  - metadata:
+      subtext: informar     
+    text: Veo que sois {people} personas.
+  - metadata:
+      subtext: informar     
+    text: Hay {people} personas en el grupo.
   utter_hito_grupo:
-  - text: El grupo se ha posicionado en el zona {hito}.
-  - text: El grupo se ha posicionado en la hito {hito}.
+  - metadata:
+      subtext: informar     
+    text: El grupo se ha posicionado en el zona {hito}.
+  - metadata:
+      subtext: informar     
+    text: El grupo se ha posicionado en la hito {hito}.
+  utter_animacion:
+  - metadata:
+      subtext: narrar     
+    text: animacion de narracion
+    
+  utter_informar:
+  - text: animacion de informacion
+    metadata:
+      subtext: informar
+      
 actions:
 - action_hello_world
 - aprendizaje
