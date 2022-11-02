@@ -338,6 +338,8 @@ class To_Speech(Action):
 
         txt_responses = ''
 
+        animation_tag = 'escuchar'
+
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
             print(json.dumps(msg[-count:], indent=4))
@@ -349,10 +351,11 @@ class To_Speech(Action):
                 if 'metadata' in e['metadata']:
                     if 'subtext' in e['metadata']['metadata']:
                         print('Animacion: ' + str(e['metadata']['metadata']['subtext']))
+                        animation_tag = str(e['metadata']['metadata']['subtext'])
                 print('- ' + str(e['text']))
                 txt_responses += str(e['text'])
                 txt_responses += ' '            
-            sentence = TXT.name(txt,txt_responses)
+            sentence = TXT.name(txt,txt_responses,animation_tag)
             #ExecuteEBDI.execute_ebdi(sentence,Emotions.tag())
         count = 0
 
@@ -361,11 +364,11 @@ class To_Speech(Action):
 
 ## Salida de la respuesta emocional en txt
 class TXT():
-    def name(self,response) -> Text:
+    def name(self,response,animation_tag) -> Text:
         output = open("speech.txt","w+")
         print("VINETbot: {} ({})".format(response,Emotions.tag()))
         #output.write(str(response))
-        lines = [str(response),str(Emotions.tag()),lang,'saludar']
+        lines = [str(response),str(Emotions.tag()),lang,animation_tag]
         output.write('\n'.join(lines))
         output.close()
         return str(response)
