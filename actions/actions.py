@@ -139,7 +139,8 @@ class ChatBot(Action):
                 lang = tracker.latest_message['metadata']['language']
             if (tracker.latest_message['metadata']['sentiment']!=None):
                 polarity = tracker.latest_message['metadata']['sentiment']
-            #print(polarity)
+                print(polarity)
+                ## convertir polatidad en valor de -1 a 1
             user_event = [id_event,Bi,Be,text,slot_name,entities,lang] 
             print('----->EVENT: ' + str(user_event)) 
             if Bi in context:
