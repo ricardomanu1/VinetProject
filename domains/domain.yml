@@ -42,8 +42,11 @@ intents:
 - stop
 - ubicarme
 - xml
-- animacion
-- informar
+- a_informar
+- a_narrar
+- a_preguntar
+- a_despedir
+- a_saludar
 entities:
 - acontecimiento
 - daytime
@@ -115,15 +118,33 @@ responses:
       subtext: saludar
     text: ¡Hola!
   utter_empatizar:
-  - text: Me encuentro bien.
-  - text: No me puedo quejar.
-  - text: No tengo quejas.
-  - text: Bien.
-  - text: Muy bien.
-  - text: Todo en orden.
-  - text: Guay.
-  - text: Agotada de tanto entrenar.
-  - text: Genial.
+  - metadata:
+      subtext: informar     
+    text: Me encuentro bien.
+  - metadata:
+      subtext: informar     
+    text: No me puedo quejar.
+  - metadata:
+      subtext: informar     
+    text: No tengo quejas.
+  - metadata:
+      subtext: informar     
+    text: Bien.
+  - metadata:
+      subtext: informar     
+    text: Muy bien.
+  - metadata:
+      subtext: informar     
+    text: Todo en orden.
+  - metadata:
+      subtext: informar     
+    text: Guay.
+  - metadata:
+      subtext: informar     
+    text: Agotada de tanto entrenar.
+  - metadata:
+      subtext: informar     
+    text: Genial.
   utter_ubicarme:
   - metadata:
       subtext: informar
@@ -185,41 +206,95 @@ responses:
     text: Que la fuerza te acompañe.
   utter_afirmar:
   - metadata:
-      subtext: afirmar     
+      subtext: informar     
     text: Sí.
   utter_afirmativo:
-  - text: ¡Vale!
-  - text: De acuerdo.
-  - text: Me parece correcto.
-  - text: Desde luego.
-  - text: Claro.
-  - text: Por supuesto.
-  - text: Si.
-  - text: Vale.
-  - text: Me parece bien.
-  - text: Bien.
-  - text: Ok.
-  - text: Afirmativo.
-  - text: Estas en lo correcto.
-  - text: Suena bien.
-  - text: Correcto.
-  - text: Eso es.
-  - text: Así es.
-  - text: Estupendo.
+  - metadata:
+      subtext: informar     
+    text: ¡Vale!
+  - metadata:
+      subtext: informar     
+    text: De acuerdo.
+  - metadata:
+      subtext: informar     
+    text: Me parece correcto.
+  - metadata:
+      subtext: informar     
+    text: Desde luego.
+  - metadata:
+      subtext: informar     
+    text: Claro.
+  - metadata:
+      subtext: informar     
+    text: Por supuesto.
+  - metadata:
+      subtext: informar     
+    text: Si.
+  - metadata:
+      subtext: informar     
+    text: Vale.
+  - metadata:
+      subtext: informar     
+    text: Me parece bien.
+  - metadata:
+      subtext: informar     
+    text: Bien.
+  - metadata:
+      subtext: informar     
+    text: Ok.
+  - metadata:
+      subtext: informar     
+    text: Afirmativo.
+  - metadata:
+      subtext: informar     
+    text: Estas en lo correcto.
+  - metadata:
+      subtext: informar     
+    text: Suena bien.
+  - metadata:
+      subtext: informar     
+    text: Correcto.
+  - metadata:
+      subtext: informar     
+    text: Eso es.
+  - metadata:
+      subtext: informar     
+    text: Así es.
+  - metadata:
+      subtext: informar     
+    text: Estupendo.
   utter_negar:
   - metadata:
-      subtext: negar     
+      subtext: informar     
     text: No.
   utter_negativo:
-  - text: No.
-  - text: Nop.
-  - text: No realmente.
-  - text: Claro que no.
-  - text: Erróneo.
-  - text: Pues no.
-  - text: Para nada.
-  - text: Absolutamente no.
-  - text: Ni lo pienses.
+  - metadata:
+      subtext: informar     
+    text: No.
+  - metadata:
+      subtext: informar     
+    text: Nop.
+  - metadata:
+      subtext: informar     
+    text: No realmente.
+  - metadata:
+      subtext: informar     
+    text: Claro que no.
+  - metadata:
+      subtext: informar     
+    text: Erróneo.
+  - metadata:
+      subtext: informar     
+    text: Pues no.
+  - metadata:
+      subtext: informar     
+    text: Para nada.
+  - metadata:
+      subtext: informar     
+    text: Absolutamente no.
+  - metadata:
+      subtext: informar     
+    text: Ni lo pienses.
   utter_preguntar_cuando:
   - metadata:
       subtext: informar     
@@ -241,8 +316,12 @@ responses:
       subtext: informar     
     text: Estás buscando donde.
   utter_agradecer:
-  - text: De nada.
-  - text: No hay de qué.
+  - metadata:
+      subtext: informar     
+    text: De nada.
+  - metadata:
+      subtext: informar     
+    text: No hay de qué.
   utter_solicitar:
   - metadata:
       subtext: preguntar     
@@ -264,44 +343,94 @@ responses:
       subtext: informar     
     text: Bien.
   utter_atencion:
-  - text: ¡Atención!
+  - metadata:
+      subtext: informar     
+    text: ¡Atención!
   utter_estado_bien:
-  - text: ¿Te encuentras bien?
-  - text: Veo que te encuentras bien.
+  - metadata:
+      subtext: preguntar     
+    text: ¿Te encuentras bien?
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras bien.
   utter_estado_mal:
-  - text: Veo que te encuentras mal.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras mal.
   utter_estado_enfado:
-  - text: Veo que te encuentras enfadado.
-  - text: Veo que te encuentras enfadada.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras enfadado.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras enfadada.
   utter_estado_miedo:
-  - text: Veo que te encuentras con miedo.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras con miedo.
   utter_estado_nerviosismo:
-  - text: Veo que te encuentras nervioso.
-  - text: Veo que te encuentras nerviosa.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras nervioso.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras nerviosa.
   utter_estado_aburrimiento:
-  - text: Veo que te encuentras aburrido.
-  - text: Veo que te encuentras aburrida.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras aburrido.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras aburrida.
   utter_estado_emocion:
-  - text: Veo que te encuentras emocionada.
-  - text: Veo que te encuentras emocionado.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras emocionada.
+  - metadata:
+      subtext: informar     
+    text: Veo que te encuentras emocionado.
   utter_estado_soledad:
-  - text: ¿Te sientes solo?
-  - text: ¿Te sientes sola?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Te sientes solo?
+  - metadata:
+      subtext: preguntar     
+    text: ¿Te sientes sola?
   utter_estado_cansancio:
-  - text: Te noto algo cansado.
-  - text: Te noto algo cansada.
+  - metadata:
+      subtext: informar     
+    text: Te noto algo cansado.
+  - metadata:
+      subtext: informar     
+    text: Te noto algo cansada.
   utter_identidad:
-  - text: Soy Sonia.
-  - text: Soy un bot creada en un ordenador.
+  - metadata:
+      subtext: informar     
+    text: Soy Sonia.
+  - metadata:
+      subtext: informar     
+    text: Soy un bot creada en un ordenador.
   utter_presentacion:
-  - text: ¡Ey! hola {name}
-  - text: Hola de nuevo {name}
+  - metadata:
+      subtext: informar     
+    text: ¡Ey! hola {name}
+  - metadata:
+      subtext: informar     
+    text: Hola de nuevo {name}
   utter_out_of_scope:
-  - text: Lo siento. No puedo responder esa solicitud.
-  - text: Lo siento. Se escapa a mis conocimientos
+  - metadata:
+      subtext: informar     
+    text: Lo siento. No puedo responder esa solicitud.
+  - metadata:
+      subtext: informar     
+    text: Lo siento. Se escapa a mis conocimientos
   utter_please_rephrase:
-  - text: Lo siento. No te he entendido bien, ¿podrías repetirlo?
-  - text: Disculpa, no estaba atenta, ¿Qué has dicho?
+  - metadata:
+      subtext: informar     
+    text: Lo siento. No te he entendido bien, ¿podrías repetirlo?
+  - metadata:
+      subtext: informar     
+    text: Disculpa, no estaba atenta, ¿Qué has dicho?
   utter_interes:
   - metadata:
       subtext: preguntar     
@@ -319,28 +448,56 @@ responses:
       subtext: preguntar     
     text: ¿Cómo estás?
   utter_empatizar_bien:
-  - text: Que bien.
-  - text: Me alegro.
-  - text: Que bueno.
-  - text: Genial.
+  - metadata:
+      subtext: informar     
+    text: Que bien.
+  - metadata:
+      subtext: informar     
+    text: Me alegro.
+  - metadata:
+      subtext: informar     
+    text: Que bueno.
+  - metadata:
+      subtext: informar     
+    text: Genial.
   utter_empatizar_mal:
-  - text: Vaya...
-  - text: Que mal.
-  - text: Lo siento.
+  - metadata:
+      subtext: informar     
+    text: Vaya...
+  - metadata:
+      subtext: informar     
+    text: Que mal.
+  - metadata:
+      subtext: informar     
+    text: Lo siento.
   utter_empatizar_aburrimiento:
-  - text: ¿Puedo hablarte de alguno de estos temas tan interesantes?
+  - metadata:
+      subtext: preguntar
+    text: ¿Puedo hablarte de alguno de estos temas tan interesantes?
   utter_empatizar_cansancio:
-  - text: Vaya...
+  - metadata:
+      subtext: informar     
+    text: Vaya...
   utter_empatizar_enfado:
-  - text: Vaya...
+  - metadata:
+      subtext: informar     
+    text: Vaya...
   utter_empatizar_miedo:
-  - text: Vaya...
+  - metadata:
+      subtext: informar     
+    text: Vaya...
   utter_empatizar_nerviosismo:
-  - text: Vaya...
+  - metadata:
+      subtext: informar     
+    text: Vaya...
   utter_empatizar_soledad:
-  - text: Vaya...
+  - metadata:
+      subtext: informar     
+    text: Vaya...
   utter_empatizar_emocion:
-  - text: Vaya...
+  - metadata:
+      subtext: informar     
+    text: Vaya...
   utter_animar:
   - metadata:
       subtext: preguntar     
@@ -375,7 +532,9 @@ responses:
       subtext: narrar     
     text: Te puedo recomendar estos temas.
   utter_atender:
-  - text: Ya veo, quieres saber sobre esto.
+  - metadata:
+      subtext: informar     
+    text: Ya veo, quieres saber sobre esto.
   utter_confirmacion:
   - metadata:
       subtext: preguntar     
@@ -407,245 +566,707 @@ responses:
       subtext: informar     
     text: Concreta que es lo que quieres.
   utter_estar_bien:
-  - text: Estoy perfectamente.
-  - text: Me encuentro perfectamente.
-  - text: Estoy genial.
-  - text: Me encuentro de maravilla.
-  - text: Estoy bien.
-  - text: Estoy muy bien.
-  - text: Me encuentro estupenda.
-  - text: No me quejo.
-  - text: Estoy feliz.
-  - text: Me siento genial.
-  - text: Estoy bien.
-  - text: He tenido un gran día.
-  - text: ¡Maravillosamente!.
-  - text: Demasiado genial.
-  - text: Estoy muy bien.
-  - text: Sintiéndome bien.
-  - text: Mejor que nunca.
-  - text: Me siento afortunada.
-  - text: Todo genial aquí.
-  - text: Con un día fantástico.
-  - text: Estoy inspirada.
-  - text: Increíble.
-  - text: Me siento maravillosa.
-  - text: Me siento muy bien.
-  - text: Me siento increible.
-  - text: Me siento feliz.
-  - text: ¡Hoy es un día increíble!.
-  - text: Estoy tan feliz.
-  - text: Estoy realmente feliz ahora mismo.
-  - text: Bueno, ha sido un buen día.
-  - text: Guay.
-  - text: Pues aquí estamos.
+  - metadata:
+      subtext: informar     
+    text: Estoy perfectamente.
+  - metadata:
+      subtext: informar     
+    text: Me encuentro perfectamente.
+  - metadata:
+      subtext: informar     
+    text: Estoy genial.
+  - metadata:
+      subtext: informar     
+    text: Me encuentro de maravilla.
+  - metadata:
+      subtext: informar     
+    text: Estoy bien.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy bien.
+  - metadata:
+      subtext: informar     
+    text: Me encuentro estupenda.
+  - metadata:
+      subtext: informar     
+    text: No me quejo.
+  - metadata:
+      subtext: informar     
+    text: Estoy feliz.
+  - metadata:
+      subtext: informar     
+    text: Me siento genial.
+  - metadata:
+      subtext: informar     
+    text: Estoy bien.
+  - metadata:
+      subtext: informar     
+    text: He tenido un gran día.
+  - metadata:
+      subtext: informar     
+    text: ¡Maravillosamente!.
+  - metadata:
+      subtext: informar     
+    text: Demasiado genial.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy bien.
+  - metadata:
+      subtext: informar     
+    text: Sintiéndome bien.
+  - metadata:
+      subtext: informar     
+    text: Mejor que nunca.
+  - metadata:
+      subtext: informar     
+    text: Me siento afortunada.
+  - metadata:
+      subtext: informar     
+    text: Todo genial aquí.
+  - metadata:
+      subtext: informar     
+    text: Con un día fantástico.
+  - metadata:
+      subtext: informar     
+    text: Estoy inspirada.
+  - metadata:
+      subtext: informar     
+    text: Increíble.
+  - metadata:
+      subtext: informar     
+    text: Me siento maravillosa.
+  - metadata:
+      subtext: informar     
+    text: Me siento muy bien.
+  - metadata:
+      subtext: informar     
+    text: Me siento increible.
+  - metadata:
+      subtext: informar     
+    text: Me siento feliz.
+  - metadata:
+      subtext: informar     
+    text: ¡Hoy es un día increíble!.
+  - metadata:
+      subtext: informar     
+    text: Estoy tan feliz.
+  - metadata:
+      subtext: informar     
+    text: Estoy realmente feliz ahora mismo.
+  - metadata:
+      subtext: informar     
+    text: Bueno, ha sido un buen día.
+  - metadata:
+      subtext: informar     
+    text: Guay.
+  - metadata:
+      subtext: informar     
+    text: Pues aquí estamos.
   utter_estar_mal:
-  - text: Mi día fue horrible.
-  - text: Horrible.
-  - text: Muy mal.
-  - text: Mal.
-  - text: Triste.
-  - text: Algo triste.
-  - text: DecaídA.
-  - text: Fue un día horrible.
-  - text: Infeliz.
-  - text: Estoy triste.
-  - text: No me siento muy bien.
-  - text: Estoy decepcionadA.
-  - text: Esto es malo.
-  - text: Estoy enferma.
-  - text: Estoy de bajon.
-  - text: Es decepcionante.
-  - text: Estoy irritada.
-  - text: No me estoy sintiendo bien.
-  - text: ¡Esto apesta!
-  - text: Me siento muy mal.
-  - text: ¡Es el peor día!
-  - text: Esto se siente mal
-  - text: Me siento deprimida.
-  - text: Todo está mal hoy.
-  - text: Me siento muy triste.
-  - text: Esto es deprimente.
-  - text: Estoy deprimida.
-  - text: Me siento vacía.
-  - text: Me siento inútil.
-  - text: Deprimida.
-  - text: Pesada.
-  - text: Me siento bastante perdida.
-  - text: Muy triste.
-  - text: Mala.
-  - text: Terrible.
-  - text: Extremadamente triste.
-  - text: Me siento desanimada.
-  - text: Me siento triste.
-  - text: No estoy bien.
-  - text: Me siento mal.
-  - text: Estoy Horrible.
-  - text: Estoy inquieta.
-  - text: En realidad no estoy bien.
-  - text: Estoy tan sola como puedo.
-  - text: Estoy pasando por un momento bastante difícil.
-  - text: Estoy de duelo.
+  - metadata:
+      subtext: informar     
+    text: Mi día fue horrible.
+  - metadata:
+      subtext: informar     
+    text: Horrible.
+  - metadata:
+      subtext: informar     
+    text: Muy mal.
+  - metadata:
+      subtext: informar     
+    text: Mal.
+  - metadata:
+      subtext: informar     
+    text: Triste.
+  - metadata:
+      subtext: informar     
+    text: Algo triste.
+  - metadata:
+      subtext: informar     
+    text: DecaídA.
+  - metadata:
+      subtext: informar     
+    text: Fue un día horrible.
+  - metadata:
+      subtext: informar     
+    text: Infeliz.
+  - metadata:
+      subtext: informar     
+    text: Estoy triste.
+  - metadata:
+      subtext: informar     
+    text: No me siento muy bien.
+  - metadata:
+      subtext: informar     
+    text: Estoy decepcionadA.
+  - metadata:
+      subtext: informar     
+    text: Esto es malo.
+  - metadata:
+      subtext: informar     
+    text: Estoy enferma.
+  - metadata:
+      subtext: informar     
+    text: Estoy de bajon.
+  - metadata:
+      subtext: informar     
+    text: Es decepcionante.
+  - metadata:
+      subtext: informar     
+    text: Estoy irritada.
+  - metadata:
+      subtext: informar     
+    text: No me estoy sintiendo bien.
+  - metadata:
+      subtext: informar     
+    text: ¡Esto apesta!
+  - metadata:
+      subtext: informar     
+    text: Me siento muy mal.
+  - metadata:
+      subtext: informar     
+    text: ¡Es el peor día!
+  - metadata:
+      subtext: informar     
+    text: Esto se siente mal
+  - metadata:
+      subtext: informar     
+    text: Me siento deprimida.
+  - metadata:
+      subtext: informar     
+    text: Todo está mal hoy.
+  - metadata:
+      subtext: informar     
+    text: Me siento muy triste.
+  - metadata:
+      subtext: informar     
+    text: Esto es deprimente.
+  - metadata:
+      subtext: informar     
+    text: Estoy deprimida.
+  - metadata:
+      subtext: informar     
+    text: Me siento vacía.
+  - metadata:
+      subtext: informar     
+    text: Me siento inútil.
+  - metadata:
+      subtext: informar     
+    text: Deprimida.
+  - metadata:
+      subtext: informar     
+    text: Pesada.
+  - metadata:
+      subtext: informar     
+    text: Me siento bastante perdida.
+  - metadata:
+      subtext: informar     
+    text: Muy triste.
+  - metadata:
+      subtext: informar     
+    text: Mala.
+  - metadata:
+      subtext: informar     
+    text: Terrible.
+  - metadata:
+      subtext: informar     
+    text: Extremadamente triste.
+  - metadata:
+      subtext: informar     
+    text: Me siento desanimada.
+  - metadata:
+      subtext: informar     
+    text: Me siento triste.
+  - metadata:
+      subtext: informar     
+    text: No estoy bien.
+  - metadata:
+      subtext: informar     
+    text: Me siento mal.
+  - metadata:
+      subtext: informar     
+    text: Estoy Horrible.
+  - metadata:
+      subtext: informar     
+    text: Estoy inquieta.
+  - metadata:
+      subtext: informar     
+    text: En realidad no estoy bien.
+  - metadata:
+      subtext: informar     
+    text: Estoy tan sola como puedo.
+  - metadata:
+      subtext: informar     
+    text: Estoy pasando por un momento bastante difícil.
+  - metadata:
+      subtext: informar     
+    text: Estoy de duelo.
   utter_estar_enfadado:
-  - text: Estoy enojada.
-  - text: Me siento tan enojada.
-  - text: Estoy tan molesta.
-  - text: Es molesto.
-  - text: Eso es agravante.
-  - text: Estoy furiosa.
-  - text: Eso es exasperante.
-  - text: Estoy muy enojada.
-  - text: Todo me fastidia.
-  - text: Estoy indignada.
-  - text: ¡Eso es indignante!
-  - text: Me siento hostil.
-  - text: Estoy muy frustrada.
-  - text: Me está irritando.
-  - text: Me siento tan ofendida.
-  - text: Estoy lleno de furia.
-  - text: Me siento muy beligerante.
-  - text: Odio hacer esto.
-  - text: No tengo paciencia hoy.
-  - text: No pude controlar mi enojo.
-  - text: Estoy molesta.
-  - text: Estoy supermolesta.
-  - text: Estoy muy loca.
-  - text: Estoy enfurecida.
-  - text: ¡Esto es enloquecedor!
-  - text: Estoy cabreada.
-  - text: Puedes apostar que estoy enojada.
-  - text: Eso me hizo enojar.
-  - text: Me hiciste enojar.
-  - text: Todavía estoy enojado por eso.
+  - metadata:
+      subtext: informar     
+    text: Estoy enojada.
+  - metadata:
+      subtext: informar     
+    text: Me siento tan enojada.
+  - metadata:
+      subtext: informar     
+    text: Estoy tan molesta.
+  - metadata:
+      subtext: informar     
+    text: Es molesto.
+  - metadata:
+      subtext: informar     
+    text: Eso es agravante.
+  - metadata:
+      subtext: informar     
+    text: Estoy furiosa.
+  - metadata:
+      subtext: informar     
+    text: Eso es exasperante.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy enojada.
+  - metadata:
+      subtext: informar     
+    text: Todo me fastidia.
+  - metadata:
+      subtext: informar     
+    text: Estoy indignada.
+  - metadata:
+      subtext: informar     
+    text: ¡Eso es indignante!
+  - metadata:
+      subtext: informar     
+    text: Me siento hostil.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy frustrada.
+  - metadata:
+      subtext: informar     
+    text: Me está irritando.
+  - metadata:
+      subtext: informar     
+    text: Me siento tan ofendida.
+  - metadata:
+      subtext: informar     
+    text: Estoy lleno de furia.
+  - metadata:
+      subtext: informar     
+    text: Me siento muy beligerante.
+  - metadata:
+      subtext: informar     
+    text: Odio hacer esto.
+  - metadata:
+      subtext: informar     
+    text: No tengo paciencia hoy.
+  - metadata:
+      subtext: informar     
+    text: No pude controlar mi enojo.
+  - metadata:
+      subtext: informar     
+    text: Estoy molesta.
+  - metadata:
+      subtext: informar     
+    text: Estoy supermolesta.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy loca.
+  - metadata:
+      subtext: informar     
+    text: Estoy enfurecida.
+  - metadata:
+      subtext: informar     
+    text: ¡Esto es enloquecedor!
+  - metadata:
+      subtext: informar     
+    text: Estoy cabreada.
+  - metadata:
+      subtext: informar     
+    text: Puedes apostar que estoy enojada.
+  - metadata:
+      subtext: informar     
+    text: Eso me hizo enojar.
+  - metadata:
+      subtext: informar     
+    text: Me hiciste enojar.
+  - metadata:
+      subtext: informar     
+    text: Todavía estoy enojado por eso.
   utter_estar_miedo:
-  - text: Estoy asustada.
-  - text: Me siento asustada.
-  - text: Estoy preocupada.
-  - text: Estoy aterrada.
-  - text: Eso es aterrador.
-  - text: Me siento intimidada.
-  - text: Eso es intimidante.
-  - text: Estoy petrificada.
-  - text: Tengo miedo.
-  - text: Me siento ansiosa.
-  - text: Tengo un mal presentimiento.
-  - text: Entre en pánico.
-  - text: Me encogí de miedo.
-  - text: Estoy muerto de miedo.
-  - text: Estalle en un sudor frío.
-  - text: ¡Eso me sobresalto!
-  - text: Me asusta fácilmente.
-  - text: Estoy temblando de miedo.
-  - text: Estoy horrorizada.
+  - metadata:
+      subtext: informar     
+    text: Estoy asustada.
+  - metadata:
+      subtext: informar     
+    text: Me siento asustada.
+  - metadata:
+      subtext: informar     
+    text: Estoy preocupada.
+  - metadata:
+      subtext: informar     
+    text: Estoy aterrada.
+  - metadata:
+      subtext: informar     
+    text: Eso es aterrador.
+  - metadata:
+      subtext: informar     
+    text: Me siento intimidada.
+  - metadata:
+      subtext: informar     
+    text: Eso es intimidante.
+  - metadata:
+      subtext: informar     
+    text: Estoy petrificada.
+  - metadata:
+      subtext: informar     
+    text: Tengo miedo.
+  - metadata:
+      subtext: informar     
+    text: Me siento ansiosa.
+  - metadata:
+      subtext: informar     
+    text: Tengo un mal presentimiento.
+  - metadata:
+      subtext: informar     
+    text: Entre en pánico.
+  - metadata:
+      subtext: informar     
+    text: Me encogí de miedo.
+  - metadata:
+      subtext: informar     
+    text: Estoy muerto de miedo.
+  - metadata:
+      subtext: informar     
+    text: Estalle en un sudor frío.
+  - metadata:
+      subtext: informar     
+    text: ¡Eso me sobresalto!
+  - metadata:
+      subtext: informar     
+    text: Me asusta fácilmente.
+  - metadata:
+      subtext: informar     
+    text: Estoy temblando de miedo.
+  - metadata:
+      subtext: informar     
+    text: Estoy horrorizada.
   utter_estar_nervioso:
-  - text: Estoy nerviosa.
-  - text: Estoy estresada.
-  - text: Me siento nerviosa.
-  - text: Estoy ansiosa.
-  - text: Me siento ansiosa.
-  - text: Esto es nerviosa.
-  - text: Siento que voy a vomitar.
-  - text: Tengo un nudo en la garganta.
-  - text: Tengo mariposas en mi estómago.
-  - text: Soy un manojo de nervios.
-  - text: Estoy empezando a sudar frío.
-  - text: Le tengo miedo a mi propia sombra.
-  - text: Soy como una gata sobre ladrillos calientes
-  - text: Estoy saltando fuera de mi piel.
-  - text: Estoy al borde de mi ingenio.
-  - text: Tengo la lengua atada.
-  - text: Estoy al borde.
-  - text: Estoy muy tensa.
-  - text: Me siento incómoda.
-  - text: Estoy alarmada.
-  - text: Estoy preocupada.
-  - text: Estoy tensa.
-  - text: Estoy bajo mucho estrés.
-  - text: Estoy constantemente preocupada.
-  - text: Siento una tensión constante.
-  - text: Sufro de ansiedad.
-  - text: Me he sentido bastante ansioso últimamente.
-  - text: Mi ansiedad está por las nubes estos días.
-  - text: Me siento bastante inquieta.
-  - text: No puedo concentrarme porque estoy preocupado constantemente.
-  - text: Estoy bajo un inmenso estrés.
-  - text: Han sido unos días difíciles. 
-  - text: Muy estresante.
-  - text: Estoy bastante tensa.
-  - text: Ha habido bastantes cambios en mi vida.
-  - text: No creo que los esté manejando bien.
-  - text: Es bastante estresante.
-  - text: Me encuentro preocupando por cada pequeño detalle.
-  - text: Soy una preocupada crónica.
-  - text: Me siento bastante inquieto y una horda de preocupaciones me está molestando.
-  - text: No puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan.
+  - metadata:
+      subtext: informar     
+    text: Estoy nerviosa.
+  - metadata:
+      subtext: informar     
+    text: Estoy estresada.
+  - metadata:
+      subtext: informar     
+    text: Me siento nerviosa.
+  - metadata:
+      subtext: informar     
+    text: Estoy ansiosa.
+  - metadata:
+      subtext: informar     
+    text: Me siento ansiosa.
+  - metadata:
+      subtext: informar     
+    text: Esto es nerviosa.
+  - metadata:
+      subtext: informar     
+    text: Siento que voy a vomitar.
+  - metadata:
+      subtext: informar     
+    text: Tengo un nudo en la garganta.
+  - metadata:
+      subtext: informar     
+    text: Tengo mariposas en mi estómago.
+  - metadata:
+      subtext: informar     
+    text: Soy un manojo de nervios.
+  - metadata:
+      subtext: informar     
+    text: Estoy empezando a sudar frío.
+  - metadata:
+      subtext: informar     
+    text: Le tengo miedo a mi propia sombra.
+  - metadata:
+      subtext: informar     
+    text: Soy como una gata sobre ladrillos calientes
+  - metadata:
+      subtext: informar     
+    text: Estoy saltando fuera de mi piel.
+  - metadata:
+      subtext: informar     
+    text: Estoy al borde de mi ingenio.
+  - metadata:
+      subtext: informar     
+    text: Tengo la lengua atada.
+  - metadata:
+      subtext: informar     
+    text: Estoy al borde.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy tensa.
+  - metadata:
+      subtext: informar     
+    text: Me siento incómoda.
+  - metadata:
+      subtext: informar     
+    text: Estoy alarmada.
+  - metadata:
+      subtext: informar     
+    text: Estoy preocupada.
+  - metadata:
+      subtext: informar     
+    text: Estoy tensa.
+  - metadata:
+      subtext: informar     
+    text: Estoy bajo mucho estrés.
+  - metadata:
+      subtext: informar     
+    text: Estoy constantemente preocupada.
+  - metadata:
+      subtext: informar     
+    text: Siento una tensión constante.
+  - metadata:
+      subtext: informar     
+    text: Sufro de ansiedad.
+  - metadata:
+      subtext: informar     
+    text: Me he sentido bastante ansioso últimamente.
+  - metadata:
+      subtext: informar     
+    text: Mi ansiedad está por las nubes estos días.
+  - metadata:
+      subtext: informar     
+    text: Me siento bastante inquieta.
+  - metadata:
+      subtext: informar     
+    text: No puedo concentrarme porque estoy preocupado constantemente.
+  - metadata:
+      subtext: informar     
+    text: Estoy bajo un inmenso estrés.
+  - metadata:
+      subtext: informar     
+    text: Han sido unos días difíciles. 
+  - metadata:
+      subtext: informar     
+    text: Muy estresante.
+  - metadata:
+      subtext: informar     
+    text: Estoy bastante tensa.
+  - metadata:
+      subtext: informar     
+    text: Ha habido bastantes cambios en mi vida.
+  - metadata:
+      subtext: informar     
+    text: No creo que los esté manejando bien.
+  - metadata:
+      subtext: informar     
+    text: Es bastante estresante.
+  - metadata:
+      subtext: informar     
+    text: Me encuentro preocupando por cada pequeño detalle.
+  - metadata:
+      subtext: informar     
+    text: Soy una preocupada crónica.
+  - metadata:
+      subtext: informar     
+    text: Me siento bastante inquieto y una horda de preocupaciones me está molestando.
+  - metadata:
+      subtext: informar     
+    text: No puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan.
   utter_estar_aburrido:
-  - text: Muy aburrida.
-  - text: Eso fue aburrido.
-  - text: Estoy aburrida.
-  - text: Aburrida.
-  - text: Me estoy aburriendo.
-  - text: Quedarse en casa es aburrido.
-  - text: Me aburre.
-  - text: Tuve un día lento.
-  - text: Estoy muy aburrida.
-  - text: Estoy un poco aburrida hoy.
-  - text: Nunca me he aburrido más.
-  - text: Estaba aburrida.
-  - text: Es aburrida.
-  - text: Esto es aburrido.
-  - text: Estamos todos aburridos.
-  - text: Es muy aburrido.
-  - text: Ya estoy aburrida.
-  - text: Estoy loca de aburrimiento.
+  - metadata:
+      subtext: informar     
+    text: Muy aburrida.
+  - metadata:
+      subtext: informar     
+    text: Eso fue aburrido.
+  - metadata:
+      subtext: informar     
+    text: Estoy aburrida.
+  - metadata:
+      subtext: informar     
+    text: Aburrida.
+  - metadata:
+      subtext: informar     
+    text: Me estoy aburriendo.
+  - metadata:
+      subtext: informar     
+    text: Quedarse en casa es aburrido.
+  - metadata:
+      subtext: informar     
+    text: Me aburre.
+  - metadata:
+      subtext: informar     
+    text: Tuve un día lento.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy aburrida.
+  - metadata:
+      subtext: informar     
+    text: Estoy un poco aburrida hoy.
+  - metadata:
+      subtext: informar     
+    text: Nunca me he aburrido más.
+  - metadata:
+      subtext: informar     
+    text: Estaba aburrida.
+  - metadata:
+      subtext: informar     
+    text: Es aburrida.
+  - metadata:
+      subtext: informar     
+    text: Esto es aburrido.
+  - metadata:
+      subtext: informar     
+    text: Estamos todos aburridos.
+  - metadata:
+      subtext: informar     
+    text: Es muy aburrido.
+  - metadata:
+      subtext: informar     
+    text: Ya estoy aburrida.
+  - metadata:
+      subtext: informar     
+    text: Estoy loca de aburrimiento.
   utter_estar_emocionado:
-  - text: Estoy emocionada.
-  - text: Estoy muy emocionada.
-  - text: No puedo empezar a decir lo emocionado que estoy.
-  - text: Soy exagerada.
-  - text: Me sentí emocionada.
-  - text: Fue emocionante.
-  - text: Eso fue emocionante.
-  - text: ¡qué interesante!
-  - text: Esto es tan divertido.
+  - metadata:
+      subtext: informar     
+    text: Estoy emocionada.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy emocionada.
+  - metadata:
+      subtext: informar     
+    text: No puedo empezar a decir lo emocionado que estoy.
+  - metadata:
+      subtext: informar     
+    text: Soy exagerada.
+  - metadata:
+      subtext: informar     
+    text: Me sentí emocionada.
+  - metadata:
+      subtext: informar     
+    text: Fue emocionante.
+  - metadata:
+      subtext: informar     
+    text: Eso fue emocionante.
+  - metadata:
+      subtext: informar     
+    text: ¡qué interesante!
+  - metadata:
+      subtext: informar     
+    text: Esto es tan divertido.
   utter_estar_soledad:
-  - text: Estoy sola.
-  - text: Soy muy solitaria.
-  - text: Estoy tan sola.
-  - text: Estoy realmente sola.
-  - text: Me siento sola.
-  - text: Soy una solitaria.
-  - text: No tengo ninguna compañía.
-  - text: No tengo a nadie más.
-  - text: Siempre estoy sola.
-  - text: Estoy completamente sola.
-  - text: Vivo sola.
-  - text: Me he acostumbrado a vivir sola.
-  - text: Creo que he estado viviendo sola demasiado tiempo.
-  - text: No tengo a nadie con quien hablar.
-  - text: Sigo sola.
-  - text: Estoy acostumbrado a vivir sola.
+  - metadata:
+      subtext: informar     
+    text: Estoy sola.
+  - metadata:
+      subtext: informar     
+    text: Soy muy solitaria.
+  - metadata:
+      subtext: informar     
+    text: Estoy tan sola.
+  - metadata:
+      subtext: informar     
+    text: Estoy realmente sola.
+  - metadata:
+      subtext: informar     
+    text: Me siento sola.
+  - metadata:
+      subtext: informar     
+    text: Soy una solitaria.
+  - metadata:
+      subtext: informar     
+    text: No tengo ninguna compañía.
+  - metadata:
+      subtext: informar     
+    text: No tengo a nadie más.
+  - metadata:
+      subtext: informar     
+    text: Siempre estoy sola.
+  - metadata:
+      subtext: informar     
+    text: Estoy completamente sola.
+  - metadata:
+      subtext: informar     
+    text: Vivo sola.
+  - metadata:
+      subtext: informar     
+    text: Me he acostumbrado a vivir sola.
+  - metadata:
+      subtext: informar     
+    text: Creo que he estado viviendo sola demasiado tiempo.
+  - metadata:
+      subtext: informar     
+    text: No tengo a nadie con quien hablar.
+  - metadata:
+      subtext: informar     
+    text: Sigo sola.
+  - metadata:
+      subtext: informar     
+    text: Estoy acostumbrado a vivir sola.
   utter_estar_cansado:
-  - text: Estoy exhausta.
-  - text: He trabajado demasiado.
-  - text: He entrenado demasiado.
-  - text: Estoy cansada.
-  - text: Estoy agotada.
-  - text: Me canso.
-  - text: Estoy muy cansada.
-  - text: Me estoy cansando.
-  - text: Me siento cansada.
-  - text: Estoy tan cansada.
-  - text: Estoy completamente agotada.
-  - text: Estaba cansada.
-  - text: Estoy muerta de cansancio.
-  - text: Estoy un poco cansada.
-  - text: Estuve muy cansada.
-  - text: Estoy realmente cansada.
-  - text: Estoy terriblemente cansada.
-  - text: Estoy algo cansada.
-  - text: Pues aquí algo cansada.
-  - text: Pues algo cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy exhausta.
+  - metadata:
+      subtext: informar     
+    text: He trabajado demasiado.
+  - metadata:
+      subtext: informar     
+    text: He entrenado demasiado.
+  - metadata:
+      subtext: informar     
+    text: Estoy cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy agotada.
+  - metadata:
+      subtext: informar     
+    text: Me canso.
+  - metadata:
+      subtext: informar     
+    text: Estoy muy cansada.
+  - metadata:
+      subtext: informar     
+    text: Me estoy cansando.
+  - metadata:
+      subtext: informar     
+    text: Me siento cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy tan cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy completamente agotada.
+  - metadata:
+      subtext: informar     
+    text: Estaba cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy muerta de cansancio.
+  - metadata:
+      subtext: informar     
+    text: Estoy un poco cansada.
+  - metadata:
+      subtext: informar     
+    text: Estuve muy cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy realmente cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy terriblemente cansada.
+  - metadata:
+      subtext: informar     
+    text: Estoy algo cansada.
+  - metadata:
+      subtext: informar     
+    text: Pues aquí algo cansada.
+  - metadata:
+      subtext: informar     
+    text: Pues algo cansada.
   utter_hito:
   - metadata:
       subtext: informar     
@@ -688,13 +1309,28 @@ responses:
   - metadata:
       subtext: informar     
     text: El grupo se ha posicionado en la hito {hito}.
-  utter_animacion:
+  utter_a_narrar:
   - metadata:
       subtext: narrar     
-    text: animacion de narracion
-    
-  utter_informar:
-  - text: animacion de informacion
+    text: Animación de narrar    
+  utter_a_informar:
+  - metadata:
+      subtext: informar     
+    text: Animacion de informar   
+  utter_a_preguntar:
+  - metadata:
+      subtext: preguntar     
+    text: Animación de preguntar    
+  utter_a_saludar:
+  - metadata:
+      subtext: saludar     
+    text: Animación de saludar
+  utter_a_despedir:
+  - metadata:
+      subtext: despedir     
+    text: Animación de despedir  
+  utter_k_ojos:
+  - text: Estoy mirando
     metadata:
       subtext: informar
       

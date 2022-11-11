@@ -1,21 +1,25 @@
-import random, keyboard, sys
+import random, keyboard #, sys
 import azure.cognitiveservices.speech as speechsdk
 from interaction_manager import interaction_manager
 from translator import translator
-    # from sentiment import sentiment
+from sentiment import sentiment
+
+with open('..\\..\\AzureKeys.txt') as f:
+    lines = [line.rstrip() for line in f]
+    print(lines)
 
 # Voice Service API key
-speech_key = sys.argv[1]
+speech_key = str(lines[0]) #sys.argv[1]
 # Translator Service API key
-translator_key = sys.argv[2]
+translator_key = str(lines[1]) #sys.argv[2]
 # Language Service Api key
-    # sentiment_key = sys.argv[3]
+sentiment_key = str(lines[2]) #sys.argv[3]
 # Tanslator Service Init
 Translator = translator(translator_key)
 # Audio and image interaction manager
 Interaction = interaction_manager()
 # Language
-    # Sentiment = sentiment(sentiment_key)
+Sentiment = sentiment(sentiment_key)
 
 # Sentiments list inputs
 Emotions = ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
@@ -66,9 +70,7 @@ while True:
             # Waiting for sentence (maximum of 15 seconds of audio)
             result = recognizer.recognize_once()
             # System to detect emotion from audio
-            emotion = random.choice(Emotions)
-            # System to detect polarity from audio (positive,negative,neutral)
-                # sentiment = sentiment_analysis()
+            emotion = random.choice(Emotions)            
             # Language recognition in first iteration
             if result.reason == speechsdk.ResultReason.RecognizedSpeech:
                 # Language detected
@@ -78,9 +80,11 @@ while True:
                 print("Entrada: {} <{}>".format(result.text,emotion))
                 # Translation to Spanish
                 text_trans = Translator.translator(result.text,detected_src_lang[0:2],'es')
+                # System to detect polarity from audio (positive,negative,neutral)
+                sentiment_analysis = Sentiment.sentiment(result.text,detected_src_lang[0:2])
                 # Send the spanish translation to Rasa
-                Interaction.say(text_trans,detected_src_lang,emotion)   
-                    # Interaction.say(text_trans,detected_src_lang,emotion,sentiment)   
+                #Interaction.say(text_trans,detected_src_lang,emotion)   
+                Interaction.say(text_trans,detected_src_lang,emotion,sentiment_analysis)   
                 # New translation configurations
                 translation_config = speechsdk.translation.SpeechTranslationConfig(
                     subscription=speech_key, region=service_region,
@@ -92,9 +96,10 @@ while True:
             elif result.reason == speechsdk.ResultReason.TranslatedSpeech:
                 print("""Entrada: {}\n Traducción Español: {}\n Traducción Euskera: {}\n Traducción Inglés: {}\n Traducción Francés: {}\n Traducción Japanés: {}""".format(
                         result.text, result.translations['es'], result.translations['eu'], result.translations['en'], result.translations['fr'], result.translations['ja'],))
+                sentiment_analysis = Sentiment.sentiment(result.text,detected_src_lang[0:2])
                 # Send the spanish translation to Rasa
-                Interaction.say(result.translations['es'],detected_src_lang,emotion)
-                    # Interaction.say(result.translations['es'],detected_src_lang,emotion,sentiment)
+                #Interaction.say(result.translations['es'],detected_src_lang,emotion)
+                Interaction.say(result.translations['es'],detected_src_lang,emotion,sentiment_analysis)
             elif result.reason == speechsdk.ResultReason.NoMatch:
                 print("No speech could be recognized: {}".format(result.no_match_details))
             elif result.reason == speechsdk.ResultReason.Canceled:

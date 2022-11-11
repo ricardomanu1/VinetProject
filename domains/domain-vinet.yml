@@ -13,9 +13,12 @@ slots:
     influence_conversation: true
 responses:
   utter_vinet_comando_apagar:
-  - text: Cerrando procesos.
+  - metadata:
+      subtext: informar
+    text: Cerrando procesos.
   utter_vinet_comando_aprendizaje:
-  - text: Realizando entrenamiento...
-actions:
-- action_hello_world
+  - metadata:
+      subtext: informar
+    text: Realizando entrenamiento...
+
 

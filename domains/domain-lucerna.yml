@@ -6,38 +6,74 @@ intents:
 - vinet_lucerna
 responses:
   utter_luc1:
-  - text: Es una lámpara de aceite, una bombilla de antes de las bombillas y la electricidad.
+  - metadata:
+      subtext: narrar
+    text: Es una lámpara de aceite, una bombilla de antes de las bombillas y la electricidad.
   utter_luc2:
-  - text: Ya que eran utensilios de uso corriente en las casas y edificios.
+  - metadata:
+      subtext: narrar
+    text: Ya que eran utensilios de uso corriente en las casas y edificios.
   utter_luc3: 
-  - text: Obviamente os imagináis su uso.
+  - metadata:
+      subtext: narrar
+    text: Obviamente os imagináis su uso.
   utter_luc4:
-  - text: Se llenaban de aceite, y con una pequeña mecha conseguían iluminación para un buen rato.
+  - metadata:
+      subtext: narrar
+    text: Se llenaban de aceite, y con una pequeña mecha conseguían iluminación para un buen rato.
   utter_luc5:
-  - text: ¿Queréis saber que suponia su consumo?
+  - metadata:
+      subtext: narrar
+    text: ¿Queréis saber que suponia su consumo?
   utter_luc5_s1:
-  - text: Pues, Imaginad la cantidad de aceite que se consumía en iluminar estancias de las casas.
+  - metadata:
+      subtext: narrar
+    text: Pues, Imaginad la cantidad de aceite que se consumía en iluminar estancias de las casas.
   utter_luc5_s2:
-  - text: Obvio también se utilizaba en la cocina.
+  - metadata:
+      subtext: narrar
+    text: Obvio también se utilizaba en la cocina.
   utter_luc5_s3:
-  - text: El consumo tan grande de este producto generó un intenso tráfico entre el sur de España, la Bética, que se especializó en su producción, e Italia.
+  - metadata:
+      subtext: narrar
+    text: El consumo tan grande de este producto generó un intenso tráfico entre el sur de España, la Bética, que se especializó en su producción, e Italia.
   utter_luc5_s4:
-  - text: ¿Podéis imaginar cuál puede ser la causa de que encontremos tantas lucernas en Ibañeta? 
+  - metadata:
+      subtext: narrar
+    text: ¿Podéis imaginar cuál puede ser la causa de que encontremos tantas lucernas en Ibañeta? 
   utter_luc5_s3_a:
-  - text: Este enorme tráfico lo podemos constatar a través del monte Testaccio, una montaña formada por ánforas, los recipientes empleados en el transporte del aceite.
+  - metadata:
+      subtext: narrar
+    text: Este enorme tráfico lo podemos constatar a través del monte Testaccio, una montaña formada por ánforas, los recipientes empleados en el transporte del aceite.
   utter_luc5_n1:
-  - text: Bueno... ¡Aquí en Ibañeta se estan encontrando a montones!
+  - metadata:
+      subtext: narrar
+    text: Bueno... ¡Aquí en Ibañeta se estan encontrando a montones!
   utter_luc6:
-  - text: Pensamos qué desde aquí, desde el portus del SUMMUS PYRANEUS se abastecía de las cosas que necesitaran a las explotaciones mineras de la zona.
+  - metadata:
+      subtext: narrar
+    text: Pensamos qué desde aquí, desde el portus del SUMMUS PYRANEUS se abastecía de las cosas que necesitaran a las explotaciones mineras de la zona.
   utter_luc7:
-  - text: Y efectivamente, estas montañas estaban llenas de minas donde los romanos buscaban diferentes metales, como el cobre, plomo, hierro, y hasta plata y oro.
+  - metadata:
+      subtext: narrar
+    text: Y efectivamente, estas montañas estaban llenas de minas donde los romanos buscaban diferentes metales, como el cobre, plomo, hierro, y hasta plata y oro.
   utter_luc7_a1:
-  - text: Plinio El Viejo, nos dejó escrito en su historia natural esto.
+  - metadata:
+      subtext: narrar
+    text: Plinio El Viejo, nos dejó escrito en su historia natural esto.
   utter_luc7_a2:
-  - text: Cosa singular que los pozos abiertos en España por Annibal aún son explotados, y guardan los nombres de los que descubrieron el yacimiento.
+  - metadata:
+      subtext: narrar
+    text: Cosa singular que los pozos abiertos en España por Annibal aún son explotados, y guardan los nombres de los que descubrieron el yacimiento.
   utter_luc7_a3:
-  - text: Uno de estos pozos, llamado aún Baebulo, daba a Annibal 300 libras al día. En la montaña está excavada una zona ya de 1.500 pasos, y a través de este espacio, los aquitanos trabajan día y noche, sabiendo de horas por el consumo de las luces, y sacan tanta agua que nacen un río.
+  - metadata:
+      subtext: narrar
+    text: Uno de estos pozos, llamado aún Baebulo, daba a Annibal 300 libras al día. En la montaña está excavada una zona ya de 1.500 pasos, y a través de este espacio, los aquitanos trabajan día y noche, sabiendo de horas por el consumo de las luces, y sacan tanta agua que nacen un río.
   utter_luc8:
-  - text: En los montes de Roncesvalles también podemos encontrar muchas trincheras y galerías abiertas en la roca.
+  - metadata:
+      subtext: narrar
+    text: En los montes de Roncesvalles también podemos encontrar muchas trincheras y galerías abiertas en la roca.
   utter_luc9:
-  - text: Se han explotado durante milenios y tenemos en Meatze un ejemplo de época romana estudiado y perfectamente conservado.
+  - metadata:
+      subtext: narrar
+    text: Se han explotado durante milenios y tenemos en Meatze un ejemplo de época romana estudiado y perfectamente conservado.

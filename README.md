@@ -17,6 +17,10 @@ $ python -m spacy download es_core_news_md
 ```
 $ pip install nltk
 ```
+## Instalación del componente sentiment Azure
+```
+$ pip install azure-ai-textanalytics
+```
 ## Instalación de Rasa x 
 Posiblemente no sea necesario, comprobar si existe alguna versión de rasa-x instalada con el comando:
 ```
@@ -99,10 +103,12 @@ $ pip install azure-cognitiveservices-speech
 # Ejecución con Azure 
 ## Consola 3 (Dentro del fichero VoiceManager)
 ```
-python STT.py VoiceServiceKey TanslatorServiceKey
+python STT.py
 ```
 ## Consola 4 (Dentro del fichero VoiceManager)
 ```
-python TTS.py VoiceServiceKey TanslatorServiceKey
+python TTS.py
 ```
-## Nota: cada vez que se presione la tecla 'q' se da un tiempo para hablar. 
+## Requiere un documento AzureKey.txt con el siguiente contenido:
+VoiceServiceKey<br/> TranslatorServiceKey<br/> LanguageKey<br/>
+## Nota: cada vez que se llame a 'Sonia' se da un tiempo para hablar. 

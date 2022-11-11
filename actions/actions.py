@@ -134,9 +134,12 @@ class ChatBot(Action):
        
         ## Entradas de Voz       
         if (id_event == 'say'):
-            Be = tracker.latest_message['metadata']['sentiment']
+            Be = tracker.latest_message['metadata']['emotion']
             if (tracker.latest_message['metadata']['language']!=None):
                 lang = tracker.latest_message['metadata']['language']
+            if (tracker.latest_message['metadata']['sentiment']!=None):
+                polarity = tracker.latest_message['metadata']['sentiment']
+            #print(polarity)
             user_event = [id_event,Bi,Be,text,slot_name,entities,lang] 
             print('----->EVENT: ' + str(user_event)) 
             if Bi in context:
@@ -171,7 +174,7 @@ class ChatBot(Action):
         else:
             print('Comando no conocido')            
 
-        print(slot_posXY)
+        print(slot_posXY) # ojos
         ## comprobacion del diccionario de sinonimos de entidades
         synonyms_dict = Dictionary.get_synonym_mapper()
         for value, synonyms in synonyms_dict.items():
@@ -338,7 +341,7 @@ class To_Speech(Action):
 
         txt_responses = ''
 
-        animation_tag = 'escuchar'
+        animation_tag = 'informar'
 
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
@@ -438,7 +441,7 @@ class Info_fecha(Action):
              tracker: Tracker,
              domain: Dict[Text,Any]) -> List[Dict[Text, Any]]:        
         entities = tracker.latest_message['entities']
-        print(entities)
+        #print(entities)
         message = 'Lo siento, no he encontrado nada relacionado con esa fecha'
         for e in entities:
             if e['entity'] == 'fecha':

@@ -6,4 +6,6 @@ intents:
 - vinet_ara
 responses:
   utter_ara1:
-  - text: El Ara, ni idea, aun no me he leido los documentos.  
+  - metadata:
+      subtext: narrar
+    text: El Ara, ni idea, aun no me he leido los documentos.  

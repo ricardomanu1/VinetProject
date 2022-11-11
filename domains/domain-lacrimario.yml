@@ -6,5 +6,7 @@ intents:
 - vinet_lacrimario
 responses:
   utter_lac1:
-  - text: Se que es algo de cristal, pero aun tengo que estudiarlo un poco.
+  - metadata:
+      subtext: narrar
+    text: Se que es algo de cristal, pero aun tengo que estudiarlo un poco.
  

@@ -224,14 +224,32 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: animacion_path
+- story: a_narrar_path
   steps:
-  - intent: animacion
+  - intent: a_narrar
   - action: chatbot
   - action: to_speech
 
-- story: informar_path
+- story: a_informar_path
   steps:
-  - intent: informar
+  - intent: a_informar
+  - action: chatbot
+  - action: to_speech
+
+- story: a_preguntar_path
+  steps:
+  - intent: a_preguntar
+  - action: chatbot
+  - action: to_speech
+
+- story: a_saludar_path
+  steps:
+  - intent: a_saludar
+  - action: chatbot
+  - action: to_speech
+
+- story: a_despedir_path
+  steps:
+  - intent: a_despedir
   - action: chatbot
   - action: to_speech

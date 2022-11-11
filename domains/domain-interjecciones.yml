@@ -1,0 +1,158 @@
+﻿version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+
+responses:
+  utter_i_asombro:
+  - metadata:
+      subtext: informar
+    text: ah!
+  - metadata:
+      subtext: informar
+    text: oh!
+  - metadata:
+      subtext: informar
+    text: uy!
+  utter_i_dolor:
+  - metadata:
+      subtext: informar
+    text: ay!
+  - metadata:
+      subtext: informar
+    text: au!
+  utter_i_aceptacion:
+  - metadata:
+      subtext: informar
+    text: guay!
+  - metadata:
+      subtext: informar
+    text: si!
+  utter_i_rechazo:
+  - metadata:
+      subtext: informar
+    text: eh!
+  - metadata:
+      subtext: informar
+    text: no!
+  utter_i_desagrado:
+  - metadata:
+      subtext: informar
+    text: agg!
+  - metadata:
+      subtext: informar
+    text: puaj!
+  utter_i_cansancio:
+  - metadata:
+      subtext: informar
+    text: uf!
+  - metadata:
+      subtext: informar
+    text: bah!
+  utter_i_sorpresa:
+  - metadata:
+      subtext: informar
+    text: eh?
+  - metadata:
+      subtext: informar
+    text: ah!
+  - metadata:
+      subtext: informar
+    text: uy!
+  - metadata:
+      subtext: informar
+    text: eh!
+  utter_i_deseo:
+  - metadata:
+      subtext: informar
+    text: ojala!
+  - metadata:
+      subtext: informar
+    text: dios quiera!
+  utter_i_admiracion:
+  - metadata:
+      subtext: informar
+    text: oh!
+  - metadata:
+      subtext: informar
+    text: ala!
+  utter_i_saludo:
+  - metadata:
+      subtext: informar
+    text: hola!
+  - metadata:
+      subtext: informar
+    text: hey!
+  utter_i_impropias:
+  - metadata:
+      subtext: informar
+    text: ojo!
+  - metadata:
+      subtext: informar
+    text: cuidado!
+  - metadata:
+      subtext: informar
+    text: bravo!
+  - metadata:
+      subtext: informar
+    text: oiga!
+  - metadata:
+      subtext: informar
+    text: vaya!
+  - metadata:
+      subtext: informar
+    text: estupendo!
+  - metadata:
+      subtext: informar
+    text: formidable!
+  - metadata:
+      subtext: informar
+    text: caramba!
+  - metadata:
+      subtext: informar
+    text: diablos!
+  - metadata:
+      subtext: informar
+    text: recorcholis!
+  - metadata:
+      subtext: informar
+    text: hombre!
+  - metadata:
+      subtext: informar
+    text: anda!
+  - metadata:
+      subtext: informar
+    text: dale!
+  - metadata:
+      subtext: informar
+    text: caracoles!
+  utter_i_fraseologismos:
+  - metadata:
+      subtext: informar
+    text: dios mio!
+  - metadata:
+      subtext: informar
+    text: cielo santo!
+  - metadata:
+      subtext: informar
+    text: madre mia!
+  - metadata:
+      subtext: informar
+    text: ay de mi!
+  utter_i_imitativas:
+  - metadata:
+      subtext: informar
+    text: zas!
+  - metadata:
+      subtext: informar
+    text: pum!
+  - metadata:
+      subtext: informar
+    text: chas!
+  - metadata:
+      subtext: informar
+    text: miau!
+  - metadata:
+      subtext: informar
+    text: buaaaa!
+

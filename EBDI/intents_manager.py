@@ -95,7 +95,7 @@ class intents_manager(object):
            
         ## Comandos de Voz
         self.intents.append(('say','vinet_comando_apagar', ['vinet_comando_apagar'],'acc_del_belief','vinet_comando_apagar','acc_say','utter_vinet_comando_apagar'))
-        self.intents.append(('say','vinet_comando_aprendizaje', ['vinet_comando_aprendizaje'],'acc_del_belief','vinet_comando_apagar','acc_say','utter_vinet_comando_aprendizaje'))
+        self.intents.append(('say','vinet_comando_aprendizaje', ['vinet_comando_aprendizaje'],'acc_del_belief','vinet_comando_aprendizaje','acc_say','utter_vinet_comando_aprendizaje'))
 
         ## Conocimiento del entorno
         self.intents.append(('know', 'numero_personas', ['numero_personas'],'acc_say', 'utter_conocer_personas','acc_del_belief','numero_personas')) 
@@ -135,8 +135,11 @@ class intents_manager(object):
         self.intents.append(('say', 'out_of_scope', ['out_of_scope'],'acc_del_belief','out_of_scope','acc_say', 'utter_out_of_scope'))
         self.intents.append(('say', 'nlu_fallback', ['nlu_fallback'],'acc_del_belief','nlu_fallback','acc_say', 'utter_please_rephrase'))
         
-        self.intents.append(('say', 'animacion', ['animacion'],'acc_del_belief','animacion','acc_say', 'utter_animacion'))
-        self.intents.append(('say', 'informar', ['informar'],'acc_del_belief','informar','acc_say', 'utter_informar'))
+        self.intents.append(('say', 'a_narrar', ['a_narrar'],'acc_del_belief','a_narrar','acc_say', 'utter_a_narrar'))
+        self.intents.append(('say', 'a_informar', ['a_informar'],'acc_del_belief','a_informar','acc_say', 'utter_a_informar'))
+        self.intents.append(('say', 'a_saludar', ['a_saludar'],'acc_del_belief','a_saludar','acc_say', 'utter_a_saludar'))
+        self.intents.append(('say', 'a_preguntar', ['a_preguntar'],'acc_del_belief','a_preguntar','acc_say', 'utter_a_preguntar'))
+        self.intents.append(('say', 'a_despedir', ['a_despedir'],'acc_del_belief','a_despedir','acc_say', 'utter_a_despedir'))
 
     def filterI(self, Emotions, Beliefs, Desires):
         desires_fulfill = []

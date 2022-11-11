@@ -1,4 +1,4 @@
-import os, time, csv, sys
+import os, time, csv #, sys
 import azure.cognitiveservices.speech as speechsdk
 from azure.cognitiveservices.speech import AudioDataStream
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
@@ -6,12 +6,17 @@ from XML import XML
 from translator import translator
     # from sentiment import sentiment
 
+with open('..\\..\\AzureKeys.txt') as f:
+    lines = [line.rstrip() for line in f]
+    print(lines)
+
 # Voice Service API key
-speech_key = sys.argv[1]
+speech_key = str(lines[0]) #sys.argv[1]
 # Translator Service API key
-translator_key = sys.argv[2]
+translator_key = str(lines[1]) #sys.argv[2]
 # Language Service Api key
-    # sentiment_key = sys.argv[3]
+sentiment_key = str(lines[2]) #sys.argv[3]
+
 # SSML Generator
 XML = XML()
 # Tanslator Service Init
