@@ -44,14 +44,14 @@ speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config,aud
 # Visemes output file
 output_csv = open('Response/visemes.csv','w+',newline='')
 writer = csv.writer(output_csv, delimiter =';')
-writer.writerow(['audio_offset','viseme_id','animation_tag','emotion'])
+writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
 
 # Visemes output file used by Unreal 
 if (os.path.exists(Output_file)):
     External_file = True
     output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
     writerU = csv.writer(output_Unreal, delimiter =';')
-    writerU.writerow(['audio_offset','viseme_id','animation_tag','emotion'])
+    writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
 
 # Indicates that speech synthesis has started
     # speech_synthesizer.synthesis_started.connect(lambda evt: print("Synthesis started: {}".format(evt)))
@@ -64,10 +64,10 @@ if (os.path.exists(Output_file)):
 # Viseme event
 def viseme_cb(evt):
     print("Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id))
-    writer.writerow([evt.audio_offset / 10000, evt.viseme_id,animation_tag,emotion])
+    writer.writerow([evt.audio_offset / 10000, evt.viseme_id,body_anim,emo_value,face_pos])
     # Create a copy of the output file for Unreal
     if External_file:
-        writerU.writerow([evt.audio_offset / 10000, evt.viseme_id,animation_tag,emotion])
+        writerU.writerow([evt.audio_offset / 10000, evt.viseme_id,body_anim,emo_value,face_pos])
     # 'Animation' is an xml string for SVG or a json string for blend shapes
     animation = evt.animation
 
@@ -81,12 +81,12 @@ while True:
         # Visemes output file
         output_csv = open('Response/visemes.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =';')
-        writer.writerow(['audio_offset','viseme_id','animation_tag','emotion'])
+        writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
         # Create a copy of the output file for Unreal
         if External_file:
             output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
             writerU = csv.writer(output_Unreal, delimiter =';')
-            writerU.writerow(['audio_offset','viseme_id','animation_tag','emotion'])
+            writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
         # Get lines from voice file
         with open('..\\speech.txt') as f:
             lines = [line.rstrip() for line in f]
@@ -98,18 +98,24 @@ while True:
         # Language
         lang = str(lines[2])
         # Animation
-        animation_tag = str(lines[3])
+        body_anim = str(lines[3])
+        # Polarity
+        emo_value = str(lines[4])
+        # EyesTracking
+        face_pos = str(lines[5])
+        # Emotional tag for Azure
+        emotionAzure = str(lines[6])
         # Sentence translation
         text_trans = Translator.translator(contents,'es',lang[0:2])
         # XML - SSML generator
         if lang == 'es-ES' or lang == 'eu-ES': ## Spanish or Basque
-            XML.esXML(text_trans,emotion,lang) 
+            XML.esXML(text_trans,emotionAzure,lang) 
         elif lang == 'en-US': ## English Emotional
-            XML.enSSML(text_trans,emotion,lang) 
+            XML.enSSML(text_trans,emotionAzure,lang) 
         elif lang == 'ja-JP': ## Japanese
-            XML.jpSSML(text_trans,emotion,lang) 
+            XML.jpSSML(text_trans,emotionAzure,lang) 
         elif lang == 'fr-FR': ## French
-            XML.frSSML(text_trans,emotion,lang)         
+            XML.frSSML(text_trans,emotionAzure,lang)         
         # Reading SSML file
         ssml_string = open("Response/respuesta.xml", "r", encoding="utf-8").read()  
         # Audio generated

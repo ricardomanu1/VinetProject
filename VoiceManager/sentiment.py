@@ -20,4 +20,5 @@ class sentiment(object):
                 f"neutral={doc.confidence_scores.neutral}; "
                 f"negative={doc.confidence_scores.negative}\n"
             )
-        return [doc.confidence_scores.positive,doc.confidence_scores.neutral,doc.confidence_scores.negative]
+        #return [doc.confidence_scores.positive,doc.confidence_scores.neutral,doc.confidence_scores.negative]
+        return doc.confidence_scores.positive - doc.confidence_scores.negative

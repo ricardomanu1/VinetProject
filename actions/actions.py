@@ -32,6 +32,8 @@ count = 0
 Bi = ''
 Be = ''
 lang = 'es-ES'
+polarity = []
+eyesTracking = 0
 
 # Gestor EBDI
 Emotions = emotions_manager()
@@ -113,6 +115,7 @@ class ChatBot(Action):
         global slot_name
         global slot_daytime
         global slot_posXY
+        global polarity
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
@@ -342,7 +345,7 @@ class To_Speech(Action):
 
         txt_responses = ''
 
-        animation_tag = 'informar'
+        animation_tag = 'informar'      
 
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
@@ -359,7 +362,7 @@ class To_Speech(Action):
                 print('- ' + str(e['text']))
                 txt_responses += str(e['text'])
                 txt_responses += ' '            
-            sentence = TXT.name(txt,txt_responses,animation_tag)
+            sentence = TXT.name(txt,txt_responses,animation_tag,eyesTracking)
             #ExecuteEBDI.execute_ebdi(sentence,Emotions.tag())
         count = 0
 
@@ -368,11 +371,11 @@ class To_Speech(Action):
 
 ## Salida de la respuesta emocional en txt
 class TXT():
-    def name(self,response,animation_tag) -> Text:
+    def name(self,response,animation_tag,eyesTracking) -> Text:
         output = open("speech.txt","w+")
-        print("VINETbot: {} ({})".format(response,Emotions.tag()))
+        print("VINETbot: {} ({}/{})".format(response,Emotions.estado,Emotions.tag()))
         #output.write(str(response))
-        lines = [str(response),str(Emotions.tag()),lang,animation_tag]
+        lines = [str(response),str(Emotions.estado),lang,animation_tag,str(polarity),str(eyesTracking),str(Emotions.tag())]
         output.write('\n'.join(lines))
         output.close()
         return str(response)
