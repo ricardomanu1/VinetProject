@@ -116,6 +116,9 @@ class ChatBot(Action):
         global slot_daytime
         global slot_posXY
         global polarity
+
+        print("--------------------------------------------------------------------------------------------")
+
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
@@ -142,14 +145,12 @@ class ChatBot(Action):
                 lang = tracker.latest_message['metadata']['language']
             if (tracker.latest_message['metadata']['sentiment']!=None):
                 polarity = tracker.latest_message['metadata']['sentiment']
-                print(polarity)
-                ## convertir polatidad en valor de -1 a 1
-            user_event = [id_event,Bi,Be,text,slot_name,entities,lang] 
-            print('----->EVENT: ' + str(user_event)) 
-            if Bi in context:
-                EBDI.run(self, dispatcher, tracker, domain, user_event)
-            else:
-                print('No se contestar a esto.')    
+            user_event = [id_event,Bi,Be,text,slot_name,entities,lang,polarity] 
+            print('EVENT: ' + str(user_event)) 
+            if Bi not in context:
+                Bi = 'out_of_scope'
+                user_event[1] = Bi 
+            EBDI.run(self, dispatcher, tracker, domain, user_event)                
                 
         ## Entradas de conocimiento
         elif (id_event == 'know'):
@@ -178,7 +179,7 @@ class ChatBot(Action):
         else:
             print('Comando no conocido')            
 
-        print(slot_posXY) # ojos
+        #print(slot_posXY) # ojos
         ## comprobacion del diccionario de sinonimos de entidades
         synonyms_dict = Dictionary.get_synonym_mapper()
         for value, synonyms in synonyms_dict.items():
@@ -213,6 +214,7 @@ class EBDI(Action):
         # Primera gestion del estado emocional
         E1 = Emotions.euf1(Intents,newBelief)
         print('PRIMARY EMOTION: ' + E1) 
+        
         newBelief.append(['know',E1,True])        
 
         # BDI actualizacion        
@@ -225,6 +227,7 @@ class EBDI(Action):
         #if (inTime and E1 != E2):
         #   BDI.bdi(self,Beliefs.agent_beliefs)
 
+        print('ACTIONS:') 
         p = Plan.plan(self, Intents.agent_intents)  
         if Intents.agent_intents:
             del Intents.agent_intents[0]
@@ -308,7 +311,7 @@ class Say(Action):
             tracker: Tracker,
             domain: Dict[Text, Any],
             resp) -> List[Dict[Text, Any]]:
-        print('la respuesta es: ' + resp)
+        #print('la respuesta es: ' + resp)
 
         hours = str(f"{dt.datetime.now().strftime('%H:%M')}")
         day = the_day(str(f"{dt.datetime.now().strftime('%A')}"))
@@ -324,8 +327,9 @@ class Say(Action):
             emotion = slot_emotion)
 
         contador()
-        print("dispatcher: " + str(count))          
-        print("daytime: " + str(tracker.get_slot('daytime')))  
+        print("dispatcher: " + str(count))   
+        tracker.get_slot('daytime')
+        #print("daytime: " + str(tracker.get_slot('daytime')))  
 
         return []
 
@@ -343,19 +347,19 @@ class To_Speech(Action):
         global count   
         global Emotions
 
-        print("Cambios tras la primera acción")
+        #print("-- Generación de respuestas --")
 
-        print("daytime: " + str(tracker.get_slot('daytime')))  
-
+        #print("daytime: " + str(tracker.get_slot('daytime')))  
+        tracker.get_slot('daytime')
         txt_responses = ''
 
         animation_tag = 'informar'      
 
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
-            print(json.dumps(msg[-count:], indent=4))
+            #print(json.dumps(msg[-count:], indent=4))
             responses = msg[-count:]  
-            print(Emotions.tag())
+            #print(Emotions.tag())
             txt = TXT()            
             print('----RESPONSES----')
             for e in responses:
@@ -367,7 +371,6 @@ class To_Speech(Action):
                 txt_responses += str(e['text'])
                 txt_responses += ' '            
             sentence = TXT.name(txt,txt_responses,animation_tag,eyesTracking)
-            #ExecuteEBDI.execute_ebdi(sentence,Emotions.tag())
         count = 0
 
         return []
@@ -383,7 +386,7 @@ class Kinect():
 class TXT():
     def name(self,response,animation_tag,eyesTracking) -> Text:
         output = open("speech.txt","w+")
-        print("VINETbot: {} ({}/{})".format(response,Emotions.estado,Emotions.tag()))
+        print("VINETbot: {} <{}/{}>".format(response,Emotions.estado,Emotions.tag()))
         #output.write(str(response))
         lines = [str(response),str(Emotions.estado),lang,animation_tag,str(polarity),str(eyesTracking),str(Emotions.tag())]
         output.write('\n'.join(lines))

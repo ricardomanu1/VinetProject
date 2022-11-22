@@ -12,8 +12,8 @@ class intents_manager(object):
 
 # Biblioteca de planes
     def intentsData(self):
-        #acc_fulfill suceso que ha ocurrido y se mantiene
-        #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
+            #acc_fulfill suceso que ha ocurrido y se mantiene
+            #acc_del_belief suceso/creencia que ha ocurrido y se elimina tras cumplirse
         ### PLANS ###
         ## Usuario se presenta
         self.intents.append(('say','utter_presentacion',['presentacion'],'acc_del_belief','presentacion','acc_say','utter_presentacion'))
@@ -83,6 +83,8 @@ class intents_manager(object):
         self.intents.append(('say','utter_no_solicitar', ['he_preguntado','no_solicitar'],'acc_del_belief','he_preguntado', 'acc_say', 'utter_no_solicitar', 'acc_del_belief','no_solicitar','acc_new_belief','no_solicita','acc_del_belief','le_pregunto'))  # llama a la accion action_service_options 
         ## YO soy
 
+        self.intents.append(('say','utter_silencio', ['solicitar_silencio'],'acc_del_belief','solicitar_silencio', 'acc_say', 'utter_silencio'))
+
 
         ## Contexto VINET
         self.intents.append(('say','utter_hitos_opciones', ['dar_hitos_opciones'],'acc_del_belief','dar_hitos_opciones','acc_say', 'utter_hitos_opciones'))
@@ -101,6 +103,7 @@ class intents_manager(object):
         #self.intents.append(('know', 'sale_grupo', ['sale_grupo','entra_grupo'],'acc_del_belief','sale_grupo','acc_del_belief','entra_grupo','acc_new_belief','despedir'))
         self.intents.append(('know', 'pos_ojos', ['pos_ojos'],'acc_del_belief','pos_ojos','acc_new_belief','pos_ojos'))
 
+
         #self.intents.append(('know', 'isBored', ['isBored'],'acc_del_belief','isBored'))
           
         ## Cuenco de ceramica Hilo
@@ -112,14 +115,12 @@ class intents_manager(object):
         self.intents.append(('say', 'utter_cue10', ['utter_cue10'],'acc_del_belief','utter_cue10','acc_say', 'utter_cue10','acc_say', 'utter_cue11','acc_say', 'utter_cue12'
                              ,'acc_say', 'utter_mostrar','acc_say', 'utter_cue13','acc_say', 'utter_cue14','acc_say', 'utter_mostrar','acc_say', 'utter_cue15',
                              'acc_say', 'utter_cue16','acc_say', 'utter_mostrar'))
-
         ## Lacrimario
         self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'acc_del_belief','vinet_lacrimario','acc_say', 'utter_lac1'))
 
         ## Lucerna
         self.intents.append(('say', 'utter_luc1', ['vinet_lucerna'],'acc_del_belief','vinet_lucerna','acc_say','utter_luc1','acc_say','utter_luc2','acc_say','utter_luc3',
                              'acc_say','utter_luc4','acc_say','utter_luc5'))
-
         ## ara
         self.intents.append(('say', 'utter_ara1', ['vinet_ara'],'acc_del_belief','vinet_ara','acc_say', 'utter_ara1'))
 
@@ -129,14 +130,14 @@ class intents_manager(object):
 
         ## Reglas
         self.intents.append(('say', 'out_of_scope', ['out_of_scope'],'acc_del_belief','out_of_scope','acc_say', 'utter_out_of_scope'))
-        self.intents.append(('say', 'nlu_fallback', ['nlu_fallback'],'acc_del_belief','nlu_fallback','acc_say', 'utter_please_rephrase'))
+        ## Reglas
+        self.intents.append(('know', 'nlu_fallback', ['nlu_fallback'],'acc_del_belief','nlu_fallback','acc_say', 'utter_please_rephrase'))
         
         self.intents.append(('say', 'a_narrar', ['a_narrar'],'acc_del_belief','a_narrar','acc_say', 'utter_a_narrar'))
         self.intents.append(('say', 'a_informar', ['a_informar'],'acc_del_belief','a_informar','acc_say', 'utter_a_informar'))
         self.intents.append(('say', 'a_saludar', ['a_saludar'],'acc_del_belief','a_saludar','acc_say', 'utter_a_saludar'))
         self.intents.append(('say', 'a_preguntar', ['a_preguntar'],'acc_del_belief','a_preguntar','acc_say', 'utter_a_preguntar'))
         self.intents.append(('say', 'a_despedir', ['a_despedir'],'acc_del_belief','a_despedir','acc_say', 'utter_a_despedir'))
-
 
         self.intents.append(('say', 'k_observa', ['k_observa'],'acc_del_belief','k_observa','Kinect', 'k_observa'))
 
@@ -154,7 +155,7 @@ class intents_manager(object):
             if ele[1] in desires_fulfill:
                 del Desires[idx]     
                 
-        print("el conj de intenciones es: " +  str(len(self.agent_intents)))
+        print("El conjunto de intenciones es: " +  str(len(self.agent_intents)))
         # en el caso de varias intenciones hay que tomar la prioritaria
         if len(self.agent_intents) > 1:
             aux = 1

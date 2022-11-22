@@ -14,11 +14,12 @@ class sentiment(object):
         result = [doc for doc in response if not doc.is_error]
 
         for doc in result:
-            print(f"Overall sentiment: {doc.sentiment}")
+            polarityS = round(doc.confidence_scores.positive - doc.confidence_scores.negative,1)  
+            print(f"Overall sentiment: {doc.sentiment} = {polarityS}")
             print(
                 f"Scores: positive={doc.confidence_scores.positive}; "
                 f"neutral={doc.confidence_scores.neutral}; "
                 f"negative={doc.confidence_scores.negative}"
             )
         #return [doc.confidence_scores.positive,doc.confidence_scores.neutral,doc.confidence_scores.negative]
-        return doc.confidence_scores.positive - doc.confidence_scores.negative
+        return polarityS

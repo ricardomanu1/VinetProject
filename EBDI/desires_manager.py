@@ -14,9 +14,9 @@ class desires_manager(object):
         for belief in Beliefs.agent_beliefs: 
             # si ya existe esa intencion no se genera el deseo    
             if belief[2] == True: 
-                if belief[1] in Beliefs.emotionalBeliefs:
-                    print(belief) ## las emociones del usuario se tienen en cuenta como creencia? o solo emociones
-                else:
+                if belief[1] not in Beliefs.emotionalBeliefs:
+                    #print(belief) ## las emociones del usuario se tienen en cuenta como creencia? o solo emociones
+                #else:
                     desires = [[item[0],item[1]] for item in Intents.intents if belief[1] in item[2]]
                     #desires = list(dict.fromkeys(desires))
                     for d in desires:

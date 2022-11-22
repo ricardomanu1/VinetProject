@@ -83,8 +83,8 @@ while True:
                     # Language detected
                     detected_src_lang = result.properties[
                         speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
-                    print("Idioma detectado: {}".format(detected_src_lang))
-                    print("Entrada: {} <{}>".format(result.text,emotion))
+                    print("Detected language: {}".format(detected_src_lang))
+                    print("Input: {} <{}>".format(result.text,emotion))
                     text_trans = result.text
                     if(str(detected_src_lang) != "es-ES"):    
                         # Translation to Spanish
@@ -94,7 +94,7 @@ while True:
                     # Send the spanish translation to Rasa
                     Interaction.say(text_trans,detected_src_lang,emotion,sentiment_analysis)   
                     if(str(detected_src_lang) != "es-ES"):
-                        print("OK")
+                        #print("OK")
                         # New translation configurations
                         translation_config = speechsdk.translation.SpeechTranslationConfig(
                             subscription=speech_key, region=service_region,
@@ -103,11 +103,11 @@ while True:
                         recognizer = speechsdk.translation.TranslationRecognizer(
                             translation_config=translation_config, audio_config=audio_config)              
                     else:
-                        print("entra")
+                        #print("entra")
                         speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
                         recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, language=detected_src_lang, audio_config=audio_config)
                 elif flag == 2:                       
-                    print("Entrada: {} <{}>".format(result.text,emotion))
+                    print("Input: {} <{}>".format(result.text,emotion))
                     # System to detect polarity from audio (positive,negative,neutral)
                     sentiment_analysis = Sentiment.sentiment(result.text,detected_src_lang[0:2])
                     # Send the spanish translation to Rasa
@@ -115,7 +115,7 @@ while True:
                 flag = 2
             # Direct translation after the second iteration
             elif result.reason == speechsdk.ResultReason.TranslatedSpeech:
-                print("""Entrada: {}\n Traducción Español: {}""".format(
+                print("""Input: {}\n Translation to Spanish: {}""".format(
                         result.text, result.translations['es']))##, result.translations['en'], result.translations['eu'], result.translations['fr'], result.translations['ja']))
                 sentiment_analysis = Sentiment.sentiment(result.text,detected_src_lang[0:2])
                 # Send the spanish translation to Rasa
@@ -123,10 +123,11 @@ while True:
             elif result.reason == speechsdk.ResultReason.NoMatch:
                 print("No speech could be recognized: {}".format(result.no_match_details))
                 # utter_please_rephrase
+                Interaction.know("nlu_fallback")
             elif result.reason == speechsdk.ResultReason.Canceled:
                 print("Translation canceled: {}".format(result.cancellation_details.reason))
                 if result.cancellation_details.reason == speechsdk.CancellationReason.Error:
                     print("Error details: {}".format(result.cancellation_details.error_details))
             print("--- %s seconds ---" % (time.time() - start_time))
     except:
-        break
+        continue

@@ -22,6 +22,8 @@ class emotions_manager(object):
         
         # Estado inicial de la emocion 
         self.estado = 'happy'
+        self.polarity = 0
+
         # Interes por el usuario
         self.interes = True
         self.intencionPositiva = ["saludar","agradecer","empatizar"]
@@ -108,11 +110,13 @@ class emotions_manager(object):
     def euf1(self, Intents, belief):     
         #belief[0]
         for b in belief:
-            print(b)
-            if b[0] is 'know':
+            #print(b)
+            if b[0] == 'know':
                  # Empatia simple
-                 self.estado = self.emotionalTags[self.emotionalUser.index(b[1])]         
-                 print(self.estado)
+                 self.estado = self.emotionalTags[self.emotionalUser.index(b[1])]     
+                 self.polarity = b[3]
+                 print(f"{self.estado} ({self.polarity})")
+
         return self.estado
 
 # Define la emocion secundaria tras pensarlo bien

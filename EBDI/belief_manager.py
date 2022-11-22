@@ -25,7 +25,7 @@ class belief_manager(object):
             if belief_name in [belief[1] for belief in self.agent_beliefs]:
                 # ¿si existe? comprueba si es falso, y dependiendo del contexto lo pasa a verdadero
                 # si es una emocion, pasa las otras a falso
-                print('ya existe esa creencia')
+                print('X-X-X-X- ya existe esa creencia -X-X-X-X')
             else:
                 self.agent_beliefs.append(b)
 
@@ -48,7 +48,7 @@ class belief_manager(object):
             belief.append([event[0],event[1],True,event[3],event[4],event[6]]) 
             # emocion
             if event[2] != 'none':
-                belief.append(['know',event[2],True])
+                belief.append(['know',event[2],True,event[7]])
         elif event[0] == 'know':
             # intencion
             belief.append([event[0],event[1],True])

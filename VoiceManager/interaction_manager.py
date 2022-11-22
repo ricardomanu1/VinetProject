@@ -30,6 +30,13 @@ class interaction_manager(object):
             "metadata": {"event":"know","emotion":value} 
             })
 
+    def know(self,text):
+        r = requests.post('http://127.0.0.1:5005/webhooks/myio/webhook', json={
+            "sender": "Vinet_user",
+            "message": "{}".format(text),
+            "metadata": {"event":"know"} 
+            })
+
     def tts(self):
         r = requests.get('http://127.0.0.1:5005/webhooks/myio')
         print(r.json())

@@ -377,7 +377,7 @@ responses:
   utter_out_of_scope:
   - metadata:
       subtext: informar     
-    text: Lo siento. No puedo responder esa solicitud.
+    text: Lo siento. No se responder esa solicitud.
   - metadata:
       subtext: informar     
     text: Lo siento. Se escapa a mis conocimientos
@@ -686,12 +686,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Esto se siente mal
-  - metadata:
-      subtext: informar     
-    text: Me siento deprimida.
-  - metadata:
-      subtext: informar     
-    text: Todo está mal hoy.
   - metadata:
       subtext: informar     
     text: Me siento muy triste.
@@ -1258,6 +1252,10 @@ responses:
   - metadata:
       subtext: informar     
     text: El grupo se ha posicionado en la hito {hito}.  
+  utter_silencio:
+  - metadata:
+      subtext: informar    
+    text: '.'
       
 actions:
 - action_hello_world
