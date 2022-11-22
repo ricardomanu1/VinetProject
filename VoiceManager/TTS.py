@@ -75,9 +75,10 @@ def viseme_cb(evt):
 speech_synthesizer.viseme_received.connect(viseme_cb)
 
 while True:  
-    time.sleep(1)  
+    #time.sleep(1)  
     # Each time a voice file is generated
-    if os.path.exists('..\\speech.txt'):     
+    if os.path.exists('..\\speech.txt'):    
+        start_time = time.time()
         # Visemes output file
         output_csv = open('Response/visemes.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =';')
@@ -141,4 +142,6 @@ while True:
         output_csv.close()
         # Remove the voice file for the arrival of the next
         os.remove('..\\speech.txt')
+        print("--- %s seconds ---" % (time.time() - start_time))
         time.sleep(1)
+        

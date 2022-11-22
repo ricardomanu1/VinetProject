@@ -18,7 +18,7 @@ class sentiment(object):
             print(
                 f"Scores: positive={doc.confidence_scores.positive}; "
                 f"neutral={doc.confidence_scores.neutral}; "
-                f"negative={doc.confidence_scores.negative}\n"
+                f"negative={doc.confidence_scores.negative}"
             )
         #return [doc.confidence_scores.positive,doc.confidence_scores.neutral,doc.confidence_scores.negative]
         return doc.confidence_scores.positive - doc.confidence_scores.negative

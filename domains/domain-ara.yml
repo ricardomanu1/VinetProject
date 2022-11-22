@@ -8,4 +8,4 @@ responses:
   utter_ara1:
   - metadata:
       subtext: narrar
-    text: El Ara, ni idea, aun no me he leido los documentos.  
+    text: ¿El Ara?, ni idea, aun no me he leido los documentos.  

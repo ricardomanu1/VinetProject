@@ -134,18 +134,6 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: hito1_path
-  steps:
-  - intent: hito1
-  - action: chatbot
-  - action: to_speech
-
-- story: hito2_path
-  steps:
-  - intent: hito2
-  - action: chatbot
-  - action: to_speech
-
 - story: identidad_path
   steps:
   - intent: identidad
@@ -182,21 +170,9 @@ stories:
   - action: chatbot
   - action: to_speech
 
-- story: stop_path
-  steps:
-  - intent: stop
-  - action: chatbot
-  - action: to_speech
-
 - story: ubicarme_path
   steps:
   - intent: ubicarme
-  - action: chatbot
-  - action: to_speech
-
-- story: xml_path
-  steps:
-  - intent: xml
   - action: chatbot
   - action: to_speech
 

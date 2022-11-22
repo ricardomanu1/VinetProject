@@ -292,6 +292,10 @@ class Plan:
                 if val == 'acc_fulfill':
                     s = "Beliefs.fulfill_belief('{0}')".format(str(intent[idx+1]))
                     p.append(s)
+
+                if val == 'Kinect':
+                    s = "Kinect.name('{0}')".format(str(intent[idx+1]))
+                    p.append(s)
         return p
 
 ## Acciones ##
@@ -367,7 +371,13 @@ class To_Speech(Action):
         count = 0
 
         return []
-
+class Kinect():
+    def name(response):
+        output = open("..//kinect.txt","w+")
+        lines = [str(response)]
+        output.write('\n'.join(lines))
+        output.close()
+        return "echo"
 
 ## Salida de la respuesta emocional en txt
 class TXT():

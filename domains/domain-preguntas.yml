@@ -1,0 +1,45 @@
+﻿version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- preguntar_como
+- preguntar_cuando
+- preguntar_cuando_fecha
+- preguntar_donde
+- preguntar_por_que
+- preguntar_quien
+- pregunta_hora
+- ubicarme
+
+responses:
+  utter_preguntar_cuando:
+  - metadata:
+      subtext: informar     
+    text: Estás buscando cuando.
+  utter_preguntar_por_que:
+  - metadata:
+      subtext: informar     
+    text: Estás buscando el por que.
+  utter_preguntar_quien:
+  - metadata:
+      subtext: informar     
+    text: Estás buscando quien.
+  utter_preguntar_como:
+  - metadata:
+      subtext: informar     
+    text: Estás buscando como.
+  utter_preguntar_donde:
+  - metadata:
+      subtext: informar     
+    text: Estás buscando donde.
+  utter_ubicarme:
+  - metadata:
+      subtext: informar
+    text: Posiblemente en Roncesvalles, aunque también podrías estar en la universidad.
+  - metadata:
+      subtext: informar
+    text: Si tuviese un GPS a mano te lo podría decir.
+  - metadata:
+      subtext: informar
+    text: Mira que no saberlo.

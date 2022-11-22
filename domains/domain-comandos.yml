@@ -1,0 +1,18 @@
+﻿version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- vinet_comando_aprendizaje
+- vinet_comando_apagar
+responses:
+  utter_vinet_comando_apagar:
+  - metadata:
+      subtext: informar
+    text: Cerrando procesos...
+  utter_vinet_comando_aprendizaje:
+  - metadata:
+      subtext: informar
+    text: Realizando entrenamiento...
+
+

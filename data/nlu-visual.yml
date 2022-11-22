@@ -1,0 +1,12 @@
+﻿version: "2.0"
+nlu:
+- intent: k_ojos
+  examples: |
+    - Posicicion de los ojos
+    - Dame la posicion de los ojos
+    - ¿a donde estas mirando?
+- intent: k_observa
+  examples: |
+    - quiero que observes
+    - observa la sala
+    - ¿que puedes ver?

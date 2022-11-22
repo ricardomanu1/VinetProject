@@ -1,0 +1,12 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- k_ojos
+- k_observa
+responses:
+  utter_k_ojos:
+  - text: Estoy mirando
+    metadata:
+      subtext: informar

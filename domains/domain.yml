@@ -6,12 +6,6 @@ intents:
 - afirmar
 - agradecer
 - atencion
-- preguntar_como
-- preguntar_cuando
-- preguntar_cuando_fecha
-- preguntar_donde
-- preguntar_por_que
-- preguntar_quien
 - cantidad
 - despedir
 - empatizar
@@ -25,28 +19,20 @@ intents:
 - estado_miedo
 - estado_nerviosismo
 - estado_soledad
-- out_of_scope
-- hito1
-- hito2
 - identidad
+- identidad_sn
 - negar
 - no_solicitar
-- pregunta_hora
 - presentacion
 - saludar
+- silencio
 - solicitar
 - solicitar_especifica_fecha
 - solicitar_especifica_hito
 - solicitar_especifica_lugar
 - solicitar_interes
-- stop
-- ubicarme
-- xml
-- a_informar
-- a_narrar
-- a_preguntar
-- a_despedir
-- a_saludar
+- out_of_scope
+
 entities:
 - acontecimiento
 - daytime
@@ -57,6 +43,7 @@ entities:
 - milestone
 - persona
 - sentiment
+
 slots:
   hito:
     type: float
@@ -145,16 +132,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Genial.
-  utter_ubicarme:
-  - metadata:
-      subtext: informar
-    text: Posiblemente en Roncesvalles, aunque también podrías estar en la universidad.
-  - metadata:
-      subtext: informar
-    text: Si tuviese un GPS a mano te lo podría decir.
-  - metadata:
-      subtext: informar
-    text: Mira que no saberlo.
   utter_despedir:
   - metadata:
       subtext: despedir
@@ -294,27 +271,7 @@ responses:
     text: Absolutamente no.
   - metadata:
       subtext: informar     
-    text: Ni lo pienses.
-  utter_preguntar_cuando:
-  - metadata:
-      subtext: informar     
-    text: Estás buscando cuando.
-  utter_preguntar_por_que:
-  - metadata:
-      subtext: informar     
-    text: Estás buscando el por que.
-  utter_preguntar_quien:
-  - metadata:
-      subtext: informar     
-    text: Estás buscando quien.
-  utter_preguntar_como:
-  - metadata:
-      subtext: informar     
-    text: Estás buscando como.
-  utter_preguntar_donde:
-  - metadata:
-      subtext: informar     
-    text: Estás buscando donde.
+    text: Ni lo pienses. 
   utter_agradecer:
   - metadata:
       subtext: informar     
@@ -1271,14 +1228,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Aquí te hablo del hito que has solicitado {milestone}...
-  utter_hito1:
-  - metadata:
-      subtext: informar     
-    text: Aquí te hablo del hito 1...
-  utter_hito2:
-  - metadata:
-      subtext: informar     
-    text: Aquí te hablo del hito 2...
   utter_hitos_opciones:
   - metadata:
       subtext: informar     
@@ -1308,31 +1257,7 @@ responses:
     text: El grupo se ha posicionado en el zona {hito}.
   - metadata:
       subtext: informar     
-    text: El grupo se ha posicionado en la hito {hito}.
-  utter_a_narrar:
-  - metadata:
-      subtext: narrar     
-    text: Animación de narrar    
-  utter_a_informar:
-  - metadata:
-      subtext: informar     
-    text: Animacion de informar   
-  utter_a_preguntar:
-  - metadata:
-      subtext: preguntar     
-    text: Animación de preguntar    
-  utter_a_saludar:
-  - metadata:
-      subtext: saludar     
-    text: Animación de saludar
-  utter_a_despedir:
-  - metadata:
-      subtext: despedir     
-    text: Animación de despedir  
-  utter_k_ojos:
-  - text: Estoy mirando
-    metadata:
-      subtext: informar
+    text: El grupo se ha posicionado en la hito {hito}.  
       
 actions:
 - action_hello_world

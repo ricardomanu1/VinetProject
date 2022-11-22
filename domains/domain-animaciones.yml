@@ -1,0 +1,31 @@
+﻿version: '2.0'
+session_config:
+  session_expiration_time: 36000
+  carry_over_slots_to_new_session: true
+intents:
+- a_despedir
+- a_informar
+- a_narrar
+- a_preguntar
+- a_saludar
+responses:
+  utter_a_despedir:
+  - metadata:
+      subtext: despedir     
+    text: Animación de despedir  
+  utter_a_informar:
+  - metadata:
+      subtext: informar     
+    text: Animacion de informar     
+  utter_a_narrar:
+  - metadata:
+      subtext: narrar     
+    text: Animación de narrar    
+  utter_a_preguntar:
+  - metadata:
+      subtext: preguntar     
+    text: Animación de preguntar    
+  utter_a_saludar:
+  - metadata:
+      subtext: saludar     
+    text: Animación de saludar

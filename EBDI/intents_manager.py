@@ -85,12 +85,8 @@ class intents_manager(object):
 
 
         ## Contexto VINET
-        self.intents.append(('say','utter_hito1', ['hito1'], 'acc_say', 'utter_hito1', 'acc_del_belief','hito1'))
-        self.intents.append(('say','utter_hito2', ['hito2'], 'acc_say', 'utter_hito2','acc_del_belief','hito2'))
         self.intents.append(('say','utter_hitos_opciones', ['dar_hitos_opciones'],'acc_del_belief','dar_hitos_opciones','acc_say', 'utter_hitos_opciones'))
-        self.intents.append(('say','utter_hito', ['debes_especificar','solicitar_especifica_hito'],'acc_del_belief','debes_especificar','acc_del_belief','solicitar_especifica_hito', 'acc_say', 'utter_hito'))
-        self.intents.append(('say','utter_hito1', ['debes_especificar','hito1'],'acc_del_belief','debes_especificar','acc_del_belief','hito1', 'acc_say', 'utter_hito1'))
-        self.intents.append(('say','utter_hito2', ['debes_especificar','hito2'],'acc_del_belief','debes_especificar','acc_del_belief','hito2', 'acc_say', 'utter_hito2'))                
+        self.intents.append(('say','utter_hito', ['debes_especificar','solicitar_especifica_hito'],'acc_del_belief','debes_especificar','acc_del_belief','solicitar_especifica_hito', 'acc_say', 'utter_hito'))               
         self.intents.append(('say','utter_hito', ['solicitar_especifica_hito'],'acc_del_belief','solicitar_especifica_hito', 'acc_say', 'utter_hito'))
            
         ## Comandos de Voz
@@ -140,6 +136,9 @@ class intents_manager(object):
         self.intents.append(('say', 'a_saludar', ['a_saludar'],'acc_del_belief','a_saludar','acc_say', 'utter_a_saludar'))
         self.intents.append(('say', 'a_preguntar', ['a_preguntar'],'acc_del_belief','a_preguntar','acc_say', 'utter_a_preguntar'))
         self.intents.append(('say', 'a_despedir', ['a_despedir'],'acc_del_belief','a_despedir','acc_say', 'utter_a_despedir'))
+
+
+        self.intents.append(('say', 'k_observa', ['k_observa'],'acc_del_belief','k_observa','Kinect', 'k_observa'))
 
     def filterI(self, Emotions, Beliefs, Desires):
         desires_fulfill = []

@@ -1,0 +1,52 @@
+version: "2.0"
+nlu:
+- intent: a_narrar
+  examples: |
+    - realiza animacion de narracion
+    - realiza la animacion de narracion    
+    - realizar animacion de narracion
+    - realizar la animacion de narracion
+    - realiza animacion de narrar
+    - realiza la animacion de narrar
+    - realizar animacion de narrar
+    - realizar la animacion de narrar
+- intent: a_informar
+  examples: |
+    - realiza animacion de informacion
+    - realizar animacion de informacion
+    - realiza la animacion de informacion
+    - realizar la animacion de informacion
+    - realiza animacion de informar
+    - realizar animacion de informar
+    - realiza la animacion de informar
+    - realizar la animacion de informar
+- intent: a_despedir
+  examples: |
+    - realiza animacion de despedir
+    - realizar animacion de despedir
+    - realiza la animacion de despedir
+    - realizar la animacion de despedir
+    - realiza animacion de despedida
+    - realizar animacion de despedida
+    - realiza la animacion de despedida
+    - realizar la animacion de despedida
+- intent: a_saludar
+  examples: |
+    - realiza animacion de saludar
+    - realizar animacion de saludar
+    - realiza la animacion de saludar
+    - realizar la animacion de saludar
+    - realiza animacion de saludo
+    - realizar animacion de saludo
+    - realiza la animacion de saludo
+    - realizar la animacion de saludo
+- intent: a_preguntar
+  examples: |
+    - realiza animacion de preguntar
+    - realizar animacion de preguntar
+    - realiza la animacion de preguntar
+    - realizar la animacion de preguntar
+    - realiza animacion de pregunta
+    - realizar animacion de pregunta
+    - realiza la animacion de pregunta
+    - realizar la animacion de pregunta
