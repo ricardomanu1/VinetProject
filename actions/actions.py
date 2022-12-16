@@ -44,9 +44,10 @@ context = Intents.get_context()
 
 # Memoria del Bot
 slot_people = 0
-slot_hito = 0
+slot_zone = 0
 slot_emotion = ''
 slot_posXY = [0,0]
+slot_object = "ok"
 slot_name = ''
 slot_daytime = ''
 
@@ -112,11 +113,12 @@ class ChatBot(Action):
         global Be
         global lang
         global slot_people
-        global slot_hito
+        global slot_zone
         global slot_emotion
         global slot_name
         global slot_daytime
         global slot_posXY
+        global slot_object
         global polarity
         global eyesTracking
 
@@ -161,13 +163,15 @@ class ChatBot(Action):
             #    print(key, value)
             if 'people' in metadata:
                 slot_people = metadata['people']
-            if 'chapter' in metadata:
-                slot_hito = metadata['chapter'] 
+            if 'zone' in metadata:
+                slot_zone = metadata['zone'] 
             if 'emotion' in metadata:
                 slot_emotion = metadata['emotion']  
             if 'posXY' in metadata:
                 slot_posXY = metadata['posXY']  
-            eyesTracking = slot_hito
+            if 'object' in metadata:
+                slot_object = metadata['object']  
+            eyesTracking = slot_zone
             user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
             if text in context:
@@ -324,7 +328,8 @@ class Say(Action):
             daytime = slot_daytime,
             name = slot_name,
             people = slot_people,
-            hito = slot_hito,
+            zone = slot_zone,
+            object = slot_object,
             emotion = slot_emotion)
 
         contador()

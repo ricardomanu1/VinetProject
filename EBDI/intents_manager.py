@@ -97,7 +97,11 @@ class intents_manager(object):
 
         ## Conocimiento del entorno
         self.intents.append(('know', 'numero_personas', ['numero_personas'],'acc_say', 'utter_conocer_personas','acc_del_belief','numero_personas')) 
-        self.intents.append(('know', 'escoger_capitulo', ['escoger_capitulo'],'acc_say', 'utter_hito_grupo','acc_del_belief','escoger_capitulo')) 
+
+        #self.intents.append(('know', 'escoger_capitulo', ['escoger_capitulo'],'acc_say', 'utter_hito_grupo','acc_del_belief','escoger_capitulo')) 
+        self.intents.append(('know', 'escoger_capitulo', ['escoger_capitulo'],'acc_say', 'utter_interes_grupo','acc_del_belief','escoger_capitulo')) 
+
+
         ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_new_belief','saludar'))
         self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_say','utter_bienvenida','acc_say','utter_mirar','kinect','k_observar'))
         self.intents.append(('know', 'sale_grupo', ['sale_grupo'],'acc_del_belief','sale_grupo','acc_del_belief','entra_grupo','acc_new_belief','despedir'))

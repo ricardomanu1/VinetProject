@@ -45,8 +45,11 @@ entities:
 - sentiment
 
 slots:
-  hito:
+  zone:
     type: float
+    influence_conversation: true
+  object:
+    type: text
     influence_conversation: true
   people:
     type: float
@@ -1248,10 +1251,17 @@ responses:
   utter_hito_grupo:
   - metadata:
       subtext: informar     
-    text: El grupo se ha posicionado en el zona {hito}.
+    text: El grupo se ha posicionado en el zona {zone}.
   - metadata:
       subtext: informar     
-    text: El grupo se ha posicionado en la hito {hito}.  
+    text: El grupo se ha posicionado en el objeto {zone}.  
+  utter_interes_grupo:
+  - metadata:
+      subtext: informar     
+    text: veo que teneis interes por {object}.
+  - metadata:
+      subtext: informar     
+    text: Hay una gran parte de vosotros en {object}.  
   utter_silencio:
   - metadata:
       subtext: informar    
