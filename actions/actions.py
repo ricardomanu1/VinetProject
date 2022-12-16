@@ -32,7 +32,7 @@ count = 0
 Bi = ''
 Be = ''
 lang = 'es-ES'
-polarity = []
+polarity = 0
 eyesTracking = 0
 
 # Gestor EBDI
@@ -54,22 +54,24 @@ slot_daytime = ''
 def __init__(self):
     self.agent_id = 'actions'
 
+# Number of responses
 def contador():
-    # Numero de respuestas que se van a generar
+    
     global count
     count = count + 1
     return []
 
+# Last event that has been generated to capture the response that has been selected from the Domain file
 def get_latest_event(events):
-    # Toma el ultimo evento que se ha generado para captar la respuesta que ha seleccionado el bot del Domain
+    
     latest_actions = []
     for e in events:
         if e['event'] == 'bot':
             latest_actions.append(e)
     return latest_actions
 
-def part_of_day(x):
-    # Proporciona una respuesta de 'Saludar' basandose en la hora del día
+# Time of day
+def part_of_day(x):    
     if (x > 4) and (x <= 12 ):
         return 'morning'
     elif (x > 12) and (x <= 16):
@@ -79,8 +81,8 @@ def part_of_day(x):
     elif (x > 24) and (x <= 4):
         return'none'
 
+# The day in spanish
 def the_day(x):
-    # Saber el día en castelano
     if x == "Monday":
         return 'lunes'
     if x == "Tuesday":
@@ -116,6 +118,7 @@ class ChatBot(Action):
         global slot_daytime
         global slot_posXY
         global polarity
+        global eyesTracking
 
         print("--------------------------------------------------------------------------------------------")
 
@@ -123,49 +126,48 @@ class ChatBot(Action):
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
         entities = tracker.latest_message['entities']
+        metadata = tracker.latest_message['metadata']
         ## Slots
         slot_name = tracker.get_slot('name')       
         slot_place = tracker.get_slot('place')       
         slot_year = tracker.get_slot('year')       
         slot_milestone = tracker.get_slot('milestone')           
-
+       
         Bi = intent['name']
-        
-        slot_daytime = part_of_day(int(f"{dt.datetime.now().strftime('%H')}"))
+        id_event = metadata['event']
 
-        id_event = tracker.latest_message['metadata']['event']
+        slot_daytime = part_of_day(int(f"{dt.datetime.now().strftime('%H')}"))       
 
         for e in entities:
             print("entidad: {} = {}".format(e['entity'],e['value']))
        
         ## Entradas de Voz       
         if (id_event == 'say'):
-            Be = tracker.latest_message['metadata']['emotion']
-            if (tracker.latest_message['metadata']['language']!=None):
-                lang = tracker.latest_message['metadata']['language']
-            if (tracker.latest_message['metadata']['sentiment']!=None):
-                polarity = tracker.latest_message['metadata']['sentiment']
-            user_event = [id_event,Bi,Be,text,slot_name,entities,lang,polarity] 
-            print('EVENT: ' + str(user_event)) 
+            if 'emotion' in metadata:
+                Be = metadata['emotion']            
+            if 'language' in metadata:
+                lang = metadata['language']
+            if 'polarity' in metadata:
+                polarity = metadata['polarity']            
             if Bi not in context:
                 Bi = 'out_of_scope'
-                user_event[1] = Bi 
+            user_event = [id_event,Bi,Be,text,slot_name,entities,lang,polarity] 
+            print('EVENT: ' + str(user_event))
             EBDI.run(self, dispatcher, tracker, domain, user_event)                
                 
         ## Entradas de conocimiento
         elif (id_event == 'know'):
-            for key, value in tracker.latest_message['metadata'].items():
-                print(key, value)
-            print(key)
-            if (tracker.latest_message['metadata'][key]!=None):
-                if key == 'people':
-                    slot_people = tracker.latest_message['metadata']['people']
-                elif key == 'chapter':
-                    slot_hito = tracker.latest_message['metadata']['chapter'] 
-                elif key == 'emotion':
-                    slot_emotion = tracker.latest_message['metadata']['emotion']  
-                elif key == 'posXY':
-                    slot_posXY = tracker.latest_message['metadata']['posXY']  
+            #for key, value in metadata.items():
+            #    print(key, value)
+            if 'people' in metadata:
+                slot_people = metadata['people']
+            if 'chapter' in metadata:
+                slot_hito = metadata['chapter'] 
+            if 'emotion' in metadata:
+                slot_emotion = metadata['emotion']  
+            if 'posXY' in metadata:
+                slot_posXY = metadata['posXY']  
+            eyesTracking = slot_hito
             user_event = [id_event,text,'',''] 
             print('EVENT: ' + str(user_event)) 
             if text in context:
@@ -179,7 +181,6 @@ class ChatBot(Action):
         else:
             print('Comando no conocido')            
 
-        #print(slot_posXY) # ojos
         ## comprobacion del diccionario de sinonimos de entidades
         synonyms_dict = Dictionary.get_synonym_mapper()
         for value, synonyms in synonyms_dict.items():
@@ -296,7 +297,7 @@ class Plan:
                     s = "Beliefs.fulfill_belief('{0}')".format(str(intent[idx+1]))
                     p.append(s)
 
-                if val == 'Kinect':
+                if val == 'kinect':
                     s = "Kinect.name('{0}')".format(str(intent[idx+1]))
                     p.append(s)
         return p
@@ -376,7 +377,7 @@ class To_Speech(Action):
         return []
 class Kinect():
     def name(response):
-        output = open("..//kinect.txt","w+")
+        output = open("..//Kinect.txt","w+")
         lines = [str(response)]
         output.write('\n'.join(lines))
         output.close()

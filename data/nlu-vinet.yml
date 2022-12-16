@@ -8,6 +8,7 @@ nlu:
     - hablame de este cuenco
     - cuentame cosas sobre el cuenco
     - cuentame cosas sobre el cuenco de cerámica
+    - ¿me puedes hablar sobre el cuenco de cerámica?
 - intent: vinet_lucerna
   examples: |
     - hablame de la lucerna
@@ -15,6 +16,7 @@ nlu:
     - hablame de esa lucerna
     - hablame de esta lucerna
     - cuentame cosas sobre la lucerna
+    - ¿me puedes hablar sobre la lucerna?
 - intent: vinet_ara
   examples: |
     - hablame del ara
@@ -23,6 +25,7 @@ nlu:
     - hablame del ara votiva
     - cuentame sobre el ara
     - cuentame sobre el ara votiva
+    - ¿me puedes hablar sobre el ara votiva?
 - intent: vinet_lacrimario
   examples: |
     - hablame del lacrimario
@@ -30,3 +33,11 @@ nlu:
     - hablame de este lacrimario
     - hablame de ese lacrimario
     - cuentame sobre el lacrimario
+    - ¿me puedes hablar sobre el lacrimario?
+- intent: vinet_objeto
+  examples: |
+    - quiero saber sobre este objeto
+    - hablame sobre este objeto
+    - hablame sobre esto
+    - ¿que es esto?
+    - ¿me puedes hablar sobre este objeto?

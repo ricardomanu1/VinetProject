@@ -113,10 +113,10 @@ class emotions_manager(object):
             #print(b)
             if b[0] == 'know':
                  # Empatia simple
-                 self.estado = self.emotionalTags[self.emotionalUser.index(b[1])]     
-                 self.polarity = b[3]
-                 print(f"{self.estado} ({self.polarity})")
-
+                 if(b[1] in self.emotionalUser):
+                     self.estado = self.emotionalTags[self.emotionalUser.index(b[1])]     
+                     self.polarity = b[3]
+                     #print(f"{self.estado} ({self.polarity})")
         return self.estado
 
 # Define la emocion secundaria tras pensarlo bien

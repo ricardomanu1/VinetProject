@@ -1,10 +1,10 @@
-import os, time, csv #, sys
+import os, time, csv, shutil #, sys
 import azure.cognitiveservices.speech as speechsdk
 from azure.cognitiveservices.speech import AudioDataStream
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
 from XML import XML
 from translator import translator
-    # from sentiment import sentiment
+from sentiment import sentiment
 
 with open('..\\..\\AzureKeys.txt') as f:
     lines = [line.rstrip() for line in f]
@@ -22,11 +22,12 @@ XML = XML()
 # Tanslator Service Init
 Translator = translator(translator_key)
 # Language
-    # Sentiment = sentiment(sentiment_key)
+Sentiment = sentiment(sentiment_key)
+lang = 'es-ES'
 
 # External file used by Unreal
 External_file = False
-Output_file = '../../../../Desktop/OCT-FINAL/Content/A'
+Output_file = '../../../../Desktop/MH-NEW/CSV'
 
 # Service configuration
 service_region = "westeurope"
@@ -100,8 +101,10 @@ while True:
         lang = str(lines[2])
         # Animation
         body_anim = str(lines[3])
+        sentiment_analysis = Sentiment.sentiment(contents,lang)
+        print(sentiment_analysis)
         # Polarity
-        emo_value = str(lines[4])
+        emo_value = sentiment_analysis ##str(lines[4])
         # EyesTracking
         face_pos = str(lines[5])
         # Emotional tag for Azure
@@ -110,7 +113,7 @@ while True:
         text_trans = Translator.translator(contents,'es',lang[0:2])
         # XML - SSML generator
         if lang == 'es-ES' or lang == 'eu-ES': ## Spanish or Basque
-            XML.esXML(text_trans,emotionAzure,lang) 
+            XML.esXML(text_trans,emotion,lang,sentiment_analysis) 
         elif lang == 'en-US': ## English Emotional
             XML.enSSML(text_trans,emotionAzure,lang) 
         elif lang == 'ja-JP': ## Japanese
@@ -129,6 +132,10 @@ while True:
             stream.save_to_wav_file(Output_file + "/respuesta.wav") 
         # Checking the result
         if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+            duration = result.audio_duration
+            # Wav time
+            print("Audio duration: {} seconds.".format(duration.total_seconds()))
+            ##print("Audio duration: {}".format(duration))
             print("Speech synthesis for XML [{}]".format(ssml_string))
             print("VINETbot: {} <{}>".format(text_trans,emotion))
         elif result.reason == speechsdk.ResultReason.Canceled:
@@ -141,6 +148,8 @@ while True:
             output_Unreal.close()
         output_csv.close()
         # Remove the voice file for the arrival of the next
+        #shutil.copyfile("Response/visemes.csv", "../../../../Desktop/MH-NEW/CSV/visemes.csv")
+        #shutil.copyfile("Response/visemes.csv", "../../../../Desktop/MH-NEW/CSV/respuesta.wav")
         os.remove('..\\speech.txt')
         print("--- %s seconds ---" % (time.time() - start_time))
         time.sleep(1)

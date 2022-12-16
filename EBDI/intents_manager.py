@@ -98,14 +98,18 @@ class intents_manager(object):
         ## Conocimiento del entorno
         self.intents.append(('know', 'numero_personas', ['numero_personas'],'acc_say', 'utter_conocer_personas','acc_del_belief','numero_personas')) 
         self.intents.append(('know', 'escoger_capitulo', ['escoger_capitulo'],'acc_say', 'utter_hito_grupo','acc_del_belief','escoger_capitulo')) 
-        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_new_belief','saludar'))
+        ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_new_belief','saludar'))
+        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'acc_fulfill','entra_grupo','acc_say','utter_bienvenida','acc_say','utter_mirar','kinect','k_observar'))
         self.intents.append(('know', 'sale_grupo', ['sale_grupo'],'acc_del_belief','sale_grupo','acc_del_belief','entra_grupo','acc_new_belief','despedir'))
         #self.intents.append(('know', 'sale_grupo', ['sale_grupo','entra_grupo'],'acc_del_belief','sale_grupo','acc_del_belief','entra_grupo','acc_new_belief','despedir'))
         self.intents.append(('know', 'pos_ojos', ['pos_ojos'],'acc_del_belief','pos_ojos','acc_new_belief','pos_ojos'))
 
 
         #self.intents.append(('know', 'isBored', ['isBored'],'acc_del_belief','isBored'))
-          
+        
+        
+
+
         ## Cuenco de ceramica Hilo
         self.intents.append(('say', 'utter_cue1', ['vinet_cuenco'],'acc_del_belief','vinet_cuenco','acc_say', 'utter_cue1','acc_say', 'utter_cue2','acc_say', 'utter_cue3',
                             'acc_say', 'utter_cue4','acc_say', 'utter_cue5','acc_say', 'utter_cue6','acc_say', 'utter_cue7', 'acc_new_belief','he_preguntado_si_no', 'acc_new_belief','utter_cue7')) 

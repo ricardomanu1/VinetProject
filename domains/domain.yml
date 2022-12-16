@@ -1256,6 +1256,24 @@ responses:
   - metadata:
       subtext: informar    
     text: '.'
+  utter_bienvenida:
+  - metadata:
+      subtext: informar    
+    text: 'Bienvenidos.'
+  - metadata:
+      subtext: informar    
+    text: 'Bienvenidas.'
+  - metadata:
+      subtext: informar    
+    text: 'Bienvenidos a este recinto.'
+  - metadata:
+      subtext: informar    
+    text: 'Bienvenidas a este recinto.'
+  utter_mirar:
+  - metadata:
+      subtext: informar    
+    text: 'Podeis pasearos por la sala y mirar los objetos que se encuentran por aquí.'
+
       
 actions:
 - action_hello_world
