@@ -229,3 +229,9 @@ stories:
   - intent: a_despedir
   - action: chatbot
   - action: to_speech
+
+- story: silencio_path
+  steps:
+  - intent: silencio
+  - action: chatbot
+  - action: to_speech

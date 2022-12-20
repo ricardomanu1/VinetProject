@@ -34,6 +34,7 @@ Be = ''
 lang = 'es-ES'
 polarity = 0
 eyesTracking = 0
+objs = ["la entrada","la lucerna","el lacrimario","el cuenco de cerámica","el ara"]
 
 # Gestor EBDI
 Emotions = emotions_manager()
@@ -47,7 +48,7 @@ slot_people = 0
 slot_zone = 0
 slot_emotion = ''
 slot_posXY = [0,0]
-slot_object = "ok"
+slot_object = ""
 slot_name = ''
 slot_daytime = ''
 
@@ -165,6 +166,7 @@ class ChatBot(Action):
                 slot_people = metadata['people']
             if 'zone' in metadata:
                 slot_zone = metadata['zone'] 
+                slot_object = objs[slot_zone]
             if 'emotion' in metadata:
                 slot_emotion = metadata['emotion']  
             if 'posXY' in metadata:
@@ -283,25 +285,25 @@ class Plan:
         for intent in Intents:
             for idx, val in enumerate(intent):    
                 # Seleccionamos la primera intencion y las acciones correspondientes        
-                if val == 'acc_say':  
+                if val == 'a_say':  
                     resp = intent[idx+1]
                     s = "Say.run(self, dispatcher, tracker, domain,'{0}')".format(str(resp))
                     p.append((s))
 
-                if val == 'acc_new_belief':
+                if val == 'a_nB':
                     user_event = ['say',intent[idx+1],'none','','','','']   
                     s = "EBDI.run(self, dispatcher, tracker, domain,{0})".format(user_event)
                     p.append((s))
 
-                if val == 'acc_del_belief':
+                if val == 'a_dB':
                     s = "Beliefs.del_belief('{0}')".format(str(intent[idx+1]))
                     p.append(s)
 
-                if val == 'acc_fulfill':
+                if val == 'a_fB':
                     s = "Beliefs.fulfill_belief('{0}')".format(str(intent[idx+1]))
                     p.append(s)
 
-                if val == 'kinect':
+                if val == 'ki':
                     s = "Kinect.name('{0}')".format(str(intent[idx+1]))
                     p.append(s)
         return p

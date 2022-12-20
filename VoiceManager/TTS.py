@@ -1,4 +1,4 @@
-import os, time, csv, shutil #, sys
+import os, time, csv #, sys
 import azure.cognitiveservices.speech as speechsdk
 from azure.cognitiveservices.speech import AudioDataStream
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
@@ -76,7 +76,7 @@ def viseme_cb(evt):
 speech_synthesizer.viseme_received.connect(viseme_cb)
 
 while True:  
-    #time.sleep(1)  
+    time.sleep(1)  
     # Each time a voice file is generated
     if os.path.exists('..\\speech.txt'):    
         start_time = time.time()
@@ -90,25 +90,25 @@ while True:
             writerU = csv.writer(output_Unreal, delimiter =';')
             writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
         # Get lines from voice file
-        with open('..\\speech.txt') as f:
-            lines = [line.rstrip() for line in f]
-            print(lines)
+        with open('..\\speech.txt','r') as f:
+            linesF = [line.rstrip() for line in f]
+            print(linesF)
         # Sentence
-        contents = str(lines[0])
+        contents = str(linesF[0])
         # Emotional tag
-        emotion = str(lines[1])
+        emotion = str(linesF[1])
         # Language
-        lang = str(lines[2])
+        lang = str(linesF[2])
         # Animation
-        body_anim = str(lines[3])
+        body_anim = str(linesF[3])
         sentiment_analysis = Sentiment.sentiment(contents,lang)
         print(sentiment_analysis)
         # Polarity
         emo_value = sentiment_analysis ##str(lines[4])
         # EyesTracking
-        face_pos = str(lines[5])
+        face_pos = str(linesF[5])
         # Emotional tag for Azure
-        emotionAzure = str(lines[6])
+        emotionAzure = str(linesF[6])
         # Sentence translation
         text_trans = Translator.translator(contents,'es',lang[0:2])
         # XML - SSML generator
@@ -152,5 +152,5 @@ while True:
         #shutil.copyfile("Response/visemes.csv", "../../../../Desktop/MH-NEW/CSV/respuesta.wav")
         os.remove('..\\speech.txt')
         print("--- %s seconds ---" % (time.time() - start_time))
-        time.sleep(1)
+        time.sleep(2)
         

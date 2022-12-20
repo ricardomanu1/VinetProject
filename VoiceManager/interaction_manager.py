@@ -21,7 +21,7 @@ class interaction_manager(object):
             r = requests.post('http://127.0.0.1:5005/webhooks/myio/webhook', json={
             "sender": "Vinet_user",
             "message": "{}".format(text),
-            "metadata": {"event":"know","chapter":value} 
+            "metadata": {"event":"know","zone":value} 
             })
         elif var == 'emotion':
             r = requests.post('http://127.0.0.1:5005/webhooks/myio/webhook', json={

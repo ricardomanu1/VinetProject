@@ -9,3 +9,7 @@ responses:
   - metadata:
       subtext: preguntar
     text: ¿cual es su nombre?.  
+  utter_interes_objeto:
+  - metadata:
+      subtext: preguntar
+    text: Curiosa pieza ¿verdad? ¿queréis saber un poco sobre ella?.

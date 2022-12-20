@@ -399,8 +399,10 @@ nlu:
   examples: |
     - silencio.
     - callate.
+    - calla.
     - para.
     - espera.
+    - cierra la boca.
     - guarda silencio.
 - intent: solicitar
   examples: |
