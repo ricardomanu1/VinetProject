@@ -35,6 +35,7 @@ lang = 'es-ES'
 polarity = 0
 eyesTracking = 0
 objs = ["la entrada","la lucerna","el lacrimario","el cuenco de cerámica","el ara"]
+inter1 = False
 
 # Gestor EBDI
 Emotions = emotions_manager()
@@ -122,9 +123,10 @@ class ChatBot(Action):
         global slot_object
         global polarity
         global eyesTracking
+        global inter1
 
         print("--------------------------------------------------------------------------------------------")
-
+        inter1 = True
         ## Valores de entrada, si es un texto
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
@@ -211,7 +213,11 @@ class EBDI(Action):
         global Beliefs
         global Desires
         global Intents 
+        global inter1
 
+        Beliefs.inter = inter1
+        inter1 = False
+        print(Beliefs.inter)
         # Establecen las nuevas creencias a partir del evento
         newBelief = Beliefs.new_belief(user_event)     
         

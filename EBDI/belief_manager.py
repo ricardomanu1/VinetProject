@@ -5,7 +5,9 @@ class belief_manager(object):
         self.agent_id = 'belief_manager'
         # Estado inicial de las creencias, en este caso vacio
         self.agent_beliefs = []  
-        # Estado inicial de las emociones
+        self.belief_events = []  
+        self.inter = False
+        # Estado inicial de las emociones        
         self.agent_beliefs.append(['know','happy',True])
         self.emotionalBeliefs = ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
 
@@ -16,6 +18,7 @@ class belief_manager(object):
         return False
 # 
     def brf_in(self, Emotions, Intents, newBelief):
+        self.belief_events.clear()
         # Saludar TRUE
         for b in newBelief:
             belief_name = b[1]
@@ -28,6 +31,8 @@ class belief_manager(object):
                 print('X-X-X-X- ya existe esa creencia -X-X-X-X')
             else:
                 self.agent_beliefs.append(b)
+                #print(" new creencia:" + b[1])
+                self.belief_events.append(b)
 
     def EmotionInput_Update(self,user_emotion):
         emotions = [b[0] for b in self.agent_beliefs]

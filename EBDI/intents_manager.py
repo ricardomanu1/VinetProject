@@ -187,9 +187,12 @@ class intents_manager(object):
             self.agent_intents = []
             self.agent_intents.append(aux_intent)
                     
-        #if(len(self.agent_intents)==0):
-        #    print("la creencia sin nada es:" + Beliefs.belief_event)
-        #    Beliefs.del_belief(Beliefs.belief_event)
+        if(len(self.agent_intents)==0 and Beliefs.inter):
+            print("la creencia sin nada es:")
+            for b in Beliefs.belief_events:       
+                #print(" ",b[1])
+                Beliefs.del_belief(b[1])
+            Beliefs.belief_events.clear()
 
         # dentro de las intenciones tomar el subconjunto que cumpla [1]
         # comprobar que se cumplen las condiciones
