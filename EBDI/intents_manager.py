@@ -113,7 +113,19 @@ class intents_manager(object):
         
         
         self.intents.append(('say','utter_interes_objeto',['v_interes_objeto'],'a_dB','v_interes_objeto','a_say','utter_interes_objeto', 'a_nB', 'objeto_interesante'))
-        self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar'],'a_dB','objeto_interesante','a_dB','afirmar', 'a_nB', 'vinet_lucerna'))  # llama a la accion action_service_options 
+
+
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj1'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj1', 'a_nB', 'vinet_lucerna'))  # llama a la accion action_service_options 
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj1'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj1', 'a_say', 'utter_no_solicitar'))  # llama a la accion action_service_options
+
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj2'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj2', 'a_nB', 'vinet_lacrimario'))  # llama a la accion action_service_options 
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj2'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj2', 'a_say', 'utter_no_solicitar'))  # llama a la accion action_service_options 
+        
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj3'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj3', 'a_nB', 'vinet_cuenco'))  # llama a la accion action_service_options 
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj3'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj3', 'a_say', 'utter_no_solicitar'))  # llama a la accion action_service_options 
+       
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj4'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj4', 'a_nB', 'vinet_ara'))  # llama a la accion action_service_options 
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj4'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj4', 'a_say', 'utter_no_solicitar'))  # llama a la accion action_service_options 
         
 
         ## Cuenco de ceramica Hilo     
@@ -132,7 +144,7 @@ class intents_manager(object):
         self.intents.append(('say', 'utter_luc1', ['vinet_lucerna'],'a_dB','vinet_lucerna','a_say','utter_luc1','a_say','utter_luc2','a_say','utter_luc3',
                              'a_say','utter_luc4','a_say','utter_luc5','a_nB','he_preguntado_si_no','a_nB','utter_luc5_s1','a_nB','prof_luc1'))        
 
-        self.intents.append(('say', 'utter_luc7_a1', ['vinet_lucerna','prof_luc1'],'a_dB','vinet_lucerna','a_dB','prof_1','a_say','utter_luc7_a1','a_say','utter_luc7_a2','a_say','utter_luc7_a3','a_nB','prof_luc2'))
+        self.intents.append(('say', 'utter_luc7_a1', ['vinet_lucerna','prof_luc1'],'a_dB','vinet_lucerna','a_dB','prof_luc1','a_say','utter_luc7_a1','a_say','utter_luc7_a2','a_say','utter_luc7_a3','a_nB','prof_luc2'))
             ## pregunta_lucerna
         self.intents.append(('say','utter_luc5_s1', ['utter_luc5_s1','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','utter_luc5_s1', 
                             'a_say', 'utter_luc5_s1', 'a_say', 'utter_luc5_s2',  'a_say', 'utter_luc5_s3','a_say', 'utter_luc5_s4','a_nB','utter_luc6'))
@@ -140,7 +152,7 @@ class intents_manager(object):
         self.intents.append(('say','utter_luc5_n1', ['utter_luc5_s1','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no',  'a_dB','negar', 'a_dB','utter_luc5_n1',
                             'a_say', 'utter_luc5_n1','a_nB','utter_luc6'))
 
-        self.intents.append(('say','utter_luc6', ['utter_luc6'],'a_dB','utter_luc6', 'a_say', 'utter_luc6', 'a_say', 'utter_luc7', 'a_say', 'utter_luc8', 'a_say', 'utter_luc9'))
+        self.intents.append(('say','utter_luc6', ['utter_luc6'],'a_dB','utter_luc6', 'a_say', 'utter_luc6', 'a_say', 'utter_luc7', 'a_say', 'utter_luc8', 'a_say', 'utter_luc9','ki','k_observar'))
 
         ## ara
         self.intents.append(('say', 'utter_ara1', ['vinet_ara'],'a_dB','vinet_ara','a_say', 'utter_ara1'))

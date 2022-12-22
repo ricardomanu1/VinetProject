@@ -162,12 +162,14 @@ class ChatBot(Action):
                 
         ## Entradas de conocimiento
         elif (id_event == 'know'):
+            objInterest = None
             #for key, value in metadata.items():
             #    print(key, value)
             if 'people' in metadata:
                 slot_people = metadata['people']
             if 'zone' in metadata:
                 slot_zone = metadata['zone'] 
+                objInterest = 'obj' + str(slot_zone)
                 slot_object = objs[slot_zone]
             if 'emotion' in metadata:
                 slot_emotion = metadata['emotion']  
@@ -175,8 +177,8 @@ class ChatBot(Action):
                 slot_posXY = metadata['posXY']  
             if 'object' in metadata:
                 slot_object = metadata['object']  
-            eyesTracking = slot_zone
-            user_event = [id_event,text,'',''] 
+            eyesTracking = slot_zone            
+            user_event = [id_event,text,objInterest,'']             
             print('EVENT: ' + str(user_event)) 
             if text in context:
                 EBDI.run(self, dispatcher, tracker, domain, user_event)
