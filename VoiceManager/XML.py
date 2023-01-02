@@ -12,11 +12,11 @@ class XML():
         # Calm
         prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
         # happy
-        if tag == "happy":
-            prosody = ET.SubElement(voice, "prosody", rate = "10.00%", pitch = "3.00%")
+        ##if tag == "happy":
+        ##    prosody = ET.SubElement(voice, "prosody", rate = "10.00%", pitch = "3.00%")
         # sad
-        if tag == "sad":
-            prosody = ET.SubElement(voice, "prosody", rate = "-20.00%", pitch = "-5.00%")
+        ##if tag == "sad":
+        ##    prosody = ET.SubElement(voice, "prosody", rate = "-20.00%", pitch = "-5.00%")
         prosody.text = response
         arbol = ET.ElementTree(speak)
         arbol.write("Response/respuesta.xml")

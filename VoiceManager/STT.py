@@ -47,27 +47,23 @@ recognizer = speechsdk.SpeechRecognizer(
     audio_config=audio_config)
 
 # Keyword Detection
-model = speechsdk.KeywordRecognitionModel("Keywords/2faffcbd-2030-4c7e-86f3-69bceff47a28.table")
-keyword = "Sonia"
-keyword_recognizer = speechsdk.KeywordRecognizer()
+##model = speechsdk.KeywordRecognitionModel("Keywords/2faffcbd-2030-4c7e-86f3-69bceff47a28.table")
+##keyword = "Sonia"
+##keyword_recognizer = speechsdk.KeywordRecognizer()
 
 while True:
-    result_future = keyword_recognizer.recognize_once_async(model)
-    print('Esperando al comando de voz: "{}"'.format(keyword))
-    
-    #if keyboard.is_pressed('q'):
-    #    keyword_recognizer.stop_recognition_async() 
-        #break
+    ##result_future = keyword_recognizer.recognize_once_async(model)
+    ##print('Esperando al comando de voz: "{}"'.format(keyword))
 
     # Waiting for keyword
-    try:
-        result = result_future.get()  
-    except:
-        break
+    #try:
+        #result = result_future.get()  
+    #except:
+        #break
 
     # Keyword detected
     try:                
-        if result.reason == speechsdk.ResultReason.RecognizedKeyword: #keyboard.is_pressed('q'):
+        if keyboard.is_pressed('q'): #result.reason == speechsdk.ResultReason.RecognizedKeyword:
             print("Di algo...")
             # Waiting for sentence (maximum of 15 seconds of audio)
             result = recognizer.recognize_once()

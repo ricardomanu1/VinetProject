@@ -1,7 +1,4 @@
-import os
-import json
-import typing
-import importlib
+import csv, importlib, json, os, typing
 import datetime as dt
 import xml.etree.cElementTree as ET
 import numpy as np
@@ -376,7 +373,8 @@ class To_Speech(Action):
             #print(json.dumps(msg[-count:], indent=4))
             responses = msg[-count:]  
             #print(Emotions.tag())
-            txt = TXT()            
+            txt = TXT()    
+            CSV().name(responses)
             print('----RESPONSES----')
             for e in responses:
                 if 'metadata' in e['metadata']:
@@ -408,6 +406,19 @@ class TXT():
         output.write('\n'.join(lines))
         output.close()
         return str(response)
+
+class CSV():
+    def name(self,responses):
+        output_csv = open('speech.csv','w+',newline='')
+        writer = csv.writer(output_csv, delimiter =';')
+        writer.writerow(['response','emotion','language','animation','eyesTracking','emotionAzure'])
+        animation_tag = 'informar'  
+        for response in responses:
+            if 'metadata' in response['metadata']:
+                    if 'subtext' in response['metadata']['metadata']:
+                        animation_tag = str(response['metadata']['metadata']['subtext'])
+            writer.writerow([str(response['text']), str(Emotions.estado),lang,animation_tag,str(eyesTracking),str(Emotions.tag())])
+        output_csv.close()
 
 ## Salida de la respuesta emocional en XML
 class ExecuteEBDI:

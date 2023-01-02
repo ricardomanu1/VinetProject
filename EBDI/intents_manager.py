@@ -19,6 +19,7 @@ class intents_manager(object):
         self.intents.append(('say','utter_presentacion',['presentacion'],'a_dB','presentacion','a_say','utter_presentacion'))
         ## User:'me saluda'
         self.intents.append(('say','utter_saludar',['saludar','happy'],'a_say','utter_saludar','a_fB','saludar','a_nB','muestro_interes','a_nB','espero_respuesta'))
+
         self.intents.append(('say','utter_saludar',['saludar','sad'],'a_say','utter_saludar','a_fB','saludar'))
         self.intents.append(('say','utter_saludar',['saludar'],'a_say','utter_saludar','a_fB','saludar'))
         ## User:'quiere saber mi estado de ánimo'
@@ -60,7 +61,7 @@ class intents_manager(object):
         self.intents.append(('say','utter_empatizar_emocion',['estado_emocion'],'a_say','utter_empatizar_emocion','a_dB','estado_emocion'))
 
         ## YO muestro interes por el usuario
-        self.intents.append(('say','utter_interes',['muestro_interes'],'a_say','utter_interes','a_dB','muestro_interes'))
+        self.intents.append(('say','utter_interes',['muestro_interes'],'a_dB','muestro_interes','a_say','utter_interes'))
         ## YO voy a empatizar con el estado de animo del usuario  
         self.intents.append(('say','utter_empatizar_bien',['espero_respuesta','estado_bien'],'a_dB','espero_respuesta','a_dB','estado_bien','a_say','utter_empatizar_bien','a_nB','le_pregunto'))
         self.intents.append(('say','utter_empatizar_mal',['espero_respuesta','estado_mal'],'a_dB','espero_respuesta','a_say', 'utter_empatizar_mal','a_nB','le_animo'))
