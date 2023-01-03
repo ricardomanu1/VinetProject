@@ -1,7 +1,7 @@
-Lo siento. No te he entendido bien, ¿podrías repetirlo? 
-anger
+Disculpa, no estaba atenta, ¿Qué has dicho? 
+anxious
 es-ES
 informar
--0.4
+-0.0
 0
-angry
+excited

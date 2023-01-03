@@ -6,8 +6,6 @@ from XML import XML
 from translator import translator
 from sentiment import sentiment
 
-#listening = True
-
 with open('..\\..\\AzureKeys.txt') as f:
     lines = [line.rstrip() for line in f]
     print(lines)
@@ -77,7 +75,7 @@ def viseme_cb(evt):
 # Subscribes to viseme received event
 speech_synthesizer.viseme_received.connect(viseme_cb)
 
-while True:  
+while True:      
     time.sleep(1)  
     if os.path.exists('..\\speech.csv'):    
         start_time = time.time()
@@ -151,8 +149,10 @@ while True:
                 if External_file:
                     output_Unreal.close()
                 output_csv.close()
-                time.sleep(duration.total_seconds())
+                time.sleep(duration.total_seconds())                
         os.remove('..\\speech.csv')
+        archi1=open("listening.txt","w") 
+        archi1.close() 
         print("--- %s seconds ---" % (time.time() - start_time))
                            
 """
