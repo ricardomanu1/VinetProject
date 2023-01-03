@@ -410,7 +410,7 @@ class TXT():
 class CSV():
     def name(self,responses):
         output_csv = open('speech.csv','w+',newline='')
-        writer = csv.writer(output_csv, delimiter =';')
+        writer = csv.writer(output_csv, delimiter =',')
         writer.writerow(['response','emotion','language','animation','eyesTracking','emotionAzure'])
         animation_tag = 'informar'  
         for response in responses:

@@ -136,8 +136,7 @@ class intents_manager(object):
                             'a_say', 'utter_cue8', 'a_say', 'utter_cue9', 'a_nB','utter_cue10'))
         self.intents.append(('say', 'utter_cue10', ['utter_cue7','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no','a_dB','utter_cue7', 'a_nB','utter_cue10'))
         self.intents.append(('say', 'utter_cue10', ['utter_cue10'],'a_dB','utter_cue10','a_say', 'utter_cue10','a_say', 'utter_cue11','a_say', 'utter_cue12'
-                             ,'a_say', 'utter_mostrar','a_say', 'utter_cue13','a_say', 'utter_cue14','a_say', 'utter_mostrar','a_say', 'utter_cue15',
-                             'a_say', 'utter_cue16','a_say', 'utter_mostrar'))
+                             'a_say', 'utter_cue13','a_say', 'utter_cue14','a_say', 'utter_cue15','a_say', 'utter_cue16'))
         ## Lacrimario
         self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say', 'utter_lac1'))
 

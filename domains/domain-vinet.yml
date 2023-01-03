@@ -8,7 +8,7 @@ responses:
   utter_vinet_objeto:
   - metadata:
       subtext: preguntar
-    text: ¿cual es su nombre?.  
+    text: ¿Cual es su nombre?.  
   utter_interes_objeto:
   - metadata:
       subtext: preguntar

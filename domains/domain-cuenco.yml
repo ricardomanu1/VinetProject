@@ -53,10 +53,6 @@ responses:
   - metadata:
       subtext: narrar
     text: Las hacían negras y brillantes, ya que imitaban a las lujosas vajillas de bronce.
-  utter_mostrar:
-  - metadata:
-      subtext: narrar
-    text: acción mostrar
   utter_cue13:
   - metadata:
       subtext: narrar
