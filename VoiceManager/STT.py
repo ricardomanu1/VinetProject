@@ -3,9 +3,9 @@ import azure.cognitiveservices.speech as speechsdk
 from interaction_manager import interaction_manager
 from translator import translator
 from sentiment import sentiment
-import TTS
+#import TTS
 
-print(TTS.listening)
+#print(TTS.listening)
 
 with open('..\\..\\AzureKeys.txt') as f:
     lines = [line.rstrip() for line in f]

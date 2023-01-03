@@ -6,7 +6,7 @@ from XML import XML
 from translator import translator
 from sentiment import sentiment
 
-listening = True
+#listening = True
 
 with open('..\\..\\AzureKeys.txt') as f:
     lines = [line.rstrip() for line in f]
