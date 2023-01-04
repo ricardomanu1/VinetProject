@@ -1284,9 +1284,7 @@ responses:
       subtext: informar    
     text: 'Podeis pasearos por la sala y mirar los objetos que se encuentran por aquí.'
 
-      
 actions:
-- action_hello_world
 - aprendizaje
 - chatbot
 - buscar_informacion

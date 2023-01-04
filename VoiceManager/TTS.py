@@ -84,152 +84,78 @@ while True:
             #header = next(csv_reader)
             #if header != None:
             for row in csv_reader:
-                # Visemes output file
-                output_csv = open('Response/visemes.csv','w+',newline='')
-                writer = csv.writer(output_csv, delimiter =';')
-                writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
-                # Create a copy of the output file for Unreal
-                if External_file:
-                    output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
-                    writerU = csv.writer(output_Unreal, delimiter =';')
-                    writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
-                print(row)
-                # Sentence
-                contents = str(row['response'])
-                # Emotional tag
-                emotion = str(row['emotion'])
-                # Language
-                lang = str(row['language'])
-                # Animation
-                body_anim = str(row['animation'])
-                sentiment_analysis = Sentiment.sentiment(contents,lang)
-                print(sentiment_analysis)
-                # Polarity
-                emo_value = sentiment_analysis
-                # EyesTracking
-                face_pos = str(row['eyesTracking'])
-                # Emotional tag for Azure
-                emotionAzure = str(row['emotionAzure'])                
-                # XML - SSML generator               
-                if lang == 'es-ES' or lang == 'eu-ES': ## Spanish or Basque 
-                    text_trans = contents
-                    XML.esXML(contents,emotion,lang,sentiment_analysis) 
-                elif lang == 'en-US': ## English Emotional
-                    # Sentence translation
-                    text_trans = Translator.translator(contents,'es',lang[0:2])
-                    XML.enSSML(text_trans,emotionAzure,lang) 
-                #elif lang == 'ja-JP': ## Japanese
-                #    XML.jpSSML(text_trans,emotionAzure,lang) 
-                #elif lang == 'fr-FR': ## French
-                #    XML.frSSML(text_trans,emotionAzure,lang)         
-                # Reading SSML file
-                ssml_string = open("Response/respuesta.xml", "r", encoding="utf-8").read()  
-                # Audio generated
-                result = speech_synthesizer.speak_ssml_async(ssml_string).get()
-                # Audio memory stream to file
-                stream = AudioDataStream(result)
-                stream.save_to_wav_file("Response/respuesta.wav")  
-                # Copy for Unreal
-                if External_file:
-                    stream.save_to_wav_file(Output_file + "/respuesta.wav") 
-                # Checking the result
-                if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
-                    duration = result.audio_duration
-                    # Wav time
-                    print("Audio duration: {} seconds.".format(duration.total_seconds()))
-                    ##print("Audio duration: {}".format(duration))
-                    ##print("Speech synthesis for XML [{}]".format(ssml_string))
-                    print("VINETbot: {} <{}>".format(text_trans,emotion))
-                elif result.reason == speechsdk.ResultReason.Canceled:
-                    cancellation_details = result.cancellation_details
-                    print("Speech synthesis canceled: {}".format(cancellation_details.reason))
-                    if cancellation_details.reason == speechsdk.CancellationReason.Error:
-                        print("Error details: {}".format(cancellation_details.error_details))  
-                # Close visemes output file used by Unreal 
-                if External_file:
-                    output_Unreal.close()
-                output_csv.close()
-                time.sleep(duration.total_seconds())                
-        os.remove('..\\speech.csv')
-        archi1=open("listening.txt","w") 
-        archi1.close() 
+                if(str(row['action'])=="say"):
+                    # Visemes output file
+                    output_csv = open('Response/visemes.csv','w+',newline='')
+                    writer = csv.writer(output_csv, delimiter =';')
+                    writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                    # Create a copy of the output file for Unreal
+                    if External_file:
+                        output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
+                        writerU = csv.writer(output_Unreal, delimiter =';')
+                        writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                    print(row)
+                    # Sentence
+                    contents = str(row['response'])
+                    # Emotional tag
+                    emotion = str(row['emotion'])
+                    # Language
+                    lang = str(row['language'])
+                    # Animation
+                    body_anim = str(row['animation'])
+                    sentiment_analysis = Sentiment.sentiment(contents,lang)
+                    print(sentiment_analysis)
+                    # Polarity
+                    emo_value = sentiment_analysis
+                    # EyesTracking
+                    face_pos = str(row['eyesTracking'])
+                    # Emotional tag for Azure
+                    emotionAzure = str(row['emotionAzure'])                
+                    # XML - SSML generator               
+                    if lang == 'es-ES' or lang == 'eu-ES': ## Spanish or Basque 
+                        text_trans = contents
+                        XML.esXML(contents,emotion,lang,sentiment_analysis) 
+                    elif lang == 'en-US': ## English Emotional
+                        # Sentence translation
+                        text_trans = Translator.translator(contents,'es',lang[0:2])
+                        XML.enSSML(text_trans,emotionAzure,lang) 
+                    #elif lang == 'ja-JP': ## Japanese
+                    #    XML.jpSSML(text_trans,emotionAzure,lang) 
+                    #elif lang == 'fr-FR': ## French
+                    #    XML.frSSML(text_trans,emotionAzure,lang)         
+                    # Reading SSML file
+                    ssml_string = open("Response/respuesta.xml", "r", encoding="utf-8").read()  
+                    # Audio generated
+                    result = speech_synthesizer.speak_ssml_async(ssml_string).get()
+                    # Audio memory stream to file
+                    stream = AudioDataStream(result)
+                    stream.save_to_wav_file("Response/respuesta.wav")  
+                    # Copy for Unreal
+                    if External_file:
+                        stream.save_to_wav_file(Output_file + "/respuesta.wav") 
+                    # Checking the result
+                    if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+                        duration = result.audio_duration
+                        # Wav time
+                        print("Audio duration: {} seconds.".format(duration.total_seconds()))
+                        print("VINETbot: {} <{}>".format(text_trans,emotion))
+                    elif result.reason == speechsdk.ResultReason.Canceled:
+                        cancellation_details = result.cancellation_details
+                        print("Speech synthesis canceled: {}".format(cancellation_details.reason))
+                        if cancellation_details.reason == speechsdk.CancellationReason.Error:
+                            print("Error details: {}".format(cancellation_details.error_details))  
+                    # Close visemes output file used by Unreal 
+                    if External_file:
+                        output_Unreal.close()
+                    output_csv.close()
+                    time.sleep(duration.total_seconds())       
+                elif(str(row['action'])=="listen"):
+                    archi1=open("listening.txt","w") 
+                    archi1.close() 
+                elif(str(row['action'])=="watch"):
+                    output = open("..//..//Kinect.txt","w")
+                    lines = [str(row['response'])]
+                    output.write('\n'.join(lines))
+                    output.close()
+        os.remove('..\\speech.csv')        
         print("--- %s seconds ---" % (time.time() - start_time))
-                           
-"""
-    # Each time a voice file is generated
-    if os.path.exists('..\\speech.txt'):    
-        start_time = time.time()
-        # Visemes output file
-        output_csv = open('Response/visemes.csv','w+',newline='')
-        writer = csv.writer(output_csv, delimiter =';')
-        writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
-        # Create a copy of the output file for Unreal
-        if External_file:
-            output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
-            writerU = csv.writer(output_Unreal, delimiter =';')
-            writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
-        # Get lines from voice file
-        with open('..\\speech.txt','r') as f:
-            linesF = [line.rstrip() for line in f]
-            print(linesF)
-       # Sentence
-        contents = str(linesF[0])
-        # Emotional tag
-        emotion = str(linesF[1])
-        # Language
-        lang = str(linesF[2])
-        # Animation
-        body_anim = str(linesF[3])
-        sentiment_analysis = Sentiment.sentiment(contents,lang)
-        print(sentiment_analysis)
-        # Polarity
-        emo_value = sentiment_analysis ##str(lines[4])
-        # EyesTracking
-        face_pos = str(linesF[5])
-        # Emotional tag for Azure
-        emotionAzure = str(linesF[6])
-        # Sentence translation
-        text_trans = Translator.translator(contents,'es',lang[0:2])
-        # XML - SSML generator
-        if lang == 'es-ES' or lang == 'eu-ES': ## Spanish or Basque
-            XML.esXML(text_trans,emotion,lang,sentiment_analysis) 
-        elif lang == 'en-US': ## English Emotional
-            XML.enSSML(text_trans,emotionAzure,lang) 
-        elif lang == 'ja-JP': ## Japanese
-            XML.jpSSML(text_trans,emotionAzure,lang) 
-        elif lang == 'fr-FR': ## French
-            XML.frSSML(text_trans,emotionAzure,lang)         
-        # Reading SSML file
-        ssml_string = open("Response/respuesta.xml", "r", encoding="utf-8").read()  
-        # Audio generated
-        result = speech_synthesizer.speak_ssml_async(ssml_string).get()
-        # Audio memory stream to file
-        stream = AudioDataStream(result)
-        stream.save_to_wav_file("Response/respuesta.wav")  
-        # Copy for Unreal
-        if External_file:
-            stream.save_to_wav_file(Output_file + "/respuesta.wav") 
-        # Checking the result
-        if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
-            duration = result.audio_duration
-            # Wav time
-            print("Audio duration: {} seconds.".format(duration.total_seconds()))
-            ##print("Audio duration: {}".format(duration))
-            print("Speech synthesis for XML [{}]".format(ssml_string))
-            print("VINETbot: {} <{}>".format(text_trans,emotion))
-        elif result.reason == speechsdk.ResultReason.Canceled:
-            cancellation_details = result.cancellation_details
-            print("Speech synthesis canceled: {}".format(cancellation_details.reason))
-            if cancellation_details.reason == speechsdk.CancellationReason.Error:
-                print("Error details: {}".format(cancellation_details.error_details))  
-        # Close visemes output file used by Unreal 
-        if External_file:
-            output_Unreal.close()
-        output_csv.close()
-        # Remove the voice file for the arrival of the next
-        #shutil.copyfile("Response/visemes.csv", "../../../../Desktop/MH-NEW/CSV/visemes.csv")
-        #shutil.copyfile("Response/visemes.csv", "../../../../Desktop/MH-NEW/CSV/respuesta.wav")
-        os.remove('..\\speech.txt')
-        print("--- %s seconds ---" % (time.time() - start_time))
-        time.sleep(2) 
-"""

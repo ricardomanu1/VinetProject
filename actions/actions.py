@@ -31,8 +31,13 @@ Be = ''
 lang = 'es-ES'
 polarity = 0
 eyesTracking = 0
-objs = ["la entrada","la lucerna","el lacrimario","el cuenco de cerámica","el ara"]
 inter1 = False
+
+## VINET
+objs = ["la entrada","la lucerna","el lacrimario","el cuenco de cerámica","el ara"]
+## Kinect
+watch = False
+watchResponse = ''
 
 # Gestor EBDI
 Emotions = emotions_manager()
@@ -323,7 +328,6 @@ class Say(Action):
             tracker: Tracker,
             domain: Dict[Text, Any],
             resp) -> List[Dict[Text, Any]]:
-        #print('la respuesta es: ' + resp)
 
         hours = str(f"{dt.datetime.now().strftime('%H:%M')}")
         day = the_day(str(f"{dt.datetime.now().strftime('%A')}"))
@@ -342,7 +346,6 @@ class Say(Action):
         contador()
         print("dispatcher: " + str(count))   
         tracker.get_slot('daytime')
-        #print("daytime: " + str(tracker.get_slot('daytime')))  
 
         return []
 
@@ -358,74 +361,48 @@ class To_Speech(Action):
             ) -> List[Dict[Text, Any]]:
         global msg
         global count   
-        global Emotions
+        global Emotions        
 
-        #print("-- Generación de respuestas --")
-
-        #print("daytime: " + str(tracker.get_slot('daytime')))  
-        tracker.get_slot('daytime')
-        txt_responses = ''
-
-        animation_tag = 'informar'      
+        print('----RESPONSES----')  
+        tracker.get_slot('daytime') 
 
         if count > 0:
             msg = get_latest_event(tracker.applied_events())        
             #print(json.dumps(msg[-count:], indent=4))
             responses = msg[-count:]  
-            #print(Emotions.tag())
-            txt = TXT()    
-            CSV().name(responses)
-            print('----RESPONSES----')
-            for e in responses:
-                if 'metadata' in e['metadata']:
-                    if 'subtext' in e['metadata']['metadata']:
-                        print('Animacion: ' + str(e['metadata']['metadata']['subtext']))
-                        animation_tag = str(e['metadata']['metadata']['subtext'])
-                print('- ' + str(e['text']))
-                txt_responses += str(e['text'])
-                txt_responses += ' '            
-            sentence = TXT.name(txt,txt_responses,animation_tag,eyesTracking)
+            CSV().name(responses) 
         count = 0
 
         return []
+
 class Kinect():
     def name(response):
-        output = open("..//Kinect.txt","w+")
-        lines = [str(response)]
-        output.write('\n'.join(lines))
-        output.close()
+        global watch
+        global watchResponse
+        watch = True
+        watchResponse = response
         return "echo"
 
-## Salida de la respuesta emocional en txt
-class TXT():
-    def name(self,response,animation_tag,eyesTracking) -> Text:
-        output = open("speech.txt","w+")
-        print("VINETbot: {} <{}/{}>".format(response,Emotions.estado,Emotions.tag()))
-        #output.write(str(response))
-        lines = [str(response),str(Emotions.estado),lang,animation_tag,str(polarity),str(eyesTracking),str(Emotions.tag())]
-        output.write('\n'.join(lines))
-        output.close()
-        return str(response)
-
+## Salida de las respuestas csv
 class CSV():
     def name(self,responses):
+        global watch, watchResponse
         output_csv = open('speech.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =',')
-        writer.writerow(['response','emotion','language','animation','eyesTracking','emotionAzure'])
+        writer.writerow(['action','response','emotion','language','animation','eyesTracking','emotionAzure'])
         animation_tag = 'informar'  
         for response in responses:
             if 'metadata' in response['metadata']:
                     if 'subtext' in response['metadata']['metadata']:
                         animation_tag = str(response['metadata']['metadata']['subtext'])
-            writer.writerow([str(response['text']), str(Emotions.estado),lang,animation_tag,str(eyesTracking),str(Emotions.tag())])
+            print(' -' + str(response['text']))
+            writer.writerow(['say',str(response['text']), str(Emotions.estado),lang,animation_tag,str(eyesTracking),str(Emotions.tag())])
+        if(watch):
+            writer.writerow(['watch',str(watchResponse)])
+            watch = False
+        else:
+            writer.writerow(['listen'])
         output_csv.close()
-
-## Salida de la respuesta emocional en XML
-class ExecuteEBDI:
-
-    def execute_ebdi(message,tag):   
-        return "echo"
-
 
 ## Se ejecuta una sola vez al principio de una conversacion
 class Dictionary:
@@ -441,16 +418,6 @@ class Dictionary:
                     result_dict[item['value']] = item['synonyms']
         return result_dict
 
-class ActionHelloWorld(Action):
-
-    def name(self) -> Text:
-        return "action_hello_world"
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        print("Hello World")
-        dispatcher.utter_message(text="Hello World!")
-        return []
 
 class You_are(Action):
     def name(self) -> Text:
@@ -485,7 +452,6 @@ class Info_fecha(Action):
              tracker: Tracker,
              domain: Dict[Text,Any]) -> List[Dict[Text, Any]]:        
         entities = tracker.latest_message['entities']
-        #print(entities)
         message = 'Lo siento, no he encontrado nada relacionado con esa fecha'
         for e in entities:
             if e['entity'] == 'fecha':
@@ -527,12 +493,9 @@ class Aprendizaje(Action):
         entities = tracker.latest_message['entities']
         intent = tracker.latest_message['intent']
         text = tracker.latest_message['text']
-        #slot_name = tracker.get_slot('name')
         print(intent)
         print(entities)        
         print(text)
-        #print(tracker.latest_action_name)
-        #print(tracker.slots)
         message = "Comando de aprendizaje"
         dispatcher.utter_message(text=message)
         for e in entities:
