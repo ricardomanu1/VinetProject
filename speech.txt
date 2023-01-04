@@ -2,6 +2,6 @@ Disculpa, no estaba atenta, ¿Qué has dicho?
 anxious
 es-ES
 informar
--0.0
+-1.0
 0
 excited

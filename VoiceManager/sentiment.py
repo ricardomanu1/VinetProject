@@ -9,10 +9,10 @@ class sentiment(object):
 
     def sentiment(self,text,lang):
         documents = [ text ]
-
+        polarityS = 0
         response = self.text_analytics_client.analyze_sentiment(documents, language=lang)
         result = [doc for doc in response if not doc.is_error]
-
+        
         for doc in result:
             polarityS = round(doc.confidence_scores.positive - doc.confidence_scores.negative,1)  
             print(f"Overall sentiment: {doc.sentiment} = {polarityS}")

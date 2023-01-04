@@ -36,7 +36,7 @@ responses:
   utter_cue8:
   - metadata:
       subtext: narrar
-    text: Decían las malas lenguas que el traslado de estos enormes talleres de Italia a la Galia lo hicieron por encontrar buenas tierras, abundante agua y madera… pero sobre todo mano de obra barata.
+    text: Decían las malas lenguas que el traslado de estos enormes talleres de Italia a la Galia lo hicieron por encontrar buenas tierras, abundante agua y madera, pero sobre todo mano de obra barata.
   utter_cue9:
   - metadata:
       subtext: narrar
@@ -69,4 +69,47 @@ responses:
   - metadata:
       subtext: narrar
     text: Eran cerámicas que se extendieron a todos los rincones del imperio y a todas las capas de la sociedad, hoy en día nos las podemos encontrar en las excavaciones de los ricos palacios, pero también en las de las granjas más humildes y apartadas.
-
+  utter_cue17:
+  - metadata:
+      subtext: narrar
+    text: Como empleaban un SIGILUM o sello para la firma, se llama hoy en día Terra Sigillata, que equivale a “cerámica sellada”. 
+  utter_cue18:
+  - metadata:
+      subtext: narrar
+    text: Al tratarse de producciones en serie con formas estándar, que cambian en el tiempo, podemos fechar con estas cerámicas los estratos y contextos en los que se encuentran, a veces en intervalos de 10 o 20 años incluso.
+  utter_cue3_1:
+  - metadata:
+      subtext: narrar
+    text: Los talleres centralizados de cerámica eran impresionantes. 
+  utter_cue3_2:
+  - metadata:
+      subtext: narrar
+    text: Miles de personas trabajaban allí, haciendo vasijas por millones. 
+  utter_cue3_3:
+  - metadata:
+      subtext: narrar
+    text: Tras hacerlas con moldes, levantaban sobre hornos excavados en la tierra una montaña de estas vasijas par cocerlas de una sola vez. 
+  utter_cue3_4:
+  - metadata:
+      subtext: narrar
+    text: Una multitud de comerciantes esperaban para llevarlas a todos los rincones del imperio.
+  utter_cue3_5:
+  - metadata:
+      subtext: narrar
+    text: 'Conseguían piezas finísimas, de una gran calidad, y decoraciones impresionantes: con motivos de plantas, hojas y frutos como la que hemos hallado aquí, pero las había también con animales, escenas de caza, de luchas de gladiadores en el anfiteatro o de carreras de cuádrigas en el circo... ¡y hasta de retratos de emperadores!'
+  utter_cue3_6:
+  - metadata:
+      subtext: narrar
+    text: Tras los talleres galos, a mediados del siglo I d.C.,se abrieron otros talleres en Hispania; cerca de aquí, en el actual Tricio en la Rioja, la sigillata de Tritium Magallum se exportó masivamente por toda la península ibérica y gran parte de la Galia, llegando a lugares tan alejados como Mauritania, germania o Britania.
+  utter_cue3_7:
+  - metadata:
+      subtext: narrar
+    text: La terra sigillata se siguió fabricando, con escasos cambios, y para todo el imperio hasta su final, hacia la segunda mitad del siglo V, y aún más allá.
+  utter_cue3_8:
+  - metadata:
+      subtext: narrar
+    text: Es un ejemplo de producción industrial sostenida en el tiempo durante 700 años! 
+  utter_cue3_9:
+  - metadata:
+      subtext: narrar
+    text: ¿Alguna de las cosas que fabricamos nosotros será taaaan buena que se siga haciendo de la misma manera durante tanto tiempo? Estaríamos hablando del siglo XXVII

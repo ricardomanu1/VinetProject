@@ -32,7 +32,7 @@ responses:
   utter_luc5_s2:
   - metadata:
       subtext: narrar
-    text: Obvio también se utilizaba en la cocina.
+    text: Obvio también se utilizaba en la cocina, por ejemplo, para conservar alimentos.
   utter_luc5_s3:
   - metadata:
       subtext: narrar
