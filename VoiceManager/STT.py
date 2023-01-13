@@ -45,6 +45,7 @@ recognizer = speechsdk.SpeechRecognizer(
     auto_detect_source_language_config=auto_detect_source_language_config, 
     audio_config=audio_config)
 
+
 # Keyword Detection
 ##model = speechsdk.KeywordRecognitionModel("Keywords/2faffcbd-2030-4c7e-86f3-69bceff47a28.table")
 ##keyword = "Sonia"
@@ -130,7 +131,7 @@ while True:
             elif result.reason == speechsdk.ResultReason.NoMatch:
                 print("No speech could be recognized: {}".format(result.no_match_details))
                 # utter_please_rephrase
-                Interaction.know("nlu_fallback")
+                #Interaction.know("nlu_fallback")
             elif result.reason == speechsdk.ResultReason.Canceled:
                 print("Translation canceled: {}".format(result.cancellation_details.reason))
                 if result.cancellation_details.reason == speechsdk.CancellationReason.Error:
