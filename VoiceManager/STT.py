@@ -62,7 +62,7 @@ while True:
         #break
     # Keyword detected
     try:          
-        if os.path.exists('listening.txt'):          
+        if os.path.exists('listening.txt') or keyboard.is_pressed('q'):          
             #if keyboard.is_pressed('q'): #result.reason == speechsdk.ResultReason.RecognizedKeyword:
             print("Di algo...")
             # Waiting for sentence (maximum of 15 seconds of audio)
