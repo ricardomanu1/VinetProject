@@ -28,7 +28,7 @@ responses:
   utter_luc5_s1:
   - metadata:
       subtext: narrar
-    text: Pues, Imaginad la cantidad de aceite que se consumía en iluminar estancias de las casas.
+    text: Pues, imaginad la cantidad de aceite que se consumía en iluminar estancias de las casas.
   utter_luc5_s2:
   - metadata:
       subtext: narrar

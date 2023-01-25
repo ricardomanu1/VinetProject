@@ -8,7 +8,7 @@ responses:
   utter_cue1:
   - metadata:
       subtext: narrar
-    text: Veo que tenéis interés por esa preciosa vasija.
+    text: Tenéis mucho ojo al notar esta preciosa vasija.
   utter_cue2:
   - metadata:
       subtext: narrar

@@ -136,6 +136,7 @@ while True:
                 print("Translation canceled: {}".format(result.cancellation_details.reason))
                 if result.cancellation_details.reason == speechsdk.CancellationReason.Error:
                     print("Error details: {}".format(result.cancellation_details.error_details))
+                    break
             print("--- %s seconds ---" % (time.time() - start_time))
     except:
         continue

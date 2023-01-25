@@ -13,3 +13,9 @@ responses:
   - metadata:
       subtext: preguntar
     text: Curiosa pieza ¿verdad? ¿queréis saber un poco sobre ella?.
+  - metadata:
+      subtext: preguntar
+    text: ¿Queréis conocer más sobre esta pieza?.
+  - metadata:
+      subtext: preguntar
+    text: ¿Os interesa saber un poco sobre ella?.
