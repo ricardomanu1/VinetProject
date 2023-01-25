@@ -29,9 +29,19 @@ class intents_manager(object):
         self.intents.append(('say','utter_estar_miedo',['empatizar','fear'],'a_say','utter_estar_miedo','a_dB','empatizar'))
         self.intents.append(('say','utter_estar_nervioso',['empatizar','anxious'],'a_say','utter_estar_nervioso','a_dB','empatizar'))
         self.intents.append(('say','utter_estar_aburrido',['empatizar','bored'],'a_say','utter_estar_aburrido','a_dB','empatizar'))
-        self.intents.append(('say','utter_estar_emocionado',['empatizar','excited'],'a_say','utter_estar_emocionado','a_dB','empatizar'))
+        self.intents.append(('say','utter_estar_emocionado',['empatizar','surprise'],'a_say','utter_estar_emocionado','a_dB','empatizar'))
         self.intents.append(('say','utter_estar_soledad',['empatizar','lonely'],'a_say','utter_estar_soledad','a_dB','empatizar'))
         self.intents.append(('say','utter_estar_cansado',['empatizar','tired'],'a_say','utter_estar_cansado','a_dB','empatizar'))
+        ## User:'como crees que me siento?'
+        self.intents.append(('say','utter_estado_bien',['analizame','isHappy'],'a_say','utter_estado_bien','a_dB','analizame'))
+        self.intents.append(('say','utter_estado_mal',['analizame','isSad'],'a_say','utter_estado_mal','a_dB','analizame'))
+        self.intents.append(('say','utter_estado_enfado',['analizame','isAnger'],'a_say','utter_estado_enfado','a_dB','analizame'))
+        self.intents.append(('say','utter_estado_miedo',['analizame','isFear'],'a_say','utter_estado_miedo','a_dB','empatizar'))
+        self.intents.append(('say','utter_estado_nerviosismo',['analizame','isAnxious'],'a_say','utter_estado_nerviosismo','a_dB','analizame'))
+        self.intents.append(('say','utter_estado_aburrimiento',['analizame','isBored'],'a_say','utter_estado_aburrimiento','a_dB','analizame'))
+        self.intents.append(('say','utter_estado_emocion',['analizame','isSurprise'],'a_say','utter_estado_emocion','a_dB','analizame'))
+        self.intents.append(('say','utter_estado_soledad',['analizame','isLonely'],'a_say','utter_estado_soledad','a_dB','analizame'))
+        self.intents.append(('say','utter_estado_cansancio',['analizame','isTired'],'a_say','utter_estado_cansancio','a_dB','analizame'))
         ## User:'me pregunta si estoy bien'
         self.intents.append(('say','utter_afirmar',['empatizar_bien','happy'],'a_say','utter_afirmar','a_dB','empatizar_bien'))
         self.intents.append(('say','utter_negar',['empatizar_bien','sad'],'a_say','utter_negar','a_dB','empatizar_bien'))
@@ -46,7 +56,8 @@ class intents_manager(object):
         self.intents.append(('say','utter_ubicarme',['ubicarme'],'a_say','utter_ubicarme','a_dB','ubicarme'))
         self.intents.append(('say','utter_identidad',['identidad'],'a_say','utter_identidad','a_fB','identidad'))
         ## User:'se despide'
-        self.intents.append(('say','utter_despedir',['despedir'],'a_dB','saludar','a_dB','despedir','a_say','utter_despedir'))
+        self.intents.append(('say','utter_despedir',['despedir'],'a_dB','saludar','a_dB','despedir','a_say','utter_despedir','ki','k_reiniciar'))   ## funcion de reinicio
+
         ## User:'me agradece'
         self.intents.append(('say','utter_agradecer',['agradecer'],'a_say','utter_agradecer','a_fB','agradecer'))
         ## User:'me ha dicho como se siente'
@@ -65,7 +76,7 @@ class intents_manager(object):
         ## YO voy a empatizar con el estado de animo del usuario  
         self.intents.append(('say','utter_empatizar_bien',['espero_respuesta','estado_bien'],'a_dB','espero_respuesta','a_dB','estado_bien','a_say','utter_empatizar_bien','a_nB','le_pregunto'))
         self.intents.append(('say','utter_empatizar_mal',['espero_respuesta','estado_mal'],'a_dB','espero_respuesta','a_say', 'utter_empatizar_mal','a_nB','le_animo'))
-        self.intents.append(('say','utter_empatizar_aburrimiento',['espero_respuesta','estado_aburrimiento'],'a_dB','espero_respuesta','a_say','utter_empatizar_aburrimiento','a_nB','dar_hitos_opciones'))
+        self.intents.append(('say','utter_empatizar_aburrimiento',['espero_respuesta','estado_aburrimiento'],'a_dB','espero_respuesta','a_say','utter_empatizar_aburrimiento'))
         ## YO intervengo en el estado de animo del usuario
         self.intents.append(('say','utter_animar',['le_animo'],'a_dB','le_animo','a_say','utter_animar','a_nB','he_preguntado_si_no','a_nB','utter_animar'))
         ## YO pregunto al usuario 
@@ -115,18 +126,20 @@ class intents_manager(object):
         
         self.intents.append(('say','utter_interes_objeto',['v_interes_objeto'],'a_dB','v_interes_objeto','a_say','utter_interes_objeto', 'a_nB', 'objeto_interesante'))
 
-
         self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj1'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj1', 'a_nB', 'vinet_lucerna'))  # llama a la accion action_service_options 
-        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj1'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj1', 'a_say', 'utter_no_solicitar','ki','k_observar'))  # llama a la accion action_service_options
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj1'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj1', 'a_say', 'utter_especificacion','a_nB','elige_opcion'))  # llama a la accion action_service_options
 
         self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj2'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj2', 'a_nB', 'vinet_lacrimario'))  # llama a la accion action_service_options 
-        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj2'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj2', 'a_say', 'utter_no_solicitar','ki','k_observar'))  # llama a la accion action_service_options 
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj2'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj2', 'a_say', 'utter_especificacion','a_nB','elige_opcion'))  # llama a la accion action_service_options 
         
         self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj3'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj3', 'a_nB', 'vinet_cuenco'))  # llama a la accion action_service_options 
-        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj3'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj3', 'a_say', 'utter_no_solicitar','ki','k_observar'))  # llama a la accion action_service_options 
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj3'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj3', 'a_say', 'utter_especificacion','a_nB','elige_opcion'))  # llama a la accion action_service_options 
        
         self.intents.append(('say','objeto_interesante', ['objeto_interesante','afirmar','obj4'],'a_dB','objeto_interesante','a_dB','afirmar','a_dB','obj4', 'a_nB', 'vinet_ara'))  # llama a la accion action_service_options 
-        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj4'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj4', 'a_say', 'utter_no_solicitar','ki','k_observar'))  # llama a la accion action_service_options 
+        self.intents.append(('say','objeto_interesante', ['objeto_interesante','negar','obj4'],'a_dB','objeto_interesante','a_dB','negar','a_dB','obj4', 'a_say', 'utter_especificacion','a_nB','elige_opcion'))  # llama a la accion action_service_options   
+        
+        self.intents.append(('say','elige_opcion', ['elige_opcion','afirmar'],'a_dB','elige_opcion','a_dB','afirmar','a_say', 'utter_especifica'))  # llama a la accion action_service_options
+        self.intents.append(('say','elige_opcion', ['elige_opcion','negar'],'a_dB','elige_opcion','a_dB','negar','a_say', 'utter_no_solicitar','ki','k_observar'))  # llama a la accion action_service_options
         
 
      ## Cuenco de ceramica Hilo     
@@ -141,7 +154,7 @@ class intents_manager(object):
         self.intents.append(('say', 'utter_cue10', ['utter_cue10'],'a_dB','utter_cue10','a_say', 'utter_cue10','a_say', 'utter_cue11','a_say', 'utter_cue12'
                              'a_say', 'utter_cue13','a_say', 'utter_cue14','a_say', 'utter_cue15','a_say', 'utter_cue16','a_nB','prof_cue1','ki','k_observar'))
      ## Lacrimario
-        self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say', 'utter_lac1'))
+        self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say', 'utter_lac1','ki','k_observar'))
 
      ## Lucerna
         self.intents.append(('say', 'utter_luc1', ['vinet_lucerna'],'a_dB','vinet_lucerna','a_say','utter_luc1','a_say','utter_luc2','a_say','utter_luc3',
@@ -150,15 +163,19 @@ class intents_manager(object):
         self.intents.append(('say','utter_luc5_s1', ['utter_luc5_s1','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','utter_luc5_s1', 
                             'a_say', 'utter_luc5_s1', 'a_say', 'utter_luc5_s2',  'a_say', 'utter_luc5_s3','a_say', 'utter_luc5_s4','a_nB','utter_luc6'))
             ## pregunta_lucerna (negar)
-        self.intents.append(('say','utter_luc5_n1', ['utter_luc5_s1','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no',  'a_dB','negar', 'a_dB','utter_luc5_n1',
+        self.intents.append(('say','utter_luc5_n1', ['utter_luc5_s1','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no', 'a_dB','negar', 'a_dB','utter_luc5_n1',
                             'a_say', 'utter_luc5_n1','a_nB','utter_luc6'))
             ## Cierra_lucerna
         self.intents.append(('say','utter_luc6', ['utter_luc6'],'a_dB','utter_luc6', 'a_say', 'utter_luc6', 'a_say', 'utter_luc7', 'a_say', 'utter_luc8', 'a_say', 'utter_luc9','a_nB','prof_luc1','ki','k_observar'))
             ## Lucerna profundidad 1
-        self.intents.append(('say', 'utter_luc7_a1', ['vinet_lucerna','prof_luc1'],'a_dB','vinet_lucerna','a_dB','prof_luc1','a_say','utter_luc7_a1','a_say','utter_luc7_a2','a_say','utter_luc7_a3','a_nB','prof_luc2','ki','k_observar'))
+        self.intents.append(('say', 'utter_luc7_a1', ['vinet_lucerna','prof_luc1'],'a_dB','vinet_lucerna','a_dB','prof_luc1','a_say','utter_luc7_a1','a_say','utter_luc7_a2','a_say','utter_luc7_a3','a_nB','prof_luc_final','ki','k_observar'))
+            ## Lucerna profundidad final
+        self.intents.append(('say', 'sin_informacion', ['vinet_lucerna','prof_luc_final'],'a_dB','vinet_lucerna','a_say','utter_sin_informacion','a_say','utter_reiniciar_informacion', 'a_nB','reiniciar_informacion_luc'))
+        self.intents.append(('say', 'reiniciar_informacion', ['reiniciar_informacion_luc','afirmar'],'a_dB','reiniciar_informacion','a_dB','afirmar','a_dB','prof_luc_final','a_say','utter_no_solicitar','ki','k_observar'))
+        self.intents.append(('say', 'reiniciar_informacion', ['reiniciar_informacion_luc','negar'],'a_dB','reiniciar_informacion','a_dB','negar','a_say','utter_no_solicitar','ki','k_observar'))
         
      ## ara
-        self.intents.append(('say', 'utter_ara1', ['vinet_ara'],'a_dB','vinet_ara','a_say', 'utter_ara1'))
+        self.intents.append(('say', 'utter_ara1', ['vinet_ara'],'a_dB','vinet_ara','a_say', 'utter_ara1','ki','k_observar'))
 
         ## Emoción entrante
         #self.intents.append(('know', 'isHappy', ['isHappy'],'a_dB','isHappy'))

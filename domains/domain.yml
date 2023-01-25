@@ -5,6 +5,7 @@ session_config:
 intents:
 - afirmar
 - agradecer
+- analizame
 - atencion
 - cantidad
 - despedir
@@ -82,22 +83,29 @@ slots:
       - evening  
     influence_conversation: true
 responses:
+# saludar 
   utter_saludar:
   - condition:
       - type: slot
         name: daytime
         value: "morning"
     text: "Buenos días."
+    metadata:
+      subtext: saludar 
   - condition:
       - type: slot
         name: daytime
         value: "afternoon"
     text: "Buenas tardes."
+    metadata:
+      subtext: saludar 
   - condition:
       - type: slot
         name: daytime
         value: "evening"
     text: "Buenas noches."
+    metadata:
+      subtext: saludar 
   - metadata:
       subtext: saludar
     text: Hola.
@@ -107,6 +115,8 @@ responses:
   - metadata:
       subtext: saludar
     text: ¡Hola!
+
+# Empatizar
   utter_empatizar:
   - metadata:
       subtext: informar     
@@ -135,6 +145,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Genial.
+
+# Despedir
   utter_despedir:
   - metadata:
       subtext: despedir
@@ -184,10 +196,14 @@ responses:
   - metadata:
       subtext: despedir     
     text: Que la fuerza te acompañe.
+
+# Afirmar
   utter_afirmar:
   - metadata:
       subtext: informar     
     text: Sí.
+
+# Afirmativo
   utter_afirmativo:
   - metadata:
       subtext: informar     
@@ -243,10 +259,14 @@ responses:
   - metadata:
       subtext: informar     
     text: Estupendo.
+
+# Negar
   utter_negar:
   - metadata:
       subtext: informar     
     text: No.
+
+# Negativo
   utter_negativo:
   - metadata:
       subtext: informar     
@@ -275,6 +295,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Ni lo pienses. 
+
+# Agradecer
   utter_agradecer:
   - metadata:
       subtext: informar     
@@ -282,6 +304,8 @@ responses:
   - metadata:
       subtext: informar     
     text: No hay de qué.
+
+# Solicitar
   utter_solicitar:
   - metadata:
       subtext: preguntar     
@@ -292,6 +316,8 @@ responses:
   - metadata:
       subtext: preguntar     
     text: ¿Sabes de algún tema que te pueda interesar?
+
+# No solicitar
   utter_no_solicitar:
   - metadata:
       subtext: informar     
@@ -302,10 +328,14 @@ responses:
   - metadata:
       subtext: informar     
     text: Bien.
+
+# Atencion
   utter_atencion:
   - metadata:
       subtext: informar     
     text: ¡Atención!
+
+# El usuario esta bien
   utter_estado_bien:
   - metadata:
       subtext: preguntar     
@@ -313,10 +343,14 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras bien.
+
+# El usuario esta mal
   utter_estado_mal:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras mal.
+
+# El usuario esta enfadado
   utter_estado_enfado:
   - metadata:
       subtext: informar     
@@ -324,10 +358,14 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras enfadada.
+
+# El usuario esta asustado
   utter_estado_miedo:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras con miedo.
+
+# El usuario esta nervioso
   utter_estado_nerviosismo:
   - metadata:
       subtext: informar     
@@ -335,6 +373,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras nerviosa.
+
+# El usuario esta aburrido
   utter_estado_aburrimiento:
   - metadata:
       subtext: informar     
@@ -342,6 +382,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras aburrida.
+
+# El usuario esta emocionado
   utter_estado_emocion:
   - metadata:
       subtext: informar     
@@ -349,6 +391,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras emocionado.
+
+# El usuario se siente solo
   utter_estado_soledad:
   - metadata:
       subtext: preguntar     
@@ -356,6 +400,8 @@ responses:
   - metadata:
       subtext: preguntar     
     text: ¿Te sientes sola?
+
+# El usuario esta cansando
   utter_estado_cansancio:
   - metadata:
       subtext: informar     
@@ -363,6 +409,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Te noto algo cansada.
+
+# El usuario quiere saber mi identidad
   utter_identidad:
   - metadata:
       subtext: informar     
@@ -370,6 +418,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Soy un bot creada en un ordenador.
+
+# Saludo a una persona conocida
   utter_presentacion:
   - metadata:
       subtext: informar     
@@ -377,13 +427,17 @@ responses:
   - metadata:
       subtext: informar     
     text: Hola de nuevo {name}
+
+# No se tiene respuesta en el dominio
   utter_out_of_scope:
   - metadata:
       subtext: informar     
-    text: Lo siento. No se responder esa solicitud.
+    text: No se responder esa solicitud.
   - metadata:
       subtext: informar     
-    text: Lo siento. Se escapa a mis conocimientos
+    text: Se escapa a mis conocimientos
+
+# No se escucha sonido o solo hay ruido
   utter_please_rephrase:
   - metadata:
       subtext: informar     
@@ -391,6 +445,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Disculpa, no estaba atenta, ¿Qué has dicho?
+
+# Interes por el usuario
   utter_interes:
   - metadata:
       subtext: preguntar     
@@ -407,6 +463,8 @@ responses:
   - metadata:
       subtext: preguntar     
     text: ¿Cómo estás?
+
+# Empatizar bien
   utter_empatizar_bien:
   - metadata:
       subtext: informar     
@@ -420,6 +478,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Genial.
+
+# Empatizar mal
   utter_empatizar_mal:
   - metadata:
       subtext: informar     
@@ -430,34 +490,80 @@ responses:
   - metadata:
       subtext: informar     
     text: Lo siento.
+
+# Empatizar al aburrimiento
   utter_empatizar_aburrimiento:
   - metadata:
       subtext: preguntar
     text: ¿Puedo hablarte de alguno de estos temas tan interesantes?
+
+# Empatizar al cansancio
   utter_empatizar_cansancio:
   - metadata:
       subtext: informar     
-    text: Vaya...
+    text: Hasta la mejor persona se cansa de mover montañas por quién no mueve por ella ni una piedra.
+  - metadata:
+      subtext: informar     
+    text: Procura hidratarte y descansar lo suficiente..
+  - metadata:
+      subtext: informar     
+    text: Alimentate bien para recuperar las energías.
+
+# Empatizar al enfado
   utter_empatizar_enfado:
   - metadata:
       subtext: informar     
-    text: Vaya...
+    text: Lamento mucho que te sientas así. ¿Puedes comentarme qué pasó?
+  - metadata:
+      subtext: informar     
+    text: ¿Podrías decirme qué hice o dije que hizo que te sientas así?
+  - metadata:
+      subtext: informar     
+    text: Es completamente comprensible que te sientas así.
+
+# Empatizar al miedo
   utter_empatizar_miedo:
   - metadata:
       subtext: informar     
-    text: Vaya...
+    text: Vamos, tranquilo, no pasa nada.
+  - metadata:
+      subtext: informar     
+    text: Estoy aquí contigo.
+  - metadata:
+      subtext: informar     
+    text: ¿Te ayudaría si estoy a tu lado hasta que se te pase?
+  - metadata:
+      subtext: informar     
+    text: ¿Qué puedo hacer para ayudarte?.
+  - metadata:
+      subtext: informar     
+    text: Es normal que sientas miedo, son sensaciones desagradables, pero no son peligrosas y se pasarán.
+
+ # Empatizar al nerviosismo
   utter_empatizar_nerviosismo:
   - metadata:
       subtext: informar     
-    text: Vaya...
+    text: Es normal estar nervioso, tomate un respiro muy profundo.
+
+# Empatizar a la soledad
   utter_empatizar_soledad:
   - metadata:
       subtext: informar     
-    text: Vaya...
+    text: Oh querido. ¿Te gustaría hablar con alguien sobre esto?
+  - metadata:
+      subtext: informar     
+    text: Lamento que te sientas así. ¿Hay algo que pueda hacer para ayudarte?
+  - metadata:
+      subtext: informar     
+    text: Siempre estaré aquí si necesitas hablar.
+
+# Empatizar a la emocion
   utter_empatizar_emocion:
   - metadata:
       subtext: informar     
-    text: Vaya...
+    text: ¡Genial!
+
+# Animar
   utter_animar:
   - metadata:
       subtext: preguntar     
@@ -465,6 +571,8 @@ responses:
   - metadata:
       subtext: preguntar     
     text: ¿Quieres escuchar algo entretenido?
+
+# Conocer el interes del usuario
   utter_preguntar:
   - metadata:
       subtext: preguntar     
@@ -481,6 +589,8 @@ responses:
   - metadata:
       subtext: preguntar     
     text: ¿Qué se te ofrece?
+
+# Ofrecer opciones
   utter_dar_opciones:
   - metadata:
       subtext: narrar     
@@ -491,10 +601,14 @@ responses:
   - metadata:
       subtext: narrar     
     text: Te puedo recomendar estos temas.
+
+# Atender una solicitud
   utter_atender:
   - metadata:
       subtext: informar     
     text: Ya veo, quieres saber sobre esto.
+
+# requerir confirmacion
   utter_confirmacion:
   - metadata:
       subtext: preguntar     
@@ -502,6 +616,8 @@ responses:
   - metadata:
       subtext: preguntar     
     text: ¿Quieres saber más?
+
+# Solicitar especificación
   utter_especifica:
   - metadata:
       subtext: informar     
@@ -512,6 +628,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Sé más concreto.
+
+# Mayor especificación
   utter_especificar:
   - metadata:
       subtext: preguntar     
@@ -525,6 +643,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Concreta que es lo que quieres.
+
+# Mi estado emocional bien
   utter_estar_bien:
   - metadata:
       subtext: informar     
@@ -622,6 +742,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Pues aquí estamos.
+
+# Mi estado emocional mal
   utter_estar_mal:
   - metadata:
       subtext: informar     
@@ -644,12 +766,6 @@ responses:
   - metadata:
       subtext: informar     
     text: DecaídA.
-  - metadata:
-      subtext: informar     
-    text: Fue un día horrible.
-  - metadata:
-      subtext: informar     
-    text: Infeliz.
   - metadata:
       subtext: informar     
     text: Estoy triste.
@@ -694,9 +810,6 @@ responses:
     text: Me siento muy triste.
   - metadata:
       subtext: informar     
-    text: Esto es deprimente.
-  - metadata:
-      subtext: informar     
     text: Estoy deprimida.
   - metadata:
       subtext: informar     
@@ -716,9 +829,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Muy triste.
-  - metadata:
-      subtext: informar     
-    text: Mala.
   - metadata:
       subtext: informar     
     text: Terrible.
@@ -745,16 +855,9 @@ responses:
     text: Estoy inquieta.
   - metadata:
       subtext: informar     
-    text: En realidad no estoy bien.
-  - metadata:
-      subtext: informar     
-    text: Estoy tan sola como puedo.
-  - metadata:
-      subtext: informar     
     text: Estoy pasando por un momento bastante difícil.
-  - metadata:
-      subtext: informar     
-    text: Estoy de duelo.
+
+ # Mi estado emocional enfado
   utter_estar_enfadado:
   - metadata:
       subtext: informar     
@@ -846,6 +949,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Todavía estoy enojado por eso.
+
+# Mi estado emocional miedo
   utter_estar_miedo:
   - metadata:
       subtext: informar     
@@ -882,28 +987,18 @@ responses:
     text: Tengo un mal presentimiento.
   - metadata:
       subtext: informar     
-    text: Entre en pánico.
-  - metadata:
-      subtext: informar     
-    text: Me encogí de miedo.
-  - metadata:
-      subtext: informar     
     text: Estoy muerto de miedo.
   - metadata:
       subtext: informar     
     text: Estalle en un sudor frío.
   - metadata:
       subtext: informar     
-    text: ¡Eso me sobresalto!
-  - metadata:
-      subtext: informar     
-    text: Me asusta fácilmente.
-  - metadata:
-      subtext: informar     
     text: Estoy temblando de miedo.
   - metadata:
       subtext: informar     
     text: Estoy horrorizada.
+
+# Mi estado emocional nervios
   utter_estar_nervioso:
   - metadata:
       subtext: informar     
@@ -937,25 +1032,10 @@ responses:
     text: Soy un manojo de nervios.
   - metadata:
       subtext: informar     
-    text: Estoy empezando a sudar frío.
-  - metadata:
-      subtext: informar     
-    text: Le tengo miedo a mi propia sombra.
-  - metadata:
-      subtext: informar     
-    text: Soy como una gata sobre ladrillos calientes
-  - metadata:
-      subtext: informar     
     text: Estoy saltando fuera de mi piel.
   - metadata:
       subtext: informar     
-    text: Estoy al borde de mi ingenio.
-  - metadata:
-      subtext: informar     
     text: Tengo la lengua atada.
-  - metadata:
-      subtext: informar     
-    text: Estoy al borde.
   - metadata:
       subtext: informar     
     text: Estoy muy tensa.
@@ -988,9 +1068,6 @@ responses:
     text: Me he sentido bastante ansioso últimamente.
   - metadata:
       subtext: informar     
-    text: Mi ansiedad está por las nubes estos días.
-  - metadata:
-      subtext: informar     
     text: Me siento bastante inquieta.
   - metadata:
       subtext: informar     
@@ -1021,13 +1098,9 @@ responses:
     text: Me encuentro preocupando por cada pequeño detalle.
   - metadata:
       subtext: informar     
-    text: Soy una preocupada crónica.
-  - metadata:
-      subtext: informar     
-    text: Me siento bastante inquieto y una horda de preocupaciones me está molestando.
-  - metadata:
-      subtext: informar     
     text: No puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan.
+
+# Mi estado emocional aburrimiento
   utter_estar_aburrido:
   - metadata:
       subtext: informar     
@@ -1044,12 +1117,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Me estoy aburriendo.
-  - metadata:
-      subtext: informar     
-    text: Quedarse en casa es aburrido.
-  - metadata:
-      subtext: informar     
-    text: Me aburre.
   - metadata:
       subtext: informar     
     text: Tuve un día lento.
@@ -1083,6 +1150,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Estoy loca de aburrimiento.
+
+# Mi estado emocional emocionado
   utter_estar_emocionado:
   - metadata:
       subtext: informar     
@@ -1111,6 +1180,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Esto es tan divertido.
+
+# Mi estado emocional soledad
   utter_estar_soledad:
   - metadata:
       subtext: informar     
@@ -1160,6 +1231,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Estoy acostumbrado a vivir sola.
+
+# Mi estado emocional cansado
   utter_estar_cansado:
   - metadata:
       subtext: informar     
@@ -1221,26 +1294,38 @@ responses:
   - metadata:
       subtext: informar     
     text: Pues algo cansada.
+
+# Comentar un hito
   utter_hito:
   - metadata:
       subtext: informar     
     text: Aquí te hablo del hito que has solicitado {milestone}...
+
+# Elegir un hito
   utter_hitos_opciones:
   - metadata:
       subtext: informar     
     text: Elige
+
+# Pronombre interrogativo
   utter_pronombre_interrogativo:
   - metadata:
       subtext: preguntar     
     text: ¿Cuál?
+
+# hora
   utter_responder_hora:
   - metadata:
       subtext: informar     
     text: Son las {hours}
+
+# Dia
   utter_responder_dia:
   - metadata:
       subtext: informar     
     text: Hoy es {day}
+
+# numero de personas
   utter_conocer_personas:
   - metadata:
       subtext: informar     
@@ -1248,6 +1333,8 @@ responses:
   - metadata:
       subtext: informar     
     text: Hay {people} personas en el grupo.
+
+# posicion del grupo
   utter_hito_grupo:
   - metadata:
       subtext: informar     
@@ -1255,6 +1342,8 @@ responses:
   - metadata:
       subtext: informar     
     text: El grupo se ha posicionado en el objeto {zone}.  
+
+# interes por objeto
   utter_interes_grupo:
   - metadata:
       subtext: informar     
@@ -1262,27 +1351,57 @@ responses:
   - metadata:
       subtext: informar     
     text: Hay una gran parte de vosotros en {object}.  
+
+# silencio
   utter_silencio:
   - metadata:
       subtext: informar    
     text: '.'
+
+# Dar la bienvenida
   utter_bienvenida:
   - metadata:
       subtext: informar    
-    text: 'Bienvenidos.'
+    text: Bienvenidos.
   - metadata:
       subtext: informar    
-    text: 'Bienvenidas.'
+    text: Bienvenidas.
   - metadata:
       subtext: informar    
-    text: 'Bienvenidos a este recinto.'
+    text: Bienvenidos a este recinto.
   - metadata:
       subtext: informar    
-    text: 'Bienvenidas a este recinto.'
+    text: Bienvenidas a este recinto.
+
+# usar camaras
   utter_mirar:
   - metadata:
       subtext: informar    
-    text: 'Podeis pasearos por la sala y mirar los objetos que se encuentran por aquí.'
+    text: Podeis pasearos por la sala y mirar los objetos que se encuentran por aquí.
+
+# realizar la especificacion
+  utter_especificacion:
+  - metadata:
+      subtext: preguntar  
+    text: ¿Tienes alguna duda o alguna pregunta?
+  - metadata:
+      subtext: preguntar  
+    text: ¿Hay algo que quieras saber en particular?
+
+# sin informacion
+  utter_sin_informacion:
+  - metadata:
+      subtext: informar  
+    text: No tengo mas información que darte sobre {object}
+  - metadata:
+      subtext: informar  
+    text: Ya no conozco mas datos sobre {object}"
+
+# reiniciar informacion
+  utter_reiniciar_informacion:
+  - metadata:
+      subtext: preguntar  
+    text: ¿Quiéres reiniciar la información sobre este objeto?
 
 actions:
 - aprendizaje

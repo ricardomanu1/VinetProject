@@ -36,6 +36,11 @@ nlu:
     - gracias sonia.
     - gracias colega.
     - genial, gracias.
+- intent: analizame
+  examples: |
+    - ¿Cómo me notas?
+    - ¿Cómo me ves?
+    - ¿Cómo crees que me siento?
 - intent: atencion
   examples: |
     - oye.
@@ -444,3 +449,4 @@ nlu:
     - ¿cuánto es 2 + 2?.
     - ¿cuánto es 2 + 2?.
     - ¿qué es 2 + 2?.
+
