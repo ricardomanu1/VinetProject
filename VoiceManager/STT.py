@@ -4,6 +4,29 @@ from interaction_manager import interaction_manager
 from translator import translator
 from sentiment import sentiment
 
+def SentimentToEmotion(s):
+    global Emotions
+    print(s)
+    if s <= 1.0:
+        e = Emotions[8]  
+    if s <= 0.35:
+        e = Emotions[7]  
+    if s <= 0.15:
+        e = Emotions[6]  
+    if s <= -0.15:
+        e = Emotions[5]  
+    if s <= -0.30:
+        e = Emotions[4]
+    if s <= -0.45:
+        e = Emotions[3]
+    if s <= -0.60:
+        e = Emotions[2]  
+    if s <= -0.70:
+        e = Emotions[1]  
+    if s <= -0.8:
+        e = Emotions[0]    
+    return e
+
 with open('..\\..\\AzureKeys.txt') as f:
     lines = [line.rstrip() for line in f]
     print(lines)
@@ -23,7 +46,7 @@ Sentiment = sentiment(sentiment_key)
 
 flag = 1
 # Sentiments list inputs
-Emotions = ['isHappy','isSad','isFear','isAnger','isSurprise','isBored','isAnxious','isLonely','isTired']
+Emotions = ['isSad','isAnger','isFear','isAnxious','isTired','isLonely','isBored','isSurprise','isHappy']
 
 # Voice service configuration
 service_region = "westeurope"
@@ -90,6 +113,7 @@ while True:
                         text_trans = Translator.translator(result.text,detected_src_lang[0:2],'es')
                     # System to detect polarity from audio (positive,negative,neutral)
                     sentiment_analysis = Sentiment.sentiment(result.text,detected_src_lang[0:2])
+                    ##emotion = SentimentToEmotion(sentiment_analysis)
                     # Send the spanish translation to Rasa
                     Interaction.say(text_trans,detected_src_lang,emotion,sentiment_analysis)  
                     os.remove('listening.txt')
@@ -113,6 +137,7 @@ while True:
                         break
                     # System to detect polarity from audio (positive,negative,neutral)
                     sentiment_analysis = Sentiment.sentiment(result.text,detected_src_lang[0:2])
+                    ##emotion = SentimentToEmotion(sentiment_analysis)
                     # Send the spanish translation to Rasa
                     Interaction.say(result.text,detected_src_lang,emotion,sentiment_analysis)
                     os.remove('listening.txt')
@@ -122,6 +147,7 @@ while True:
                 print("""Input: {}\n Translation to Spanish: {}""".format(
                         result.text, result.translations['es']))##, result.translations['en'], result.translations['eu'], result.translations['fr'], result.translations['ja']))
                 sentiment_analysis = Sentiment.sentiment(result.text,detected_src_lang[0:2])
+                ##emotion = SentimentToEmotion(sentiment_analysis)
                 if (str(result.translations['es']) == 'Apagar sistema.'):
                     print("Apagando sistema...")
                     break
@@ -140,3 +166,5 @@ while True:
             print("--- %s seconds ---" % (time.time() - start_time))
     except:
         continue
+
+

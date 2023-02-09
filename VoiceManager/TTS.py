@@ -43,14 +43,14 @@ audio_config = speechsdk.AudioConfig(use_default_microphone=False, filename = "R
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config,audio_config=audio_config)
 
 # Visemes output file
-output_csv = open('Response/visemes.csv','w+',newline='')
+output_csv = open('Response/visemes.csv','r+',newline='')
 writer = csv.writer(output_csv, delimiter =';')
 writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
 
 # Visemes output file used by Unreal 
 if (os.path.exists(Output_file)):
     External_file = True
-    output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
+    output_Unreal = open(Output_file + '/visemes.csv','r+',newline='')
     writerU = csv.writer(output_Unreal, delimiter =';')
     writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
 
@@ -86,12 +86,12 @@ while True:
             for row in csv_reader:
                 if(str(row['action'])=="say"):
                     # Visemes output file
-                    output_csv = open('Response/visemes.csv','w+',newline='')
+                    output_csv = open('Response/visemes.csv','r+',newline='')
                     writer = csv.writer(output_csv, delimiter =';')
                     writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
                     # Create a copy of the output file for Unreal
                     if External_file:
-                        output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
+                        output_Unreal = open(Output_file + '/visemes.csv','r+',newline='')
                         writerU = csv.writer(output_Unreal, delimiter =';')
                         writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
                     print(row)

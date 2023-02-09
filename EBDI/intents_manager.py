@@ -18,10 +18,10 @@ class intents_manager(object):
         ## Usuario se presenta
         self.intents.append(('say','utter_presentacion',['presentacion'],'a_dB','presentacion','a_say','utter_presentacion'))
         ## User:'me saluda'
-        self.intents.append(('say','utter_saludar',['saludar','happy'],'a_say','utter_saludar','a_fB','saludar','a_nB','muestro_interes','a_nB','espero_respuesta'))
+        self.intents.append(('say','utter_saludar',['saludar','happy'],'a_say','utter_saludar','a_dB','saludar','a_nB','muestro_interes','a_nB','espero_respuesta'))
 
-        self.intents.append(('say','utter_saludar',['saludar','sad'],'a_say','utter_saludar','a_fB','saludar'))
-        self.intents.append(('say','utter_saludar',['saludar'],'a_say','utter_saludar','a_fB','saludar'))
+        self.intents.append(('say','utter_saludar',['saludar','sad'],'a_say','utter_saludar','a_dB','saludar'))
+        self.intents.append(('say','utter_saludar',['saludar'],'a_say','utter_saludar','a_dB','saludar'))
         ## User:'quiere saber mi estado de ánimo'
         self.intents.append(('say','utter_estar_bien',['empatizar','happy'],'a_say','utter_estar_bien','a_dB','empatizar'))
         self.intents.append(('say','utter_estar_mal',['empatizar','sad'],'a_say','utter_estar_mal','a_dB','empatizar'))
@@ -144,29 +144,29 @@ class intents_manager(object):
 
      ## Cuenco de ceramica Hilo     
         self.intents.append(('say', 'utter_cue1', ['vinet_cuenco'],'a_dB','vinet_cuenco','a_say', 'utter_cue1','a_say', 'utter_cue2','a_say', 'utter_cue3',
-                            'a_say', 'utter_cue4','a_say', 'utter_cue5','a_say', 'utter_cue6','a_say', 'utter_cue7', 'a_nB','he_preguntado_si_no', 'a_nB','utter_cue7')) 
+                            'a_say', 'utter_cue4','a_say', 'utter_cue5','a_say', 'utter_cue6','a_say', 'utter_cue7', 'a_nB','he_preguntado_si_no', 'a_nB','cuenco_7')) 
             ## pregunta_cuenco (afirmar)
-        self.intents.append(('say','utter_cue8', ['utter_cue7','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','utter_cue7',  
-                            'a_say', 'utter_cue8', 'a_say', 'utter_cue9', 'a_nB','utter_cue10'))
+        self.intents.append(('say','utter_cue8', ['cuenco_7','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','cuenco_7',  
+                            'a_say', 'utter_cue8', 'a_say', 'utter_cue9', 'a_nB','cuenco_10'))
             ## pregunta_cuenco (negar)
-        self.intents.append(('say', 'utter_cue10', ['utter_cue7','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no','a_dB','utter_cue7', 'a_nB','utter_cue10'))
+        self.intents.append(('say', 'utter_cue10', ['cuenco_7','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no','a_dB','negar','a_dB','cuenco_7', 'a_nB','cuenco_10'))
             ## Cierra_lucerna
-        self.intents.append(('say', 'utter_cue10', ['utter_cue10'],'a_dB','utter_cue10','a_say', 'utter_cue10','a_say', 'utter_cue11','a_say', 'utter_cue12'
+        self.intents.append(('say', 'utter_cue10', ['cuenco_10'],'a_dB','cuenco_10','a_say', 'utter_cue10','a_say', 'utter_cue11','a_say', 'utter_cue12'
                              'a_say', 'utter_cue13','a_say', 'utter_cue14','a_say', 'utter_cue15','a_say', 'utter_cue16','a_nB','prof_cue1','ki','k_observar'))
      ## Lacrimario
         self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say', 'utter_lac1','ki','k_observar'))
 
      ## Lucerna
         self.intents.append(('say', 'utter_luc1', ['vinet_lucerna'],'a_dB','vinet_lucerna','a_say','utter_luc1','a_say','utter_luc2','a_say','utter_luc3',
-                             'a_say','utter_luc4','a_say','utter_luc5','a_nB','he_preguntado_si_no','a_nB','utter_luc5_s1'))        
+                             'a_say','utter_luc4','a_say','utter_luc5','a_nB','he_preguntado_si_no','a_nB','lucerna_5'))        
             ## pregunta_lucerna (afirmar)
-        self.intents.append(('say','utter_luc5_s1', ['utter_luc5_s1','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','utter_luc5_s1', 
-                            'a_say', 'utter_luc5_s1', 'a_say', 'utter_luc5_s2',  'a_say', 'utter_luc5_s3','a_say', 'utter_luc5_s4','a_nB','utter_luc6'))
+        self.intents.append(('say','utter_luc5_s1', ['lucerna_5','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','lucerna_5', 
+                            'a_say', 'utter_luc5_s1', 'a_say', 'utter_luc5_s2',  'a_say', 'utter_luc5_s3','a_say', 'utter_luc5_s4','a_nB','lucerna_6'))
             ## pregunta_lucerna (negar)
-        self.intents.append(('say','utter_luc5_n1', ['utter_luc5_s1','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no', 'a_dB','negar', 'a_dB','utter_luc5_n1',
-                            'a_say', 'utter_luc5_n1','a_nB','utter_luc6'))
+        self.intents.append(('say','utter_luc5_n1', ['lucerna_5','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no', 'a_dB','negar', 'a_dB','lucerna_5',
+                            'a_say', 'utter_luc5_n1','a_nB','lucerna_6'))
             ## Cierra_lucerna
-        self.intents.append(('say','utter_luc6', ['utter_luc6'],'a_dB','utter_luc6', 'a_say', 'utter_luc6', 'a_say', 'utter_luc7', 'a_say', 'utter_luc8', 'a_say', 'utter_luc9','a_nB','prof_luc1','ki','k_observar'))
+        self.intents.append(('say','utter_luc6', ['lucerna_6'],'a_dB','lucerna_6', 'a_say', 'utter_luc6', 'a_say', 'utter_luc7', 'a_say', 'utter_luc8', 'a_say', 'utter_luc9','a_nB','prof_luc1','ki','k_observar'))
             ## Lucerna profundidad 1
         self.intents.append(('say', 'utter_luc7_a1', ['vinet_lucerna','prof_luc1'],'a_dB','vinet_lucerna','a_dB','prof_luc1','a_say','utter_luc7_a1','a_say','utter_luc7_a2','a_say','utter_luc7_a3','a_nB','prof_luc_final','ki','k_observar'))
             ## Lucerna profundidad final
