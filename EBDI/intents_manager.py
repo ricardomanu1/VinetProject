@@ -143,16 +143,19 @@ class intents_manager(object):
         
 
      ## Cuenco de ceramica Hilo     
-        self.intents.append(('say', 'utter_cue1', ['vinet_cuenco'],'a_dB','vinet_cuenco','a_say', 'utter_cue1','a_say', 'utter_cue2','a_say', 'utter_cue3',
-                            'a_say', 'utter_cue4','a_say', 'utter_cue5','a_say', 'utter_cue6','a_say', 'utter_cue7', 'a_nB','he_preguntado_si_no', 'a_nB','cuenco_7')) 
+        self.intents.append(('say', 'utter_cue1', ['vinet_cuenco'],'a_dB','vinet_cuenco','a_say', 'utter_cue1','a_say', 'utter_cue2','a_say', 'utter_cue3', 'a_say', 'utter_cue4','a_say', 'utter_cue5','a_say', 'utter_cue6','a_say', 'utter_cue7', 'a_nB','he_preguntado_si_no', 'a_nB','cuenco_7')) 
             ## pregunta_cuenco (afirmar)
-        self.intents.append(('say','utter_cue8', ['cuenco_7','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','cuenco_7',  
+        self.intents.append(('say','utter_cue8', ['cuenco_7','he_preguntado_si_no','afirmar'],'a_dB','he_preguntado_si_no', 'a_dB','afirmar', 'a_dB','cuenco_7', 
                             'a_say', 'utter_cue8', 'a_say', 'utter_cue9', 'a_nB','cuenco_10'))
             ## pregunta_cuenco (negar)
         self.intents.append(('say', 'utter_cue10', ['cuenco_7','he_preguntado_si_no','negar'],'a_dB','he_preguntado_si_no','a_dB','negar','a_dB','cuenco_7', 'a_nB','cuenco_10'))
-            ## Cierra_lucerna
-        self.intents.append(('say', 'utter_cue10', ['cuenco_10'],'a_dB','cuenco_10','a_say', 'utter_cue10','a_say', 'utter_cue11','a_say', 'utter_cue12'
-                             'a_say', 'utter_cue13','a_say', 'utter_cue14','a_say', 'utter_cue15','a_say', 'utter_cue16','a_nB','prof_cue1','ki','k_observar'))
+            ## Cierra_cuenco
+        self.intents.append(('say','utter_cue10', ['cuenco_10'],'a_dB','cuenco_10', 'a_say', 'utter_cue10', 'a_say', 'utter_cue11', 'a_say', 'utter_cue12', 'a_say', 'utter_cue13','a_say', 'utter_cue14','a_say', 'utter_cue15','a_say', 'utter_cue16','a_nB','prof_cue1','ki','k_observar'))
+           
+
+
+
+
      ## Lacrimario
         self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say', 'utter_lac1','ki','k_observar'))
 
