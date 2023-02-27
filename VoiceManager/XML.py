@@ -8,7 +8,7 @@ class XML():
     # XML Spanish
     def esXML(self,response,tag,language,polarity):
         speak = ET.Element("speak", version ="1.0", xmls = "http://www.w3.org/2001/10/synthesis", attrib={"xmlns:mstts" : "https://www.w3.org/2001/mstts","xmlns:emo":"http://www.w3.org/2009/10/emotionml", "xml:lang": language})
-        voice = ET.SubElement(speak, "voice", name = "es-ES-ElviraNeural") 
+        voice = ET.SubElement(speak, "voice", name = "es-ES-AbrilNeural") 
         # Calm
         prosody = ET.SubElement(voice, "prosody", rate = "0.00%", pitch = "0.00%")
         # happy

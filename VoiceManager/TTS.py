@@ -25,10 +25,12 @@ Translator = translator(translator_key)
 Sentiment = sentiment(sentiment_key)
 lang = 'es-ES'
 duration = 1.0
+counter = 0
 
 # External file used by Unreal
 External_file = False
 Output_file = '../../../../Desktop/MH-NEW/CSV'
+#Output_file = '../../../../Desktop/MH-NEW/content/A'
 
 # Service configuration
 service_region = "westeurope"
@@ -60,6 +62,10 @@ def WaitForFile(file):
     while os.path.exists(file):
         print("waiting")
         time.sleep(1)
+        counter += 1
+        if(counter > 5):
+            counter = 0
+            os.remove(file)
 
 # Subscribes to viseme received event
 speech_synthesizer.viseme_received.connect(viseme_cb)
@@ -136,10 +142,10 @@ while True:
                     if External_file:
                         output_Unreal.close()
                     output_csv.close()
-                    if(duration>4):
-                        time.sleep(duration)       
-                    else:
-                        time.sleep(4)       
+                    #if(duration>4):
+                    #    time.sleep(duration)       
+                    #else:
+                    #    time.sleep(4)       
                 elif(str(row['action'])=="listen"):
                     archi1 = open("listening.txt","w") 
                     archi1.close()                     
