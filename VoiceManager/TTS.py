@@ -79,7 +79,7 @@ while True:
             for row in csv_reader:         
                 print("--------------------------------------------------------")
                 if(str(row['action'])=="say"):  
-                    WaitForFile(Output_file + '/visemes.csv')   
+                    #WaitForFile(Output_file + '/visemes.csv')   
                     ## Own copy
                     output_csv = open('Response/visemes.csv','w+',newline='')
                     writer = csv.writer(output_csv, delimiter =';')
@@ -142,10 +142,10 @@ while True:
                     if External_file:
                         output_Unreal.close()
                     output_csv.close()
-                    #if(duration>4):
-                    #    time.sleep(duration)       
-                    #else:
-                    #    time.sleep(4)       
+                    if(duration>4):
+                        time.sleep(duration)       
+                    else:
+                        time.sleep(4)       
                 elif(str(row['action'])=="listen"):
                     archi1 = open("listening.txt","w") 
                     archi1.close()                     

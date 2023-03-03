@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\actions",
     "\\VoiceManager"
   ],
-  "SelectedNode": "\\VoiceManager\\TTS.py",
+  "SelectedNode": "\\actions\\actions.py",
   "PreviewInSolutionExplorer": false
 }
