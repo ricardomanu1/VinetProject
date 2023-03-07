@@ -82,9 +82,22 @@ while True:
                     writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
                     # Create a copy of the output file for Unreal
                     if External_file:
-                        output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
-                        writerU = csv.writer(output_Unreal, delimiter =';')
-                        writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                        try:
+                            output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
+                            writerU = csv.writer(output_Unreal, delimiter =';')
+                            writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                        except IOError as e:                            
+                            while True: 
+                                print("Error {0}".format(e))
+                                time.sleep(1)
+                                try:
+                                   output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
+                                   writerU = csv.writer(output_Unreal, delimiter =';')
+                                   writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                                   break
+                                except:
+                                    print("Error {0}".format(e))
+
                     #print(row)
                     # Sentence
                     contents = str(row['response'])
