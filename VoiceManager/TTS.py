@@ -25,12 +25,11 @@ Translator = translator(translator_key)
 Sentiment = sentiment(sentiment_key)
 lang = 'es-ES'
 duration = 1.0
-counter = 0
 
 # External file used by Unreal
 External_file = False
 Output_file = '../../../../Desktop/MH-NEW/CSV'
-#Output_file = '../../../../Desktop/MH-NEW/content/A'
+#Output_file = '../../../../Desktop/MH-NEW/Content/A'
 
 # Service configuration
 service_region = "westeurope"
@@ -59,13 +58,9 @@ def viseme_cb(evt):
     animation = evt.animation
 
 def WaitForFile(file):
-    while os.path.exists(file):
-        print("waiting")
-        time.sleep(1)
-        counter += 1
-        if(counter > 5):
-            counter = 0
-            os.remove(file)
+    while len(os.listdir(file)) != 0:
+        print("carpeta llena con {}".format(len(os.listdir(file))))
+        time.sleep(0.1)
 
 # Subscribes to viseme received event
 speech_synthesizer.viseme_received.connect(viseme_cb)
@@ -79,7 +74,8 @@ while True:
             for row in csv_reader:         
                 print("--------------------------------------------------------")
                 if(str(row['action'])=="say"):  
-                    #WaitForFile(Output_file + '/visemes.csv')   
+                   #WaitForFile(Output_file)
+                    #time.sleep(1)
                     ## Own copy
                     output_csv = open('Response/visemes.csv','w+',newline='')
                     writer = csv.writer(output_csv, delimiter =';')
@@ -141,11 +137,15 @@ while True:
                     # Close visemes output file used by Unreal 
                     if External_file:
                         output_Unreal.close()
-                    output_csv.close()
-                    if(duration>4):
-                        time.sleep(duration)       
+                    output_csv.close() 
+                    if(duration<1):
+                         time.sleep(1)     
+                    elif (duration<2):                        
+                         time.sleep(2)
+                    elif (duration<3):
+                         time.sleep(3)
                     else:
-                        time.sleep(4)       
+                         time.sleep(duration)                     
                 elif(str(row['action'])=="listen"):
                     archi1 = open("listening.txt","w") 
                     archi1.close()                     
