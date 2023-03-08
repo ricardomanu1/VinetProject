@@ -316,6 +316,10 @@ class Plan:
                 if val == 'ki':
                     s = "Kinect.name('{0}')".format(str(intent[idx+1]))
                     p.append(s)
+
+                if val == 'a_rB':
+                    s = "Beliefs.reset_beliefs()"
+                    p.append(s)
         return p
 
 ## Acciones ##

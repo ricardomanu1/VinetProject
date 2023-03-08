@@ -56,7 +56,7 @@ class intents_manager(object):
         self.intents.append(('say','utter_ubicarme',['ubicarme'],'a_say','utter_ubicarme','a_dB','ubicarme'))
         self.intents.append(('say','utter_identidad',['identidad'],'a_say','utter_identidad','a_fB','identidad'))
         ## User:'se despide'
-        self.intents.append(('say','utter_despedir',['despedir'],'a_dB','saludar','a_dB','despedir','a_say','utter_despedir','ki','k_reiniciar'))   ## funcion de reinicio
+        self.intents.append(('say','utter_despedir',['despedir'],'a_dB','saludar','a_dB','despedir','a_say','utter_despedir','ki','k_reiniciar','a_rB'))   ## funcion de reinicio
 
         ## User:'me agradece'
         self.intents.append(('say','utter_agradecer',['agradecer'],'a_say','utter_agradecer','a_fB','agradecer'))
