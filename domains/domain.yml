@@ -123,7 +123,7 @@ responses:
     text: Me encuentro bien.
   - metadata:
       subtext: informar     
-    text: No me puedo quejar.
+    text: No me quejo.
   - metadata:
       subtext: informar     
     text: No tengo quejas.
@@ -135,13 +135,7 @@ responses:
     text: Muy bien.
   - metadata:
       subtext: informar     
-    text: Todo en orden.
-  - metadata:
-      subtext: informar     
     text: Guay.
-  - metadata:
-      subtext: informar     
-    text: Agotada de tanto entrenar.
   - metadata:
       subtext: informar     
     text: Genial.
@@ -165,7 +159,7 @@ responses:
     text: Adiós.
   - metadata:
       subtext: despedir     
-    text: Cuídate.
+    text: Cuidaos.
   - metadata:
       subtext: despedir     
     text: Nos vemos.
@@ -174,10 +168,7 @@ responses:
     text: Que vaya bien.
   - metadata:
       subtext: despedir     
-    text: Ve con cuidado.
-  - metadata:
-      subtext: despedir     
-    text: Hasta nunca.
+    text: Ir con cuidado.
   - metadata:
       subtext: despedir     
     text: Hasta ahora.
@@ -186,16 +177,10 @@ responses:
     text: Adiós adiós.
   - metadata:
       subtext: despedir     
-    text: Que te vaya bien.
+    text: Que os vaya bien.
   - metadata:
       subtext: despedir     
     text: Nos vemos luego.
-  - metadata:
-      subtext: despedir     
-    text: Hasta la vista.
-  - metadata:
-      subtext: despedir     
-    text: Que la fuerza te acompañe.
 
 # Afirmar
   utter_afirmar:
@@ -205,9 +190,6 @@ responses:
 
 # Afirmativo
   utter_afirmativo:
-  - metadata:
-      subtext: informar     
-    text: ¡Vale!
   - metadata:
       subtext: informar     
     text: De acuerdo.
@@ -237,9 +219,6 @@ responses:
     text: Bien.
   - metadata:
       subtext: informar     
-    text: Ok.
-  - metadata:
-      subtext: informar     
     text: Afirmativo.
   - metadata:
       subtext: informar     
@@ -250,9 +229,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Correcto.
-  - metadata:
-      subtext: informar     
-    text: Eso es.
   - metadata:
       subtext: informar     
     text: Así es.
@@ -273,25 +249,16 @@ responses:
     text: No.
   - metadata:
       subtext: informar     
-    text: Nop.
-  - metadata:
-      subtext: informar     
     text: No realmente.
   - metadata:
       subtext: informar     
     text: Claro que no.
   - metadata:
       subtext: informar     
-    text: Erróneo.
-  - metadata:
-      subtext: informar     
-    text: Pues no.
-  - metadata:
-      subtext: informar     
     text: Para nada.
   - metadata:
       subtext: informar     
-    text: Absolutamente no.
+    text: Absolutamente, no.
   - metadata:
       subtext: informar     
     text: Ni lo pienses. 
@@ -304,6 +271,9 @@ responses:
   - metadata:
       subtext: informar     
     text: No hay de qué.
+  - metadata:
+      subtext: informar     
+    text: No te preocupes.
 
 # Solicitar
   utter_solicitar:
@@ -315,13 +285,10 @@ responses:
     text: ¿Alguna cosa en mente?
   - metadata:
       subtext: preguntar     
-    text: ¿Sabes de algún tema que te pueda interesar?
+    text: ¿Hay algún objeto que te pueda interesar?
 
 # No solicitar
   utter_no_solicitar:
-  - metadata:
-      subtext: informar     
-    text: Bueno, si necesitas algo, dime.
   - metadata:
       subtext: informar     
     text: De acuerdo.
@@ -334,6 +301,9 @@ responses:
   - metadata:
       subtext: informar     
     text: ¡Atención!
+  - metadata:
+      subtext: informar     
+    text: Escuchadme.
 
 # El usuario esta bien
   utter_estado_bien:
@@ -358,12 +328,18 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras enfadada.
+  - metadata:
+      subtext: informar     
+    text: Te noto enfadado.
 
 # El usuario esta asustado
   utter_estado_miedo:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras con miedo.
+  - metadata:
+      subtext: informar     
+    text: ¿Tienes miedo?.
 
 # El usuario esta nervioso
   utter_estado_nerviosismo:
@@ -373,6 +349,9 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras nerviosa.
+  - metadata:
+      subtext: informar     
+    text: Te noto nervioso.
 
 # El usuario esta aburrido
   utter_estado_aburrimiento:
@@ -382,6 +361,9 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras aburrida.
+  - metadata:
+      subtext: informar     
+    text: te noto aburrido.
 
 # El usuario esta emocionado
   utter_estado_emocion:
@@ -391,6 +373,9 @@ responses:
   - metadata:
       subtext: informar     
     text: Veo que te encuentras emocionado.
+  - metadata:
+      subtext: informar     
+    text: te noto emocionado.
 
 # El usuario se siente solo
   utter_estado_soledad:
@@ -417,7 +402,13 @@ responses:
     text: Soy Sonia.
   - metadata:
       subtext: informar     
-    text: Soy un bot creada en un ordenador.
+    text: Me llamo Sonia.
+  - metadata:
+      subtext: informar     
+    text: Me llamo Sonia y soy arqueóloga.
+  - metadata:
+      subtext: informar     
+    text: Mi nombre es Sonia y soy arqueóloga.
 
 # Saludo a una persona conocida
   utter_presentacion:
@@ -435,7 +426,10 @@ responses:
     text: No se responder esa solicitud.
   - metadata:
       subtext: informar     
-    text: Se escapa a mis conocimientos
+    text: Se escapa a mis conocimientos.
+  - metadata:
+      subtext: informar     
+    text: Aún no tengo tantos conocimientos.
 
 # No se escucha sonido o solo hay ruido
   utter_please_rephrase:
@@ -495,16 +489,13 @@ responses:
   utter_empatizar_aburrimiento:
   - metadata:
       subtext: preguntar
-    text: ¿Puedo hablarte de alguno de estos temas tan interesantes?
+    text: ¿Puedo hablarte de alguno de estos objetos tan interesantes?
 
 # Empatizar al cansancio
   utter_empatizar_cansancio:
   - metadata:
       subtext: informar     
-    text: Hasta la mejor persona se cansa de mover montañas por quién no mueve por ella ni una piedra.
-  - metadata:
-      subtext: informar     
-    text: Procura hidratarte y descansar lo suficiente..
+    text: Procura hidratarte y descansar lo suficiente.
   - metadata:
       subtext: informar     
     text: Alimentate bien para recuperar las energías.
@@ -535,9 +526,6 @@ responses:
   - metadata:
       subtext: informar     
     text: ¿Qué puedo hacer para ayudarte?.
-  - metadata:
-      subtext: informar     
-    text: Es normal que sientas miedo, son sensaciones desagradables, pero no son peligrosas y se pasarán.
 
  # Empatizar al nerviosismo
   utter_empatizar_nerviosismo:
@@ -547,9 +535,6 @@ responses:
 
 # Empatizar a la soledad
   utter_empatizar_soledad:
-  - metadata:
-      subtext: informar     
-    text: Oh querido. ¿Te gustaría hablar con alguien sobre esto?
   - metadata:
       subtext: informar     
     text: Lamento que te sientas así. ¿Hay algo que pueda hacer para ayudarte?
@@ -594,13 +579,13 @@ responses:
   utter_dar_opciones:
   - metadata:
       subtext: narrar     
-    text: Te puede interesar esto.
+    text: Te puede interesar saber sobre alguno de estos objetos.
   - metadata:
       subtext: narrar     
-    text: Aquí tienes algunos temas que te pueden interesar.
+    text: Aquí tienes algunos objetos que te pueden interesar.
   - metadata:
       subtext: narrar     
-    text: Te puedo recomendar estos temas.
+    text: Te puedo recomendar sabersobre estos objetos.
 
 # Atender una solicitud
   utter_atender:
@@ -693,19 +678,10 @@ responses:
     text: Estoy muy bien.
   - metadata:
       subtext: informar     
-    text: Sintiéndome bien.
-  - metadata:
-      subtext: informar     
     text: Mejor que nunca.
   - metadata:
       subtext: informar     
     text: Me siento afortunada.
-  - metadata:
-      subtext: informar     
-    text: Todo genial aquí.
-  - metadata:
-      subtext: informar     
-    text: Con un día fantástico.
   - metadata:
       subtext: informar     
     text: Estoy inspirada.
@@ -714,7 +690,7 @@ responses:
     text: Increíble.
   - metadata:
       subtext: informar     
-    text: Me siento maravillosa.
+    text: Me siento de maravilla.
   - metadata:
       subtext: informar     
     text: Me siento muy bien.
@@ -724,9 +700,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Me siento feliz.
-  - metadata:
-      subtext: informar     
-    text: ¡Hoy es un día increíble!.
   - metadata:
       subtext: informar     
     text: Estoy tan feliz.
@@ -739,15 +712,12 @@ responses:
   - metadata:
       subtext: informar     
     text: Guay.
-  - metadata:
-      subtext: informar     
-    text: Pues aquí estamos.
 
 # Mi estado emocional mal
   utter_estar_mal:
   - metadata:
       subtext: informar     
-    text: Mi día fue horrible.
+    text: Mi día ha sido horrible.
   - metadata:
       subtext: informar     
     text: Horrible.
@@ -777,64 +747,19 @@ responses:
     text: Estoy decepcionadA.
   - metadata:
       subtext: informar     
-    text: Esto es malo.
-  - metadata:
-      subtext: informar     
-    text: Estoy enferma.
-  - metadata:
-      subtext: informar     
     text: Estoy de bajon.
-  - metadata:
-      subtext: informar     
-    text: Es decepcionante.
   - metadata:
       subtext: informar     
     text: Estoy irritada.
   - metadata:
       subtext: informar     
-    text: No me estoy sintiendo bien.
-  - metadata:
-      subtext: informar     
-    text: ¡Esto apesta!
+    text: No me estoy sintiendo muy bien.
   - metadata:
       subtext: informar     
     text: Me siento muy mal.
   - metadata:
       subtext: informar     
-    text: ¡Es el peor día!
-  - metadata:
-      subtext: informar     
-    text: Esto se siente mal
-  - metadata:
-      subtext: informar     
     text: Me siento muy triste.
-  - metadata:
-      subtext: informar     
-    text: Estoy deprimida.
-  - metadata:
-      subtext: informar     
-    text: Me siento vacía.
-  - metadata:
-      subtext: informar     
-    text: Me siento inútil.
-  - metadata:
-      subtext: informar     
-    text: Deprimida.
-  - metadata:
-      subtext: informar     
-    text: Pesada.
-  - metadata:
-      subtext: informar     
-    text: Me siento bastante perdida.
-  - metadata:
-      subtext: informar     
-    text: Muy triste.
-  - metadata:
-      subtext: informar     
-    text: Terrible.
-  - metadata:
-      subtext: informar     
-    text: Extremadamente triste.
   - metadata:
       subtext: informar     
     text: Me siento desanimada.
@@ -843,19 +768,7 @@ responses:
     text: Me siento triste.
   - metadata:
       subtext: informar     
-    text: No estoy bien.
-  - metadata:
-      subtext: informar     
-    text: Me siento mal.
-  - metadata:
-      subtext: informar     
-    text: Estoy Horrible.
-  - metadata:
-      subtext: informar     
     text: Estoy inquieta.
-  - metadata:
-      subtext: informar     
-    text: Estoy pasando por un momento bastante difícil.
 
  # Mi estado emocional enfado
   utter_estar_enfadado:
@@ -864,34 +777,16 @@ responses:
     text: Estoy enojada.
   - metadata:
       subtext: informar     
-    text: Me siento tan enojada.
-  - metadata:
-      subtext: informar     
     text: Estoy tan molesta.
   - metadata:
       subtext: informar     
     text: Es molesto.
   - metadata:
       subtext: informar     
-    text: Eso es agravante.
-  - metadata:
-      subtext: informar     
     text: Estoy furiosa.
   - metadata:
       subtext: informar     
-    text: Eso es exasperante.
-  - metadata:
-      subtext: informar     
-    text: Estoy muy enojada.
-  - metadata:
-      subtext: informar     
-    text: Todo me fastidia.
-  - metadata:
-      subtext: informar     
     text: Estoy indignada.
-  - metadata:
-      subtext: informar     
-    text: ¡Eso es indignante!
   - metadata:
       subtext: informar     
     text: Me siento hostil.
@@ -900,55 +795,19 @@ responses:
     text: Estoy muy frustrada.
   - metadata:
       subtext: informar     
-    text: Me está irritando.
-  - metadata:
-      subtext: informar     
     text: Me siento tan ofendida.
-  - metadata:
-      subtext: informar     
-    text: Estoy lleno de furia.
-  - metadata:
-      subtext: informar     
-    text: Me siento muy beligerante.
-  - metadata:
-      subtext: informar     
-    text: Odio hacer esto.
   - metadata:
       subtext: informar     
     text: No tengo paciencia hoy.
   - metadata:
       subtext: informar     
-    text: No pude controlar mi enojo.
-  - metadata:
-      subtext: informar     
     text: Estoy molesta.
-  - metadata:
-      subtext: informar     
-    text: Estoy supermolesta.
-  - metadata:
-      subtext: informar     
-    text: Estoy muy loca.
   - metadata:
       subtext: informar     
     text: Estoy enfurecida.
   - metadata:
       subtext: informar     
-    text: ¡Esto es enloquecedor!
-  - metadata:
-      subtext: informar     
     text: Estoy cabreada.
-  - metadata:
-      subtext: informar     
-    text: Puedes apostar que estoy enojada.
-  - metadata:
-      subtext: informar     
-    text: Eso me hizo enojar.
-  - metadata:
-      subtext: informar     
-    text: Me hiciste enojar.
-  - metadata:
-      subtext: informar     
-    text: Todavía estoy enojado por eso.
 
 # Mi estado emocional miedo
   utter_estar_miedo:
@@ -957,22 +816,13 @@ responses:
     text: Estoy asustada.
   - metadata:
       subtext: informar     
-    text: Me siento asustada.
-  - metadata:
-      subtext: informar     
     text: Estoy preocupada.
   - metadata:
       subtext: informar     
     text: Estoy aterrada.
   - metadata:
       subtext: informar     
-    text: Eso es aterrador.
-  - metadata:
-      subtext: informar     
     text: Me siento intimidada.
-  - metadata:
-      subtext: informar     
-    text: Eso es intimidante.
   - metadata:
       subtext: informar     
     text: Estoy petrificada.
@@ -984,13 +834,7 @@ responses:
     text: Me siento ansiosa.
   - metadata:
       subtext: informar     
-    text: Tengo un mal presentimiento.
-  - metadata:
-      subtext: informar     
     text: Estoy muerto de miedo.
-  - metadata:
-      subtext: informar     
-    text: Estalle en un sudor frío.
   - metadata:
       subtext: informar     
     text: Estoy temblando de miedo.
@@ -1008,34 +852,13 @@ responses:
     text: Estoy estresada.
   - metadata:
       subtext: informar     
-    text: Me siento nerviosa.
-  - metadata:
-      subtext: informar     
     text: Estoy ansiosa.
   - metadata:
       subtext: informar     
     text: Me siento ansiosa.
   - metadata:
       subtext: informar     
-    text: Esto es nerviosa.
-  - metadata:
-      subtext: informar     
-    text: Siento que voy a vomitar.
-  - metadata:
-      subtext: informar     
-    text: Tengo un nudo en la garganta.
-  - metadata:
-      subtext: informar     
     text: Tengo mariposas en mi estómago.
-  - metadata:
-      subtext: informar     
-    text: Soy un manojo de nervios.
-  - metadata:
-      subtext: informar     
-    text: Estoy saltando fuera de mi piel.
-  - metadata:
-      subtext: informar     
-    text: Tengo la lengua atada.
   - metadata:
       subtext: informar     
     text: Estoy muy tensa.
@@ -1044,25 +867,13 @@ responses:
     text: Me siento incómoda.
   - metadata:
       subtext: informar     
-    text: Estoy alarmada.
-  - metadata:
-      subtext: informar     
     text: Estoy preocupada.
   - metadata:
       subtext: informar     
     text: Estoy tensa.
   - metadata:
       subtext: informar     
-    text: Estoy bajo mucho estrés.
-  - metadata:
-      subtext: informar     
     text: Estoy constantemente preocupada.
-  - metadata:
-      subtext: informar     
-    text: Siento una tensión constante.
-  - metadata:
-      subtext: informar     
-    text: Sufro de ansiedad.
   - metadata:
       subtext: informar     
     text: Me he sentido bastante ansioso últimamente.
@@ -1071,31 +882,10 @@ responses:
     text: Me siento bastante inquieta.
   - metadata:
       subtext: informar     
-    text: No puedo concentrarme porque estoy preocupado constantemente.
-  - metadata:
-      subtext: informar     
-    text: Estoy bajo un inmenso estrés.
-  - metadata:
-      subtext: informar     
-    text: Han sido unos días difíciles. 
-  - metadata:
-      subtext: informar     
-    text: Muy estresante.
-  - metadata:
-      subtext: informar     
     text: Estoy bastante tensa.
   - metadata:
       subtext: informar     
-    text: Ha habido bastantes cambios en mi vida.
-  - metadata:
-      subtext: informar     
-    text: No creo que los esté manejando bien.
-  - metadata:
-      subtext: informar     
     text: Es bastante estresante.
-  - metadata:
-      subtext: informar     
-    text: Me encuentro preocupando por cada pequeño detalle.
   - metadata:
       subtext: informar     
     text: No puedo concentrarme debido a la gran cantidad de preocupaciones que me preocupan.
@@ -1107,9 +897,6 @@ responses:
     text: Muy aburrida.
   - metadata:
       subtext: informar     
-    text: Eso fue aburrido.
-  - metadata:
-      subtext: informar     
     text: Estoy aburrida.
   - metadata:
       subtext: informar     
@@ -1119,37 +906,16 @@ responses:
     text: Me estoy aburriendo.
   - metadata:
       subtext: informar     
-    text: Tuve un día lento.
-  - metadata:
-      subtext: informar     
     text: Estoy muy aburrida.
   - metadata:
       subtext: informar     
     text: Estoy un poco aburrida hoy.
   - metadata:
       subtext: informar     
-    text: Nunca me he aburrido más.
-  - metadata:
-      subtext: informar     
     text: Estaba aburrida.
   - metadata:
       subtext: informar     
-    text: Es aburrida.
-  - metadata:
-      subtext: informar     
-    text: Esto es aburrido.
-  - metadata:
-      subtext: informar     
-    text: Estamos todos aburridos.
-  - metadata:
-      subtext: informar     
-    text: Es muy aburrido.
-  - metadata:
-      subtext: informar     
     text: Ya estoy aburrida.
-  - metadata:
-      subtext: informar     
-    text: Estoy loca de aburrimiento.
 
 # Mi estado emocional emocionado
   utter_estar_emocionado:
@@ -1161,22 +927,7 @@ responses:
     text: Estoy muy emocionada.
   - metadata:
       subtext: informar     
-    text: No puedo empezar a decir lo emocionado que estoy.
-  - metadata:
-      subtext: informar     
-    text: Soy exagerada.
-  - metadata:
-      subtext: informar     
-    text: Me sentí emocionada.
-  - metadata:
-      subtext: informar     
-    text: Fue emocionante.
-  - metadata:
-      subtext: informar     
-    text: Eso fue emocionante.
-  - metadata:
-      subtext: informar     
-    text: ¡qué interesante!
+    text: Me siento emocionada.
   - metadata:
       subtext: informar     
     text: Esto es tan divertido.
@@ -1188,9 +939,6 @@ responses:
     text: Estoy sola.
   - metadata:
       subtext: informar     
-    text: Soy muy solitaria.
-  - metadata:
-      subtext: informar     
     text: Estoy tan sola.
   - metadata:
       subtext: informar     
@@ -1200,37 +948,7 @@ responses:
     text: Me siento sola.
   - metadata:
       subtext: informar     
-    text: Soy una solitaria.
-  - metadata:
-      subtext: informar     
-    text: No tengo ninguna compañía.
-  - metadata:
-      subtext: informar     
-    text: No tengo a nadie más.
-  - metadata:
-      subtext: informar     
-    text: Siempre estoy sola.
-  - metadata:
-      subtext: informar     
-    text: Estoy completamente sola.
-  - metadata:
-      subtext: informar     
-    text: Vivo sola.
-  - metadata:
-      subtext: informar     
-    text: Me he acostumbrado a vivir sola.
-  - metadata:
-      subtext: informar     
-    text: Creo que he estado viviendo sola demasiado tiempo.
-  - metadata:
-      subtext: informar     
     text: No tengo a nadie con quien hablar.
-  - metadata:
-      subtext: informar     
-    text: Sigo sola.
-  - metadata:
-      subtext: informar     
-    text: Estoy acostumbrado a vivir sola.
 
 # Mi estado emocional cansado
   utter_estar_cansado:
@@ -1242,31 +960,19 @@ responses:
     text: He trabajado demasiado.
   - metadata:
       subtext: informar     
-    text: He entrenado demasiado.
-  - metadata:
-      subtext: informar     
     text: Estoy cansada.
   - metadata:
       subtext: informar     
     text: Estoy agotada.
   - metadata:
       subtext: informar     
-    text: Me canso.
-  - metadata:
-      subtext: informar     
     text: Estoy muy cansada.
-  - metadata:
-      subtext: informar     
-    text: Me estoy cansando.
   - metadata:
       subtext: informar     
     text: Me siento cansada.
   - metadata:
       subtext: informar     
     text: Estoy tan cansada.
-  - metadata:
-      subtext: informar     
-    text: Estoy completamente agotada.
   - metadata:
       subtext: informar     
     text: Estaba cansada.
@@ -1278,9 +984,6 @@ responses:
     text: Estoy un poco cansada.
   - metadata:
       subtext: informar     
-    text: Estuve muy cansada.
-  - metadata:
-      subtext: informar     
     text: Estoy realmente cansada.
   - metadata:
       subtext: informar     
@@ -1288,12 +991,6 @@ responses:
   - metadata:
       subtext: informar     
     text: Estoy algo cansada.
-  - metadata:
-      subtext: informar     
-    text: Pues aquí algo cansada.
-  - metadata:
-      subtext: informar     
-    text: Pues algo cansada.
 
 # Comentar un hito
   utter_hito:
@@ -1347,7 +1044,7 @@ responses:
   utter_interes_grupo:
   - metadata:
       subtext: informar     
-    text: veo que teneis interes por {object}.
+    text: Veo que teneis interes por {object}.
   - metadata:
       subtext: informar     
     text: Hay una gran parte de vosotros en {object}.  
@@ -1402,6 +1099,12 @@ responses:
   - metadata:
       subtext: preguntar  
     text: ¿Quiéres reiniciar la información sobre este objeto?
+
+# agradecimientos por la visita
+  utter_agradecimiento:
+  - metadata:
+      subtext: informar  
+    text: Gracias por acercaros a conocer nuestro trabajo en esta excavación arqueológica del antiguo Hospital de San Salvador de Ibañeta
 
 actions:
 - aprendizaje

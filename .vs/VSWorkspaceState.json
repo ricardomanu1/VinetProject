@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\actions",
+    "\\data",
+    "\\domains",
     "\\VoiceManager"
   ],
-  "SelectedNode": "\\actions\\actions.py",
+  "SelectedNode": "\\domains\\domain-vinet.yml",
   "PreviewInSolutionExplorer": false
 }

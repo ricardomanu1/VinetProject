@@ -115,7 +115,27 @@ class intents_manager(object):
 
 
         ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_nB','saludar'))
-        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_bienvenida','a_say','utter_mirar','ki','k_observar'))
+        ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_bienvenida','a_say','utter_mirar','ki','k_observar'))
+        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_bienvenida','a_say','utter_identidad','a_say','utter_agradecimiento','a_nB', 'vinet_intro'))
+
+        # INTRODUCCION
+        self.intents.append(('say','utter_intro',['vinet_intro'],'a_dB','vinet_intro','a_say','utter_intro1','a_say','utter_intro2','a_say','utter_intro3','a_nB','saber_portus'))
+        self.intents.append(('say','saber_portus',['saber_portus', 'vinet_portus_acierto'],'a_dB','saber_portus','a_dB','vinet_portus_acierto','a_say','utter_portus_ok','a_nB','vinet_intro4'))
+        self.intents.append(('say','saber_portus',['saber_portus', 'vinet_portus_error'],'a_dB','saber_portus','a_dB','vinet_portus_error','a_say','utter_portus_fail','a_nB','vinet_intro4'))
+        self.intents.append(('say','vinet_intro4',['vinet_intro4'],'a_dB','vinet_intro4','a_say','utter_intro4','a_say','utter_intro5'))
+
+        self.intents.append(('say','vinet_guia',['vinet_guia'],'a_dB','vinet_guia','a_say','utter_intro_guia1','a_say','utter_intro_guia2','a_say','utter_intro_guia3','a_say','utter_intro_guia4',
+                             'a_say','utter_intro_guia5','a_say','utter_intro_guia6','a_say','utter_intro_guia7','a_say','utter_intro_guia8','a_say','utter_intro_guia9','a_nB','vinet_seguir_intro'))
+
+        self.intents.append(('say','vinet_seguir_intro', ['vinet_seguir_intro','afirmar'],'a_dB','vinet_seguir_intro','a_dB','afirmar','a_say','utter_intro6','a_say','utter_intro7', 'a_nB', 'saber_portus2'))  
+        self.intents.append(('say','vinet_seguir_intro', ['vinet_seguir_intro','negar'],'a_dB','vinet_seguir_intro','a_dB','negar','a_say','utter_no_solicitar','a_say','utter_mirar','ki','k_observar'))
+        
+        self.intents.append(('say','saber_portus',['saber_portus2', 'vinet_portus_acierto2'],'a_dB','saber_portus2','a_dB','vinet_portus_acierto2','a_say','utter_portus2_ok','a_nB','vinet_intro8'))
+        self.intents.append(('say','saber_portus',['saber_portus2', 'vinet_portus_error'],'a_dB','saber_portus2','a_dB','vinet_portus_error','a_say','utter_portus2_fail','a_nB','vinet_intro8'))
+
+        self.intents.append(('say','vinet_intro8',['vinet_intro8'],'a_dB','vinet_intro8','a_say','utter_intro8','a_say','utter_intro9','a_say','utter_intro10','a_say','utter_intro11','a_say','utter_intro12',
+                             'a_say','utter_intro13','a_say','utter_intro14','a_say','utter_intro15','a_say','utter_intro16','a_say','utter_intro17','a_say','utter_mirar','ki','k_observar'))
+        
         self.intents.append(('know', 'sale_grupo', ['sale_grupo'],'a_dB','sale_grupo','a_dB','entra_grupo','a_nB','despedir'))
         #self.intents.append(('know', 'sale_grupo', ['sale_grupo','entra_grupo'],'a_dB','sale_grupo','a_dB','entra_grupo','a_nB','despedir'))
         self.intents.append(('know', 'pos_ojos', ['pos_ojos'],'a_dB','pos_ojos','a_nB','pos_ojos'))

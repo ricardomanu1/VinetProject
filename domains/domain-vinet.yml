@@ -4,6 +4,11 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - vinet_objeto
+- vinet_portus_acierto
+- vinet_portus_error
+- vinet_guia
+- vinet_portus_acierto2
+
 responses:
   utter_vinet_objeto:
   - metadata:
@@ -19,3 +24,153 @@ responses:
   - metadata:
       subtext: preguntar
     text: ¿Os interesa saber un poco sobre ella?.
+
+  utter_intro1:
+  - metadata:
+      subtext: narrar
+    text: En la Edad Media todavía se llamaba “de Summo Portu”.
+
+  utter_intro2:
+  - metadata:
+      subtext: narrar
+    text: Así que nos encontramos ahora mismo en el Summus portus o Summus Pyrenaeus romano.
+
+  utter_intro3:
+  - metadata:
+      subtext: preguntar
+    text: ¿Portus? ¿Portu? ¿A qué os suena? 
+
+  utter_portus_ok:
+  - metadata:
+      subtext: informar
+    text: ¡Eso es! Es un término en latín que significa puerto, no era difícil, ¿eh?
+
+  utter_portus_fail:
+  - metadata:
+      subtext: informar
+    text: No te preocupes.
+
+  utter_intro4:
+  - metadata:
+      subtext: narrar
+    text: PORTUS, además de significar puerta, también hace referencia a un albergue, establecimiento de ayuda o alojamiento a viajeros.
+    
+  utter_intro5:
+  - metadata:
+      subtext: narrar
+    text: Este estaba situado en el cruce de caminos de la importante calzada que atravesaba los Pirineos en la época romana.
+  
+  utter_intro_guia1:
+  - metadata:
+      subtext: narrar
+    text: Pues, como veis, llevamos ya bastante tiempo excavando.
+
+  utter_intro_guia2:
+  - metadata:
+      subtext: narrar
+    text: Es un lugar muy interesante. 
+    
+  utter_intro_guia3:
+  - metadata:
+      subtext: narrar
+    text: Primero quitamos la hierba que lo cubría todo y, poco a poco, hemos llegado hasta aquí.
+
+  utter_intro_guia4:
+  - metadata:
+      subtext: narrar
+    text: ¡Ha sido como un viaje de 2.000 años!
+
+  utter_intro_guia5:
+  - metadata:
+      subtext: narrar
+    text: Este era uno de los pasos de montaña principales.
+
+  utter_intro_guia6:
+  - metadata:
+      subtext: narrar
+    text: Durante todo este tiempo, comerciantes, viajeros, peregrinos, soldados… Miles de personas pasaron por donde estáis vosotros y vosotras hoy.
+    
+  utter_intro_guia7:
+  - metadata:
+      subtext: narrar
+    text: Cada una de ellas fueron dejando su propio rastro y con él, información de la época que les tocó vivir. 
+
+  utter_intro_guia8:
+  - metadata:
+      subtext: narrar
+    text: Y ahora, vamos a saber un poco más sobre los portus.
+    
+  utter_intro_guia9:
+  - metadata:
+      subtext: preguntar
+    text: ¿Os apetece?
+
+  utter_intro6:
+  - metadata:
+      subtext: narrar
+    text: Para que os hagáis más fácilmente una idea, un Portus era como las estaciones de servicio sin la época romana hubiese habido autopistas. ¿A que así se entiende mejor?
+
+  utter_intro7:
+  - metadata:
+      subtext: preguntar
+    text: ¿Qué creéis que podíamos encontrar en un Portus?
+
+  utter_portus2_ok:
+  - metadata:
+      subtext: informar
+    text: ¡Eso es! 
+
+  utter_portus2_fail:
+  - metadata:
+      subtext: informar
+    text: No te preocupes.
+    
+  utter_intro8:
+  - metadata:
+      subtext: informar
+    text: Podías comer, alojarte, que descansasen las mulas y los caballos.
+
+  utter_intro9:
+  - metadata:
+      subtext: narrar
+    text: En estos lugares se vendían las cosas que necesitabas para el viaje e, incluso, cumplían una función religiosa, ya que podías tener asistencia espiritual.
+
+  utter_intro10:
+  - metadata:
+      subtext: narrar
+    text: Nuestro portus, el Summus Portus o portus en lo alto, es decir, de las montañas, estaba en el encuentro entre la bifurcación de la calzada, que atravesaba el Pirineo por diferentes rutas, el llamado camino alto, por la cumbre, y camino bajo, por los barrancos.
+
+  utter_intro11:
+  - metadata:
+      subtext: narrar
+    text: Todos ellos confluían aquí, en Ibañeta.
+
+  utter_intro12:
+  - metadata:
+      subtext: narrar
+    text: Los Portus se encontraban normalmente en los pasos difíciles de montaña. 
+
+  utter_intro13:
+  - metadata:
+      subtext: narrar
+    text: Su nombre, que viene de portare, también significaba llevar mercancías, hacía referencia a la función de comunicación que tenían, igual que los puertos de mar.
+
+  utter_intro14:
+  - metadata:
+      subtext: narrar
+    text: Ya hemos visto que, en la Edad Media, cuando se construyó aquí un hospital de peregrinos, este mantuvo su nombre romano.
+
+  utter_intro15:
+  - metadata:
+      subtext: narrar
+    text: Lo denominaron San Salvador de Summo Portu, o de Sumi Port.
+
+  utter_intro16:
+  - metadata:
+      subtext: narrar
+    text: A los otros pasos pirenaicos que todavía son importantes hoy en día también los conocemos por su denominación romana, SOMPORT y EL PERTÚS.
+
+  utter_intro17:
+  - metadata:
+      subtext: narrar
+    text: Y es que ya sabéis que los nombres de los lugares cambian muy poco a través de los siglos…

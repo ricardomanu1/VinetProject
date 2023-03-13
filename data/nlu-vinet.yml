@@ -41,3 +41,26 @@ nlu:
     - hablame sobre esto
     - ¿que es esto?
     - ¿me puedes hablar sobre este objeto?
+
+- intent: vinet_portus_acierto
+  examples: |
+    - ¿Es puerta?
+    - Significa puerta
+
+- intent: vinet_portus_error
+  examples: |
+    - no tengo idea
+    - no lo se
+    - no se me ocurre que es
+
+- intent: vinet_guia
+  examples: |
+    - ¿Y qué es lo que habéis encontrado?
+    - ¿Y qué es lo que habéis encontrado aquí?
+    - ¿Qué habéis encontrado?
+    - ¿Y qué es lo que habéis encontrado en esta zona?
+
+- intent: vinet_portus_acierto2
+  examples: |
+    - comer y alojarte
+    - descansar
