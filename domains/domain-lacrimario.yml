@@ -9,4 +9,9 @@ responses:
   - metadata:
       subtext: narrar
     text: Se que es algo de cristal, pero aun tengo que estudiarlo un poco.
- 
+  utter_img:
+  - metadata:
+      subtext: narrar  
+      img: lacrimario.mp4
+      length: 10
+    text: Pero, mira esta imagen del lacrimario.

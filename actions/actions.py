@@ -393,14 +393,20 @@ class CSV():
         global watch, watchResponse
         output_csv = open('speech.csv','w+',newline='')
         writer = csv.writer(output_csv, delimiter =',')
-        writer.writerow(['action','response','emotion','language','animation','eyesTracking','emotionAzure'])
+        writer.writerow(['action','response','emotion','language','animation','eyesTracking','emotionAzure','video','length'])
         animation_tag = 'informar'  
+        video = ''  
+        length = 0
         for response in responses:
             if 'metadata' in response['metadata']:
                     if 'subtext' in response['metadata']['metadata']:
                         animation_tag = str(response['metadata']['metadata']['subtext'])
+                    if 'img' in response['metadata']['metadata']:
+                        video = str(response['metadata']['metadata']['img'])
+                    if 'length' in response['metadata']['metadata']:
+                        length = float(response['metadata']['metadata']['length'])
             print(' -' + str(response['text']))
-            writer.writerow(['say',str(response['text']), str(Emotions.estado),lang,animation_tag,str(eyesTracking),str(Emotions.tag())])
+            writer.writerow(['say',str(response['text']), str(Emotions.estado),lang,animation_tag,str(eyesTracking),str(Emotions.tag()),str(video),length])
         if(watch):
             writer.writerow(['watch',str(watchResponse)])
             watch = False

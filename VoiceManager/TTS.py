@@ -25,6 +25,8 @@ Translator = translator(translator_key)
 Sentiment = sentiment(sentiment_key)
 lang = 'es-ES'
 duration = 1.0
+length = 0.0
+priority = False
 
 # External file used by Unreal
 External_file = False
@@ -50,17 +52,12 @@ if os.path.exists(Output_file):
 # Viseme event
 def viseme_cb(evt):
     #print("Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id))
-    writer.writerow([evt.audio_offset / 10000, evt.viseme_id,body_anim,emo_value,face_pos])
+    writer.writerow([evt.audio_offset / 10000, evt.viseme_id,body_anim,emo_value,face_pos,video])
     # Create a copy of the output file for Unreal
     if External_file:
-        writerU.writerow([evt.audio_offset / 10000, evt.viseme_id,body_anim,emo_value,face_pos])
+        writerU.writerow([evt.audio_offset / 10000, evt.viseme_id,body_anim,emo_value,face_pos,video])
     # 'Animation' is an xml string for SVG or a json string for blend shapes
     animation = evt.animation
-
-def WaitForFile(file):
-    while len(os.listdir(file)) != 0:
-        print("carpeta llena con {}".format(len(os.listdir(file))))
-        time.sleep(0.1)
 
 # Subscribes to viseme received event
 speech_synthesizer.viseme_received.connect(viseme_cb)
@@ -74,18 +71,16 @@ while True:
             for row in csv_reader:         
                 print("--------------------------------------------------------")
                 if(str(row['action'])=="say"):  
-                   #WaitForFile(Output_file)
-                    #time.sleep(1)
                     ## Own copy
                     output_csv = open('Response/visemes.csv','w+',newline='')
                     writer = csv.writer(output_csv, delimiter =';')
-                    writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                    writer.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos','video'])
                     # Create a copy of the output file for Unreal
                     if External_file:
                         try:
                             output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
                             writerU = csv.writer(output_Unreal, delimiter =';')
-                            writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                            writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos','video'])
                         except IOError as e:                            
                             while True: 
                                 print("Error {0}".format(e))
@@ -93,12 +88,10 @@ while True:
                                 try:
                                    output_Unreal = open(Output_file + '/visemes.csv','w+',newline='')
                                    writerU = csv.writer(output_Unreal, delimiter =';')
-                                   writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos'])
+                                   writerU.writerow(['audio_offset','viseme_id','body_anim','emo_value','face_pos','video'])
                                    break
                                 except:
                                     print("Error {0}".format(e))
-
-                    #print(row)
                     # Sentence
                     contents = str(row['response'])
                     # Emotional tag
@@ -113,7 +106,11 @@ while True:
                     # EyesTracking
                     face_pos = str(row['eyesTracking'])
                     # Emotional tag for Azure
-                    emotionAzure = str(row['emotionAzure'])                
+                    emotionAzure = str(row['emotionAzure'])     
+                    # multimedia content
+                    video = str(row['video'])
+                    # multimedia content
+                    length = float(row['length']) 
                     # XML - SSML generator               
                     if lang == 'es-ES' or lang == 'eu-ES': ## Spanish or Basque 
                         text_trans = contents
@@ -151,14 +148,17 @@ while True:
                     if External_file:
                         output_Unreal.close()
                     output_csv.close() 
-                    if(duration<1):
-                         time.sleep(1)     
-                    elif (duration<2):                        
-                         time.sleep(2)
+                    if(duration < length):
+                        if priority:
+                            time.sleep(length)   
+                    elif(duration<1):
+                        time.sleep(1)     
+                    elif (duration<2):
+                        time.sleep(2)
                     elif (duration<3):
-                         time.sleep(3)
+                        time.sleep(3)
                     else:
-                         time.sleep(duration)                     
+                        time.sleep(duration)                     
                 elif(str(row['action'])=="listen"):
                     archi1 = open("listening.txt","w") 
                     archi1.close()                     

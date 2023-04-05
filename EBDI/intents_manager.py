@@ -177,7 +177,7 @@ class intents_manager(object):
 
 
      ## Lacrimario
-        self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say', 'utter_lac1','ki','k_observar'))
+        self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say','utter_lac1','a_say','utter_img', 'ki','k_observar'))
 
      ## Lucerna
         self.intents.append(('say', 'utter_luc1', ['vinet_lucerna'],'a_dB','vinet_lucerna','a_say','utter_luc1','a_say','utter_luc2','a_say','utter_luc3',
