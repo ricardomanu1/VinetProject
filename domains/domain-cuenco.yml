@@ -9,107 +9,168 @@ responses:
   - metadata:
       subtext: narrar
     text: Tenéis mucho ojo al notar esta preciosa vasija.
+
   utter_cue2:
   - metadata:
       subtext: narrar
-    text: Se denomina terra sigillata.
+    text: Se denomina terra sigillata, que significa Tierra o cerámica sellada.
+
   utter_cue3:
   - metadata:
-      subtext: narrar
-    text: Vino desde los talleres de la Grausenfrenque, en Condatomagus. 
+      subtext: narrar 
+      img: 8.mp4
+      length: 10
+    text: Vino desde los talleres de la Grausenfrenque, en Condatomagus, actual ciudad francesa de Millau. 
+  - metadata:
+      subtext: narrar 
+      img: 8.mp4
+      length: 10
+    text: Llego aquí desde los talleres de la Grausenfrenque, en Condatomagus. 
+
   utter_cue4:
   - metadata:
       subtext: narrar
     text: En la época romana se fabricaba la cerámica en enormes talleres centralizados que abastecían a todo el imperio, al estilo de la fabricación industrial actual.
+  - metadata:
+      subtext: narrar
+    text: En la época romana se fabricaba la cerámica en enormes talleres centralizados que abastecían a todo el imperio, como se hace ahora en la fabricación industrial actual.
+
   utter_cue5:
   - metadata:
       subtext: narrar
     text: Los talleres del sur de la Galia sustituyeron en época de Augusto a los italianos.
+
   utter_cue6:
   - metadata:
       subtext: narrar
     text: Estos hacían la célebre cerámica aretina que se exportaba a todo el imperio.
+
   utter_cue7:
   - metadata:
       subtext: narrar
     text: ¿Queréis saber una curiosidad?.
+
   utter_cue8:
   - metadata:
       subtext: narrar
     text: Decían las malas lenguas que el traslado de estos enormes talleres de Italia a la Galia lo hicieron por encontrar buenas tierras, abundante agua y madera, pero sobre todo mano de obra barata.
+
   utter_cue9:
   - metadata:
       subtext: narrar
-    text: En la región de Condatomagus vivía la tribu de los Rutenos, donde un esclavo costaba 2 ánforas de vino, ¡10 veces menos que en Italia!.
+    text: Para que os hagáis una idea, en la región de Condatomagus vivía la tribu de los Rutenos, donde un esclavo costaba 2 ánforas de vino, ¡10 veces menos que en Italia!.
+
   utter_cue10:
   - metadata:
       subtext: narrar
     text: Continuando con la historia.
+
   utter_cue11:
   - metadata:
       subtext: narrar
+      img: 9.mp4
+      length: 10
     text: Desde el siglo V a.C. en Italia ya había talleres especializados en cerámica de lujo, en la región de Campania.
+
   utter_cue12:
   - metadata:
       subtext: narrar
     text: Las hacían negras y brillantes, ya que imitaban a las lujosas vajillas de bronce.
+
   utter_cue13:
   - metadata:
-      subtext: narrar
+      subtext: narrar      
+      img: 11.mp4
+      length: 10
     text: En los últimos tiempos de la República la moda cambió, y platos, cuencos y vasos de cerámica empezaron a tener su característico color rojo brillante.
+
   utter_cue14:
   - metadata:
       subtext: narrar
     text: Se trata de la cerámica aretina, que terminaba en las mesas de las domus más ricas.
+
   utter_cue15:
   - metadata:
       subtext: narrar
     text: Desde que se empezaron a fabricar en la Galia, esas vajillas se popularizaron mucho.
+
   utter_cue16:
   - metadata:
       subtext: narrar
+      img: 10.mp4
+      length: 10
     text: Eran cerámicas que se extendieron a todos los rincones del imperio y a todas las capas de la sociedad, hoy en día nos las podemos encontrar en las excavaciones de los ricos palacios, pero también en las de las granjas más humildes y apartadas.
+
   utter_cue17:
   - metadata:
-      subtext: narrar
+      subtext: narrar     
+      img: 15.mp4
+      length: 10
     text: Como empleaban un SIGILUM o sello para la firma, se llama hoy en día Terra Sigillata, que equivale a “cerámica sellada”. 
+
   utter_cue18:
   - metadata:
-      subtext: narrar
+      subtext: narrar      
+      img: 12.mp4
+      length: 10
     text: Al tratarse de producciones en serie con formas estándar, que cambian en el tiempo, podemos fechar con estas cerámicas los estratos y contextos en los que se encuentran, a veces en intervalos de 10 o 20 años incluso.
+  - metadata:
+      subtext: narrar      
+      img: 12.mp4
+      length: 10
+    text: Al tratarse de producciones en serie con formas estándar, que cambian en el tiempo, podemos utilizar estas cerámicas para saber la fecha de los estratos y los contextos históricos en los que las encontramos con bastante exactitud, a veces, incluso, en periodos de 10 a 20 años.
+
   utter_cue3_1:
   - metadata:
-      subtext: narrar
+      subtext: narrar     
+      img: 16.mp4
+      length: 10
     text: Los talleres centralizados de cerámica eran impresionantes. 
+
   utter_cue3_2:
   - metadata:
       subtext: narrar
     text: Miles de personas trabajaban allí, haciendo vasijas por millones. 
+
   utter_cue3_3:
   - metadata:
-      subtext: narrar
+      subtext: narrar     
+      img: 18.mp4
+      length: 10
     text: Tras hacerlas con moldes, levantaban sobre hornos excavados en la tierra una montaña de estas vasijas par cocerlas de una sola vez. 
+
   utter_cue3_4:
   - metadata:
       subtext: narrar
     text: Una multitud de comerciantes esperaban para llevarlas a todos los rincones del imperio.
+
   utter_cue3_5:
   - metadata:
-      subtext: narrar
+      subtext: narrar           
+      img: 21.mp4
+      length: 10
     text: 'Conseguían piezas finísimas, de una gran calidad, y decoraciones impresionantes: con motivos de plantas, hojas y frutos como la que hemos hallado aquí, pero las había también con animales, escenas de caza, de luchas de gladiadores en el anfiteatro o de carreras de cuádrigas en el circo... ¡y hasta de retratos de emperadores!'
+
   utter_cue3_6:
   - metadata:
       subtext: narrar
     text: Tras los talleres galos, a mediados del siglo I d.C.,se abrieron otros talleres en Hispania; cerca de aquí, en el actual Tricio en la Rioja, la sigillata de Tritium Magallum se exportó masivamente por toda la península ibérica y gran parte de la Galia, llegando a lugares tan alejados como Mauritania, germania o Britania.
+
   utter_cue3_7:
   - metadata:
       subtext: narrar
     text: La terra sigillata se siguió fabricando, con escasos cambios, y para todo el imperio hasta su final, hacia la segunda mitad del siglo V, y aún más allá.
+
   utter_cue3_8:
   - metadata:
-      subtext: narrar
+      subtext: narrar     
+      img: 17.mp4
+      length: 10
     text: Es un ejemplo de producción industrial sostenida en el tiempo durante 700 años! 
+
   utter_cue3_9:
   - metadata:
-      subtext: narrar
+      subtext: narrar     
+      img: 19.mp4
+      length: 10
     text: ¿Alguna de las cosas que fabricamos nosotros será taaaan buena que se siga haciendo de la misma manera durante tanto tiempo? Estaríamos hablando del siglo XXVII

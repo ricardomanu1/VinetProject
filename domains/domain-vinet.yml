@@ -8,6 +8,19 @@ intents:
 - vinet_portus_error
 - vinet_guia
 - vinet_portus_acierto2
+- vinet_video
+
+entities:
+- video
+
+slots:
+  video:
+    type: categorical    
+    values:
+      - 1 a
+      - 1 b
+      - 1 C  
+    influence_conversation: true
 
 responses:
   utter_vinet_objeto:
@@ -137,12 +150,16 @@ responses:
 
   utter_intro10:
   - metadata:
-      subtext: narrar
+      subtext: narrar 
+      img: 4.mp4
+      length: 10
     text: Nuestro portus, el Summus Portus o portus en lo alto, es decir, de las montañas, estaba en el encuentro entre la bifurcación de la calzada, que atravesaba el Pirineo por diferentes rutas, el llamado camino alto, por la cumbre, y camino bajo, por los barrancos.
 
   utter_intro11:
   - metadata:
       subtext: narrar
+      img: 5.mp4
+      length: 10
     text: Todos ellos confluían aquí, en Ibañeta.
 
   utter_intro12:
@@ -174,3 +191,35 @@ responses:
   - metadata:
       subtext: narrar
     text: Y es que ya sabéis que los nombres de los lugares cambian muy poco a través de los siglos…
+
+  utter_vinet_video:
+  - condition:
+      - type: slot
+        name: video
+        value: "1 a"
+    text: "Claro, aqui tienes la historia del cantar del Roldan y la batalla de Roncesvalles."
+    metadata:
+      subtext: narrar 
+      img: 1.mp4
+      length: 3159
+  - condition:
+      - type: slot
+        name: video
+        value: "1 b"
+    text: "Sí, aquí tienes la ruta de los búnkeres de Burguete."
+    metadata:
+      subtext: narrar 
+      img: 2.mp4
+      length: 170
+  - condition:
+      - type: slot
+        name: video
+        value: "1 C"
+    text: "Claro, observa esta presentación."
+    metadata:
+      subtext: narrar 
+      img: 3.mp4
+      length: 78
+  - metadata:
+      subtext: narrar
+    text: No tengo el video que quieres.

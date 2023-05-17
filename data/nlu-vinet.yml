@@ -64,3 +64,18 @@ nlu:
   examples: |
     - comer y alojarte
     - descansar
+
+- intent: vinet_video
+  examples: |
+    - quiero ver el video [1 a](video)
+    - quiero ver el video [1 A](video)
+    - quiero ver el video [1 b](video)
+    - quiero ver el video [1 B](video)
+    - quiero ver el video [1 c](video)
+    - quiero ver el video [1 C](video)
+    - muestrame el video [1 a](video)
+    - muestrame el video [1 A](video)
+    - muestrame el video [1 b](video)
+    - muestrame el video [1 B](video)
+    - muestrame el video [1 c](video)
+    - muestrame el video [1 C](video)

@@ -53,6 +53,7 @@ slot_emotion = ''
 slot_posXY = [0,0]
 slot_object = ""
 slot_name = ''
+slot_video = ''
 slot_daytime = ''
 
 # Methods
@@ -120,6 +121,7 @@ class ChatBot(Action):
         global slot_zone
         global slot_emotion
         global slot_name
+        global slot_video
         global slot_daytime
         global slot_posXY
         global slot_object
@@ -136,6 +138,7 @@ class ChatBot(Action):
         metadata = tracker.latest_message['metadata']
         ## Slots
         slot_name = tracker.get_slot('name')       
+        slot_video = tracker.get_slot('video')       
         slot_place = tracker.get_slot('place')       
         slot_year = tracker.get_slot('year')       
         slot_milestone = tracker.get_slot('milestone')           
@@ -342,6 +345,7 @@ class Say(Action):
             day = day,
             daytime = slot_daytime,
             name = slot_name,
+            video = slot_video,
             people = slot_people,
             zone = slot_zone,
             object = slot_object,

@@ -140,6 +140,10 @@ class intents_manager(object):
         #self.intents.append(('know', 'sale_grupo', ['sale_grupo','entra_grupo'],'a_dB','sale_grupo','a_dB','entra_grupo','a_nB','despedir'))
         self.intents.append(('know', 'pos_ojos', ['pos_ojos'],'a_dB','pos_ojos','a_nB','pos_ojos'))
 
+        # VIDEOS
+        self.intents.append(('say','utter_vinet_video',['vinet_video'],'a_dB','vinet_video','a_say','utter_vinet_video'))
+
+
 
         #self.intents.append(('know', 'isBored', ['isBored'],'a_dB','isBored'))
         

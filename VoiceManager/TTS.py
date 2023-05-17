@@ -26,7 +26,7 @@ Sentiment = sentiment(sentiment_key)
 lang = 'es-ES'
 duration = 1.0
 length = 0.0
-priority = False
+priority = True
 
 # External file used by Unreal
 External_file = False
@@ -39,7 +39,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 
 # Standard configuration, but then it is applied with different languages
 speech_config.speech_synthesis_language = "en-US" 
-speech_config.speech_synthesis_voice_name ="en-US-JennyMultilingualNeural"
+speech_config.speech_synthesis_voice_name = "en-US-JennyMultilingualNeural"
 
 # Audio output configuration
     # audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
