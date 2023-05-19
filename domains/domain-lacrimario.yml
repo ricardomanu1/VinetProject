@@ -12,6 +12,6 @@ responses:
   utter_img:
   - metadata:
       subtext: narrar  
-      img: lacrimario.mp4
+      img: '29'
       length: 10
     text: Pero, mira esta imagen del lacrimario.

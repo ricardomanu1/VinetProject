@@ -151,14 +151,14 @@ responses:
   utter_intro10:
   - metadata:
       subtext: narrar 
-      img: 4.mp4
+      img: '4'
       length: 10
     text: Nuestro portus, el Summus Portus o portus en lo alto, es decir, de las montañas, estaba en el encuentro entre la bifurcación de la calzada, que atravesaba el Pirineo por diferentes rutas, el llamado camino alto, por la cumbre, y camino bajo, por los barrancos.
 
   utter_intro11:
   - metadata:
       subtext: narrar
-      img: 5.mp4
+      img: '5'
       length: 10
     text: Todos ellos confluían aquí, en Ibañeta.
 
@@ -200,7 +200,7 @@ responses:
     text: "Claro, aqui tienes la historia del cantar del Roldan y la batalla de Roncesvalles."
     metadata:
       subtext: narrar 
-      img: 1.mp4
+      img: '1'
       length: 3159
   - condition:
       - type: slot
@@ -209,7 +209,7 @@ responses:
     text: "Sí, aquí tienes la ruta de los búnkeres de Burguete."
     metadata:
       subtext: narrar 
-      img: 2.mp4
+      img: '2'
       length: 170
   - condition:
       - type: slot
@@ -218,7 +218,7 @@ responses:
     text: "Claro, observa esta presentación."
     metadata:
       subtext: narrar 
-      img: 3.mp4
+      img: '3'
       length: 78
   - metadata:
       subtext: narrar

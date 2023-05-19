@@ -16,16 +16,16 @@ responses:
     text: Se denomina terra sigillata, que significa Tierra o cerámica sellada.
 
   utter_cue3:
-  - metadata:
+  - text: Vino desde los talleres de la Grausenfrenque, en Condatomagus, actual ciudad francesa de Millau. 
+    metadata:
       subtext: narrar 
-      img: 8.mp4
+      img: '8'
       length: 10
-    text: Vino desde los talleres de la Grausenfrenque, en Condatomagus, actual ciudad francesa de Millau. 
-  - metadata:
+  - text: Llego aquí desde los talleres de la Grausenfrenque, en Condatomagus.
+    metadata:
       subtext: narrar 
-      img: 8.mp4
+      img: '8'
       length: 10
-    text: Llego aquí desde los talleres de la Grausenfrenque, en Condatomagus. 
 
   utter_cue4:
   - metadata:
@@ -68,7 +68,7 @@ responses:
   utter_cue11:
   - metadata:
       subtext: narrar
-      img: 9.mp4
+      img: '9'
       length: 10
     text: Desde el siglo V a.C. en Italia ya había talleres especializados en cerámica de lujo, en la región de Campania.
 
@@ -80,7 +80,7 @@ responses:
   utter_cue13:
   - metadata:
       subtext: narrar      
-      img: 11.mp4
+      img: '11'
       length: 10
     text: En los últimos tiempos de la República la moda cambió, y platos, cuencos y vasos de cerámica empezaron a tener su característico color rojo brillante.
 
@@ -97,33 +97,33 @@ responses:
   utter_cue16:
   - metadata:
       subtext: narrar
-      img: 10.mp4
+      img: '10'
       length: 10
     text: Eran cerámicas que se extendieron a todos los rincones del imperio y a todas las capas de la sociedad, hoy en día nos las podemos encontrar en las excavaciones de los ricos palacios, pero también en las de las granjas más humildes y apartadas.
 
   utter_cue17:
   - metadata:
       subtext: narrar     
-      img: 15.mp4
+      img: '15'
       length: 10
     text: Como empleaban un SIGILUM o sello para la firma, se llama hoy en día Terra Sigillata, que equivale a “cerámica sellada”. 
 
   utter_cue18:
   - metadata:
       subtext: narrar      
-      img: 12.mp4
+      img: '12'
       length: 10
     text: Al tratarse de producciones en serie con formas estándar, que cambian en el tiempo, podemos fechar con estas cerámicas los estratos y contextos en los que se encuentran, a veces en intervalos de 10 o 20 años incluso.
   - metadata:
       subtext: narrar      
-      img: 12.mp4
+      img: '12'
       length: 10
     text: Al tratarse de producciones en serie con formas estándar, que cambian en el tiempo, podemos utilizar estas cerámicas para saber la fecha de los estratos y los contextos históricos en los que las encontramos con bastante exactitud, a veces, incluso, en periodos de 10 a 20 años.
 
   utter_cue3_1:
   - metadata:
       subtext: narrar     
-      img: 16.mp4
+      img: '16'
       length: 10
     text: Los talleres centralizados de cerámica eran impresionantes. 
 
@@ -135,7 +135,7 @@ responses:
   utter_cue3_3:
   - metadata:
       subtext: narrar     
-      img: 18.mp4
+      img: '18'
       length: 10
     text: Tras hacerlas con moldes, levantaban sobre hornos excavados en la tierra una montaña de estas vasijas par cocerlas de una sola vez. 
 
@@ -147,7 +147,7 @@ responses:
   utter_cue3_5:
   - metadata:
       subtext: narrar           
-      img: 21.mp4
+      img: '21'
       length: 10
     text: 'Conseguían piezas finísimas, de una gran calidad, y decoraciones impresionantes: con motivos de plantas, hojas y frutos como la que hemos hallado aquí, pero las había también con animales, escenas de caza, de luchas de gladiadores en el anfiteatro o de carreras de cuádrigas en el circo... ¡y hasta de retratos de emperadores!'
 
@@ -164,13 +164,13 @@ responses:
   utter_cue3_8:
   - metadata:
       subtext: narrar     
-      img: 17.mp4
+      img: '17'
       length: 10
     text: Es un ejemplo de producción industrial sostenida en el tiempo durante 700 años! 
 
   utter_cue3_9:
   - metadata:
       subtext: narrar     
-      img: 19.mp4
+      img: '19'
       length: 10
     text: ¿Alguna de las cosas que fabricamos nosotros será taaaan buena que se siga haciendo de la misma manera durante tanto tiempo? Estaríamos hablando del siglo XXVII

@@ -399,16 +399,20 @@ class CSV():
         writer = csv.writer(output_csv, delimiter =',')
         writer.writerow(['action','response','emotion','language','animation','eyesTracking','emotionAzure','video','length'])
         animation_tag = 'informar'  
-        video = ''  
+        video = '0'  
         length = 0
         for response in responses:
             if 'metadata' in response['metadata']:
-                    if 'subtext' in response['metadata']['metadata']:
-                        animation_tag = str(response['metadata']['metadata']['subtext'])
-                    if 'img' in response['metadata']['metadata']:
-                        video = str(response['metadata']['metadata']['img'])
-                    if 'length' in response['metadata']['metadata']:
-                        length = float(response['metadata']['metadata']['length'])
+                if 'subtext' in response['metadata']['metadata']:
+                    animation_tag = str(response['metadata']['metadata']['subtext'])
+                if 'img' in response['metadata']['metadata']:
+                    video = str(response['metadata']['metadata']['img'])
+                else:
+                    video = '0'
+                if 'length' in response['metadata']['metadata']:
+                    length = float(response['metadata']['metadata']['length'])
+                else:
+                    length = 0
             print(' -' + str(response['text']))
             writer.writerow(['say',str(response['text']), str(Emotions.estado),lang,animation_tag,str(eyesTracking),str(Emotions.tag()),str(video),length])
         if(watch):

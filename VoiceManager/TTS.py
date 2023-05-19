@@ -1,4 +1,5 @@
-import os, time, csv #, sys
+import os, time, csv
+from pprint import pprint #, sys
 import azure.cognitiveservices.speech as speechsdk
 from azure.cognitiveservices.speech import AudioDataStream
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
@@ -109,6 +110,7 @@ while True:
                     emotionAzure = str(row['emotionAzure'])     
                     # multimedia content
                     video = str(row['video'])
+                    print("Video: " + video)
                     # multimedia content
                     length = float(row['length']) 
                     # XML - SSML generator               
