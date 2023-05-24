@@ -399,12 +399,6 @@ responses:
   utter_identidad:
   - metadata:
       subtext: informar     
-    text: Soy Sonia.
-  - metadata:
-      subtext: informar     
-    text: Me llamo Sonia.
-  - metadata:
-      subtext: informar     
     text: Me llamo Sonia y soy arqueóloga.
   - metadata:
       subtext: informar     
@@ -1044,7 +1038,7 @@ responses:
   utter_interes_grupo:
   - metadata:
       subtext: informar     
-    text: Veo que teneis interes por {object}.
+    text: Veo que tenéis interés por {object}.
   - metadata:
       subtext: informar     
     text: Hay una gran parte de vosotros en {object}.  
@@ -1059,22 +1053,40 @@ responses:
   utter_bienvenida:
   - metadata:
       subtext: informar    
-    text: Bienvenidos.
-  - metadata:
-      subtext: informar    
-    text: Bienvenidas.
-  - metadata:
-      subtext: informar    
     text: Bienvenidos a este recinto.
   - metadata:
       subtext: informar    
     text: Bienvenidas a este recinto.
 
-# usar camaras
-  utter_mirar:
+# usar camaras1
+  utter_mirar1:
+  - metadata:
+      subtext: informar    
+    text: Mira, en estos estratos tenemos representada la época romana.
+
+# usar camaras2
+  utter_mirar2:
+  - metadata:
+      subtext: informar    
+    text: Por aquí pasaban todas las mercancías que terminaban en las ciudades, en las lujosas villas, y también en las más humildes y apartadas granjas.
+
+# usar camaras3
+  utter_mirar3:
+  - metadata:
+      subtext: informar    
+    text: Cada objeto nos habla de muchos aspectos de la época y de las gentes que vivieron, tanto aquí, como a muchos kilómetros de distancia.
+
+# usar camaras4
+  utter_mirar4:
   - metadata:
       subtext: informar    
     text: Podeis pasearos por la sala y mirar los objetos que se encuentran por aquí.
+
+# usar camaras5
+  utter_mirar5:
+  - metadata:
+      subtext: informar    
+    text: Yo estaré atenta y os hablare sobre ellos si lo queréis.
 
 # realizar la especificacion
   utter_especificacion:
@@ -1104,7 +1116,7 @@ responses:
   utter_agradecimiento:
   - metadata:
       subtext: informar  
-    text: Gracias por acercaros a conocer nuestro trabajo en esta excavación arqueológica del antiguo Hospital de San Salvador de Ibañeta
+    text: Gracias por acercaros a conocer nuestro trabajo en esta excavación arqueológica del antiguo Hospital de San Salvador de Ibañeta.
 
 actions:
 - aprendizaje

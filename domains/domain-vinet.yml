@@ -41,12 +41,12 @@ responses:
   utter_intro1:
   - metadata:
       subtext: narrar
-    text: En la Edad Media todavía se llamaba “de Summo Portu”.
+    text: Si no lo sabíais, en la Edad Media todavía se llamaba “de Summo Portu”.
 
   utter_intro2:
   - metadata:
       subtext: narrar
-    text: Así que nos encontramos ahora mismo en el Summus portus o Summus Pyrenaeus romano.
+    text: Por lo que, encontramos, ahora mismo, en el Summus portus o Summus Pyrenaeus romano.
 
   utter_intro3:
   - metadata:
@@ -96,7 +96,7 @@ responses:
   utter_intro_guia5:
   - metadata:
       subtext: narrar
-    text: Este era uno de los pasos de montaña principales.
+    text: Este lugar era uno de los pasos de montaña principales.
 
   utter_intro_guia6:
   - metadata:
@@ -121,7 +121,7 @@ responses:
   utter_intro6:
   - metadata:
       subtext: narrar
-    text: Para que os hagáis más fácilmente una idea, un Portus era como las estaciones de servicio sin la época romana hubiese habido autopistas. ¿A que así se entiende mejor?
+    text: Para que os hagáis más fácilmente una idea, un Portus era como las estaciones de servicio si en la época romana hubiese habido autopistas. ¿A que así se entiende mejor?
 
   utter_intro7:
   - metadata:

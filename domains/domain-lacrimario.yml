@@ -8,10 +8,65 @@ responses:
   utter_lac1:
   - metadata:
       subtext: narrar
-    text: Se que es algo de cristal, pero aun tengo que estudiarlo un poco.
-  utter_img:
+    text: Fijaros cómo trabajaban el vidrio hace dos milenios, ¡es una pieza impresionante!.
+
+  utter_lac2:
   - metadata:
-      subtext: narrar  
-      img: '29'
+      subtext: narrar
+    text: Su utilidad, además, es muy especial.
+
+  utter_lac3:
+  - metadata:
+      subtext: narrar
+      img: '31'
       length: 10
-    text: Pero, mira esta imagen del lacrimario.
+    text: Este tipo de frasquitos se empleaban para guardar ungüentos y aceites cosméticos, los romanos cuidaban mucho de su higiene y aspecto personal.
+
+  utter_lac4:
+  - metadata:
+      subtext: narrar
+      img: '30'
+      length: 10
+    text: Pero en el momento de la muerte de un ser querido, servían también como ajuar para la tumba.
+
+  utter_lac5:
+  - metadata:
+      subtext: narrar
+    text: El ajuar son los objetos con que se acompañaba a un difunto para su viaje por el más allá.
+
+  utter_lac6:
+  - metadata:
+      subtext: narrar
+    text: En muchas culturas antiguas se creía que sus pertenencias les acompañarían en la otra vida, donde cuerpo y alma seguían morando en la tumba.
+
+  utter_lac7:
+  - metadata:
+      subtext: narrar
+    text: En estos frasquitos se depositaban aceites aromáticos y perfumes como ajuar, y algunas fuentes indican que se utilizarían también como lacrimarios.
+
+  utter_lac8:
+  - metadata:
+      subtext: narrar
+    text: Recipientes donde guardaban las lágrimas vertidas por los seres queridos del difunto durante el funeral, y se depositaban en la tumba, como recuerdo del dolor por su pérdida.
+
+  utter_lac9:
+  - metadata:
+      subtext: narrar
+    text: No deja de ser una costumbre llena de sentimiento, que nos conmueve incluso hoy en día.
+
+  utter_lac10:
+  - metadata:
+      subtext: narrar
+    text: En la llanada del actual Burguete, apenas a 3 km de aquí mismo, se ha venido investigando un importante asentamiento romano, que sus descubridoras, y la mayor parte de los estudiosos, identifican con al mansio de Iturissa, nombrada en varias obras clásicas entre los siglos II y IV d.C.
+
+  utter_lac11:
+  - metadata:
+      subtext: narrar
+      img: '32'
+      length: 10
+    text: Allí se excavó en los años 80 y 90 restos de un campamento militar, situado en un promontorio que dominaba un amplio tramo de la calzada.
+
+  utter_lac12:
+  - metadata:
+      subtext: narrar
+    text: Se trataría de un puesto de establecimiento de tropas, posiblemente las mismas que construyeron la vía, y que controlarían el paso.

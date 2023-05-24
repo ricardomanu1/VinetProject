@@ -8,6 +8,8 @@ responses:
   utter_luc1:
   - metadata:
       subtext: narrar
+      img: '40'
+      length: 10
     text: Es una lámpara de aceite, una bombilla de antes de las bombillas y la electricidad.
   utter_luc2:
   - metadata:
@@ -20,6 +22,8 @@ responses:
   utter_luc4:
   - metadata:
       subtext: narrar
+      img: '41'
+      length: 10
     text: Se llenaban de aceite, y con una pequeña mecha conseguían iluminación para un buen rato.
   utter_luc5:
   - metadata:

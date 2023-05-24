@@ -46,11 +46,15 @@ nlu:
   examples: |
     - ¿Es puerta?
     - Significa puerta
+    - Puerta
+    - Puerto
 
 - intent: vinet_portus_error
   examples: |
     - no tengo idea
     - no lo se
+    - no lo sé
+    - ni idea
     - no se me ocurre que es
 
 - intent: vinet_guia
@@ -64,6 +68,11 @@ nlu:
   examples: |
     - comer y alojarte
     - descansar
+    - hospedaje
+    - alojamiento
+    - comida
+    - comida y alojamiento
+    - comida y hospedaje
 
 - intent: vinet_video
   examples: |

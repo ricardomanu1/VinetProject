@@ -116,7 +116,7 @@ class intents_manager(object):
 
         ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_nB','saludar'))
         ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_bienvenida','a_say','utter_mirar','ki','k_observar'))
-        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_bienvenida','a_say','utter_identidad','a_say','utter_agradecimiento','a_nB', 'vinet_intro'))
+        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_saludar','a_say','utter_bienvenida','a_say','utter_identidad','a_say','utter_agradecimiento','a_nB', 'vinet_intro'))
 
         # INTRODUCCION
         self.intents.append(('say','utter_intro',['vinet_intro'],'a_dB','vinet_intro','a_say','utter_intro1','a_say','utter_intro2','a_say','utter_intro3','a_nB','saber_portus'))
@@ -128,14 +128,16 @@ class intents_manager(object):
                              'a_say','utter_intro_guia5','a_say','utter_intro_guia6','a_say','utter_intro_guia7','a_say','utter_intro_guia8','a_say','utter_intro_guia9','a_nB','vinet_seguir_intro'))
 
         self.intents.append(('say','vinet_seguir_intro', ['vinet_seguir_intro','afirmar'],'a_dB','vinet_seguir_intro','a_dB','afirmar','a_say','utter_intro6','a_say','utter_intro7', 'a_nB', 'saber_portus2'))  
-        self.intents.append(('say','vinet_seguir_intro', ['vinet_seguir_intro','negar'],'a_dB','vinet_seguir_intro','a_dB','negar','a_say','utter_no_solicitar','a_say','utter_mirar','ki','k_observar'))
+        self.intents.append(('say','vinet_seguir_intro', ['vinet_seguir_intro','negar'],'a_dB','vinet_seguir_intro','a_dB','negar','a_say','utter_no_solicitar','a_nB','presentar_objetos'))
         
         self.intents.append(('say','saber_portus',['saber_portus2', 'vinet_portus_acierto2'],'a_dB','saber_portus2','a_dB','vinet_portus_acierto2','a_say','utter_portus2_ok','a_nB','vinet_intro8'))
         self.intents.append(('say','saber_portus',['saber_portus2', 'vinet_portus_error'],'a_dB','saber_portus2','a_dB','vinet_portus_error','a_say','utter_portus2_fail','a_nB','vinet_intro8'))
 
         self.intents.append(('say','vinet_intro8',['vinet_intro8'],'a_dB','vinet_intro8','a_say','utter_intro8','a_say','utter_intro9','a_say','utter_intro10','a_say','utter_intro11','a_say','utter_intro12',
-                             'a_say','utter_intro13','a_say','utter_intro14','a_say','utter_intro15','a_say','utter_intro16','a_say','utter_intro17','a_say','utter_mirar','ki','k_observar'))
+                             'a_say','utter_intro13','a_say','utter_intro14','a_say','utter_intro15','a_say','utter_intro16','a_say','utter_intro17','a_nB','presentar_objetos'))
         
+        self.intents.append(('say', 'presentar_objetos', ['presentar_objetos'],'a_dB','presentar_objetos','a_say','utter_mirar1','a_say','utter_mirar2','a_say','utter_mirar3','a_say','utter_mirar4','a_say','utter_mirar5','ki','k_observar'))
+
         self.intents.append(('know', 'sale_grupo', ['sale_grupo'],'a_dB','sale_grupo','a_dB','entra_grupo','a_nB','despedir'))
         #self.intents.append(('know', 'sale_grupo', ['sale_grupo','entra_grupo'],'a_dB','sale_grupo','a_dB','entra_grupo','a_nB','despedir'))
         self.intents.append(('know', 'pos_ojos', ['pos_ojos'],'a_dB','pos_ojos','a_nB','pos_ojos'))
@@ -177,11 +179,9 @@ class intents_manager(object):
         self.intents.append(('say','utter_cue10', ['cuenco_10'],'a_dB','cuenco_10', 'a_say', 'utter_cue10', 'a_say', 'utter_cue11', 'a_say', 'utter_cue12', 'a_say', 'utter_cue13','a_say', 'utter_cue14','a_say', 'utter_cue15','a_say', 'utter_cue16','a_nB','prof_cue1','ki','k_observar'))
            
 
-
-
-
      ## Lacrimario
-        self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say','utter_lac1','a_say','utter_img', 'ki','k_observar'))
+        self.intents.append(('say', 'utter_lac1', ['vinet_lacrimario'],'a_dB','vinet_lacrimario','a_say','utter_lac1','a_say','utter_lac2','a_say','utter_lac3','a_say','utter_lac4','a_say','utter_lac5','a_say','utter_lac6','a_say','utter_lac7','a_say','utter_lac8','a_say','utter_lac9','a_nB','prof_lac1','ki','k_observar'))
+        self.intents.append(('say', 'utter_lac10', ['vinet_lacrimario','prof_lac1'],'a_dB','vinet_lacrimario','a_dB','prof_lac1','a_say','utter_lac10','a_say','utter_lac11','a_say','utter_lac12','a_nB','prof_lac2','ki','k_observar'))
 
      ## Lucerna
         self.intents.append(('say', 'utter_luc1', ['vinet_lucerna'],'a_dB','vinet_lucerna','a_say','utter_luc1','a_say','utter_luc2','a_say','utter_luc3',
