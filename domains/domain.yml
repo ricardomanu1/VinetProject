@@ -1062,7 +1062,10 @@ responses:
   utter_mirar1:
   - metadata:
       subtext: informar    
-    text: Mira, en estos estratos tenemos representada la época romana.
+    text: Mirad, en estos estratos tenemos representada la época romana.
+  - metadata:
+      subtext: informar    
+    text: Mirad, en estos objetos extraidos de las excavaciones.
 
 # usar camaras2
   utter_mirar2:
@@ -1117,6 +1120,20 @@ responses:
   - metadata:
       subtext: informar  
     text: Gracias por acercaros a conocer nuestro trabajo en esta excavación arqueológica del antiguo Hospital de San Salvador de Ibañeta.
+
+# video 
+  utter_video_presentacion:
+  - metadata:
+      subtext: informar  
+    text: ¿Queréis ver el lugar tan maravilloso al que habéis venido?
+
+# video 
+  utter_video_presentacion2:
+  - metadata:
+      subtext: informar      
+      img: '50'
+      length: 56
+    text: Aquí tienes.
 
 actions:
 - aprendizaje

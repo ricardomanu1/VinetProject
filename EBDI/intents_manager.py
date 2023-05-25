@@ -116,7 +116,9 @@ class intents_manager(object):
 
         ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_nB','saludar'))
         ## self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_bienvenida','a_say','utter_mirar','ki','k_observar'))
-        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_saludar','a_say','utter_bienvenida','a_say','utter_identidad','a_say','utter_agradecimiento','a_nB', 'vinet_intro'))
+        self.intents.append(('know', 'entra_grupo', ['entra_grupo'],'a_fB','entra_grupo','a_say','utter_saludar','a_say','utter_bienvenida','a_say','utter_identidad','a_say','utter_agradecimiento','a_say','utter_video_presentacion','a_nB', 'vinet_video_presentacion'))
+        self.intents.append(('say', 'vinet_video_presentacion', ['vinet_video_presentacion','afirmar'],'a_dB','vinet_video_presentacion','a_dB','afirmar','a_say','utter_video_presentacion2','a_nB', 'vinet_intro'))
+        self.intents.append(('say', 'vinet_video_presentacion', ['vinet_video_presentacion','negar'],'a_dB','vinet_video_presentacion','a_dB','negar','a_say','utter_no_solicitar','a_nB', 'vinet_intro'))
 
         # INTRODUCCION
         self.intents.append(('say','utter_intro',['vinet_intro'],'a_dB','vinet_intro','a_say','utter_intro1','a_say','utter_intro2','a_say','utter_intro3','a_nB','saber_portus'))
